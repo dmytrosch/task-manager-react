@@ -1,0 +1,21 @@
+@media (max-width: 768px) {
+  .container {
+    width: 320px;
+    margin: 0 auto;
+    font-family: var(--primeFont);
+  }
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .subtitle {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14.5px;
+    color: var(--greyColor);
+  }
+  .NavLink{
+      display: inline;
+      border-bottom: 1px solid var(--greyColor);
+  }
+}

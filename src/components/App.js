@@ -1,12 +1,13 @@
 import React, { useEffect, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Switch, Redirect, BrowserRouter } from "react-router-dom";
-import routes from '../utils/routes'
+import { Switch, Redirect, BrowserRouter, Router } from "react-router-dom";
+import routes from "../utils/routes";
 
 import { setClientWidth } from "../redux/clientWidth/clientWidthAction";
 import { isMobile } from "../redux/clientWidth/clientWidthSelectors";
 
 import Loader from "../components/Loader/Loader";
+import LoginView from "../views/LoginView/LoginView";
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
-          <div>CONTENT</div>
+          <LoginView />
         </Suspense>
       </BrowserRouter>
     </>
