@@ -1,12 +1,16 @@
 :root {
-  --primeFont: "Montserrat", sans-serif, serif;
+    --primeFont: "Montserrat", sans-serif, serif;
 
-  --orangeColor: #ff6b08;
-  --backgroundColor: #e5e5e5;
-  --formColor: #fafafa;
-  --whiteColor: #ffffff;
-  --blackColor: #181c27;
-  --greyColor: rgba(24, 28, 39, 0.6);
+    --orangeColor: #ff6b08;
+    --backgroundColor: #F1F2F7;
+    --formColor: #fafafa;
+    --whiteColor: #ffffff;
+    --blackColor: #181c27;
+    --greyColor: rgba(24, 28, 39, 0.6);
 
-  --trans: all 0.25s ease-in-out;
+    --min1024: screen and (min-width: 1024px);
+    --min768: screen and (min-width: 768px);
+    --mx767: screen and (max-width: 767px);
+
+    --trans: all 0.25s ease-in-out;
 }
