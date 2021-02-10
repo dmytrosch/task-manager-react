@@ -1,25 +1,21 @@
 .wrapper {
     min-width: 100%;
+    min-height: 100vh;
     background-color: var(--backgroundColor);
-    padding-left: 20px;
-    padding-right: 20px;
-}
-.wrapperHeader {
-    composes: wrapper;
-    border-bottom: 1px solid var(--borderColor);
 }
 .container {
     min-width: 260px;
-    height: 100%;
-    color: aquamarine;
+    padding-left: 20px;
+    padding-right: 20px;
     margin: 0 auto;
 }
-
+.containerHeader {
+    composes: container;
+    border-bottom: 1px solid var(--borderColor);
+}
 @media (min-width: 768px) {
     .container {
         min-width: 688px;
-    }
-    .wrapper {
         padding-left: 40px;
         padding-right: 40px;
     }
@@ -28,8 +24,6 @@
 @media (min-width: 1280px) {
     .container {
         min-width: 1170px;
-    }
-    .wrapper {
         padding-left: 55px;
         padding-right: 55px;
     }

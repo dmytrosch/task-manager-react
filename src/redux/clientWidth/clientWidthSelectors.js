@@ -1,1 +1,1 @@
-export const isMobile = (state) => state.clientWidth < 768;
+export const isMobileSelector = (state) => state.clientWidth < 768;
