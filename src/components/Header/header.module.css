@@ -1,0 +1,87 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.logoImage {
+    height: 44px;
+}
+
+.logoutContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username {
+    font-family: var(--primeFont);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.logoutText {
+    display: none;
+}
+.logoutBtn {
+    margin-left: 20px;
+    background-color: var(--backgroundColor);
+    transform: scale(1);
+    transition: var(--trans);
+}
+.logoutBtn:hover {
+    transform: scale(1.1);
+    transition: var(--trans);
+}
+
+.logoutIcon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url("../../assest/icons/logOutMobile.svg");
+}
+
+@media (max-width: 767px) {
+    .logoImage {
+        height: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    .header {
+        padding-top: 19px;
+        padding-bottom: 19px;
+    }
+    .logoutIcon {
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        background-image: url("../../assest/icons/logOut.svg");
+    }
+
+    .logoutText {
+        display: block;
+    }
+    .logoutBtn {
+        display: flex;
+        margin-left: 77px;
+        opacity: 0.6;
+        font-family: var(--primeFont);
+        font-weight: 400;
+        font-size: 14px;
+    }
+}
+
+.appear {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.appearActive {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1000ms linear;
+}
