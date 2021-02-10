@@ -5,6 +5,7 @@ import routes from "../utils/routes";
 
 import { setClientWidth } from "../redux/clientWidth/clientWidthAction";
 import { isMobile } from "../redux/clientWidth/clientWidthSelectors";
+import Header from "./Header/Header";
 
 import Loader from "../components/Loader/Loader";
 import LoginView from "../views/LoginView/LoginView";
@@ -19,6 +20,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
+          <Header />
           <LoginView />
         </Suspense>
       </BrowserRouter>
