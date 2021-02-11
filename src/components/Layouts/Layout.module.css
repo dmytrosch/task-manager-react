@@ -9,6 +9,10 @@
     padding-right: 20px;
     margin: 0 auto;
 }
+.containerMobile {
+    composes: container;
+    background-color: var(--formColor);
+}
 .containerHeader {
     composes: container;
     border-bottom: 1px solid var(--borderColor);

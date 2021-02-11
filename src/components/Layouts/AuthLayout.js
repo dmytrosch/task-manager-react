@@ -12,15 +12,20 @@ export default function AuthLayout(props) {
             <div className={layoutStyles.containerHeader}>
                 <Header />
             </div>
-            <div className={layoutStyles.container}>
-                <div>
-                    <div className={circlesStyles.first}></div>
-                    <div className={circlesStyles.second}></div>
-                    <div className={circlesStyles.third}></div>
-
+            {isMobile ? (
+                <div className={layoutStyles.containerMobile}>
+                    {props.children}
                 </div>
-                {props.children}
-            </div>
+            ) : (
+                <div className={layoutStyles.container}>
+                    <div>
+                        <div className={circlesStyles.first}></div>
+                        <div className={circlesStyles.second}></div>
+                        <div className={circlesStyles.third}></div>
+                    </div>
+                    {props.children}
+                </div>
+            )}
         </div>
     );
 }
