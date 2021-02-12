@@ -22,8 +22,8 @@ export default function App() {
     <>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
-          {/* <AuthLayout /> */}
-          <MainLayout />
+          <AuthLayout />
+          {/* <MainLayout /> */}
         </Suspense>
       </BrowserRouter>
     </>
