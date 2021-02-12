@@ -84,6 +84,31 @@
   margin: 0 auto;
 }
 
+
+.button:before,
+.button:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 22px;
+    height: 2px;
+    background: var(--whiteColor);
+}
+
+.button:before {
+  
+    transform: rotate(90deg);
+}
+
+.button:after {
+  
+    transform: rotate(0deg);
+}
+.button:hover::before,
+.button:hover::after{
+  background: var(--orangeColor)
+} 
+
 .addButton{
   font-family: var(--primeFont);
   margin-top: 15px;
