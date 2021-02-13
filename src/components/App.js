@@ -8,6 +8,7 @@ import { isMobile } from "../redux/clientWidth/clientWidthSelectors";
 
 import Loader from "../components/Loader/Loader";
 import LoginView from "../views/LoginView/LoginView";
+import Dashboard from '../components/Dashboard/Dashboard';
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,7 +20,8 @@ export default function App() {
     <>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
-          <LoginView />
+          <Dashboard/>
+          {/* <LoginView /> */}
         </Suspense>
       </BrowserRouter>
     </>
