@@ -9,8 +9,9 @@ import { setClientWidth } from '../redux/clientWidth/clientWidthAction'
 import { isMobileSelector } from '../redux/clientWidth/clientWidthSelectors'
 import Header from './Header/Header'
 
-import Loader from '../components/Loader/Loader'
-import LoginView from '../views/LoginView/LoginView'
+import Loader from "../components/Loader/Loader";
+import LoginView from "../views/LoginView/LoginView";
+import Dashboard from '../components/Dashboard/Dashboard';
 export default function App() {
   // const dispatch = useDispatch();
   // useEffect(() => {
