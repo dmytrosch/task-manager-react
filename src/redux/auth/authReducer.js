@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import {
-  signUpSuccess,
+  signupSuccess,
   logInSuccess,
   logoutSuccess,
   logoutError,
@@ -10,14 +10,14 @@ import {
 const user = createReducer(
   {},
   {
-    [signUpSuccess]: (_, { payload }) => payload.user,
+    [signupSuccess]: (_, { payload }) => payload.user,
     [logInSuccess]: (_, { payload }) => payload.user,
     [logoutSuccess]: () => ({}),
     [logoutError]: () => ({}),
   }
 );
 const token = createReducer(null, {
-  [signUpSuccess]: (_, { payload }) => payload.token,
+  [signupSuccess]: (_, { payload }) => payload.token,
   [logInSuccess]: (_, { payload }) => payload.token,
   [logoutSuccess]: () => null,
   [logoutError]: () => null,
