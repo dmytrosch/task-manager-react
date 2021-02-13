@@ -1,0 +1,37 @@
+.container{
+    text-align: center;
+    height: 100vh;
+}
+.title{
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 50px;
+}
+.input::placeholder{
+    font-size: 18px;
+    line-height: 22px;
+    padding-left: 5px;
+}
+.input {
+  width: 100%;
+  margin-bottom: 32px;
+  border: none;
+  background: none;
+  padding: 5px;
+  border-bottom: 1px solid var(--greyColor)
+}
+.input:last-of-type{
+    margin-bottom: 40px;
+    margin-right: 100%;
+    width: 50%;
+}
+.subtitle {
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 20px;
+    border-bottom: 1px solid var(--greyColor);
+    color: var(--greyColor);
+  }
