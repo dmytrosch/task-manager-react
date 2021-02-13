@@ -11,11 +11,7 @@ import { isMobileSelector } from '../redux/clientWidth/clientWidthSelectors'
 import Loader from '../components/Loader/Loader'
 import LoginView from '../views/LoginView/LoginView'
 import SignupView from '../views/SignupView/SignupView'
-
-import Modal from './Modals/Modal'
-import ModalPortal from '../common/ModalPortal/ModalPortal'
-import SprintCreator from './Modals/ModalComponents/SprintCreator'
-import QuestionOfDeletion from './Modals/ModalComponents/QuestionOfDeletion '
+import SprintsView from '../views/SprintsView/SprintsView'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -28,16 +24,10 @@ export default function App() {
     <>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
-          <AuthLayout>
+          <SprintsView />
+          {/* <AuthLayout>
             <LoginView />
-          </AuthLayout>
-
-          {/* <ModalPortal>
-            <Modal position="modalWindowRemoval">
-              <QuestionOfDeletion />
-            </Modal>
-          </ModalPortal> */}
-
+          </AuthLayout> */}
         </Suspense>
       </BrowserRouter>
     </>
