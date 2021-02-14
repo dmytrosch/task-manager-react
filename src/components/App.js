@@ -7,27 +7,26 @@ import AuthLayout from '../components/Layouts/AuthLayout'
 
 import { setClientWidth } from '../redux/clientWidth/clientWidthAction'
 import { isMobileSelector } from '../redux/clientWidth/clientWidthSelectors'
+import Header from './Header/Header'
 
-import Loader from '../components/Loader/Loader'
-import LoginView from '../views/LoginView/LoginView'
-import SignupView from '../views/SignupView/SignupView'
-import SprintsView from '../views/SprintsView/SprintsView'
+
+import Loader from "../components/Loader/Loader";
+import LoginView from "../views/LoginView/LoginView";
+import Dashboard from '../components/Dashboard/Dashboard';
 
 export default function App() {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(setClientWidth(document.documentElement.clientWidth))
-  }, [])
-  const isMobileMode = useSelector(isMobileSelector)
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //     dispatch(setClientWidth(document.documentElement.clientWidth));
+  // }, []);
+  // const isMobileMode = useSelector(isMobile);
 
   return (
     <>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
-          <SprintsView />
-          {/* <AuthLayout>
-            <LoginView />
-          </AuthLayout> */}
+          <AuthLayout />
+          {/* <MainLayout /> */}
         </Suspense>
       </BrowserRouter>
     </>
