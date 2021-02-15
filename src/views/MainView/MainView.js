@@ -5,7 +5,9 @@ import Dashboard from "../../components/Dashboard/Dashboard";
 export default function MainView() {
   return (
     <MainLayout>
-      <Dashboard />
+      <div>
+        <Dashboard />
+      </div>
     </MainLayout>
   );
 }
