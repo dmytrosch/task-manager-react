@@ -8,7 +8,7 @@ const LoaderComp = () => {
     <Loader
       className={styles.loader}
       type="TailSpin"
-      color="#4A56E2"
+      color="#ff6b08"
       height={100}
       width={100}
     />

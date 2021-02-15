@@ -1,5 +1,5 @@
 :root {
-    --primeFont: "Montserrat", sans-serif, serif;
+  --primeFont: "Montserrat", sans-serif;
 
   --orangeColor: #ff6b08;
   --backgroundColor: #F1F2F7;
@@ -14,21 +14,7 @@
     --mx767: screen and (max-width: 767px);
 
     --trans: all 0.25s ease-in-out;
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
 }
 
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 11px 44px;
-
-position: absolute;
-width: 260px;
-height: 44px;
-left: 510px;
-top: 538px;
-
-background: #FF6B08;
-/* orange */
-
-box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
-border-radius: 25px;
