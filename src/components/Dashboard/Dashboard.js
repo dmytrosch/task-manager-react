@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
-import ProejctCard from "../ProjectCard/ProjectCard";
+import ProjectCard from "../ProjectCard/ProjectCard";
 
 export default function Dashboard() {
     const [modal, setModal] = useState(false);
@@ -22,17 +22,17 @@ export default function Dashboard() {
           </div>
           <ul className={styles.projectList}>
               <li className={styles.projectItem}>
-                  <ProejctCard/>
+                  <ProjectCard/>
               </li>
               <li className={styles.projectItem}>
-                  <ProejctCard/>
+                  <ProjectCard/>
               </li>
               <li className={styles.projectItem}>
-                  <ProejctCard/>
+                  <ProjectCard/>
               </li>
               { modal &&
               <li className={styles.projectItem}>
-              <ProejctCard/>
+              <ProjectCard/>
           </li>
               }
               
