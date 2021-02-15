@@ -1,38 +1,39 @@
-.wrapper {
-  min-width: 100%;
-  min-height: 100vh;
-  background-color: var(--backgroundColor);
-}
-.container {
-  min-width: 260px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto;
-}
-.containerMobile {
-    composes: container;
-    background-color: var(--formColor);
-}
-.containerHeader {
-  composes: container;
-  border-bottom: 1px solid var(--borderColor);
-}
-.containerMobile {
-  composes: container;
-  background-color: var(--formColor);
-}
-@media (min-width: 768px) {
-  .container {
-    min-width: 688px;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
+.mainContainer {
+    display: flex;
+    border-top: 1px solid rgba(24, 28, 39, 0.1);
 }
 
-@media (min-width: 1280px) {
-  .container {
-    min-width: 1170px;
-    padding-left: 55px;
-    padding-right: 55px;
-  }
+.sideBarContainer {
+    width: 20%;
+    border-right: 1px solid rgba(24, 28, 39, 0.1);
+}
+
+.childrenContainer {
+    width: 80%;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .sideBarContainer {
+        width: 33.33%;
+    }
+
+    .childrenContainer {
+        width: 66.67%;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .mainContainer {
+        display: block;
+    }
+
+    .sideBarContainer {
+        width: 100%;
+    }
+
+    .childrenContainer{
+        width: 100%;
+    }
 }

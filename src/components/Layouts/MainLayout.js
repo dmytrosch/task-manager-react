@@ -1,14 +1,19 @@
-import React from 'react'
-import styles from './Layout.module.css'
-import Header from '../Header/Header'
+import React from "react";
+import Header from "../Header/Header";
+import SideBar from "../SideBar/SideBar";
 
-export default function MainLayout(props) {
+import styles from "./layout.module.css";
+
+export default function MainLayout({ children, addNewProject }) {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.containerHeader}>
-        <Header />
+    <>
+      <Header />
+      <div className={styles.mainContainer}>
+        <div className={styles.sideBarContainer}>
+          <SideBar addNewProject={addNewProject} />
+        </div>
+        <div className={styles.childrenContainer}>{children}</div>
       </div>
-      <div className={styles.container}>{props.children}</div>
-    </div>
-  )
+    </>
+  );
 }
