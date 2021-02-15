@@ -6,8 +6,8 @@ export default [
     path: "/",
     label: "Home",
     exact: true,
-    component: lazy(() =>
-      import("../views/MainView/MainView" /* webpackChunkName: "Home" */)
+    component: lazy(
+      () => import("../views/MainView/MainView" /* webpackChunkName: "Home" */)
     ),
     private: true,
     restricted: false,
@@ -16,10 +16,11 @@ export default [
     path: "/sprint",
     label: "Sprint",
     exact: true,
-    component: lazy(() =>
-      import(
-        "../views/SprintsView/SprintsView" /* webpackChunkName: "Sprint" */
-      )
+    component: lazy(
+      () =>
+        import(
+          "../views/SprintsView/SprintsView" /* webpackChunkName: "Sprint" */
+        )
     ),
     private: true,
     restricted: false,
@@ -28,8 +29,11 @@ export default [
     path: "/task",
     label: "Lask",
     exact: true,
-    component: lazy(() =>
-      import("../views/TasksView//TasksView.js" /* webpackChunkName: "Task" */)
+    component: lazy(
+      () =>
+        import(
+          "../views/TasksView//TasksView.js" /* webpackChunkName: "Task" */
+        )
     ),
     private: true,
     restricted: false,
@@ -38,8 +42,11 @@ export default [
     path: "/signup",
     label: "Signup",
     exact: true,
-    component: lazy(() =>
-      import("../views/SignupView/SignupView" /* webpackChunkName: "Signup" */)
+    component: lazy(
+      () =>
+        import(
+          "../views/SignupView/SignupView" /* webpackChunkName: "Signup" */
+        )
     ),
     private: false,
     restricted: true,
@@ -48,8 +55,9 @@ export default [
     path: "/login",
     label: "Login",
     exact: true,
-    component: lazy(() =>
-      import("../views/LoginView/LoginView" /* webpackChunkName: "Login" */)
+    component: lazy(
+      () =>
+        import("../views/LoginView/LoginView" /* webpackChunkName: "Login" */)
     ),
     private: false,
     restricted: true,
