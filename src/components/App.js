@@ -12,6 +12,7 @@ import Loader from '../components/Loader/Loader'
 import LoginView from '../views/LoginView/LoginView'
 import SignupView from '../views/SignupView/SignupView'
 import SprintsView from '../views/SprintsView/SprintsView'
+import TasksView from '../views/TasksView/TasksView'
 
 export default function App() {
   const dispatch = useDispatch()
@@ -24,7 +25,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
-          <SprintsView />
+          <TasksView />
           {/* <AuthLayout>
             <LoginView />
           </AuthLayout> */}
