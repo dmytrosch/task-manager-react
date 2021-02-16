@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-import React, {useState} from 'react'
-=======
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setClientWidth } from "../../redux/clientWidth/clientWidthAction";
 import { isMobileSelector } from "../../redux/clientWidth/clientWidthSelectors";
 import { useLocation, useHistory } from "react-router-dom";
 import style from "./TaskView.module.css";
->>>>>>> origin/fixStyles
 
 import ModalPortal from "../../common/ModalPortal/ModalPortal";
 import Modal from "../../components/Modals/Modal";

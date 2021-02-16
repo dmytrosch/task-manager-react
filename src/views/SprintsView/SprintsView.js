@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import MainLayout from "../../components/Layouts/MainLayout";
 import Sprint from "../../components/Sprint/Sprint";
+import SideBar from '../../components/SideBar/SideBar';
 
 import ModalPortal from "../../common/ModalPortal/ModalPortal";
 import Modal from "../../components/Modals/Modal";
@@ -25,6 +26,7 @@ export default function SprintView() {
 
   return (
     <MainLayout addNewProject={toggleNewProjectModal}>
+      <SideBar/>
       <Sprint
         addSprint={toggleSprintModal}
         editProject={toggleProjectModal}
