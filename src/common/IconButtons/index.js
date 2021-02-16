@@ -12,7 +12,7 @@ import { ReactComponent as Pen } from '../../assest/ui/pen.svg';
 
 
 
-const IconButton = ({ size, icon, iconCustomClass, iconName,  ...props }) => {
+const IconButton = ({ size, icon,  iconCustomClass, iconName,  ...props }) => {
   return (
     
     <button  

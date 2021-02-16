@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUserName, isAuthentificated } from '../../redux/auth/authSelectors'
 import { logout } from '../../redux/auth/authOperations'
-import styles from './header.module.css'
+import styles from './Header.module.css'
 import { CSSTransition } from 'react-transition-group'
 import mainLogo from '../../assest/icons/mainLogo.svg'
 

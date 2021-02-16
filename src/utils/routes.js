@@ -32,7 +32,7 @@ export default [
     component: lazy(
       () =>
         import(
-          "../views/TasksView//TasksView.js" /* webpackChunkName: "Task" */
+          "../views/TasksView/TasksView.js" /* webpackChunkName: "Task" */
         )
     ),
     private: true,
