@@ -13,6 +13,7 @@ import SideBar from "../../components/SideBar/SideBar";
 import GoBackBtn from "../../components/SideBar/goBackBtn";
 import Button from "../../common/Button/index";
 import IconButton from "../../common/IconButtons";
+import viewStyles from "../SprintsView/SprintsView.module.css";
 
 export default function TaskViews() {
   const [showModal, setShowModal] = useState(false);
@@ -27,7 +28,7 @@ export default function TaskViews() {
   const nameArrowBtn = pathname === "/task" ? "проект" : "спринт";
   return (
     <MainLayout>
-      <div className={style.containerSideBar}>
+      <div className={viewStyles.view}>
         {!isMobileMode && (
           <section>
             <SideBar />
@@ -57,9 +58,7 @@ export default function TaskViews() {
             </div>
             <p className={style.dateCreation}>2020.02.16</p>
 
-
-              <input className={style.input} />
-              
+            <input className={style.input} />
           </div>
         </section>
       </div>

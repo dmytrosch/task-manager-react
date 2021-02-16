@@ -1,7 +1,8 @@
 .container {
     width: 280px;
-    height: 214px;
-    background-color: palevioletred;
+    /* height: 214px; */
+    padding: 20px;
+    background-color: #fff;
     box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
     border-radius: 5px;
     display: flex;
@@ -12,24 +13,22 @@
 .div {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 15px;
 }
-.text {
+/* .text {
     margin-left: 15px;
-}
+} */
 .task {
     width: 100px;
     font-weight: 400;
     font-size: 14px;
-    margin: 0 auto;
+    margin: 0 auto 15px;
 }
-.planingHours {
-    width: 105px;
+.planingHours, .spendedHours {
+    width: 75px;
 }
 .input {
-    width: 90px;
-}
-.spendedHours {
-    width: 105px;
+    width: 75px;
 }
 .button {
     width: 20px;
@@ -41,13 +40,34 @@
     position: absolute;
     right: 10px;
     bottom: 10px;
-    outline: none;
 }
 
 
-/* @media screen and (max-width: ) {
+@media screen and (min-width:768px ) {
     .container {
         width: 216px;
-        height: 284px;
+        /* height: 284px; */
     } 
-} */
+}
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 870px;
+    /* height: 95px; */
+    flex-direction: row;
+    justify-content: space-around;
+    position: static;
+    align-items: center;
+    }
+    .task, .div {
+        margin: 0;
+    }
+    .text {
+        display: none;
+    }
+    .planingHours, .spendedHours, .input {
+        width: 105px;
+    }
+    .button {
+        position: static;
+    }
+}
