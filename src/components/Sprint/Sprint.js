@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import SprintList from "./SprintList";
 
-import styles from "./sprint.module.css";
+import styles from "./Sprint.module.css";
 
 const getProjectDataById = (projectId) => () => ({
   name: "Project 1",
