@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./taskCardDesctop.module.css";
+import styles from "./taskCardDesktop.module.css";
 
 export default function TaskCard() {
     return (

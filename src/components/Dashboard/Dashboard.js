@@ -51,7 +51,7 @@ export default function Dashboard() {
         </div>
         <ul className={styles.projectList}>
           {projects.map((proj) => (
-            <projectItem key={proj.id} />
+            <ProjectCard key={proj.id} />
           ))}
           {modal && (
             <li className={styles.projectItem}>
