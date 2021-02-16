@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-export default function ProejctCard() {
+export default function ProejctCard({name, description}) {
     const deleteCard = (e) => {
         e.preventDefault();
         console.log('delete');
@@ -11,10 +11,10 @@ export default function ProejctCard() {
         <div className={styles.container}>
             <div className={styles.wrapper}>
                 <h2 className={styles.title}>
-                    Project Name
+                    {name}
                 </h2>
                 <p className={styles.description}>
-                    Info about project
+                    {description}
                 </p>
                 <button className={styles.button} onClick={deleteCard}>
                 </button>

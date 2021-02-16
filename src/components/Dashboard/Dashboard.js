@@ -50,41 +50,13 @@ export default function Dashboard() {
             <p className={styles.text}>Створити проект</p>
           </div>
         </div>
-        {/* <ul className={styles.projectList}>
+        <ul className={styles.projectList}>
           {projects.map((proj) => (
-            <ProjectCard key={proj.id} />
-          ))} */}
-          <ul className={styles.projectList}>
-          <li className={styles.projectItem}>
-              <ProjectCard />
-            </li>
             <li className={styles.projectItem}>
-              <ProjectCard />
+            <ProjectCard key={proj.id} name={proj.name} description={proj.description} />
             </li>
-            <li className={styles.projectItem}>
-              <ProjectCard />
-            </li>
-            <li className={styles.projectItem}>
-              <ProjectCard />
-            </li>
-            <li className={styles.projectItem}>
-              <ProjectCard />
-            </li>
-            <li className={styles.projectItem}>
-              <ProjectCard />
-            </li>
-            <li className={styles.projectItem}>
-              <ProjectCard />
-            </li>
-            <li className={styles.projectItem}>
-              <ProjectCard />
-            </li>
-            <li className={styles.projectItem}>
-              <ProjectCard />
-            </li>
-          </ul>
-          
-        {/* </ul> */}
+          ))}
+        </ul>
         </>
        </div>
      </div>
