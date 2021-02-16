@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, {useState} from 'react'
 
 import ModalPortal from '../../common/ModalPortal/ModalPortal'
@@ -20,11 +19,4 @@ export default function TaskViews() {
       </ModalPortal>
     </div>
   )
-=======
-import React from "react";
-import MainLayout from "../../components/Layouts/MainLayout";
-
-export default function TasksView() {
-  return <MainLayout></MainLayout>;
->>>>>>> 0f1c8dbf68d143ce033ba56b409c742ec628c193
 }
