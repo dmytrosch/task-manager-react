@@ -15,8 +15,6 @@ import Loader from "../components/Loader/Loader";
 import LoginView from "../views/LoginView/LoginView";
 import Dashboard from "../components/Dashboard/Dashboard";
 
-import TaskCard from "../components/TaskCard/TaskCard";
-import TaskCardDesctop from "./TaskCard/TaskCardDesctop";
 
 export default function App() {
   // const dispatch = useDispatch();
@@ -27,9 +25,7 @@ export default function App() {
 
   return (
     <>
-    <TaskCard/>
-    <TaskCardDesctop/>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Suspense fallback={<Loader />}>
           <Switch>
             {routes.map((route) => (
@@ -38,7 +34,7 @@ export default function App() {
             <Redirect to="/" />
           </Switch>
         </Suspense>
-      </BrowserRouter> */}
+      </BrowserRouter>
     </>
   );
 }
