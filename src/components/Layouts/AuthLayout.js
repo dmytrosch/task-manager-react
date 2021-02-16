@@ -16,7 +16,7 @@ export default function AuthLayout(props) {
         <div className={layoutStyles.containerMobile}>{props.children}</div>
       ) : (
         <div className={layoutStyles.container}>
-          <div>
+          <div className={layoutStyles.circleContainer}>
             <div className={circlesStyles.first}></div>
             <div className={circlesStyles.second}></div>
             <div className={circlesStyles.third}></div>

@@ -13,16 +13,18 @@ import PublicRoute from "./Routes/PublicRoute";
 
 import Loader from "../components/Loader/Loader";
 import LoginView from "../views/LoginView/LoginView";
+import SignupView from "../views/SignupView/SignupView";
+import SprintsView from "../views/SprintsView/SprintsView";
+import TasksView from "../views/TasksView/TasksView";
 import Dashboard from "../components/Dashboard/Dashboard";
 
 
 export default function App() {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //     dispatch(setClientWidth(document.documentElement.clientWidth));
-  // }, []);
-  // const isMobileMode = useSelector(isMobile);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setClientWidth(document.documentElement.clientWidth));
+  }, []);
+  const isMobileMode = useSelector(isMobileSelector);
   return (
     <>
       <BrowserRouter>

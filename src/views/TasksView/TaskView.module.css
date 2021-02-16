@@ -1,0 +1,73 @@
+
+@media (min-width: 320px) {
+    .containerTasks{
+        position: relative;
+
+    }
+    .containerGoBack{        
+        margin-bottom: 23px;
+    }
+    .containerGoBack::after{
+        content: "";
+        display: inline-block;
+        height: 1px;
+        width: 100vh;
+        background-color: var(--borderColor);
+        right: -20px;
+        position: absolute;
+    }
+    .ContainerPaginate{
+
+    }
+    .paginate{
+        display: inline-block;
+    }
+    .paginateSpan{
+
+    }
+    .puginateBth{
+        margin: 0px 20px 0px 20px;
+        background: url(../../assest/icons/ArrowLeft.icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 15px;
+        height: 15px;
+    }
+    .puginateBth:last-child{
+        margin: 0px 65px 0px 20px;
+        background: url(../../assest/icons/ArrowRight.icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 15px;
+        height: 15px;
+    }
+    .dateCreation{
+        display: inline-block;
+        font-size: 12px;
+        line-height: 15px;
+        color: var(--greyColor);
+    }
+    .input{
+        background-image: url(../../assest/ui/search.svg);
+        width: 280px;
+        background: none;
+        border: none;
+        border-bottom: 1px solid var(--greyColor);
+    }
+    .input::after{
+        content: "";
+        background-image: url(../../assest/ui/search.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+    }
+    }
+    
+    /* 
+    .containerSideBar{
+        display: flex;
+    } */
