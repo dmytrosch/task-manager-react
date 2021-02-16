@@ -15,6 +15,9 @@ import Loader from "../components/Loader/Loader";
 import LoginView from "../views/LoginView/LoginView";
 import Dashboard from "../components/Dashboard/Dashboard";
 
+import TaskCard from "../components/TaskCard/TaskCard";
+import TaskCardDesctop from "./TaskCard/TaskCardDesctop";
+
 export default function App() {
   // const dispatch = useDispatch();
   // useEffect(() => {
@@ -24,7 +27,9 @@ export default function App() {
 
   return (
     <>
-      <BrowserRouter>
+    <TaskCard/>
+    <TaskCardDesctop/>
+      {/* <BrowserRouter>
         <Suspense fallback={<Loader />}>
           <Switch>
             {routes.map((route) => (
@@ -33,7 +38,7 @@ export default function App() {
             <Redirect to="/" />
           </Switch>
         </Suspense>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </>
   );
 }

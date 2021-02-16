@@ -1,0 +1,32 @@
+.container {
+    width: 870px;
+    height: 95px;
+    background-color: palevioletred;
+    box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.task {
+    width: 100px;
+    font-weight: 400;
+    font-size: 14px;
+}
+.planingHours {
+    width: 105px;
+}
+.input {
+    width: 90px;
+}
+.spendedHours {
+    width: 105px;
+}
+.button {
+    width: 20px;
+    height: 20px;
+    background: url(../../assest/icons/deleteTask.svg) no-repeat;
+    background-position: center;
+    border-radius: 25px;
+    outline: none;
+}
