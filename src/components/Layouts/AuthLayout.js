@@ -1,5 +1,5 @@
 import React from "react";
-import layoutStyles from "./layout.module.css";
+import layoutStyles from "./Layout.module.css";
 import circlesStyles from "./circles.module.css";
 import Header from "../Header/Header";
 import { useSelector } from "react-redux";

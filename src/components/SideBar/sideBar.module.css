@@ -1,7 +1,8 @@
 .aside{
-  max-width: 255px;
+  min-width: 100%;
   height: 100%;
   padding-bottom: 40px;
+  border-right: 1px solid var(--borderColor)
 }
 .tabsMenu{
   margin-bottom: 60px;
@@ -117,14 +118,6 @@ text-align: center;
 }
 
 @media (max-width: 767px) {
-.navContainer{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  
-}
-
-}
-@media (max-width: 767px) {
   .tabsMenu,
   .addButton{
     display: none;
@@ -137,6 +130,16 @@ text-align: center;
     top: 85vh;
     left: 80vw;
 
+  }
+  .navContainer{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+  }
+  .aside{
+    border-right: none;
+    /* border-bottom: 1px solid var(--borderColor); */
+    padding-bottom: 0;
   }
 }
 
