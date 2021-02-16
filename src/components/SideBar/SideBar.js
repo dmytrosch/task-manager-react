@@ -29,7 +29,7 @@ const obj = [
   },
 ]
 
-export default function SideBar() {
+export default function SideBar({addNewProject}) {
   const { pathname } = useLocation()
   const history = useHistory()
   const nameArrowBtn = pathname === '/task' ? 'проект' : 'спринт'
@@ -39,7 +39,7 @@ export default function SideBar() {
     <aside className={styles.aside}>
       <GoBackBtn props={{ pathname, history, nameArrowBtn }} />
       <ListItem props={{ obj, visibleTab, setVisibleTab }} />
-      <AddTaskBtn nameArrowBtn={nameArrowBtn} />
+      <AddTaskBtn nameArrowBtn={nameArrowBtn} addNewProject={addNewProject} />
     </aside>
   )
 }

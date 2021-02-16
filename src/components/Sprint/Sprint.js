@@ -1,33 +1,29 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { useSelector } from "react-redux";
 
-import SprintList from './SprintList'
+import SprintList from "./SprintList";
 
-import styles from './sprint.module.css'
+import styles from "./sprint.module.css";
 
 const getProjectDataById = (projectId) => () => ({
-  name: 'Project 1',
+  name: "Project 1",
   description:
-    'Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового блоку',
-})
+    "Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового блоку",
+});
 
 const getSprintIdsByProjectId = (projectId) => () => [
-  'id_1',
-  'id_2',
-  'id_3',
-  'id_4',
-  'id_5',
-  'id_6',
-  'id_7',
-]
+  "id_1",
+  "id_2",
+  "id_3",
+  "id_4",
+  "id_5",
+  "id_6",
+  "id_7",
+];
 
-export default function Sprint(projectId) {
-  const { name, description } = useSelector(getProjectDataById(projectId))
-  const sprintIds = useSelector(getSprintIdsByProjectId(projectId))
-
-  const editProject = () => console.log('open modal - editProject')
-  const addParticipant = () => console.log('open modal - addParticipant')
-  const addSprint = () => console.log('open modal - addSprint')
+export default function Sprint({ addSprint, editProject, addParticipant }) {
+  const { name, description } = useSelector(getProjectDataById("projectId"));
+  const sprintIds = useSelector(getSprintIdsByProjectId("projectId"));
 
   return (
     <section className={styles.container}>
@@ -58,5 +54,5 @@ export default function Sprint(projectId) {
         </div>
       </div>
     </section>
-  )
+  );
 }
