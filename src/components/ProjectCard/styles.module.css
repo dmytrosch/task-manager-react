@@ -22,6 +22,12 @@
     font-size: 26px;
 }
 .description {
+    display: none;
+    /* width: 210px;
+    margin: 0 auto; */
+}
+.container:hover .description {
+    display: block;
     width: 210px;
     margin: 0 auto;
 }

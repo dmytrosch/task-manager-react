@@ -39,6 +39,7 @@ export default function Dashboard() {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
+      <>
         <div className={styles.infoBox}>
           <h2 className={styles.title}>Проекти</h2>
           <div className={styles.box}>
@@ -49,17 +50,49 @@ export default function Dashboard() {
             <p className={styles.text}>Створити проект</p>
           </div>
         </div>
-        <ul className={styles.projectList}>
+        {/* <ul className={styles.projectList}>
           {projects.map((proj) => (
-            <projectItem key={proj.id} />
-          ))}
-          {modal && (
+            <ProjectCard key={proj.id} />
+          ))} */}
+          <ul className={styles.projectList}>
+          <li className={styles.projectItem}>
+              <ProjectCard />
+            </li>
             <li className={styles.projectItem}>
               <ProjectCard />
             </li>
-          )}
-        </ul>
-      </div>
-    </div>
+            <li className={styles.projectItem}>
+              <ProjectCard />
+            </li>
+            <li className={styles.projectItem}>
+              <ProjectCard />
+            </li>
+            <li className={styles.projectItem}>
+              <ProjectCard />
+            </li>
+            <li className={styles.projectItem}>
+              <ProjectCard />
+            </li>
+            <li className={styles.projectItem}>
+              <ProjectCard />
+            </li>
+            <li className={styles.projectItem}>
+              <ProjectCard />
+            </li>
+            <li className={styles.projectItem}>
+              <ProjectCard />
+            </li>
+          </ul>
+          
+        {/* </ul> */}
+        </>
+       </div>
+     </div>
   );
 }
+
+// {modal && (
+//   <li className={styles.projectItem}>
+//     <ProjectCard />
+//   </li>
+// )}

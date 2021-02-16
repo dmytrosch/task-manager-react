@@ -1,7 +1,7 @@
 .container {
     width: 1280px;
     height: 768px;
-    background-color: #e5e5e5;
+    background-color: transparent;
 }
 .wrapper {
     width: 1170px;
@@ -45,4 +45,8 @@
 .projectList {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+.projectItem {
+    margin-bottom: 15px;
 }
