@@ -2,6 +2,7 @@
 @media (min-width: 320px) {
     .containerTasks{
         position: relative;
+        font-family: var(--primeFont);
 
     }
     .containerGoBack{        
@@ -17,7 +18,9 @@
         position: absolute;
     }
     .ContainerPaginate{
-
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
     }
     .paginate{
         display: inline-block;
@@ -26,7 +29,7 @@
 
     }
     .puginateBth{
-        margin: 0px 20px 0px 20px;
+        margin: 0px 20px 0px 0px;
         background: url(../../assest/icons/ArrowLeft.icon.svg);
         background-position: center;
         background-repeat: no-repeat;
@@ -49,14 +52,21 @@
         line-height: 15px;
         color: var(--greyColor);
     }
+    .containerInput{
+        text-align: center;
+    
+    }
     .input{
-        background-image: url(../../assest/ui/search.svg);
+        background-image: url(../../assest/ui/search.svg );
         width: 280px;
         background: none;
         border: none;
         border-bottom: 1px solid var(--greyColor);
     }
-    .input::after{
+    .input::placeholder{
+        font-family: var(--primeFont);
+    }
+    .input::before{
         content: "";
         background-image: url(../../assest/ui/search.svg);
         background-position: center;

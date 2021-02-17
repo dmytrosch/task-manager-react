@@ -56,10 +56,9 @@ export default function TaskViews() {
               <button className={style.puginateBth}></button>
             </div>
             <p className={style.dateCreation}>2020.02.16</p>
-
-
-              <input className={style.input} />
-              
+          </div>
+          <div className={style.containerInput}>
+            <input className={style.input} />
           </div>
         </section>
       </div>
