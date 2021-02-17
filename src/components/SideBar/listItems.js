@@ -1,13 +1,13 @@
-import { NavLink } from 'react-router-dom'
-import styles from '../SideBar/sideBar.module.css'
-import classNames from 'classnames'
+import { NavLink } from "react-router-dom";
+import styles from "../SideBar/sideBar.module.css";
+import classNames from "classnames";
 
 export default function ListItem({ props }) {
-  const { obj, visibleTab, setVisibleTab } = props
+  const { obj, visibleTab, setVisibleTab } = props;
   return (
     <div className={styles.tabsMenu}>
       <ul className={styles.tabsTitles}>
-        {obj.map(({ id, name }) => (
+        {obj.map(({ id, name, color }) => (
           <li
             key={id}
             onClick={() => setVisibleTab(id)}
@@ -20,6 +20,7 @@ export default function ListItem({ props }) {
           >
             <NavLink to="/sprint" className={styles.navLink}>
               <p
+                style={{ backgroundColor: color }}
                 className={
                   visibleTab === id
                     ? classNames(styles.square, styles.squareActive)
@@ -27,12 +28,12 @@ export default function ListItem({ props }) {
                 }
               ></p>
               <p className={styles.taskTitle}>
-                {name.length > 30 ? name.slice(0, 30) + '...' : name}
+                {name.length > 30 ? name.slice(0, 30) + "..." : name}
               </p>
             </NavLink>
           </li>
         ))}
       </ul>
     </div>
-  )
+  );
 }
