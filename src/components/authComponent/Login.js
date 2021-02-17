@@ -1,34 +1,36 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom'
-import style from './style.module.css'
-import Button from '../../common/Button'
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import style from "./style.module.css";
+import Button from "../../common/Button";
+import Input from "../../common/Input/index";
 
-import { login } from '../../redux/auth/authOperations'
+import { login } from "../../redux/auth/authOperations";
 
 export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const dispatch = useDispatch()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const handlerSubmit = (e) => {
-    e.preventDefault()
-    dispatch(login({ email, password }))
-    setEmail('')
-    setPassword('')
-  }
+    e.preventDefault();
+    dispatch(login({ email, password }));
+    setEmail("");
+    setPassword("");
+  };
   return (
     <section className={style.container}>
       <div className={style.formContainer}>
         <p className={style.title}>Вхід</p>
         <form className={style.form} onSubmit={handlerSubmit}>
-          <input
+          {/* <input
             className={style.input}
             placeholder="E-mail"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
+          /> */}
+          <Input label={'E-mail'} error={false} type={'password'} errorMessage={'Hеправильный пароль'}/>
           <input
             className={style.input}
             placeholder="Пароль"
@@ -48,5 +50,5 @@ export default function Login() {
         </p>
       </div>
     </section>
-  )
+  );
 }
