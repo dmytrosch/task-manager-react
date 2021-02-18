@@ -34,7 +34,7 @@ const obj = [
   },
 ];
 
-export default function SideBar({ toggleModal }) {
+export default function SideBar({ add }) {
   const { pathname } = useLocation();
   const history = useHistory();
   const nameArrowBtn = pathname === "/task" ? "спринт" : "проект";
@@ -44,7 +44,7 @@ export default function SideBar({ toggleModal }) {
     <aside className={styles.aside}>
       <GoBackBtn props={{ pathname, history, nameArrowBtn }} />
       <ListItem props={{ obj, visibleTab, setVisibleTab }} />
-      <AddTaskBtn nameArrowBtn={nameArrowBtn} addNewProject={toggleModal} />
+      <AddTaskBtn nameArrowBtn={nameArrowBtn} addNewProject={add} />
     </aside>
   );
 }
