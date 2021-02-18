@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import { setModalCreateTask } from "./modalAction";
 
 const createTask = createReducer(null, {
-  [setModalCreateTask]: (state, { paylod }) => paylod,
+  [setModalCreateTask]: (state, { payload }) => payload,
 });
 
 const modal = combineReducers({ createTask });

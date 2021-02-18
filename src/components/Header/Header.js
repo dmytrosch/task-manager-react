@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUserName, isAuthentificated } from '../../redux/auth/authSelectors'
 import { logout } from '../../redux/auth/authOperations'
-import styles from './Header.module.css'
+import styles from './header.module.css'
 import { CSSTransition } from 'react-transition-group'
 import mainLogo from '../../assest/icons/mainLogo.svg'
 
@@ -27,7 +27,7 @@ export default function Header(props) {
               src={mainLogo}
               className={styles.logoImage}
               alt="mainLogo"
-            ></img>
+            />
           </CSSTransition>
         </NavLink>
       </div>

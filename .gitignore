@@ -364,6 +364,7 @@ MigrationBackup/
 /.vscode
 .vscode
 .vscode/
+.idea
 # misc
 .DS_Store
 .env.local
