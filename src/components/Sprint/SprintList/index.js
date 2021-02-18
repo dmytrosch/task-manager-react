@@ -1,10 +1,10 @@
-import React from 'react'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import React from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import styles from './sprintList.module.css'
-import animateItem from './animateItem.module.css'
+import styles from "./sprintList.module.css";
+import animateItem from "./animateItem.module.css";
 
-import SprintItem from '../SprintItem'
+import SprintItem from "../SprintItem";
 
 export default function SprintList({ sprintIds }) {
   return sprintIds.length === 0 ? (
@@ -24,5 +24,5 @@ export default function SprintList({ sprintIds }) {
         </CSSTransition>
       ))}
     </TransitionGroup>
-  )
+  );
 }

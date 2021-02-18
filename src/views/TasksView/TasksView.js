@@ -1,52 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setClientWidth } from "../../redux/clientWidth/clientWidthAction";
-import { isMobileSelector } from "../../redux/clientWidth/clientWidthSelectors";
-import { useLocation, useHistory } from "react-router-dom";
+import { setModalCreateTask } from "../.././redux/modal/modalAction";
 import style from "./TaskView.module.css";
 
-import ModalPortal from "../../common/ModalPortal/ModalPortal";
-import Modal from "../../components/Modals/Modal";
-import ProjectCreator from "../../components/Modals/ModalComponents/ProjectCreator";
+import ModalCreateTask from "../../components/Modals/ModalComponents/ModalCreateTask";
 import MainLayout from "../../components/Layouts/MainLayout";
 import SideBar from "../../components/SideBar/SideBar";
-import GoBackBtn from "../../components/SideBar/goBackBtn";
-import Button from "../../common/Button/index";
+import Task from "../../components/Task/Task";
 import IconButton from "../../common/IconButtons";
+import Button from "../../common/Button/index";
+import IconButtons from "../../common/IconButtons";
 
-export default function TaskViews() {
-  const [showModal, setShowModal] = useState(false);
-  const toggleModal = () => setShowModal((prevState) => !prevState);
+import viewStyles from "../SprintsView/SprintsView.module.css";
+
+export default function TaskViews({ sprintName }) {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setClientWidth(document.documentElement.clientWidth));
-  }, []);
-  const isMobileMode = useSelector(isMobileSelector);
-  const { pathname } = useLocation();
-  const history = useHistory();
-  const nameArrowBtn = pathname === "/task" ? "проект" : "спринт";
+  const openModalTask = () => {
+    dispatch(setModalCreateTask(true));
+  };
+
   return (
     <MainLayout>
-      <div className={style.containerSideBar}>
-        {!isMobileMode && (
-          <section>
-            <SideBar />
-            <Button onClick={toggleModal}>Click show modal</Button>
-            <ModalPortal>
-              {showModal && (
-                <Modal onClose={toggleModal}>
-                  <ProjectCreator onClose={toggleModal} />
-                </Modal>
-              )}
-            </ModalPortal>
-          </section>
-        )}
-        <section className={style.containerTasks}>
-          {isMobileMode && (
-            <nav className={style.containerGoBack}>
-              <GoBackBtn props={{ pathname, history, nameArrowBtn }} />
-            </nav>
-          )}
+      <div className={viewStyles.view}>
+        <section>
+          <SideBar />
+
+          <ModalCreateTask />
+        </section>
+
+        <main className={style.container}>
           <div className={style.ContainerPaginate}>
             <div className={style.paginate}>
               <button className={style.puginateBth}></button>
@@ -57,10 +40,44 @@ export default function TaskViews() {
             </div>
             <p className={style.dateCreation}>2020.02.16</p>
           </div>
+
           <div className={style.containerInput}>
+            <IconButton className={style.searchSVG} iconName="search" />
             <input className={style.input} />
           </div>
-        </section>
+
+          <p className={style.sprintNames}>
+            Sprint Burndown Chart 1 {sprintName}
+            <button className={style.changeTextBtn}></button>
+          </p>
+          <div className={style.containerButton}>
+            <Button
+              buttonCustomClass={style.buttonAdd}
+              shape="circle"
+              onClick={openModalTask}
+            ></Button>
+            <p className={style.titleButton}>Створити задачу</p>
+          </div>
+
+          <div className={style.tableDesctopDescrip}>
+            <span className={style.span}>Задача</span>
+            <span className={style.span}>
+              Заплановано <br /> годин
+            </span>
+            <span className={style.span}>
+              Витрачено
+              <br /> год / день
+            </span>
+            <span className={style.span}>Витрачено<br/> годин</span>
+            <div className={style.containerInputDesctop}>
+              <IconButton className={style.searchSVG} iconName="search" />
+              <input className={style.input} />
+            </div>
+          </div>
+          <section className={style.containerWithTask}>
+            <Task />
+          </section>
+        </main>
       </div>
     </MainLayout>
   );

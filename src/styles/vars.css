@@ -9,7 +9,7 @@
   --greyColor: rgba(24, 28, 39, 0.6);
   --borderColor: rgba(24, 28, 39, 0.1);
 
-    --min1024: screen and (min-width: 1024px);
+    --min1024: screen and (min-width: 1280px);
     --min768: screen and (min-width: 768px);
     --mx767: screen and (max-width: 767px);
 

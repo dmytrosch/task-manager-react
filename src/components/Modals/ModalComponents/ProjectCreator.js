@@ -2,7 +2,7 @@ import React, { useState, useDispatch } from 'react'
 import style from './ProjectCreator.module.css'
 import Button from '../../../common/Button'
 
-export default function SprintCreator({ onClose }) {
+export default function ProjectCreator({ onClose }) {
   const [nameProject, setNameProject] = useState('')
   const [description , setDescription ] = useState('')
   // const dispatch = useDispatch();
