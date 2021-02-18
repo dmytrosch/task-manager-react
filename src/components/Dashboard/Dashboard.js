@@ -39,27 +39,31 @@ export default function Dashboard() {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-      <>
-        <div className={styles.infoBox}>
-          <h2 className={styles.title}>Проекти</h2>
-          <div className={styles.box}>
-            <button
-              className={styles.button}
-              onClick={(e) => setModal(true)}
-            ></button>
-            <p className={styles.text}>Створити проект</p>
+        <>
+          <div className={styles.infoBox}>
+            <h2 className={styles.title}>Проекти</h2>
+            <div className={styles.box}>
+              <button
+                className={styles.button}
+                onClick={(e) => setModal(true)}
+              ></button>
+              <p className={styles.text}>Створити проект</p>
+            </div>
           </div>
-        </div>
-        <ul className={styles.projectList}>
-          {projects.map((proj) => (
-            <li className={styles.projectItem}>
-            <ProjectCard key={proj.id} name={proj.name} description={proj.description} />
-            </li>
-          ))}
-        </ul>
+          <ul className={styles.projectList}>
+            {projects.map((proj) => (
+              <li className={styles.projectItem}>
+                <ProjectCard
+                  key={proj.id}
+                  name={proj.name}
+                  description={proj.description}
+                />
+              </li>
+            ))}
+          </ul>
         </>
-       </div>
-     </div>
+      </div>
+    </div>
   );
 }
 

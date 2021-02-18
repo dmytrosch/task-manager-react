@@ -1,6 +1,17 @@
 
 @media (min-width: 320px) {
-    .containerTasks{
+    .titleButton{
+        display: none;
+    }
+    .containerButton{
+        display: none;
+    }
+
+    .tableDesctopDescrip{
+        display: none;
+    }
+    .container{
+        margin-top: 20px;
         position: relative;
         font-family: var(--primeFont);
 
@@ -20,14 +31,12 @@
     .ContainerPaginate{
         display: flex;
         justify-content: space-around;
-        margin-bottom: 20px;
+        margin-bottom: 54px;
     }
     .paginate{
         display: inline-block;
     }
-    .paginateSpan{
 
-    }
     .puginateBth{
         margin: 0px 20px 0px 0px;
         background: url(../../assest/icons/ArrowLeft.icon.svg);
@@ -53,31 +62,217 @@
         color: var(--greyColor);
     }
     .containerInput{
-        text-align: center;
-    
+        margin: 0 auto;
+        position: relative;
+        width: 280px;
+        margin-bottom: 20px;
     }
     .input{
-        background-image: url(../../assest/ui/search.svg );
         width: 280px;
         background: none;
         border: none;
-        border-bottom: 1px solid var(--greyColor);
+        border-bottom: 1px solid rgba(24, 28, 39, 0.1);
+        outline: none;
     }
     .input::placeholder{
         font-family: var(--primeFont);
     }
-    .input::before{
-        content: "";
-        background-image: url(../../assest/ui/search.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+    /* .containerInput:hover .searchSVG{
+        opacity: 0;
+    } */
+    
+    .searchSVG{
+        fill:  var(--greyColor);
+        position:absolute;
+        bottom: 12px;
+        left: 12px;
+    }
+    .containerInput:hover .searchSVG{
+        visibility: hidden;
+        transition: var(--trans);
+    }
+ 
+    .sprintNames{
+
+        margin: 0 auto;
+        position: relative;
+        width: 260px;
+        font-size: 26px;
+        line-height: 32px;
+        margin-bottom: 30px;
+    }
+    .changeTextBtn{
+        position: absolute; 
+        right: -7px;
+        top: 6px;
+        background-image: url(../../assest/icons/ChangeText.icon.svg);
         width: 20px;
         height: 20px;
     }
-    }
-    
-    /* 
-    .containerSideBar{
+    .containerWithTask{
         display: flex;
-    } */
+        align-items: center;
+        flex-direction: column;
+    }
+
+}
+
+   
+@media (min-width: 767px){
+    .containerInput{
+        width: 214px;
+    }
+    .input{
+        width: 214px;
+    }
+    .dateCreation{
+        margin: -10px 0px 0px;
+    }
+    .containerInput{
+        display: inline-block;
+    }
+    .ContainerPaginate{
+        display: inline-flex;
+        margin: 0px 0px 0px 10px;
+       
+    }
+    .searchSVG{
+        bottom: 2px;
+        left: 180px;
+    }
+    .buttonAdd:after {
+        transform: rotate(0deg);
+    }
+    .buttonAdd::before {
+        transform: rotate(90deg);
+    }
+    .buttonAdd:before, .buttonAdd:after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        width: 22px;
+        height: 2px;
+        background: var(--whiteColor);
+    }
+    .buttonAdd:hover::before,
+    .buttonAdd:hover::after{
+      background: var(--orangeColor)
+    } 
+    .buttonAdd{
+        font-size: 54px;
+        display: inline-block;
+    }
+    .containerWithTask{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .containerButton{   
+    position: absolute;
+    right: 10%;
+    }
+    .sprintNames{
+        margin-left: 20%;
+    }
+    .containerButton{
+        display: inline-block;
+    }
+    .sprintNames{
+        display: inline-block;
+    }
+}
+@media (min-width: 854px){
+    .ContainerPaginate{
+     margin: 0px 20px 0px 57px;
+}
+}
+@media (min-width: 1105px) and (max-width: 1279px){
+    .ContainerPaginate{
+        margin: 0px 66px 0px 125px;
+    }
+}
+@media (min-width: 1279px){
+    .span:nth-child(1){
+        margin: 0px 0px 0px 70px;
+    }
+    .span:nth-child(2){
+        margin: 0px 0px 0px 50px;
+    }
+    .span:nth-child(4){
+        margin: 0px 0px 0px 21px; 
+    }
+
+      .containerButton{   
+        position: absolute;
+        right: 20%;
+        }
+       .input{
+        width: 280px;
+        padding: 12px 0px 0px;
+    }
+    .searchSVG{
+        bottom: 12px;
+        left: 12px;
+    }
+    .dateCreation{
+        margin: 0;
+    }
+    .containerInput{
+    display: none;
+    }
+    .ContainerPaginate{
+        display: flex;
+        justify-content: start;
+        margin-bottom: 54px;
+    }
+    .tableDesctopDescrip::before{
+        content: "";
+        display: inline-block;
+        height: 1px;
+        width: 96%;
+        right: 0px;
+        background-color: var(--borderColor);
+        top: 210px;
+        position: absolute;
+    }
+    .sprintNames{
+        margin-left: 15%;
+        display: inline-block;
+    }
+    .tableDesctopDescrip{
+        display: flex;
+        justify-content: space-between;
+        width: 780px;
+        margin: 0 auto;
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+    .containerInputDesctop{
+        display: inline-block;
+        position: relative;
+        width: 50px;
+    }
+    .input{
+        width: 50px;
+    }
+    .input:hover{
+        width: 100px;
+        transition: ;
+    }
+    .containerButton{
+        display: inline-block;
+        text-align: center;
+        margin-left: 32%;
+        position: absolute;
+    }
+    .titleButton{
+        display: inline;
+        top: 0px;
+        font-size: 18px;
+        font-weight: 500;
+        margin: 12px 16px 1px;
+        width: 141px;
+        position: absolute;
+    }
+ 
+}

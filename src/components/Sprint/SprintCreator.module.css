@@ -1,4 +1,13 @@
-
+/* .container{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 120px 0px;
+    height: 768px;
+    width: 530px;
+    background: var(--formColor);
+} */
 .title{
     width: 100%;
     font-size: 36px;
@@ -174,7 +183,6 @@
     z-index: 1000;
     letter-spacing: 0.06em;
 }
-
 
 
 

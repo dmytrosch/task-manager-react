@@ -28,7 +28,7 @@ export default function SprintView() {
   return (
     <MainLayout addNewProject={toggleNewProjectModal}>
       <div className={viewStyles.view}>
-        <SideBar add={toggleProjectModal} />
+        <SideBar />
         <Sprint
           addSprint={toggleSprintModal}
           editProject={toggleProjectModal}

@@ -27,7 +27,7 @@ export default function Header(props) {
               src={mainLogo}
               className={styles.logoImage}
               alt="mainLogo"
-            ></img>
+            />
           </CSSTransition>
         </NavLink>
       </div>

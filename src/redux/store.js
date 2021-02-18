@@ -14,6 +14,7 @@ import storage from "redux-persist/lib/storage";
 import authReducer from "./auth/authReducer";
 import clientWidthReducer from "./clientWidth/clientWidthReducer";
 import loadingReducer from "./loading/loadingReducer";
+import modal from "./modal/modalReducer";
 
 const authPersistConfig = {
   key: "auth",
@@ -26,6 +27,7 @@ const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     clientWidth: clientWidthReducer,
     loading: loadingReducer,
+    modal: modal,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {

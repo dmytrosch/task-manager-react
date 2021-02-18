@@ -153,6 +153,26 @@ text-align: center;
     overflow-y: scroll;
     max-height: 100vh;
   }
+  .navContainer{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+  }
+  .navContainer::after{
+    content: "";
+    display: inline-block;
+    height: 1px;
+    width: 100%;
+    left: 0px;
+    background-color: var(--borderColor);
+    top: 95px;
+    position: absolute;
+}
+  .aside{
+    border-right: none;
+    /* border-bottom: 1px solid var(--borderColor); */
+    padding-bottom: 0;
+  }
 }
 
 
