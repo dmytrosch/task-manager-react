@@ -34,7 +34,8 @@
         margin-bottom: 54px;
     }
     .paginate{
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
     }
 
     .puginateBth{
@@ -124,9 +125,6 @@
     }
     .input{
         width: 214px;
-    }
-    .dateCreation{
-        margin: -10px 0px 0px;
     }
     .containerInput{
         display: inline-block;
@@ -224,6 +222,7 @@
         display: flex;
         justify-content: flex-start;
         margin-bottom: 54px;
+        align-items: center;
     }
     .tableDesctopDescrip::before{
         content: "";
