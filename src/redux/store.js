@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware, com } from "@reduxjs/toolkit";
 import {
   persistReducer,
   persistStore,
@@ -9,11 +9,16 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
 
-import authReducer from "./auth/authReducer";
-import clientWidthReducer from "./clientWidth/clientWidthReducer";
-import loadingReducer from "./loading/loadingReducer";
+import projects from "./projects/projectsReducers";
+import sprints from "./sprints/sprintsReducers";
+import tasks from "./tasks/tasksReducers";
+
+import auth from "./auth/authReducer";
+import clientWidth from "./clientWidth/clientWidthReducer";
+import loading from "./loading/loadingReducer";
 import modal from "./modal/modalReducer";
 
 const authPersistConfig = {
@@ -21,13 +26,18 @@ const authPersistConfig = {
   storage,
   whitelist: ["token"],
 };
+const domain = combineReducers({ projects, sprints, tasks });
+const app = combineReducers({
+  auth: persistReducer(authPersistConfig, auth),
+  clientWidth,
+});
+const ui = combineReducers({ loading, modal });
 
 const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
-    clientWidth: clientWidthReducer,
-    loading: loadingReducer,
-    modal: modal,
+    domain,
+    app,
+    ui,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {

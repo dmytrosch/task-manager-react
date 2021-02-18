@@ -1,6 +1,4 @@
-
-@media (min-width: 320px) {
-    .titleButton{
+ .titleButton{
         display: none;
     }
     .containerButton{
@@ -116,7 +114,7 @@
         flex-direction: column;
     }
 
-}
+
 
    
 @media (min-width: 767px){

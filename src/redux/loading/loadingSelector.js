@@ -1,1 +1,1 @@
-export const isLoading = (state) => state.loading;
+export const isLoading = (state) => state.ui.loading;
