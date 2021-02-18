@@ -5,7 +5,6 @@ import Button from '../../../common/Button'
 export default function ProjectCreator({ onClose }) {
   const [nameProject, setNameProject] = useState('')
   const [description , setDescription ] = useState('')
-  // const dispatch = useDispatch();
 
   const handlerSubmit = (e) => {
     e.preventDefault()

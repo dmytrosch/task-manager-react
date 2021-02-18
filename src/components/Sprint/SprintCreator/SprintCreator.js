@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import style from "./SprintCreator.module.css";
-import Button from "../../common/Button/index";
+import Button from "../../../common/Button/index";
 import { uk } from "date-fns/locale";
 import { DateRangePickerCalendar } from "react-nice-dates";
 import "./style.css";
 import { START_DATE } from "react-nice-dates";
 import classNames from "classnames";
 import { format } from "date-fns";
-import triangle from "../../assest/icons/triangle.svg";
+import triangle from "../../../assest/icons/triangle.svg";
 
 export default function SprintCreator({ onClose }) {
   const [nameTask, setNameTask] = useState("");

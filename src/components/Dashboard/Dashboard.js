@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import styles from "./styles.module.css";
 import ProjectCard from "../ProjectCard/ProjectCard";
+
+import * as modalAction from "../../redux/modal/modalAction";
 
 const projects = [
   {
@@ -31,11 +34,8 @@ const projects = [
 ];
 
 export default function Dashboard() {
-  const [modal, setModal] = useState(false);
-  const clickHandler = (e) => {
-    e.preventDefault();
-    console.log("click");
-  };
+  const dispatch = useDispatch();
+  const addProject = () => dispatch(modalAction.setModalCreateProject(true));
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -43,10 +43,7 @@ export default function Dashboard() {
           <div className={styles.infoBox}>
             <h2 className={styles.title}>Проекти</h2>
             <div className={styles.box}>
-              <button
-                className={styles.button}
-                onClick={(e) => setModal(true)}
-              ></button>
+              <button className={styles.button} onClick={addProject}></button>
               <p className={styles.text}>Створити проект</p>
             </div>
           </div>
@@ -66,9 +63,3 @@ export default function Dashboard() {
     </div>
   );
 }
-
-// {modal && (
-//   <li className={styles.projectItem}>
-//     <ProjectCard />
-//   </li>
-// )}

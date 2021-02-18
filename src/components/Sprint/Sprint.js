@@ -1,9 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import SprintList from "./SprintList";
 
 import styles from "./Sprint.module.css";
+
+import * as modalAction from "../../redux/modal/modalAction";
 
 const getProjectDataById = (projectId) => () => ({
   name: "Project 1",
@@ -21,9 +23,16 @@ const getSprintIdsByProjectId = (projectId) => () => [
   "id_7",
 ];
 
-export default function Sprint({ addSprint, editProject, addParticipant }) {
+export default function Sprint() {
   const { name, description } = useSelector(getProjectDataById("projectId"));
   const sprintIds = useSelector(getSprintIdsByProjectId("projectId"));
+  
+  const dispatch = useDispatch();
+  
+  const editProject = () => dispatch(modalAction.setModalEditProject(true));
+  const addParticipant = () =>
+    dispatch(modalAction.setModalAddParticipant(true));
+  const addSprint = () => dispatch(modalAction.setModalCreateSprint(true));
 
   return (
     <section className={styles.container}>
