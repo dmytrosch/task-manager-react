@@ -1,6 +1,6 @@
 .container {
-  height: 270px;
-  width: 270px;
+  height: 136px;
+  width: 136px;
   border-radius: 5px;
   background-color: #8C72DF;
   padding: 28px 0 0 0;
@@ -9,33 +9,74 @@
 .wrapper {
     width: 100%;
     height: 100%;
-    background: url(../../assest/icons/Vector.1.png), url(../../assest/icons/Vector.2.png);
-    background-repeat: no-repeat;
-    background-position: bottom;
 }
 
 .title {
      color: #fff;
     margin: 0 auto 20px;
-    width: 210px;
+    width: 116px;
     font-weight: 800;
-    font-size: 26px;
+    font-size: 16px;
 }
 .description {
-    width: 210px;
+    width: 116px;
     margin: 0 auto;
+    opacity: 0;
+    font-size: 10px;
+    font-weight: 400;
+}
+.container:hover .description {
+    opacity: 1;
+    transition: 1s;
 }
 .button {
     background: url(../../assest/icons/delete.svg) no-repeat;
-    /* background-image: url(../../assest/icons/delete.svg); */
     background-position: center;
+    /* background-image: url(../../assest/icons/delete.svg); */
     /* background-repeat: no-repeat; */
     /* background-color: transparent; */
-    width: 34px;
-    height: 47px;
+    width: 30px;
+    height: 43px;
     position: absolute;
     right: 10px;
     bottom: 0;
     outline: none;
     border-radius: 25px;
+}
+
+@media screen and (min-width:768px) {
+    .container {
+        height: 216px;
+        width: 216px;
+        }
+    .wrapper {
+        background: url(../../assest/icons/Vector.1.png), url(../../assest/icons/Vector.2.png);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        }
+    .button {
+        width: 34px;
+        height: 47px;
+        }
+    .title {
+        font-size: 26px;
+        width: 176px;
+    }
+    .description {
+        font-size: 14px;
+        width: 176px;
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .container {
+        height: 270px;
+        width: 270px;
+    }
+    .title {
+        width: 210px;
+    }
+    .description {
+        width: 210px;
+    }
 }

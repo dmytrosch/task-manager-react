@@ -27,7 +27,8 @@ export default function App() {
   const isMobileMode = useSelector(isMobileSelector);
   return (
     <>
-      <BrowserRouter>
+    <Dashboard/>
+      {/* <BrowserRouter>
         <Suspense fallback={<Loader />}>
           <Switch>
             {routes.map((route) => (
@@ -36,7 +37,7 @@ export default function App() {
             <Redirect to="/" />
           </Switch>
         </Suspense>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </>
   );
 }

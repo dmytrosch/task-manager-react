@@ -39,6 +39,7 @@ export default function Dashboard() {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
+      <>
         <div className={styles.infoBox}>
           <h2 className={styles.title}>Проекти</h2>
           <div className={styles.box}>
@@ -51,15 +52,19 @@ export default function Dashboard() {
         </div>
         <ul className={styles.projectList}>
           {projects.map((proj) => (
-            <ProjectCard key={proj.id} />
-          ))}
-          {modal && (
             <li className={styles.projectItem}>
-              <ProjectCard />
+            <ProjectCard key={proj.id} name={proj.name} description={proj.description} />
             </li>
-          )}
+          ))}
         </ul>
-      </div>
-    </div>
+        </>
+       </div>
+     </div>
   );
 }
+
+// {modal && (
+//   <li className={styles.projectItem}>
+//     <ProjectCard />
+//   </li>
+// )}
