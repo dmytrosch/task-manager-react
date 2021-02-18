@@ -18,7 +18,6 @@ import SprintsView from "../views/SprintsView/SprintsView";
 import TasksView from "../views/TasksView/TasksView";
 import Dashboard from "../components/Dashboard/Dashboard";
 
-
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,18 +25,15 @@ export default function App() {
   }, []);
   const isMobileMode = useSelector(isMobileSelector);
   return (
-    <>
-    <Dashboard/>
-      {/* <BrowserRouter>
-        <Suspense fallback={<Loader />}>
-          <Switch>
-            {routes.map((route) => (
-              <PublicRoute key={route.path} {...route} />
-            ))}
-            <Redirect to="/" />
-          </Switch>
-        </Suspense>
-      </BrowserRouter> */}
-    </>
+    <BrowserRouter>
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          {routes.map((route) => (
+            <PublicRoute key={route.path} {...route} />
+          ))}
+          <Redirect to="/" />
+        </Switch>
+      </Suspense>
+    </BrowserRouter>
   );
 }
