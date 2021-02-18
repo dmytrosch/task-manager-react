@@ -8,6 +8,7 @@ import style from "./TaskView.module.css";
 import ModalPortal from "../../common/ModalPortal/ModalPortal";
 import Modal from "../../components/Modals/Modal";
 import ProjectCreator from "../../components/Modals/ModalComponents/ProjectCreator";
+import SprintCreator from "../../components/Sprint/SprintCreator";
 import MainLayout from "../../components/Layouts/MainLayout";
 import SideBar from "../../components/SideBar/SideBar";
 import GoBackBtn from "../../components/SideBar/goBackBtn";
@@ -17,6 +18,8 @@ import viewStyles from "../SprintsView/SprintsView.module.css";
 
 export default function TaskViews() {
   const [showModal, setShowModal] = useState(false);
+  const [addSprintModal, setSprintModal] = useState(false);
+  const toggleSprintModal = () => setSprintModal((prevState) => !prevState);
   const toggleModal = () => setShowModal((prevState) => !prevState);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,12 +34,17 @@ export default function TaskViews() {
       <div className={viewStyles.view}>
         {!isMobileMode && (
           <section>
-            <SideBar />
-            <Button onClick={toggleModal}>Click show modal</Button>
+            <SideBar add={toggleSprintModal} />
+            {/* <Button onClick={toggleModal}>Click show modal</Button> */}
             <ModalPortal>
               {showModal && (
                 <Modal onClose={toggleModal}>
                   <ProjectCreator onClose={toggleModal} />
+                </Modal>
+              )}
+              {addSprintModal && (
+                <Modal onClose={toggleSprintModal}>
+                  <SprintCreator onClose={toggleSprintModal} />
                 </Modal>
               )}
             </ModalPortal>
