@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import GoBackBtn from "./goBackBtn";
 import ListItem from "./listItems";
 import AddTaskBtn from "./addTaskBtn";
 import styles from "../SideBar/sideBar.module.css";
+
+import * as modalAction from "../../redux/modal/modalAction";
 
 //for example
 const obj = [
@@ -34,11 +37,13 @@ const obj = [
   },
 ];
 
-export default function SideBar({ add }) {
+export default function SideBar() {
   const { pathname } = useLocation();
   const history = useHistory();
   const nameArrowBtn = pathname === "/task" ? "спринт" : "проект";
   const [visibleTab, setVisibleTab] = useState(obj[1].id);
+  const dispatch = useDispatch();
+  const add = () => dispatch(modalAction.setModalCreateProject(true));
 
   return (
     <aside className={styles.aside}>
