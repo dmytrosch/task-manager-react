@@ -31,9 +31,7 @@ export default [
     exact: true,
     component: lazy(
       () =>
-        import(
-          "../views/TasksView/TasksView.js" /* webpackChunkName: "Task" */
-        )
+        import("../views/TasksView/TasksView.js" /* webpackChunkName: "Task" */)
     ),
     private: true,
     restricted: false,
