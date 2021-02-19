@@ -34,16 +34,16 @@
 }
 
 .editBtn {
-    content: '';
+    /* content: '';
     display: inline-block;
     width: 20px;
-    height: 20px;
+    height: 20px; */
     margin-left: 20px;
     
-    background-image: url('../../assest/icons/Remove.icon.svg');
-    background-position: center;
+    /* background-image: url('../../assest/icons/Remove.icon.svg'); */
+    /* background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: contain; */
 
     cursor: pointer;
 }
@@ -85,7 +85,7 @@
     align-items: center;
 }
 
-.addSprintBtn {
+/* .addSprintBtn {
     width: 44px;
     height: 44px;
     border-radius: 25px;
@@ -95,7 +95,7 @@
     background-size: auto;
     background-repeat: no-repeat;
 
-}
+} */
 
 .addSprintText {
     composes: text;

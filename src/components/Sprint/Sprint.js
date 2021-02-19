@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import SprintList from "./SprintList";
 
 import styles from "./Sprint.module.css";
+import IconButton from "../../common/IconButtons/index.js"
+
 
 const getProjectDataById = (projectId) => () => ({
   name: "Project 1",
@@ -38,8 +40,11 @@ export default function Sprint({ addSprint, editProject, addParticipant }) {
           {name}
         </h2>
 
-        <button className={styles.editBtn} onClick={editProject}></button>
-
+        {/* <button className={styles.editBtn} onClick={editProject}></button> */}
+        <IconButton           
+        iconButtonCustomClass={styles.editBtn}           
+        iconName="pen" icon="pen"           
+        onClick={editProject} />
         {description && <p className={styles.description}>{description}</p>}
 
         <p className={styles.addParticipant} onClick={addParticipant}>
@@ -49,7 +54,11 @@ export default function Sprint({ addSprint, editProject, addParticipant }) {
         <SprintList sprintIds={sprintIds} />
 
         <div className={styles.addSprint}>
-          <button className={styles.addSprintBtn} onClick={addSprint}></button>
+          {/* <button className={styles.addSprintBtn} onClick={addSprint}></button> */}
+          <IconButton           
+          iconButtonCustomClass={styles.button}           
+          iconName="plus" icon="plus"           
+          onClick={addSprint}/>
           <span className={styles.addSprintText}>Створити спринт</span>
         </div>
       </div>
