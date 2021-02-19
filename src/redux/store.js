@@ -15,7 +15,7 @@ import storage from "redux-persist/lib/storage";
 import projects from "./projects/projectsReducers";
 import sprints from "./sprints/sprintsReducers";
 import tasks from "./tasks/tasksReducers";
-
+import notification from "./notifications/notificationReduser";
 import auth from "./auth/authReducer";
 import clientWidth from "./clientWidth/clientWidthReducer";
 import loading from "./loading/loadingReducer";
@@ -31,7 +31,7 @@ const app = combineReducers({
   auth: persistReducer(authPersistConfig, auth),
   clientWidth,
 });
-const ui = combineReducers({ loading, modal });
+const ui = combineReducers({ loading, modal, notification });
 
 const store = configureStore({
   reducer: {

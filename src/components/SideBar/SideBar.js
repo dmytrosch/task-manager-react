@@ -26,12 +26,57 @@ const obj = [
     color: "#00FFFF",
   },
   {
-    id: 4,
+    id: 22,
     name: "Project 4",
     color: "#FFFF00",
   },
   {
     id: 5,
+    name: "Project 1",
+    color: "#FF00FF",
+  },
+  {
+    id: 6,
+    name: "Project 3",
+    color: "#00FFFF",
+  },
+  {
+    id: 7,
+    name: "Project 4",
+    color: "#FFFF00",
+  },
+  {
+    id: 8,
+    name: "Project 1",
+    color: "#FF00FF",
+  },
+  {
+    id: 435,
+    name: "Project 3",
+    color: "#00FFFF",
+  },
+  {
+    id: 435,
+    name: "Project 4",
+    color: "#FFFF00",
+  },
+  {
+    id: 345,
+    name: "Project 1",
+    color: "#FF00FF",
+  },
+  {
+    id: 346,
+    name: "Project 3",
+    color: "#00FFFF",
+  },
+  {
+    id: 23,
+    name: "Project 4",
+    color: "#FFFF00",
+  },
+  {
+    id: 12,
     name: "Project 1",
     color: "#FF00FF",
   },
@@ -48,7 +93,9 @@ export default function SideBar() {
   return (
     <aside className={styles.aside}>
       <GoBackBtn props={{ pathname, history, nameArrowBtn }} />
+
       <ListItem props={{ obj, visibleTab, setVisibleTab }} />
+
       <AddTaskBtn nameArrowBtn={nameArrowBtn} addNewProject={add} />
     </aside>
   );
