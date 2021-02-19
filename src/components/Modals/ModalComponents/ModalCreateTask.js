@@ -11,7 +11,6 @@ export default function ModalCreateTask() {
   const dispatch = useDispatch();
   const isOpen = useSelector(isModalCreateTask);
   const closeModal = () => dispatch(setModalCreateTask(false));
-
   return isOpen ? (
     <ModalPortal>
       <Modal onClose={closeModal} position="modalWindowRight">
