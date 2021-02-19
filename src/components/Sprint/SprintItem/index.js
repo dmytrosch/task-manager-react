@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 import styles from './sprintItem.module.css'
+import IconButton from "../../../common/IconButtons/index.js"
 
 const getSprintById = (id) => () => ({
   name: 'Sprint Burndown Chart 1',
@@ -35,10 +36,15 @@ export default function SprintItem({ id }) {
           </li>
         </ul>
       </NavLink>
-      <button
+      {/* <button
         className={styles.deleteBtn}
         onClick={() => deleteSprint(id)}
-      ></button>
+      ></button> */}
+      <IconButton           
+      iconButtonCustomClass={styles.deleteBtn}           
+      iconName="greyBin" icon="greyBin"           
+      onClick={() => deleteSprint(id)} />
+
     </div>
   )
 }

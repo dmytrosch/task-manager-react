@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ModalPortal from "../../common/ModalPortal/ModalPortal";
-import Button from "../../common/Button/index";
+// import Button from "../../common/Button/index";
 import styles from "./progressChart.module.css";
 import ModalWindow from "./ModalWindow";
-import analyticsIcon from "../../assest/icons/analytics.svg";
+// import analyticsIcon from "../../assest/icons/analytics.svg";
 import ChartTable from "./ChartTableOptions";
+import IconButton from "../../common/IconButtons/index.js";
 
 export default function ProgressChart() {
   const [isOn, setOn] = useState(false);
@@ -24,12 +25,16 @@ export default function ProgressChart() {
 
   return (
     <>
-      <Button
+      {/* <Button
         buttonCustomClass={styles.button}
         shape="circle"
         children={<img src={analyticsIcon} alt="img" img />}
         onClick={() => setOn(!isOn)}
-      ></Button>
+      ></Button> */}
+      <IconButton
+      buttonCustomClass={styles.button}
+      iconName="analytica" icon="analytica"           
+      onClick={() => setOn(!isOn)} />
       {isOn && (
         <ModalPortal>
           <ModalWindow setOn={setOn}>
