@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import styles from "./styles.module.css";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import IconButton from "../../common/IconButtons/index.js";
+
+import * as modalAction from "../../redux/modal/modalAction";
 
 const projects = [
   {
@@ -32,11 +35,8 @@ const projects = [
 ];
 
 export default function Dashboard() {
-  const [modal, setModal] = useState(false);
-  const clickHandler = (e) => {
-    e.preventDefault();
-    console.log("click");
-  };
+  const dispatch = useDispatch();
+  const addProject = () => dispatch(modalAction.setModalCreateProject(true));
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -52,7 +52,7 @@ export default function Dashboard() {
               iconButtonCustomClass={styles.button}
               iconName="plus" 
               icon="plus"           
-              onClick={(e) => setModal(true)} />
+              onClick={addProject} />
               <p className={styles.text}>Створити проект</p>
             </div>
           </div>
@@ -72,9 +72,3 @@ export default function Dashboard() {
     </div>
   );
 }
-
-// {modal && (
-//   <li className={styles.projectItem}>
-//     <ProjectCard />
-//   </li>
-// )}

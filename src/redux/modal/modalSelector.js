@@ -1,2 +1,6 @@
 // export const getModalType = (state) => state.modal;
-export const isOpenModalCreateTask = (state) => state.ui.modal.createTask
+export const isModalCreateTask = (state) => state.ui.modal.createTask;
+export const isModalCreateSprint = (state) => state.ui.modal.createSprint;
+export const isModalAddParticipant = (state) => state.ui.modal.addParticipant;
+export const isModalCreateProject = (state) => state.ui.modal.createProject;
+export const isModalEditProject = (state) => state.ui.modal.editProject;
