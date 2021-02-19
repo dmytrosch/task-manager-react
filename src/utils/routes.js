@@ -13,7 +13,7 @@ export default [
     restricted: false,
   },
   {
-    path: "/:projectId/sprints",
+    path: "projects/:projectId/sprints",
     label: "Sprint",
     exact: true,
     component: lazy(
@@ -26,7 +26,7 @@ export default [
     restricted: false,
   },
   {
-    path: "/:projectId/sprints/:sprintId/tasks",
+    path: "projects/:projectId/sprints/:sprintId/tasks",
     label: "Lask",
     exact: true,
     component: lazy(
