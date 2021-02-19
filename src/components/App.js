@@ -24,7 +24,9 @@ export default function App() {
 
   return (
     <>
+    <BrowserRouter>
     <Dashboard/>
+    </BrowserRouter>
       {/* <BrowserRouter>
         <Suspense fallback={<Loader />}>
           <Switch>

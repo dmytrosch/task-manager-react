@@ -6,7 +6,8 @@
   padding: 28px 0 0 0;
   position: relative;
 }
-.wrapper {
+.navLink {
+    display: block;
     width: 100%;
     height: 100%;
 }
@@ -17,6 +18,8 @@
     width: 116px;
     font-weight: 800;
     font-size: 16px;
+    overflow: hidden;
+    word-break: break-all;
 }
 .description {
     width: 116px;
@@ -32,9 +35,6 @@
 .button {
     background: url(../../assest/icons/delete.svg) no-repeat;
     background-position: center;
-    /* background-image: url(../../assest/icons/delete.svg); */
-    /* background-repeat: no-repeat; */
-    /* background-color: transparent; */
     width: 30px;
     height: 43px;
     position: absolute;
@@ -49,10 +49,10 @@
         height: 216px;
         width: 216px;
         }
-    .wrapper {
-        background: url(../../assest/icons/Vector.1.png), url(../../assest/icons/Vector.2.png);
-        background-repeat: no-repeat;
-        background-position: bottom;
+        .navLink {
+            background: url(../../assest/icons/Vector.1.png), url(../../assest/icons/Vector.2.png);
+            background-repeat: no-repeat;
+            background-position: bottom;
         }
     .button {
         width: 34px;
