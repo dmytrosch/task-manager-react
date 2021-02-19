@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
+import IconButton from "../../common/IconButtons/index.js"
 
 export default function TaskCard() {
   return (
@@ -18,7 +19,11 @@ export default function TaskCard() {
           <p className={styles.text}>Витрачено годин</p>
           <p className={styles.spendedHours}>0</p>
         </div>
-        <button className={styles.button}></button>
+        {/* <button className={styles.button}></button> */}
+        <IconButton
+        iconButtonCustomClass={styles.button}           
+        iconName="greyBin" icon="greyBin"           
+        />
       </li>
     </ul>
   );

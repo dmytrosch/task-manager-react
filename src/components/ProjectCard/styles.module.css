@@ -30,18 +30,18 @@
     transition: 1s;
 }
 .button {
-    background: url(../../assest/icons/delete.svg) no-repeat;
-    background-position: center;
+    /* background: url(../../assest/icons/delete.svg) no-repeat;
+    background-position: center; */
     /* background-image: url(../../assest/icons/delete.svg); */
     /* background-repeat: no-repeat; */
     /* background-color: transparent; */
-    width: 30px;
-    height: 43px;
+    /* width: 30px;
+    height: 43px; */
     position: absolute;
     right: 10px;
-    bottom: 0;
+    bottom: 10px;
     outline: none;
-    border-radius: 25px;
+    /* border-radius: 25px; */
 }
 
 @media screen and (min-width:768px) {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 import ProjectCard from "../ProjectCard/ProjectCard";
+import IconButton from "../../common/IconButtons/index.js";
 
 const projects = [
   {
@@ -43,10 +44,15 @@ export default function Dashboard() {
           <div className={styles.infoBox}>
             <h2 className={styles.title}>Проекти</h2>
             <div className={styles.box}>
-              <button
+              {/* <button
                 className={styles.button}
                 onClick={(e) => setModal(true)}
-              ></button>
+              ></button> */}
+              <IconButton
+              iconButtonCustomClass={styles.button}
+              iconName="plus" 
+              icon="plus"           
+              onClick={(e) => setModal(true)} />
               <p className={styles.text}>Створити проект</p>
             </div>
           </div>

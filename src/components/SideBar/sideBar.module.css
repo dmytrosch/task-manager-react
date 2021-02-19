@@ -88,10 +88,10 @@
 .button{
   display: block;
   margin: 0 auto;
-  background-image: url('../../assest/icons/+.svg');
+  /* background-image: url('../../assest/icons/+.svg');
   background-position: center;
   background-size: auto;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 .addButton{

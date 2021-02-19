@@ -25,6 +25,23 @@
     box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
 }  
   
+.plus{
+    border: 1px solid var(--orangeColor);
+    width:44px;
+    height: 44px;
+    border-radius: 50%;
+    fill: var(--whiteColor);
+    background: var(--orangeColor);
+}  
+
+.plus:hover,
+.plus:focus{
+    stroke: var(--orangeColor);
+    fill: var(--orangeColor);
+    background: var(--whiteColor);
+    border: 1px solid var(--orangeColor);
+    box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+}  
 
 .coloredBin{
     width:34px;
@@ -55,6 +72,7 @@
 .greyBin:focus{
     fill: var(--orangeColor);
     transition: var(--trans);
+    /* transform: scale(1.3); */
 }
 
 .pen{
@@ -81,6 +99,7 @@
 .search:focus{
     fill: var(--orangeColor);
     transition: var(--trans);
+    transform: scale(1.3);
 }
 
   

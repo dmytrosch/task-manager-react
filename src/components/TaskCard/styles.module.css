@@ -31,12 +31,12 @@
     width: 75px;
 }
 .button {
-    width: 20px;
+    /* width: 20px;
     height: 20px;
     background: url(../../assest/icons/deleteTask.svg) no-repeat;
     background-position: center;
     border-radius: 25px;
-    outline: none;
+    outline: none; */
     position: absolute;
     right: 10px;
     bottom: 10px;

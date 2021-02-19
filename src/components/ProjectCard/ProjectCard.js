@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
+import IconButton from '../../common/IconButtons/index'
 
 export default function ProejctCard({name, description}) {
     const deleteCard = (e) => {
@@ -16,8 +17,12 @@ export default function ProejctCard({name, description}) {
                 <p className={styles.description}>
                     {description}
                 </p>
-                <button className={styles.button} onClick={deleteCard}>
-                </button>
+                {/* <button className={styles.button} onClick={deleteCard}>
+                </button> */}
+                <IconButton           
+                iconButtonCustomClass={styles.button}           
+                iconName="coloredBin" icon="coloredBin"           
+                onClick={deleteCard} />
             </div>
         </div>
     )
