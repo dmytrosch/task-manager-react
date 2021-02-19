@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware, com } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import {
   persistReducer,
   persistStore,
