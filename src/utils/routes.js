@@ -4,7 +4,7 @@ import { lazy } from "react";
 export default [
   {
     path: "/",
-    label: "Home",
+    label: "Projects",
     exact: true,
     component: lazy(
       () => import("../views/MainView/MainView" /* webpackChunkName: "Home" */)
@@ -14,7 +14,7 @@ export default [
   },
   {
     path: "/projects/:projectId/sprints",
-    label: "Sprint",
+    label: "Sprints",
     exact: true,
     component: lazy(
       () =>
@@ -26,8 +26,8 @@ export default [
     restricted: false,
   },
   {
-    path: "/projects/:projectId/sprints/:sprintId/tasks",
-    label: "Lask",
+    path: "/projects/:projectId/sprints/:sprintId/tasks/:day",
+    label: "Tasks",
     exact: true,
     component: lazy(
       () =>
