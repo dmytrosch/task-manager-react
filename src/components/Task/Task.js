@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setModalCreateTask } from "../../redux/modal/modalAction";
+import {
+  setModalCreateTask,
+  setModalChartTable,
+} from "../../redux/modal/modalAction";
 import TasksList from "./TasksList";
-
 import ModalCreateTask from "../../components/Modals/ModalComponents/ModalCreateTask";
 import MainLayout from "../../components/Layouts/MainLayout";
 import SideBar from "../../components/SideBar/SideBar";
-import IconButton from "../../common/IconButtons";
+import IconButton from "../../common/IconButtons/index";
 import Button from "../../common/Button/index";
-
+import Chart from "../../components/Modals/ModalComponents/ModalChartTable";
 import style from "./Task.module.css";
 import viewStyles from "../../views/SprintsView/SprintsView.module.css";
 
@@ -33,6 +35,9 @@ export default function Task({ sprintName }) {
   const openModalTask = () => {
     dispatch(setModalCreateTask(true));
   };
+  const openModalChartTable = () => {
+    dispatch(setModalChartTable(true));
+  };
 
   return (
     <div className={viewStyles.view}>
@@ -40,6 +45,8 @@ export default function Task({ sprintName }) {
         <SideBar />
 
         <ModalCreateTask />
+
+        <Chart />
       </section>
 
       <main className={style.container}>
@@ -55,12 +62,10 @@ export default function Task({ sprintName }) {
         </div>
 
         <div className={style.containerInput}>
-          {/* <IconButton className={style.searchSVG} iconName="search" /> */}
-          <IconButton           
-          iconButtonCustomClass={style.searchSVG}           
-          iconName="search" icon="search"           
-           />
-          <input className={style.input} />
+          <div className={style.wrapSearch}>
+            <input className={style.searchSubmit} value="" type="text" />
+            <input className={style.search} name="search" type="text" />
+          </div>
         </div>
 
         <p className={style.sprintNames}>
@@ -72,15 +77,12 @@ export default function Task({ sprintName }) {
            />
         </p>
         <div className={style.containerButton}>
-          {/* <Button
-            buttonCustomClass={style.buttonAdd}
-            shape="circle"
+          <IconButton
+            iconButtonCustomClass={style.buttonAdd}
+            iconName="plus"
+            icon="plus"
             onClick={openModalTask}
-          ></Button> */}
-          <IconButton           
-          // iconButtonCustomClass={style.button}           
-          iconName="plus" icon="plus"           
-          onClick={openModalTask} />
+          />
           <p className={style.titleButton}>Створити задачу</p>
         </div>
 
@@ -98,16 +100,28 @@ export default function Task({ sprintName }) {
             <br /> годин
           </span>
           <div className={style.containerInputDesctop}>
-            {/* <IconButton className={style.searchSVG} iconName="search" /> */}
-            <IconButton           
-          iconButtonCustomClass={style.searchSVG}           
-          iconName="search" icon="search"           
-           />
-            <input className={style.input} />
+            <div className={style.wrap}>
+              <input
+                className={style.search}
+                name="search"
+                type="text"
+                maxLength="11"
+                placeholder="Пошук..."
+              />
+              <input className={style.searchSubmit} value="" type="text" />
+            </div>
           </div>
         </div>
         <section className={style.containerWithTask}>
           <TasksList tasksIds={tasksIds} />
+          <div className={style.button}>
+            <IconButton
+              buttonCustomClass={style.button}
+              iconName="analytica"
+              icon="analytica"
+              onClick={openModalChartTable}
+            ></IconButton>
+          </div>
         </section>
         <IconButton  
         iconName="analytica" icon="analytica"           

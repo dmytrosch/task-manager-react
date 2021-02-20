@@ -1,199 +1,238 @@
 
-    .titleButton{
-        display: none;
-    }
-    .containerButton{
-        display: none;
-    }
+ .titleButton{
+    display: none;
+    margin-bottom: 300px;
+}
 
-    .tableDesctopDescrip{
-        display: none;
-    }
-    .container{
-        margin-top: 20px;
-        position: relative;
-        font-family: var(--primeFont);
+.containerButton{
+    position: relative;
+}
 
-    }
-    .containerGoBack{        
-        margin-bottom: 23px;
-    }
-    .containerGoBack::after{
-        content: "";
-        display: inline-block;
-        height: 1px;
-        width: 100vh;
-        background-color: var(--borderColor);
-        right: -20px;
-        position: absolute;
-    }
-    .ContainerPaginate{
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 54px;
-    }
-    .paginate{
-        display: inline-block;
-    }
+.tableDesctopDescrip{
+    display: none;
+}
+.container{
+    margin-top: 20px;
+    position: relative;
+    font-family: var(--primeFont);
 
-    .puginateBth{
-        margin: 0px 20px 0px 0px;
-        background: url(../../assest/icons/ArrowLeft.icon.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 15px;
-        height: 15px;
-    }
-    .puginateBth:last-child{
-        margin: 0px 65px 0px 20px;
-        background: url(../../assest/icons/ArrowRight.icon.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 15px;
-        height: 15px;
-    }
-    .dateCreation{
-        display: inline-block;
-        font-size: 12px;
-        line-height: 15px;
-        color: var(--greyColor);
-    }
-    .containerInput{
-        margin: 0 auto;
-        position: relative;
-        width: 280px;
-        margin-bottom: 20px;
-    }
-    .input{
-        width: 280px;
-        background: none;
-        border: none;
-        border-bottom: 1px solid rgba(24, 28, 39, 0.1);
-        outline: none;
-    }
-    .input::placeholder{
-        font-family: var(--primeFont);
-    }
-    /* .containerInput:hover .searchSVG{
-        opacity: 0;
-    } */
-    
-    .searchSVG{
-        fill:  var(--greyColor);
-        position:absolute;
-        bottom: 12px;
-        left: 12px;
-    }
-    .containerInput:hover .searchSVG{
-        visibility: hidden;
-        transition: var(--trans);
-    }
+}
+.containerGoBack{        
+    margin-bottom: 23px;
+}
+.containerGoBack::after{
+    content: "";
+    display: inline-block;
+    height: 1px;
+    width: 100vh;
+    background-color: var(--borderColor);
+    right: -20px;
+    position: absolute;
+}
+.ContainerPaginate{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 54px;
+}
+.paginate{
+    display: inline-block;
+}
+
+.puginateBth{
+    margin: 0px 20px 0px 0px;
+    background: url(../../assest/icons/ArrowLeft.icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+}
+.puginateBth:last-child{
+    margin: 0px 65px 0px 20px;
+    background: url(../../assest/icons/ArrowRight.icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+}
+.dateCreation{
+    display: inline-block;
+    font-size: 12px;
+    line-height: 15px;
+    color: var(--greyColor);
+}
+.containerInput{
+    margin: 0 auto;
+    width: 280px;
+    margin-bottom: 20px;
+}
+
+
+.sprintNames{
+
+    margin: 0 auto;
+    position: relative;
+    width: 260px;
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 30px;
+}
+.changeTextBtn{
+    position: absolute; 
+    right: -7px;
+    top: 6px;
+    background-image: url(../../assest/icons/ChangeText.icon.svg);
+    width: 20px;
+    height: 20px;
+}
+.containerWithTask{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapSearch {
+    display: flex;
+    flex-wrap: wrap;
+    height: 32px;
+    width: 100%;
+}
+
+
+.search {
+    font-family: var(--primeFont);
+    height: 14px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: #555;
+    width: 100%;
+    background: none;
+    z-index: 0;
+    transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+    cursor: pointer;
+    border-bottom: 1px solid var(--borderColor);
+  }
+
+  .search:focus:hover {
+    outline: none;
+    border-bottom: 2px solid var(--borderColor);
+  
+  
+}
+
+.searchSubmit {
+  height: 20px;
+  width: 20px;
+  margin-left: auto;
+  margin-right: 14px;
+  background: url('../../assest//ui/search.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-indent: -10000px;
+  border: none;
+  z-index: 0;
+  cursor: pointer;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity .4s ease;
+  
+}
+
+.searchSubmit:hover {
+  opacity: 0.8;
+  outline: none;
+
+}
+
+
+
+
+@media (max-width:766px){
+    .searchSubmit {
+        margin: 0px 20px;
+}
+.button{
+    position: fixed;
+    top: 86%;
+    left: 23%;
+   }
+
+   .buttonAdd{
+       position: fixed;
+       top: 86%;
+       left: 68%;
+       z-index: 100;
+   }
+}
  
-    .sprintNames{
-
-        margin: 0 auto;
-        position: relative;
-        width: 260px;
-        font-size: 26px;
-        line-height: 32px;
-        margin-bottom: 30px;
-    }
-    .changeTextBtn{
-        position: absolute; 
-        right: -7px;
-        top: 6px;
-        /* background-image: url(../../assest/icons/ChangeText.icon.svg);
-        width: 20px;
-        height: 20px; */
-    }
-    .containerWithTask{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-
-
-
-   
 @media (min-width: 767px){
 
-    .containerInput{
-        width: 214px;
-    }
-    .input{
-        width: 214px;
-    }
-    .containerInput{
-        display: inline-block;
-    }
-    .ContainerPaginate{
-        display: inline-flex;
-        margin: 0px 0px 0px 10px;
-       
-    }
-    .searchSVG{
-        bottom: 2px;
-        left: 180px;
-    }
-    /* .buttonAdd:after {
-        transform: rotate(0deg);
-    }
-    .buttonAdd::before {
-        transform: rotate(90deg);
-    }
-    .buttonAdd:before, .buttonAdd:after {
-        content: "";
-        display: block;
-        margin: 0 auto;
-        width: 22px;
-        height: 2px;
-        background: var(--whiteColor);
-    }
-    .buttonAdd:hover::before,
-    .buttonAdd:hover::after{
-      background: var(--orangeColor)
-    } 
-    .buttonAdd{
-        font-size: 54px;
-        display: inline-block;
-    } */
-    .containerWithTask{
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-    .containerButton{   
-    position: absolute;
-    right: 10%;
-    }
-    .sprintNames{
-        margin-left: 20%;
-    }
-    .containerButton{
-        display: inline-block;
-    }
-    .sprintNames{
-        display: inline-block;
-    }
+    .button{
+        position: fixed;
+        top: 74%;
+        left: 91%;
+       }
+
+.containerInput{
+    width: 214px;
+}
+.input{
+    width: 214px;
+}
+.containerInput{
+    display: inline-block;
+}
+.ContainerPaginate{
+    display: inline-flex;
+    margin: 0px 0px 0px 10px;
+   
+}
+
+.containerWithTask{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.containerButton{   
+position: absolute;
+right: 10%;
+}
+.sprintNames{
+    margin-left: 20%;
+}
+.containerButton{
+    display: inline-block;
+}
+.sprintNames{
+    display: inline-block;
+}
 }
 
 
 @media (min-width: 854px){
-    .ContainerPaginate{
-     margin: 0px 20px 0px 57px;
+.ContainerPaginate{
+ margin: 0px 20px 0px 57px;
 }
 .containerButton{
-    right: 15%;
+right: 15%;
 }
 }
 @media (min-width: 1105px) and (max-width: 1279px){
-    .ContainerPaginate{
-        margin: 0px 66px 0px 125px;
-    }
+.ContainerPaginate{
+    margin: 0px 66px 0px 125px;
+}
 }
 @media (min-width: 1279px){
+    .button{
+        position: fixed;
+        top: 80%;
+        left: 91%;
+       }
+    
     .span:nth-child(1){
         margin: 0px 0px 0px 70px;
     }
@@ -208,14 +247,6 @@
         position: absolute;
         right: 20%;
         }
-       .input{
-        width: 280px;
-        padding: 12px 0px 0px;
-    }
-    .searchSVG{
-        bottom: 12px;
-        left: 12px;
-    }
     .dateCreation{
         margin: 0;
     }
@@ -250,21 +281,16 @@
         margin-bottom: 30px;
     }
     .containerInputDesctop{
-        display: inline-block;
         position: relative;
         width: 50px;
+        padding-top:10px;
     }
-    .input{
-        width: 50px;
-    }
-    .input:hover{
-        width: 100px;
-        transition: var(--trans);
-    }
+    
     .containerButton{
         display: inline-block;
         text-align: center;
-        margin-left: 32%;
+        margin-left: 0%;
+        padding-right: 40px;
         position: absolute;
     }
     .titleButton{
@@ -273,8 +299,98 @@
         font-size: 18px;
         font-weight: 500;
         margin: 12px 16px 1px;
-        width: 141px;
+        width: 160px;
         position: absolute;
     }
+
+
+    
+    .wrap {
+        display: flex;
+        position: relative;
+        height: 20px;
+        width: 20px;
+        float: right;
+    }
+    
+    
+    .search {
+        font-family: var(--primeFont);
+        font-weight: 400;
+        height: 20px;
+        width: 20px;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: #555;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: none;
+        z-index: 3;
+        transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+        cursor: pointer;
+      }
+    
+      .search:focus:hover {
+    outline: none;
+      border-bottom: 2px solid #BBB;
+      
+      
+    }
+    
+    .search:focus {
+      width: 110px;
+      z-index: 1;
+      border-bottom: 2px solid #BBB;
+      cursor: text;
+      outline: none;
+    
+      
+    }
+    .searchSubmit {
+      height: 20px;
+      width: 20px;
+      display: inline-block;
+      background: url('../../assest//ui/search.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      text-indent: -10000px;
+      border: none;
+      z-index: 2;
+      cursor: pointer;
+      opacity: 0.4;
+      cursor: pointer;
+      transition: opacity .4s ease;
+      
+      
+    }
+    
+    .searchSubmit:hover {
+      opacity: 0.8;
+      outline: none;
+    
+    }
+    
+    
+    .search::-webkit-input-placeholder       {opacity: 1; transition: opacity 2.5s ease; color: transparent;}
+    .search::-moz-placeholder                {opacity: 1; transition: opacity 2.5s ease;color: transparent;}
+    .search:-moz-placeholder                 {opacity: 1; transition: opacity 2.5s ease;color: transparent;}
+    .search:-ms-input-placeholder            {opacity: 1; transition: opacity 2.5s ease;color: transparent;}
+    .search:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 2.5s ease; color:#555}
+    .search:focus::-moz-placeholder          {opacity: 0; transition: opacity 2.5s ease;color:#555}
+    .search:focus:-moz-placeholder           {opacity: 0; transition: opacity 2.5s ease;color:#555}
+    .search:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 2.5s ease;color:#555}
  
 }
+
+
+
+
+
+
+
+
+
+

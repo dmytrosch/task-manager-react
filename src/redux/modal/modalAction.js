@@ -5,3 +5,4 @@ export const setModalCreateSprint = createAction("modal/CreateSprint");
 export const setModalAddParticipant = createAction("modal/AddParticipant");
 export const setModalCreateProject = createAction("modal/CreateProject");
 export const setModalEditProject = createAction("modal/EditProject");
+export const setModalChartTable = createAction("modal/ChartTable");

@@ -88,10 +88,6 @@
 .button{
   display: block;
   margin: 0 auto;
-  /* background-image: url('../../assest/icons/+.svg');
-  background-position: center;
-  background-size: auto;
-  background-repeat: no-repeat; */
 }
 
 .addButton{
@@ -118,6 +114,7 @@ text-align: center;
   .navContainer{
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-left: 30%;
     
   }
   .aside{
@@ -134,15 +131,12 @@ text-align: center;
 
 @media (min-width:1024px){
   .tabsTitles {
-    /* min-height: 600px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     list-style: none;
     padding: 0px;
     margin: 0;
-    /* overflow-y: scroll;
-    max-height: 100vh; */
   }
 }
 
@@ -155,8 +149,6 @@ text-align: center;
     list-style: none;
     padding: 0px;
     margin: 0;
-    /* overflow-y: scroll;
-    max-height: 100vh; */
   }
   .navContainer{
     padding-top: 10px;
