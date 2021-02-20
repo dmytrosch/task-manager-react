@@ -22,8 +22,10 @@
     margin-bottom: 27px;
 }
 
-.input {
+.inputContainer {
     margin-bottom: 30px;
+    display: flex;
+    align-items: flex-end;
 }
 
 .listTitle {
@@ -82,6 +84,12 @@
     color: var(--greyColor);
 }
 
+.addBtn {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+}
+
 .cancelBtn:hover {
     background-color: transparent;
 }
@@ -101,5 +109,9 @@
 
     .item {
         font-size: 18px;  
+    }
+
+    .addBtn {
+        display: none;
     }
 }

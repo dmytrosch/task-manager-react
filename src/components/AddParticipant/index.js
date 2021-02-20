@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+
+import { makeAlertNotification } from "../../redux/notifications/notificationOperations";
 
 import styles from "./addParticipant.module.css";
 import animateItem from "../../utils/animateItem.module.css";
@@ -7,30 +10,31 @@ import animateItem from "../../utils/animateItem.module.css";
 import Input from "../../common/Input/index";
 import Button from "../../common/Button/index";
 
-/** TODO:
- * С макета не понятно по какому событию добавлять email в список...
- * Сейчас реализовано на Submit, а отправка созданного списка по клику
- * Но этот способ не годится для мобилки,
- * т.к. submit выполняется по клавише "enter"...
- */
-
 export default function AddParticipant({ onClose }) {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [list, setList] = useState([]);
 
-  const handleSubmit = (e) => {
+  const addEmail = (e) => {
     e.preventDefault();
-    if (isEmailValid(email, list)) {
-      setList([...list, email]);
-    } else {
-      // TODO: Notification
+    // TODO: Add validation email
+    // if (!isEmailValid(email)) {
+    //   retrun dispatch(makeAlertNotification('Введіть коректний e-mail'))
+    // }
+    if (list.includes(email)) {
+      return dispatch(makeAlertNotification("Цей e-mail вже є у списку"));
     }
+    setList([...list, email]);
     setEmail("");
   };
 
   const handleSendInvite = () => {
-    console.log("send", list);
-    onClose();
+    if (list.length !== 0) {
+      // TODO: Connect
+      console.log("send", list);
+      return onClose();
+    }
+    dispatch(makeAlertNotification("Додайте e-mail користувачів"));
   };
 
   const handleRemoveItem = (e) => {
@@ -40,15 +44,25 @@ export default function AddParticipant({ onClose }) {
 
   return (
     <div className={styles.containet}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={addEmail}>
         <h2 className={styles.title}>Додати людей</h2>
-        <Input
-          type="mail"
-          placeholder="Введіть e-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          inputClassNames={styles.input}
-        />
+        <div className={styles.inputContainer}>
+          <Input
+            type="mail"
+            placeholder="Введіть e-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            inputClassNames={styles.input}
+          />
+          <Button
+            shape="square"
+            type="submit"
+            buttonCustomClass={styles.addBtn}
+          >
+            Додати
+          </Button>
+        </div>
+
         <p className={styles.listTitle}>Додані користувачі:</p>
         {list.length === 0 ? (
           <p className={styles.message}>Ви ще не додали жодного користувача</p>
@@ -83,14 +97,4 @@ export default function AddParticipant({ onClose }) {
       </div>
     </div>
   );
-}
-
-function isEmailValid(email, list) {
-  // TODO: add regex email validation
-  let status = false;
-  if (!list.includes(email)) {
-    status = true;
-  }
-
-  return status;
 }
