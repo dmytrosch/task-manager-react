@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
 import style from "./Modal.module.css";
 import PropTypes from "prop-types";
-import classNames from "classnames";
-import iconClose from "../../assest/icons/Close.icon.svg";
-import { useDispatch } from "react-redux";
-
 
 export default function Modal({ children, position, onClose, ...props }) {
-  // const dispatch = useDispatch();
   const handleKeyboardCloseWindow = (e) => {
     if (e.code === "Escape") {
-      onClose()
+      onClose();
+    }
+  };
+
+  const handleClick = (e) => {
+    const backdrop = document.getElementById("modalBackdrop");
+    if (e.target === backdrop) {
+      onClose();
     }
   };
 
@@ -22,17 +24,17 @@ export default function Modal({ children, position, onClose, ...props }) {
   });
 
   return (
-    <div className={style.modalBackdrop}>
-      <div className={classNames(style.modalWindowRight, style[position])}>
-        <div className={style.iconContainer}>
-          <button
-            type="button"
-            onClick={onClose}
-            className={style.iconButton}
-          >
-            <img src={iconClose} alt="" className={style.icon} />
-          </button>
-        </div>
+    <div
+      id="modalBackdrop"
+      className={style.modalBackdrop}
+      onClick={handleClick}
+    >
+      <div className={style[position]}>
+        <button
+          type="button"
+          onClick={onClose}
+          className={style.closeBtn}
+        ></button>
         {children}
       </div>
     </div>
@@ -41,7 +43,7 @@ export default function Modal({ children, position, onClose, ...props }) {
 Modal.proprTypes = {
   position: PropTypes.string,
 };
-/* modalWindowRight, modalWindowCenter, modalWindowRemoval  */
+/* right, left, center  */
 Modal.defaultProps = {
-  position: "modalWindowRight",
+  position: "right",
 };

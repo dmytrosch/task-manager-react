@@ -14,7 +14,7 @@ export default function ModalCreateProject() {
 
   return isOpen ? (
     <ModalPortal>
-      <Modal onClose={closeModal} position="modalWindowRight">
+      <Modal onClose={closeModal} >
         <ProjectCreator onClose={closeModal} />
       </Modal>
     </ModalPortal>
