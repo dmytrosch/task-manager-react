@@ -1,17 +1,25 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
+import {addProjectSuccess, deleteProjectSuccess} from './projectActions';
 
 const byId = createReducer(
   {},
   {
-    addProject: (state, action) => ({
+    [addProjectSuccess]: (state, action) => ({
       ...state,
       [action.payload.id]: { ...action.payload },
     }),
-  }
+    [deleteProjectSuccess]: (state, action) => ({
+      ...state,
+      [action.payload.id]: null,
+    }),
+  },
+
 );
 const allIds = createReducer([], {
-  addProject: (state, action) => [...state, action.payload.id],
+  [addProjectSuccess]: (state, action) => [...state, action.payload.id],
+  [deleteProjectSuccess]: (state, action) => null,
+
 });
 
 const projects = combineReducers({ byId, allIds });
