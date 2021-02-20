@@ -22,11 +22,16 @@ const editProject = createReducer(null, {
   [modalAction.setModalEditProject]: (state, { payload }) => payload,
 });
 
+const chartTable = createReducer(null, {
+  [modalAction.setModalChartTable]: (state, { payload }) => payload,
+});
+
 const modal = combineReducers({
   createTask,
   createSprint,
   addParticipant,
   createProject,
   editProject,
+  chartTable,
 });
 export default modal;

@@ -97,3 +97,11 @@
         height: 440px;
   }
 }
+
+
+@media (min-width:1025px){
+  .lightboxContent{
+    width: 900px;
+        height: 600px;
+  }
+}

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setModalCreateTask } from "../../redux/modal/modalAction";
+import {
+  setModalCreateTask,
+  setModalChartTable,
+} from "../../redux/modal/modalAction";
 import TasksList from "./TasksList";
-
 import ModalCreateTask from "../../components/Modals/ModalComponents/ModalCreateTask";
 import MainLayout from "../../components/Layouts/MainLayout";
 import SideBar from "../../components/SideBar/SideBar";
-import IconButton from "../../common/IconButtons";
+import IconButton from "../../common/IconButtons/index";
 import Button from "../../common/Button/index";
-
+import Chart from "../../components/Modals/ModalComponents/ModalChartTable";
 import style from "./Task.module.css";
 import viewStyles from "../../views/SprintsView/SprintsView.module.css";
 
@@ -33,6 +35,9 @@ export default function Task({ sprintName }) {
   const openModalTask = () => {
     dispatch(setModalCreateTask(true));
   };
+  const openModalChartTable = () => {
+    dispatch(setModalChartTable(true));
+  };
 
   return (
     <div className={viewStyles.view}>
@@ -40,6 +45,8 @@ export default function Task({ sprintName }) {
         <SideBar />
 
         <ModalCreateTask />
+
+        <Chart />
       </section>
 
       <main className={style.container}>
@@ -66,11 +73,12 @@ export default function Task({ sprintName }) {
           <button className={style.changeTextBtn}></button>
         </p>
         <div className={style.containerButton}>
-          <Button
-            buttonCustomClass={style.buttonAdd}
-            shape="circle"
+          <IconButton
+            iconButtonCustomClass={style.buttonAdd}
+            iconName="plus"
+            icon="plus"
             onClick={openModalTask}
-          ></Button>
+          />
           <p className={style.titleButton}>Створити задачу</p>
         </div>
 
@@ -102,6 +110,14 @@ export default function Task({ sprintName }) {
         </div>
         <section className={style.containerWithTask}>
           <TasksList tasksIds={tasksIds} />
+          <div className={style.button}>
+            <IconButton
+              buttonCustomClass={style.button}
+              iconName="analytica"
+              icon="analytica"
+              onClick={openModalChartTable}
+            ></IconButton>
+          </div>
         </section>
       </main>
     </div>
