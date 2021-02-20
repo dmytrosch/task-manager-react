@@ -55,20 +55,32 @@ export default function Task({ sprintName }) {
         </div>
 
         <div className={style.containerInput}>
-          <IconButton className={style.searchSVG} iconName="search" />
+          {/* <IconButton className={style.searchSVG} iconName="search" /> */}
+          <IconButton           
+          iconButtonCustomClass={style.searchSVG}           
+          iconName="search" icon="search"           
+           />
           <input className={style.input} />
         </div>
 
         <p className={style.sprintNames}>
           Sprint Burndown Chart 1 {sprintName}
-          <button className={style.changeTextBtn}></button>
+          {/* <button className={style.changeTextBtn}></button> */}
+          <IconButton           
+          iconButtonCustomClass={style.changeTextBtn}           
+          iconName="pen" icon="pen"           
+           />
         </p>
         <div className={style.containerButton}>
-          <Button
+          {/* <Button
             buttonCustomClass={style.buttonAdd}
             shape="circle"
             onClick={openModalTask}
-          ></Button>
+          ></Button> */}
+          <IconButton           
+          // iconButtonCustomClass={style.button}           
+          iconName="plus" icon="plus"           
+          onClick={openModalTask} />
           <p className={style.titleButton}>Створити задачу</p>
         </div>
 
@@ -86,13 +98,20 @@ export default function Task({ sprintName }) {
             <br /> годин
           </span>
           <div className={style.containerInputDesctop}>
-            <IconButton className={style.searchSVG} iconName="search" />
+            {/* <IconButton className={style.searchSVG} iconName="search" /> */}
+            <IconButton           
+          iconButtonCustomClass={style.searchSVG}           
+          iconName="search" icon="search"           
+           />
             <input className={style.input} />
           </div>
         </div>
         <section className={style.containerWithTask}>
           <TasksList tasksIds={tasksIds} />
         </section>
+        <IconButton  
+        iconName="analytica" icon="analytica"           
+         />
       </main>
     </div>
   );
