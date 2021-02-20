@@ -62,7 +62,6 @@ export default function Task({ sprintName }) {
         </div>
 
         <div className={style.containerInput}>
-     
           <IconButton
             iconButtonCustomClass={style.searchSVG}
             iconName="search"
@@ -77,7 +76,6 @@ export default function Task({ sprintName }) {
 
         <p className={style.sprintNames}>
           Sprint Burndown Chart 1 {sprintName}
-
           <IconButton
             iconButtonCustomClass={style.changeTextBtn}
             iconName="pen"
@@ -85,8 +83,6 @@ export default function Task({ sprintName }) {
           />
         </p>
         <div onClick={openModalTask} className={style.containerButton}>
-      
-
           <IconButton
             // iconButtonCustomClass={style.button}
             iconName="plus"
@@ -113,8 +109,6 @@ export default function Task({ sprintName }) {
           <div className={style.containerInputDesctop}>
             {/* <IconButton className={style.searchSVG} iconName="search" /> */}
 
-
-
             {/* <IconButton
               iconButtonCustomClass={style.searchSVG}
               iconName="search"
@@ -122,9 +116,6 @@ export default function Task({ sprintName }) {
             />
             <input className={style.input} /> */}
             {/* buttons check styles */}
-
-
-
 
             <div className={style.wrap}>
               <input
@@ -148,9 +139,7 @@ export default function Task({ sprintName }) {
               onClick={openModalChartTable}
             ></IconButton> */}
           </div>
-          <IconButton  
-        iconName="analytica" icon="analytica"           
-         />
+          <IconButton iconName="analytica" icon="analytica" />
         </section>
       </main>
     </div>

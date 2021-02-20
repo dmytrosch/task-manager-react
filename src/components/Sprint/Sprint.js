@@ -26,9 +26,9 @@ const getSprintIdsByProjectId = (projectId) => () => [
 export default function Sprint() {
   const { name, description } = useSelector(getProjectDataById("projectId"));
   const sprintIds = useSelector(getSprintIdsByProjectId("projectId"));
-  
+
   const dispatch = useDispatch();
-  
+
   const editProject = () => dispatch(modalAction.setModalEditProject(true));
   const addParticipant = () =>
     dispatch(modalAction.setModalAddParticipant(true));

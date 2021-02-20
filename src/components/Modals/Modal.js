@@ -5,12 +5,11 @@ import classNames from "classnames";
 import iconClose from "../../assest/icons/Close.icon.svg";
 import { useDispatch } from "react-redux";
 
-
 export default function Modal({ children, position, onClose, ...props }) {
   // const dispatch = useDispatch();
   const handleKeyboardCloseWindow = (e) => {
     if (e.code === "Escape") {
-      onClose()
+      onClose();
     }
   };
 
@@ -25,11 +24,7 @@ export default function Modal({ children, position, onClose, ...props }) {
     <div className={style.modalBackdrop}>
       <div className={classNames(style.modalWindowRight, style[position])}>
         <div className={style.iconContainer}>
-          <button
-            type="button"
-            onClick={onClose}
-            className={style.iconButton}
-          >
+          <button type="button" onClick={onClose} className={style.iconButton}>
             <img src={iconClose} alt="" className={style.icon} />
           </button>
         </div>

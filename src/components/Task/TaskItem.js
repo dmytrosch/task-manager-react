@@ -18,29 +18,31 @@ export default function SprintItem({ id }) {
 
   return (
     <>
-          <li className={styles.container}>
-            <h2 className={styles.taskName}>{name}</h2>
-            <div className={styles.div}>
-              <p className={styles.text}>Заплановано годин</p>
-              <p className={styles.planingHours}>{ScheduledHours}</p>
-            </div>
-            <div className={styles.div}>
-              <p className={styles.text}>Витрачено год/день</p>
-              <input className={styles.input} placeholder="6"></input>
-            </div>
-            <div className={styles.div}>
-              <p className={styles.text}>Витрачено годин</p>
-              <p className={styles.spendedHours}>{hoursSpent}</p>
-            </div>
-            {/* <button
+      <li className={styles.container}>
+        <h2 className={styles.taskName}>{name}</h2>
+        <div className={styles.div}>
+          <p className={styles.text}>Заплановано годин</p>
+          <p className={styles.planingHours}>{ScheduledHours}</p>
+        </div>
+        <div className={styles.div}>
+          <p className={styles.text}>Витрачено год/день</p>
+          <input className={styles.input} placeholder="6"></input>
+        </div>
+        <div className={styles.div}>
+          <p className={styles.text}>Витрачено годин</p>
+          <p className={styles.spendedHours}>{hoursSpent}</p>
+        </div>
+        {/* <button
               className={styles.button}
               onClick={() => deleteSprint(id)}
             ></button> */}
-            <IconButton           
-            iconButtonCustomClass={styles.button}           
-            iconName="greyBin" icon="greyBin"           
-            onClick={() => deleteSprint(id)} />
-          </li>
+        <IconButton
+          iconButtonCustomClass={styles.button}
+          iconName="greyBin"
+          icon="greyBin"
+          onClick={() => deleteSprint(id)}
+        />
+      </li>
     </>
   );
 }

@@ -43,12 +43,12 @@
   background-color: transparent;
 }
 
-.inputError{
-    color: #ff2c0c;
-    border-bottom: 2px solid #ff2c0c;
+.inputError {
+  color: #ff2c0c;
+  border-bottom: 2px solid #ff2c0c;
 }
 
-.errorMessage{
-    font-size: 14px;
-    color: #75727b;
+.errorMessage {
+  font-size: 14px;
+  color: #75727b;
 }

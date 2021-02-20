@@ -33,14 +33,39 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "prettier --write ./src"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    }
   },
+  "prettier": {
+    "useTabs": false, 
+    "printWidth": 80, 
+    "tabWidth": 2, 
+    "singleQuote": false, 
+    "trailingComma": "es5", 
+    "jsxBracketSameLine": false, 
+    "parser": "flow", 
+    "semi": true,
+    "overrides": [
+  {
+    "files": "*.css",
+    "options": {
+      "parser": "css"
+    }
+  }
+]
+}, 
   "browserslist": {
     "production": [
       ">0.2%",
@@ -64,5 +89,10 @@
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

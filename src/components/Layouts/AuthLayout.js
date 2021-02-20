@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { isMobileSelector } from "../../redux/clientWidth/clientWidthSelectors";
 
 export default function AuthLayout(props) {
-  const isMobileMode = false
+  const isMobileMode = false;
   return (
     <div className={layoutStyles.wrapper}>
       <div className={layoutStyles.containerHeader}>

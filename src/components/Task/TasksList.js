@@ -18,8 +18,7 @@ export default function TasksList({ tasksIds }) {
           classNames={animateItem}
           unmountOnExit
         >
-
-            <TaskItem key={id} id={id} />
+          <TaskItem key={id} id={id} />
         </CSSTransition>
       ))}
     </TransitionGroup>

@@ -1,17 +1,17 @@
-import React, { useState, useDispatch } from 'react'
-import style from './SprintCreator.module.css'
-import Button from '../../../common/Button'
+import React, { useState, useDispatch } from "react";
+import style from "./SprintCreator.module.css";
+import Button from "../../../common/Button";
 
 export default function SprintCreator({ onClose }) {
-  const [nameTask, setNameTask] = useState('')
-  const [scheduledTime, setScheduledTime] = useState('')
+  const [nameTask, setNameTask] = useState("");
+  const [scheduledTime, setScheduledTime] = useState("");
   // const dispatch = useDispatch();
 
   const handlerSubmit = (e) => {
-    e.preventDefault()
-    setNameTask('')
-    setScheduledTime('')
-  }
+    e.preventDefault();
+    setNameTask("");
+    setScheduledTime("");
+  };
 
   return (
     <section className={style.container}>
@@ -27,7 +27,7 @@ export default function SprintCreator({ onClose }) {
         <input
           className={style.input}
           value={scheduledTime}
-          onChange={(e)=>setScheduledTime(e.target.value)}
+          onChange={(e) => setScheduledTime(e.target.value)}
           type="number"
           placeholder="Заплановано годин"
         />
@@ -39,5 +39,5 @@ export default function SprintCreator({ onClose }) {
         Відміна
       </span>
     </section>
-  )
+  );
 }

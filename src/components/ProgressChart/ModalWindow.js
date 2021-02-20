@@ -1,5 +1,5 @@
-import styles from './progressChart.module.css'
-import classNames from 'classnames'
+import styles from "./progressChart.module.css";
+import classNames from "classnames";
 
 export default function ModalWindow({ children, ...props }) {
   return (
@@ -16,5 +16,5 @@ export default function ModalWindow({ children, ...props }) {
         ></button>
       </div>
     </div>
-  )
+  );
 }

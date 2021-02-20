@@ -1,20 +1,20 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import styles from './sprintItem.module.css'
+import styles from "./sprintItem.module.css";
 
 const getSprintById = (id) => () => ({
-  name: 'Sprint Burndown Chart 1',
-  dateStart: '10 Лип',
-  dateEnd: '22 Лип',
+  name: "Sprint Burndown Chart 1",
+  dateStart: "10 Лип",
+  dateEnd: "22 Лип",
   duration: 226,
-})
+});
 
 export default function SprintItem({ id }) {
-  const { name, dateStart, dateEnd, duration } = useSelector(getSprintById(id))
+  const { name, dateStart, dateEnd, duration } = useSelector(getSprintById(id));
 
-  const deleteSprint = (id) => console.log('delete sprint')
+  const deleteSprint = (id) => console.log("delete sprint");
 
   return (
     <div className={styles.container}>
@@ -40,5 +40,5 @@ export default function SprintItem({ id }) {
         onClick={() => deleteSprint(id)}
       ></button>
     </div>
-  )
+  );
 }
