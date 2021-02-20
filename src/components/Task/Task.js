@@ -55,8 +55,10 @@ export default function Task({ sprintName }) {
         </div>
 
         <div className={style.containerInput}>
-          <IconButton className={style.searchSVG} iconName="search" />
-          <input className={style.input} />
+          <div className={style.wrapSearch}>
+            <input className={style.searchSubmit} value="" type="text" />
+            <input className={style.search} name="search" type="text" />
+          </div>
         </div>
 
         <p className={style.sprintNames}>
@@ -86,8 +88,16 @@ export default function Task({ sprintName }) {
             <br /> годин
           </span>
           <div className={style.containerInputDesctop}>
-            <IconButton className={style.searchSVG} iconName="search" />
-            <input className={style.input} />
+            <div className={style.wrap}>
+              <input
+                className={style.search}
+                name="search"
+                type="text"
+                maxLength="11"
+                placeholder="Пошук..."
+              />
+              <input className={style.searchSubmit} value="" type="text" />
+            </div>
           </div>
         </div>
         <section className={style.containerWithTask}>
