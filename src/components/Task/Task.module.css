@@ -259,7 +259,7 @@
     }
     .input:hover{
         width: 100px;
-        transition: ;
+        transition: var(--trans);
     }
     .containerButton{
         display: inline-block;
