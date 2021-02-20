@@ -4,7 +4,7 @@ import { combineReducers } from "redux";
 import { addProjectSuccess, deleteProjectSuccess } from "./dashboardAction";
 
 const addProject = (state, action) => {
-  return [action.payload, ...state.];
+  return [action.payload, ...state.action];
 };
 const project = createReducer([], {
   [addProjectSuccess]: addProject,
