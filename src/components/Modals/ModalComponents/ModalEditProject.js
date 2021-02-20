@@ -14,7 +14,7 @@ export default function ModalEditProject() {
 
   return isOpen ? (
     <ModalPortal>
-      <Modal onClose={closeModal} position="modalWindowRight">
+      <Modal onClose={closeModal} >
         {/* <EditProject onClose={closeModal} /> */}
         <p>Edit Project</p>
       </Modal>
