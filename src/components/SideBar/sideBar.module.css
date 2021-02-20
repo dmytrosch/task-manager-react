@@ -3,6 +3,7 @@
   height: 100%;
   padding-bottom: 40px;
   border-right: 1px solid var(--borderColor);
+  
 
 }
 .tabsMenu{
@@ -14,15 +15,14 @@
   list-style: none;
   padding: 0px;
   margin: 0;
-  overflow-y: scroll;
-  max-height: 100vh;
+  
 }
 
 .title {
   font-family: var(--primeFont);
   background-color:transparent;
   width: 160px;
-  margin: 16px 0px;
+  margin: 16px 0px 16px 10px;
 }
 
 .navLink{
@@ -77,6 +77,8 @@
 }
 
 .taskTitle{
+  font-family: var(--primeFont);
+  font-size: 14px;
   width: 100%;
   flex: 0 0 auto;
   overflow: hidden;
@@ -86,32 +88,11 @@
 .button{
   display: block;
   margin: 0 auto;
+  /* background-image: url('../../assest/icons/+.svg');
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat; */
 }
-
-
-.button:before,
-.button:after {
-    content: "";
-    display: block;
-    margin: 0 auto;
-    width: 22px;
-    height: 2px;
-    background: var(--whiteColor);
-}
-
-.button:before {
-  
-    transform: rotate(90deg);
-}
-
-.button:after {
-  
-    transform: rotate(0deg);
-}
-.button:hover::before,
-.button:hover::after{
-  background: var(--orangeColor)
-} 
 
 .addButton{
   font-family: var(--primeFont);
@@ -119,6 +100,8 @@
 display: block;
 text-align: center;
 }
+
+
 
 @media (max-width: 767px) {
   .tabsMenu,
@@ -129,11 +112,51 @@ text-align: center;
     width: 320px;
   }
   .button{
-    position: fixed;
-    top: 85vh;
-    left: 80vw;
-    z-index: 100;
+    display: none;
 
+  }
+  .navContainer{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+  }
+  .aside{
+    border-right: none;
+    padding-bottom: 0;
+  }
+  .scrollbars{
+    display: none;
+  }
+}
+
+
+
+
+@media (min-width:1024px){
+  .tabsTitles {
+    /* min-height: 600px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    /* overflow-y: scroll;
+    max-height: 100vh; */
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px){
+  .tabsTitles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    /* overflow-y: scroll;
+    max-height: 100vh; */
   }
   .navContainer{
     padding-top: 10px;
@@ -152,9 +175,7 @@ text-align: center;
 }
   .aside{
     border-right: none;
-    /* border-bottom: 1px solid var(--borderColor); */
     padding-bottom: 0;
   }
 }
-
 

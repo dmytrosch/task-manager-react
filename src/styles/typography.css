@@ -67,3 +67,7 @@
     url("../fonts/montserrat-v15-latin-800.ttf") format("truetype"),
     url("../fonts/montserrat-v15-latin-800.svg#Montserrat") format("svg");
 }
+
+body{
+  letter-spacing:  0.04em;
+}

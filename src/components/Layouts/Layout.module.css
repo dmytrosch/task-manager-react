@@ -23,6 +23,9 @@
       padding-left: 40px;
       padding-right: 40px;
   }
+  .circleContainer{
+    position: absolute;
+  }
 }
 
 @media (min-width: 1280px) {

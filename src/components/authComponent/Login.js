@@ -1,41 +1,49 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom'
-import style from './style.module.css'
-import Button from '../../common/Button'
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import style from "./style.module.css";
+import Button from "../../common/Button";
+import Input from "../../common/Input/index";
 
-import { login } from '../../redux/auth/authOperations'
+import { login } from "../../redux/auth/authOperations";
 
 export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const dispatch = useDispatch()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const handlerSubmit = (e) => {
-    e.preventDefault()
-    dispatch(login({ email, password }))
-    setEmail('')
-    setPassword('')
-  }
+    e.preventDefault();
+    dispatch(login({ email, password }));
+    setEmail("");
+    setPassword("");
+  };
   return (
     <section className={style.container}>
       <div className={style.formContainer}>
         <p className={style.title}>Вхід</p>
         <form className={style.form} onSubmit={handlerSubmit}>
-          <input
-            className={style.input}
-            placeholder="E-mail"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className={style.input}
-            placeholder="Пароль"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className={style.inputContainer}>
+            <Input
+              label={"E-mail"}
+              value={email}
+              error={false}
+              onChange={(e) => setEmail(e.target.value)}
+              type={"text"}
+              errorMessage={"Невірний email"}
+            />
+          </div>
+          <div className={style.inputContainer}>
+            <Input
+              label={"Пароль"}
+              error={false}
+              type={"password"}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              errorMessage={"Невірний пароль"}
+            />
+          </div>
+
           <Button shape="oval" type="submit">
             Увійти
           </Button>
@@ -48,5 +56,5 @@ export default function Login() {
         </p>
       </div>
     </section>
-  )
+  );
 }

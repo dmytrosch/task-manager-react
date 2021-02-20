@@ -10,7 +10,11 @@ import PublicRoute from "./Routes/PublicRoute";
 
 import Loader from "../components/Loader/Loader";
 
-
+import ModalCreateSprint from "./../components/Modals/ModalComponents/ModalCreateSprint";
+import ModalCreateTask from "./Modals/ModalComponents/ModalCreateTask";
+import ModalAddParticipant from "./Modals/ModalComponents/ModalAddParticipant";
+import ModalCreateProject from "./Modals/ModalComponents/ModalCreateProject";
+import ModalEditProject from "./Modals/ModalComponents/ModalEditProject";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -20,7 +24,7 @@ export default function App() {
   // const isMobileMode = useSelector(isMobileSelector);
 
   return (
-    
+    <>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
           <Switch>
@@ -31,6 +35,12 @@ export default function App() {
           </Switch>
         </Suspense>
       </BrowserRouter>
-   
+      
+      <ModalCreateSprint />
+      <ModalCreateTask />
+      <ModalAddParticipant />
+      <ModalCreateProject />
+      <ModalEditProject />
+    </>
   );
 }

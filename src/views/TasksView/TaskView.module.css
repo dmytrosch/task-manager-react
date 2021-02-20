@@ -34,7 +34,8 @@
         margin-bottom: 54px;
     }
     .paginate{
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
     }
 
     .puginateBth{
@@ -81,17 +82,17 @@
         opacity: 0;
     } */
     
-    .searchSVG{
+    /* .searchSVG{ 
         fill:  var(--greyColor);
         position:absolute;
         bottom: 12px;
         left: 12px;
-    }
-    .containerInput:hover .searchSVG{
+    } */
+    /* .containerInput:hover .searchSVG{
         visibility: hidden;
         transition: var(--trans);
     }
- 
+  */
     .sprintNames{
 
         margin: 0 auto;
@@ -105,9 +106,9 @@
         position: absolute; 
         right: -7px;
         top: 6px;
-        background-image: url(../../assest/icons/ChangeText.icon.svg);
+        /* background-image: url(../../assest/icons/ChangeText.icon.svg);
         width: 20px;
-        height: 20px;
+        height: 20px; */
     }
     .containerWithTask{
         display: flex;
@@ -138,7 +139,7 @@
         bottom: 2px;
         left: 180px;
     }
-    .buttonAdd:after {
+    /* .buttonAdd:after {
         transform: rotate(0deg);
     }
     .buttonAdd::before {
@@ -159,7 +160,7 @@
     .buttonAdd{
         font-size: 54px;
         display: inline-block;
-    }
+    } */
     .containerWithTask{
         display: flex;
         align-items: center;
@@ -225,6 +226,7 @@
         display: flex;
         justify-content: flex-start;
         margin-bottom: 54px;
+        align-items: center;
     }
     .tableDesctopDescrip::before{
         content: "";
@@ -248,17 +250,17 @@
         font-size: 14px;
         margin-bottom: 30px;
     }
-    .containerInputDesctop{
+    /* .containerInputDesctop{
         display: inline-block;
         position: relative;
         width: 50px;
-    }
+    } */
     .input{
         width: 50px;
     }
     .input:hover{
         width: 100px;
-        transition: ;
+        transition: var(--trans);
     }
     .containerButton{
         display: inline-block;

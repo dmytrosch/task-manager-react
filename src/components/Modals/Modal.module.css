@@ -11,7 +11,7 @@
     z-index: 1000;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: end;
+    justify-content: flex-end;
     font-family: var(--primeFont);
   }
   

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import IconButton from "../../common/IconButtons/index.js";
 
 import styles from "./styles.module.css";
 
@@ -31,10 +32,14 @@ export default function SprintItem({ id }) {
               <p className={styles.text}>Витрачено годин</p>
               <p className={styles.spendedHours}>{hoursSpent}</p>
             </div>
-            <button
+            {/* <button
               className={styles.button}
               onClick={() => deleteSprint(id)}
-            ></button>
+            ></button> */}
+            <IconButton           
+            iconButtonCustomClass={styles.button}           
+            iconName="greyBin" icon="greyBin"           
+            onClick={() => deleteSprint(id)} />
           </li>
     </>
   );

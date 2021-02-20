@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import styles from "./styles.module.css";
 import ProjectCard from "../ProjectCard/ProjectCard";
+import IconButton from "../../common/IconButtons/index.js";
+
+import * as modalAction from "../../redux/modal/modalAction";
 
 const projects = [
   {
@@ -31,34 +35,39 @@ const projects = [
 ];
 
 export default function Dashboard() {
-  const [modal, setModal] = useState(false);
-  const clickHandler = (e) => {
-    e.preventDefault();
-    console.log("click");
-  };
+  const dispatch = useDispatch();
+  const addProject = () => dispatch(modalAction.setModalCreateProject(true));
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <div className={styles.infoBox}>
-          <h2 className={styles.title}>Проекти</h2>
-          <div className={styles.box}>
-            <button
-              className={styles.button}
-              onClick={(e) => setModal(true)}
-            ></button>
-            <p className={styles.text}>Створити проект</p>
+        <>
+          <div className={styles.infoBox}>
+            <h2 className={styles.title}>Проекти</h2>
+            <div className={styles.box}>
+              {/* <button
+                className={styles.button}
+                onClick={(e) => setModal(true)}
+              ></button> */}
+              <IconButton
+              iconButtonCustomClass={styles.button}
+              iconName="plus" 
+              icon="plus"           
+              onClick={addProject} />
+              <p className={styles.text}>Створити проект</p>
+            </div>
           </div>
-        </div>
-        <ul className={styles.projectList}>
-          {projects.map((proj) => (
-            <ProjectCard key={proj.id} />
-          ))}
-          {modal && (
-            <li className={styles.projectItem}>
-              <ProjectCard />
-            </li>
-          )}
-        </ul>
+          <ul className={styles.projectList}>
+            {projects.map((proj) => (
+              <li className={styles.projectItem}>
+                <ProjectCard
+                  key={proj.id}
+                  name={proj.name}
+                  description={proj.description}
+                />
+              </li>
+            ))}
+          </ul>
+        </>
       </div>
     </div>
   );

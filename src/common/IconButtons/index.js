@@ -9,14 +9,14 @@ import { ReactComponent as ColoredBinMobile } from '../../assest/ui/coloredBinMo
 import { ReactComponent as GreyBin } from '../../assest/ui/greyBin.svg';
 import { ReactComponent as Search } from '../../assest/ui/search.svg';
 import { ReactComponent as Pen } from '../../assest/ui/pen.svg';
+import { ReactComponent as Plus } from '../../assest/ui/plus.svg';
 
 
-
-const IconButton = ({ size, icon,  iconCustomClass, iconName,  ...props }) => {
+const IconButton = ({ size, icon,  iconButtonCustomClass, iconName,  ...props }) => {
   return (
     
     <button  
-        className={classNames(styles.button, styles[icon], ...[iconCustomClass])}
+        className={classNames(styles.button, styles[icon], ...[iconButtonCustomClass])}
       {...props}
     > 
       { iconName === "analytica" && <Analytics/> } 
@@ -25,6 +25,7 @@ const IconButton = ({ size, icon,  iconCustomClass, iconName,  ...props }) => {
       { iconName === "greyBin" && <GreyBin/> }
       { iconName === "search" && <Search/> }
       { iconName === "pen" && <Pen/> }
+      { iconName === "plus" && <Plus/> }
     </button>
   );
 };

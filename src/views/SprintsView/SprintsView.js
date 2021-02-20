@@ -6,57 +6,13 @@ import Sprint from "../../components/Sprint/Sprint";
 import SideBar from "../../components/SideBar/SideBar";
 import viewStyles from "./SprintsView.module.css";
 
-import ModalPortal from "../../common/ModalPortal/ModalPortal";
-import Modal from "../../components/Modals/Modal";
-import SprintCreator from "../../components/Modals/ModalComponents/SprintCreator";
-
 export default function SprintView() {
-  const [addSprintModal, setSprintModal] = useState(false);
-  const toggleSprintModal = () => setSprintModal((prevState) => !prevState);
-
-  const [editProjectModal, setProjectModal] = useState(false);
-  const toggleProjectModal = () => setProjectModal((prevState) => !prevState);
-
-  const [addParticipantModal, setParticipantModal] = useState(false);
-  const toggleParticipantModal = () =>
-    setParticipantModal((prevState) => !prevState);
-
-  const [addNewProjectModal, setNewProjectModal] = useState(false);
-  const toggleNewProjectModal = () =>
-    setNewProjectModal((prevState) => !prevState);
-
   return (
-    <MainLayout addNewProject={toggleNewProjectModal}>
+    <MainLayout>
       <div className={viewStyles.view}>
         <SideBar />
-        <Sprint
-          addSprint={toggleSprintModal}
-          editProject={toggleProjectModal}
-          addParticipant={toggleParticipantModal}
-        />
+        <Sprint />
       </div>
-      <ModalPortal>
-        {addSprintModal && (
-          <Modal onClose={toggleSprintModal}>
-            <SprintCreator onClose={toggleSprintModal} />
-          </Modal>
-        )}
-        {editProjectModal && (
-          <Modal onClose={toggleProjectModal}>
-            <p>Edit project</p>
-          </Modal>
-        )}
-        {addParticipantModal && (
-          <Modal onClose={toggleParticipantModal}>
-            <p>Add participant</p>
-          </Modal>
-        )}
-        {addNewProjectModal && (
-          <Modal onClose={toggleNewProjectModal}>
-            <p>Add new project</p>
-          </Modal>
-        )}
-      </ModalPortal>
     </MainLayout>
   );
 }
