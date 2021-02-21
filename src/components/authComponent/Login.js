@@ -30,7 +30,12 @@ export default function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           /> */}
-          <Input label={'E-mail'} error={false} type={'password'} errorMessage={'Hеправильный пароль'}/>
+          <Input
+            label={"E-mail"}
+            error={false}
+            type={"password"}
+            errorMessage={"Hеправильный пароль"}
+          />
           <input
             className={style.input}
             placeholder="Пароль"

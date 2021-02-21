@@ -1,16 +1,16 @@
-import React, { useState, useDispatch } from 'react'
-import style from './ProjectCreator.module.css'
-import Button from '../../../common/Button'
+import React, { useState, useDispatch } from "react";
+import style from "./ProjectCreator.module.css";
+import Button from "../../../common/Button";
 
 export default function ProjectCreator({ onClose }) {
-  const [nameProject, setNameProject] = useState('')
-  const [description , setDescription ] = useState('')
+  const [nameProject, setNameProject] = useState("");
+  const [description, setDescription] = useState("");
 
   const handlerSubmit = (e) => {
-    e.preventDefault()
-    setNameProject('')
-    setDescription('')
-  }
+    e.preventDefault();
+    setNameProject("");
+    setDescription("");
+  };
 
   return (
     <section className={style.container}>
@@ -24,10 +24,9 @@ export default function ProjectCreator({ onClose }) {
           placeholder="Назва проекту"
         />
         <textarea
-        
           className={style.input}
           value={description}
-          onChange={(e)=>setDescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
           type="text"
           placeholder="Опис"
         />
@@ -39,5 +38,5 @@ export default function ProjectCreator({ onClose }) {
         Відміна
       </span>
     </section>
-  )
+  );
 }

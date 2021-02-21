@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
-import IconButton from "../../common/IconButtons/index.js"
+import IconButton from "../../common/IconButtons/index.js";
 
 export default function TaskCard() {
   return (
@@ -21,8 +21,9 @@ export default function TaskCard() {
         </div>
         {/* <button className={styles.button}></button> */}
         <IconButton
-        iconButtonCustomClass={styles.button}           
-        iconName="greyBin" icon="greyBin"           
+          iconButtonCustomClass={styles.button}
+          iconName="greyBin"
+          icon="greyBin"
         />
       </li>
     </ul>

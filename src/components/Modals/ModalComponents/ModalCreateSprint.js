@@ -14,7 +14,7 @@ export default function ModalCreateSprint() {
 
   return isOpen ? (
     <ModalPortal>
-      <Modal onClose={closeModal} >
+      <Modal onClose={closeModal}>
         <SprintCreator onClose={closeModal} />
       </Modal>
     </ModalPortal>

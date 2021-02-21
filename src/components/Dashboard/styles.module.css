@@ -1,57 +1,57 @@
 .container {
-    min-width: 100%;
-    min-height: 100vh;;
-    padding-top: 20px;
-    background-color: transparent;
-    font-family: var(--primeFont);
+  min-width: 100%;
+  min-height: 100vh;
+  padding-top: 20px;
+  background-color: transparent;
+  font-family: var(--primeFont);
 }
 .wrapper {
-    min-width: 100%;
-    margin: 0 auto;
+  min-width: 100%;
+  margin: 0 auto;
 }
 .infoBox {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 .title {
-    font-weight: 500;
-    font-size: 36px;
-    text-align: center;
-    letter-spacing: 1.44px;
-    line-height: 43.88px;
+  font-weight: 500;
+  font-size: 36px;
+  text-align: center;
+  letter-spacing: 1.44px;
+  line-height: 43.88px;
 }
 .box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .button {
-    /* width: 44px;
+  /* width: 44px;
     height: 44px; */
-    margin-right: 20px;
-    /* background: url(../../assest/icons/Btn.svg) no-repeat; */
-    /* background-position: center;
+  margin-right: 20px;
+  /* background: url(../../assest/icons/Btn.svg) no-repeat; */
+  /* background-position: center;
     outline: none;
     border-radius: 25px; */
 }
 .text {
-    font-weight: 500;
-    font-size: 18px;
-    text-align: center;
-    letter-spacing: 0.72px;
-    line-height: 21.94px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0.72px;
+  line-height: 21.94px;
 }
 .projectList {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 .projectItem {
-    margin-bottom: 15px;
-margin-right: 30px;
+  margin-bottom: 15px;
+  margin-right: 30px;
 }
-@media screen and (min-width:1280px) {
-    .projectItem:nth-child(4n+4) {
-        margin-right: 0;
-    }
+@media screen and (min-width: 1280px) {
+  .projectItem:nth-child(4n + 4) {
+    margin-right: 0;
+  }
 }

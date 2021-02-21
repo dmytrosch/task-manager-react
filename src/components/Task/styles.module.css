@@ -1,139 +1,139 @@
-
-    .noTasks{
-        font-family: var(--primeFont);
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1.2;
-        letter-spacing: 0.04em;
-        color: var(--blackColor);
-    }
-    .container {
-        font-family: var(--primeFont);
-        width: 280px;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        position: relative;
-        margin-bottom: 10px;
-    }
-    .div {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px;
-    }
-    .text{
-    font-size: 12px;
-    }
-    .taskName {
-        width: 100%;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 22px;
-        margin: 0 auto 15px;
-        text-align: center;
-        padding: 0px 0px 8px;
-        border-bottom: 1px solid var(--borderColor);
-    }
-    .planingHours, .spendedHours {
-        width: 75px;
-        text-align: end;
-    }
-    .input::placeholder {
-        font-family: var(--primeFont);
-        font-size: 14px;
-        text-align: end;
-    }
-    .input {
-        width: 75px;
-        border: none;
-        border-bottom:  1px solid var(--borderColor);
-        padding: 5px;
-
-    }
-    .button {
-        width: 20px;
-        height: 20px;
-        background: url(../../assest/icons/deleteTask.svg) no-repeat;
-        background-position: center;
-        border-radius: 25px;
-        outline: none;
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-    }
-    
-
-@media (min-width: 767px) and (max-width: 1081px){
-    .container:nth-child(even){
-        margin: 0px 0px 20px 20px;
-    }
+.noTasks {
+  font-family: var(--primeFont);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: var(--blackColor);
 }
-@media(min-width:768px ) {
-    .container {
-        width: 216px;
-        margin-bottom: 40px;
-    } 
-    
-    .containerUL{
-        width: 100%;
-    }
-    .list{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+.container {
+  font-family: var(--primeFont);
+  width: 280px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  margin-bottom: 10px;
 }
-@media (min-width: 1081px){
-    .container{
-        margin: 0px 0px 20px 20px;
-    }
+.div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
-@media (min-width: 1142px) and (max-width: 1279px){
-    .container{
-        display: inline-block;
-    }
-    .list{
-        display: block;
-    }
+.text {
+  font-size: 12px;
+}
+.taskName {
+  width: 100%;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0 auto 15px;
+  text-align: center;
+  padding: 0px 0px 8px;
+  border-bottom: 1px solid var(--borderColor);
+}
+.planingHours,
+.spendedHours {
+  width: 75px;
+  text-align: end;
+}
+.input::placeholder {
+  font-family: var(--primeFont);
+  font-size: 14px;
+  text-align: end;
+}
+.input {
+  width: 75px;
+  border: none;
+  border-bottom: 1px solid var(--borderColor);
+  padding: 5px;
+}
+.button {
+  width: 20px;
+  height: 20px;
+  background: url(../../assest/icons/deleteTask.svg) no-repeat;
+  background-position: center;
+  border-radius: 25px;
+  outline: none;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+@media (min-width: 767px) and (max-width: 1081px) {
+  .container:nth-child(even) {
+    margin: 0px 0px 20px 20px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 216px;
+    margin-bottom: 40px;
+  }
+
+  .containerUL {
+    width: 100%;
+  }
+  .list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 1081px) {
+  .container {
+    margin: 0px 0px 20px 20px;
+  }
+}
+@media (min-width: 1142px) and (max-width: 1279px) {
+  .container {
+    display: inline-block;
+  }
+  .list {
+    display: block;
+  }
 }
 
 @media (min-width: 1280px) {
-    .container {
-        width: 870px;
-        flex-direction: row;
-        justify-content: space-around;
-        position: static;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-    .taskName{
-        width: 170px;
-    }
-    .list{
-        width: auto;
-        display: flex;
-    }
-    .taskName, .div {
-        margin: 0;
-    }
-    .input::placeholder {
-        text-align: start;
-        padding: 0px 10px 0px;
-    }
-    .text {
-        display: none;
-    }
-    .planingHours, .spendedHours, .input {
-        width: 105px;
-        text-align: start;
-
-    }
-    .button {
-        position: static;
-    }
+  .container {
+    width: 870px;
+    flex-direction: row;
+    justify-content: space-around;
+    position: static;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .taskName {
+    width: 170px;
+  }
+  .list {
+    width: auto;
+    display: flex;
+  }
+  .taskName,
+  .div {
+    margin: 0;
+  }
+  .input::placeholder {
+    text-align: start;
+    padding: 0px 10px 0px;
+  }
+  .text {
+    display: none;
+  }
+  .planingHours,
+  .spendedHours,
+  .input {
+    width: 105px;
+    text-align: start;
+  }
+  .button {
+    position: static;
+  }
 }

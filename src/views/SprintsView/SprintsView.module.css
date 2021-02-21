@@ -1,12 +1,12 @@
-@media(min-width: 768px){
-    .view{
-        min-width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-    }
+@media (min-width: 768px) {
+  .view {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
 }
-@media(min-width: 1280px){
-    .view{
-        grid-template-columns: 1fr 4fr;
-    }
+@media (min-width: 1280px) {
+  .view {
+    grid-template-columns: 1fr 4fr;
+  }
 }

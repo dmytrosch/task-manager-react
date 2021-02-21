@@ -1,37 +1,37 @@
 .circle {
-    border-radius: 50%;
-    display: block;
+  border-radius: 50%;
+  display: block;
 }
 
 .whiteCircle {
-    composes: circle;
-    background-color: var(--whiteColor);
+  composes: circle;
+  background-color: var(--whiteColor);
 }
 .orangeCircle {
-    composes: circle;
-    background-color: var(--orangeColor);
+  composes: circle;
+  background-color: var(--orangeColor);
 }
 
 .first {
-    composes: whiteCircle;
-    width: 48px;
-    height: 48px;
-    position: relative;
-    top: 240px;
-    left: 230px;
+  composes: whiteCircle;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  top: 240px;
+  left: 230px;
 }
 .second {
-    composes: whiteCircle;
-    width: 118px;
-    height: 118px;
-    position: relative;
-    top: 367px;
-    left: 111px;
+  composes: whiteCircle;
+  width: 118px;
+  height: 118px;
+  position: relative;
+  top: 367px;
+  left: 111px;
 }
 .third {
-    composes: orangeCircle;
-    width: 252px;
-    height: 252px;
-    left: 183px;
-    top: 516px;
+  composes: orangeCircle;
+  width: 252px;
+  height: 252px;
+  left: 183px;
+  top: 516px;
 }

@@ -19,16 +19,16 @@
 }
 @media (min-width: 768px) {
   .container {
-      min-width: 688px;
-      padding-left: 40px;
-      padding-right: 40px;
+    min-width: 688px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
 @media (min-width: 1280px) {
   .container {
-      min-width: 1170px;
-      padding-left: 55px;
-      padding-right: 55px;
+    min-width: 1170px;
+    padding-left: 55px;
+    padding-right: 55px;
   }
 }

@@ -4,8 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import SprintList from "./SprintList";
 
 import styles from "./Sprint.module.css";
-import IconButton from "../../common/IconButtons/index.js"
-
+import IconButton from "../../common/IconButtons/index.js";
 
 import * as modalAction from "../../redux/modal/modalAction";
 
@@ -28,9 +27,9 @@ const getSprintIdsByProjectId = (projectId) => () => [
 export default function Sprint() {
   const { name, description } = useSelector(getProjectDataById("projectId"));
   const sprintIds = useSelector(getSprintIdsByProjectId("projectId"));
-  
+
   const dispatch = useDispatch();
-  
+
   const editProject = () => dispatch(modalAction.setModalEditProject(true));
   const addParticipant = () =>
     dispatch(modalAction.setModalAddParticipant(true));
@@ -50,10 +49,12 @@ export default function Sprint() {
         </h2>
 
         {/* <button className={styles.editBtn} onClick={editProject}></button> */}
-        <IconButton           
-        iconButtonCustomClass={styles.editBtn}           
-        iconName="pen" icon="pen"           
-        onClick={editProject} />
+        <IconButton
+          iconButtonCustomClass={styles.editBtn}
+          iconName="pen"
+          icon="pen"
+          onClick={editProject}
+        />
         {description && <p className={styles.description}>{description}</p>}
 
         <p className={styles.addParticipant} onClick={addParticipant}>
@@ -64,10 +65,12 @@ export default function Sprint() {
 
         <div className={styles.addSprint}>
           {/* <button className={styles.addSprintBtn} onClick={addSprint}></button> */}
-          <IconButton           
-          iconButtonCustomClass={styles.button}           
-          iconName="plus" icon="plus"           
-          onClick={addSprint}/>
+          <IconButton
+            iconButtonCustomClass={styles.button}
+            iconName="plus"
+            icon="plus"
+            onClick={addSprint}
+          />
           <span className={styles.addSprintText}>Створити спринт</span>
         </div>
       </div>

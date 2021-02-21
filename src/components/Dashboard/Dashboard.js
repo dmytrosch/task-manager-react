@@ -49,10 +49,11 @@ export default function Dashboard() {
                 onClick={(e) => setModal(true)}
               ></button> */}
               <IconButton
-              iconButtonCustomClass={styles.button}
-              iconName="plus" 
-              icon="plus"           
-              onClick={addProject} />
+                iconButtonCustomClass={styles.button}
+                iconName="plus"
+                icon="plus"
+                onClick={addProject}
+              />
               <p className={styles.text}>Створити проект</p>
             </div>
           </div>

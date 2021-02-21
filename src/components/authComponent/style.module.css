@@ -29,9 +29,9 @@
     background: none;
     border-bottom: 1px solid var(--borderColor);
   }
-.input:last-of-type{
-  margin-bottom: 40px;
-}
+  .input:last-of-type {
+    margin-bottom: 40px;
+  }
   .input:placeholder-shown {
     font-size: 18px;
     line-height: 22px;
@@ -62,7 +62,6 @@
   .NavLink {
     display: inline;
     border-bottom: 1px solid var(--greyColor);
-
   }
   /* .button {
     width: 260px;

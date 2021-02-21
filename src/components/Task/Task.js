@@ -71,10 +71,11 @@ export default function Task({ sprintName }) {
         <p className={style.sprintNames}>
           Sprint Burndown Chart 1 {sprintName}
           {/* <button className={style.changeTextBtn}></button> */}
-          <IconButton           
-          iconButtonCustomClass={style.changeTextBtn}           
-          iconName="pen" icon="pen"           
-           />
+          <IconButton
+            iconButtonCustomClass={style.changeTextBtn}
+            iconName="pen"
+            icon="pen"
+          />
         </p>
         <div className={style.containerButton}>
           <IconButton
@@ -123,9 +124,7 @@ export default function Task({ sprintName }) {
             ></IconButton>
           </div>
         </section>
-        <IconButton  
-        iconName="analytica" icon="analytica"           
-         />
+        <IconButton iconName="analytica" icon="analytica" />
       </main>
     </div>
   );

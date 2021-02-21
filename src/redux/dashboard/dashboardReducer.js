@@ -11,12 +11,12 @@ const project = createReducer([], {
 });
 
 const deleteProject = createReducer([], {
-    [deleteProjectSuccess]: null,
-})
+  [deleteProjectSuccess]: null,
+});
 
 const projectReducer = combineReducers({
   project,
-  deleteProject
+  deleteProject,
 });
 
 export default projectReducer;

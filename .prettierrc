@@ -6,6 +6,14 @@
     "trailingComma": "es5", 
     "jsxBracketSameLine": false, 
     "parser": "flow", 
-    "semi": true 
+    "semi": true,
+    "overrides": [
+        {
+          "files": "*.css",
+          "options": {
+            "parser": "css"
+          }
+        }
+      ]
 }
   

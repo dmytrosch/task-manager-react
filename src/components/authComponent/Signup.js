@@ -1,25 +1,25 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom'
-import style from './style.module.css'
-import Button from '../../common/Button'
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import style from "./style.module.css";
+import Button from "../../common/Button";
 
-import { signup } from '../../redux/auth/authOperations'
+import { signup } from "../../redux/auth/authOperations";
 
 export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmedPassword, setConfirmedPasswod] = useState('')
-  const dispatch = useDispatch()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmedPassword, setConfirmedPasswod] = useState("");
+  const dispatch = useDispatch();
 
   const handlerSubmit = (e) => {
-    e.preventDefault()
-    dispatch(signup({ email, password }))
+    e.preventDefault();
+    dispatch(signup({ email, password }));
 
-    setEmail('')
-    setPassword('')
-    setConfirmedPasswod('')
-  }
+    setEmail("");
+    setPassword("");
+    setConfirmedPasswod("");
+  };
   return (
     <section className={style.container}>
       <div className={style.formContainer}>
@@ -69,5 +69,5 @@ export default function Login() {
         </p>
       </div>
     </section>
-  )
+  );
 }
