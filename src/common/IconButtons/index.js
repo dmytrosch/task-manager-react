@@ -10,6 +10,8 @@ import { ReactComponent as GreyBin } from "../../assest/ui/greyBin.svg";
 import { ReactComponent as Search } from "../../assest/ui/search.svg";
 import { ReactComponent as Pen } from "../../assest/ui/pen.svg";
 import { ReactComponent as Plus } from "../../assest/ui/plus.svg";
+import { ReactComponent as Checkmark } from "../../assest/ui/checkmark.svg";
+import { ReactComponent as CrossIcon } from "../../assest/ui/crossIcon.svg";
 
 const IconButton = ({
   size,
@@ -34,6 +36,8 @@ const IconButton = ({
       {iconName === "search" && <Search />}
       {iconName === "pen" && <Pen />}
       {iconName === "plus" && <Plus />}
+      {iconName === "checkmark" && <Checkmark />}
+      {iconName === "crossIcon" && <CrossIcon />}
     </button>
   );
 };
