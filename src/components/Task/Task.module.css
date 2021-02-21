@@ -70,9 +70,7 @@
 .sprintNames {
   margin: 0 auto;
   position: relative;
-  width: 260px;
-  font-size: 26px;
-  line-height: 32px;
+  width: 280px;
   margin-bottom: 30px;
 }
 .changeTextBtn {
@@ -146,14 +144,14 @@
   }
   .button {
     position: fixed;
-    top: 86%;
-    left: 23%;
+    bottom: 5%;
+    left: 15%;
   }
 
   .buttonAdd {
     position: fixed;
-    top: 86%;
-    left: 68%;
+    bottom: 5%;
+    right: 15%;
     z-index: 100;
   }
 }
@@ -161,8 +159,8 @@
 @media (min-width: 767px) {
   .button {
     position: fixed;
-    top: 74%;
-    left: 91%;
+    bottom: 10%;
+    right: 10%;
   }
 
   .containerInput {
@@ -186,7 +184,7 @@
   }
   .containerButton {
     position: absolute;
-    right: 10%;
+    right: 7%;
   }
   .sprintNames {
     margin-left: 20%;
@@ -213,12 +211,6 @@
   }
 }
 @media (min-width: 1279px) {
-  .button {
-    position: fixed;
-    top: 80%;
-    left: 91%;
-  }
-
   .span:nth-child(1) {
     margin: 0px 0px 0px 70px;
   }
@@ -244,16 +236,7 @@
     justify-content: flex-start;
     margin-bottom: 54px;
   }
-  .tableDesctopDescrip::before {
-    content: "";
-    display: inline-block;
-    height: 1px;
-    width: 96%;
-    right: 0px;
-    background-color: var(--borderColor);
-    top: 210px;
-    position: absolute;
-  }
+
   .sprintNames {
     margin-left: 15%;
     display: inline-block;
@@ -265,6 +248,7 @@
     margin: 0 auto;
     font-size: 14px;
     margin-bottom: 30px;
+    margin-top: 15px;
   }
   .containerInputDesctop {
     position: relative;

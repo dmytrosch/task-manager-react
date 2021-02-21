@@ -6,16 +6,15 @@ import {
 } from "../../redux/modal/modalAction";
 import TasksList from "./TasksList";
 import ModalCreateTask from "../../components/Modals/ModalComponents/ModalCreateTask";
-import MainLayout from "../../components/Layouts/MainLayout";
 import SideBar from "../../components/SideBar/SideBar";
 import IconButton from "../../common/IconButtons/index";
-import Button from "../../common/Button/index";
 import Chart from "../../components/Modals/ModalComponents/ModalChartTable";
 import style from "./Task.module.css";
 import viewStyles from "../../views/SprintsView/SprintsView.module.css";
+import EditableInput from "../../common/EditableInput/EditableInput";
 
 const getProjectDataById = (projectId) => () => ({
-  name: "Project 1",
+  name: "Project Ala Carta",
 });
 
 const getSprintIdsByProjectId = (projectId) => () => [
@@ -69,12 +68,7 @@ export default function Task({ sprintName }) {
         </div>
 
         <p className={style.sprintNames}>
-          Sprint Burndown Chart 1 {sprintName}
-          <IconButton
-            iconButtonCustomClass={style.changeTextBtn}
-            iconName="pen"
-            icon="pen"
-          />
+          <EditableInput onSave value={name} />
         </p>
         <div onClick={openModalTask} className={style.containerButton}>
           <IconButton
