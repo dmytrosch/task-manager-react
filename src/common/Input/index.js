@@ -6,7 +6,7 @@ const Input = ({ type, error, inputClassNames, errorMessage, label, ...props }) 
   return (
     <>
       <div className={styles.textField}>
-        <input className={[styles.input, error? styles.inputError : '' ].join(' ')} type={type} {...props} required />
+        <input className={[styles.input, error? styles.inputError : '', inputClassNames ].join(' ')} type={type} {...props} required />
         <label className={styles.label}>{label}</label>
         {error && <span className={styles.errorMessage}>{errorMessage}</span>}
       </div>

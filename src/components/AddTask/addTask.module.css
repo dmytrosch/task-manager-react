@@ -1,55 +1,37 @@
-.text {
+.form {
     font-family: var(--primeFont);
     letter-spacing: 0.04em;
     line-height: 1.2;
     font-weight: 400;
-    color: var(--blackColor);
-}
-
-.container {
+    
     max-width: 430px;
     margin: 0 auto;
-}
-
-.form {
-    composes: text;
 }
 
 .title {
     font-size: 26px;
     font-weight: 500;
     text-align: center;
+    color: var(--blackColor);
+    
     margin-bottom: 27px;
 }
 
-.inputContainer {
-    margin-bottom: 30px;
-    display: flex;
-    align-items: flex-end;
+.inputsContainer {
+    margin-bottom: 40px;
 }
 
-.listTitle {
-    font-size: 14px;
+.input::placeholder {
+    font-family: var(--primeFont);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    font-weight: 400;
     color: var(--greyColor);
-    margin-bottom: 16px;
-}
-
-.list {
-    margin-bottom: 60px;
-}
-
-.item {
     font-size: 16px;
-    margin-bottom: 6px;
 }
 
-.item:nth-last-of-type(1) {
-    margin-bottom: 0;
-}
-
-.message {
-    font-size: 16px;
-    margin-bottom: 60px;
+.inputName {
+    margin-bottom: 58px;
 }
 
 .control {
@@ -84,35 +66,26 @@
     color: var(--greyColor);
 }
 
-.addBtn {
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-}
-
 .cancelBtn:hover {
     background-color: transparent;
 }
 
 @media (min-width: 768px) {
-    .containet {
+    .form {
         max-width: auto;
     }
 
     .title {
         font-size: 36px;
-        margin-bottom: 45px;
+        margin-bottom: 46px;
     }
 
-    .message {
-        font-size: 18px; 
+    .inputName {
+        margin-bottom: 49px;
     }
 
-    .item {
-        font-size: 18px;  
+    .input::placeholder {
+        font-size: 18px;
     }
 
-    .addBtn {
-        display: none;
-    }
 }

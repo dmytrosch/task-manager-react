@@ -5,7 +5,7 @@ import { setModalCreateTask } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
 import Modal from "../Modal";
-// import TaskCreator from "../path/to/TaskCreator";
+import AddTask from "../../AddTask";
 
 export default function ModalCreateTask() {
   const dispatch = useDispatch();
@@ -14,8 +14,7 @@ export default function ModalCreateTask() {
   return isOpen ? (
     <ModalPortal>
       <Modal onClose={closeModal} >
-        {/* <TaskCreator onClose={closeModal} /> */}
-        <p>Task Creator</p>
+        <AddTask onClose={closeModal} />
       </Modal>
     </ModalPortal>
   ) : null;

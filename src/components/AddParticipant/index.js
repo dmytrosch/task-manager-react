@@ -43,7 +43,7 @@ export default function AddParticipant({ onClose }) {
   };
 
   return (
-    <div className={styles.containet}>
+    <div className={styles.container}>
       <form className={styles.form} onSubmit={addEmail}>
         <h2 className={styles.title}>Додати людей</h2>
         <div className={styles.inputContainer}>
