@@ -13,7 +13,11 @@ const Input = ({
     <>
       <div className={styles.textField}>
         <input
-          className={[styles.input, error ? styles.inputError : ""].join(" ")}
+          className={[
+            styles.input,
+            error ? styles.inputError : "",
+            inputClassNames,
+          ].join(" ")}
           type={type}
           {...props}
           required

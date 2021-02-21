@@ -1,117 +1,118 @@
 .text {
-  font-family: var(--primeFont);
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  font-weight: 400;
-  color: var(--blackColor);
+    font-family: var(--primeFont);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    font-weight: 400;
+    color: var(--blackColor);
 }
 
-.containet {
-  max-width: 430px;
-  margin: 0 auto;
+.container {
+    max-width: 430px;
+    margin: 0 auto;
 }
 
 .form {
-  composes: text;
+    composes: text;
 }
 
 .title {
-  font-size: 26px;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 27px;
+    font-size: 26px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 27px;
 }
 
 .inputContainer {
-  margin-bottom: 30px;
-  display: flex;
-  align-items: flex-end;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: flex-end;
 }
 
 .listTitle {
-  font-size: 14px;
-  color: var(--greyColor);
-  margin-bottom: 16px;
+    font-size: 14px;
+    color: var(--greyColor);
+    margin-bottom: 16px;
 }
 
 .list {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .item {
-  font-size: 16px;
-  margin-bottom: 6px;
+    font-size: 16px;
+    margin-bottom: 6px;
 }
 
 .item:nth-last-of-type(1) {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .message {
-  font-size: 16px;
-  margin-bottom: 60px;
+    font-size: 16px;
+    margin-bottom: 60px;
 }
 
 .control {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .submitBtn {
-  font-family: var(--primeFont);
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  font-weight: 500;
+    font-family: var(--primeFont);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    font-weight: 500;
 
-  width: 154px;
-  height: 44px;
-  margin-bottom: 20px;
+    width: 154px;
+    height: 44px;
+    margin-bottom: 20px;
 }
 
 .cancelBtn {
-  font-family: var(--primeFont);
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  font-weight: 400;
-  text-decoration: underline;
+    font-family: var(--primeFont);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    font-weight: 400;
+    text-decoration: underline;
 
-  width: 154px;
-  height: 44px;
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-  color: var(--greyColor);
+    width: 154px;
+    height: 44px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: var(--greyColor);
 }
 
 .addBtn {
-  width: 100px;
-  height: 40px;
-  border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
 }
 
 .cancelBtn:hover {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 @media (min-width: 768px) {
-  .containet {
-    max-width: auto;
-  }
+    .containet {
+        max-width: auto;
+    }
 
-  .title {
-    font-size: 36px;
-  }
+    .title {
+        font-size: 36px;
+        margin-bottom: 45px;
+    }
 
-  .message {
-    font-size: 18px;
-  }
+    .message {
+        font-size: 18px; 
+    }
 
-  .item {
-    font-size: 18px;
-  }
+    .item {
+        font-size: 18px;  
+    }
 
-  .addBtn {
-    display: none;
-  }
+    .addBtn {
+        display: none;
+    }
 }
