@@ -59,7 +59,7 @@ export default function Dashboard() {
           </div>
           <ul className={styles.projectList}>
             {projects.map((proj) => (
-              <li className={styles.projectItem}>
+              <li style={{ width: "135px" }}>
                 <ProjectCard
                   key={proj.id}
                   name={proj.name}

@@ -1,6 +1,6 @@
 .container {
   min-width: 100%;
-  min-height: 100vh;;
+  min-height: 100vh;
   padding-top: 20px;
   background-color: transparent;
   font-family: var(--primeFont);
@@ -42,52 +42,42 @@
   display: none;
 }
 .projectList {
-  display: flex;
-  flex-wrap: wrap;
-}
-.projectItem {
-  margin-bottom: 10px;
-  margin-right: 10px;
-}
-@media screen and (max-width:767px) {
-  .projectItem:nth-child(2n+2) {
-      margin-right: 0;
-  }
-}
-@media screen and (min-width:768px) and (max-width: 1279px) {
-  .infoBox {
-      justify-content: space-between;
-  }
-  .button {
-      position: static;
-  }
-  .projectItem {
-      margin-bottom: 20px;
-      margin-right: 20px;
-  }
-  .projectItem:nth-child(3n+3) {
-      margin-right: 0;
-  }
-}
-@media screen and (min-width:1280px) {
-  .text {
-      display: block;
-      font-weight: 500;
-      font-size: 18px;
-      text-align: center;
-      letter-spacing: 0.72px;
-      line-height: 21.94px;
-  }
-  .button {
-      position: static;
-      margin-right: 20px;
-  }
-  .projectItem {
-      margin-bottom: 20px;
-      margin-right: 30px;
-  }
-  .projectItem:nth-child(4n+4) {
-      margin-right: 0;
-  } 
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 135px));
+  justify-content: center;
+  grid-template-areas: m;
+  margin: 0 auto;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .infoBox {
+    justify-content: space-between;
+  }
+  .button {
+    position: static;
+  }
+  .projectList {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(216px, 216px));
+  }
+}
+@media screen and (min-width: 1280px) {
+  .text {
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0.72px;
+    line-height: 21.94px;
+  }
+  .button {
+    position: static;
+    margin-right: 20px;
+  }
+  .projectList {
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 270px));
+  }
+}
