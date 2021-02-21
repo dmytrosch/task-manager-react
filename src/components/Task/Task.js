@@ -70,7 +70,13 @@ export default function Task({ sprintName }) {
 
         <p className={style.sprintNames}>
           Sprint Burndown Chart 1 {sprintName}
-          <IconButton
+          <IconButton iconName="checkmark"
+          icon="checkmark"
+        />
+        <IconButton iconName="crossIcon"
+          icon="crossIcon"
+        />
+          <IconButton 
             iconButtonCustomClass={style.changeTextBtn}
             iconName="pen"
             icon="pen"
@@ -121,9 +127,12 @@ export default function Task({ sprintName }) {
               onClick={openModalChartTable}
             ></IconButton>
           </div>
+          
         </section>
-        <IconButton iconName="analytica" icon="analytica" />
+        
       </main>
     </div>
   );
 }
+
+
