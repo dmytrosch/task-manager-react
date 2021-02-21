@@ -23,26 +23,27 @@ export default function Login() {
       <div className={style.formContainer}>
         <p className={style.title}>Вхід</p>
         <form className={style.form} onSubmit={handlerSubmit}>
-          {/* <input
-            className={style.input}
-            placeholder="E-mail"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          /> */}
-          <Input
-            label={"E-mail"}
-            error={false}
-            type={"password"}
-            errorMessage={"Hеправильный пароль"}
-          />
-          <input
-            className={style.input}
-            placeholder="Пароль"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className={style.inputContainer}>
+            <Input
+              label={"E-mail"}
+              value={email}
+              error={false}
+              onChange={(e) => setEmail(e.target.value)}
+              type={"text"}
+              errorMessage={"Невірний email"}
+            />
+          </div>
+          <div className={style.inputContainer}>
+            <Input
+              label={"Пароль"}
+              error={false}
+              type={"password"}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              errorMessage={"Невірний пароль"}
+            />
+          </div>
+
           <Button shape="oval" type="submit">
             Увійти
           </Button>
