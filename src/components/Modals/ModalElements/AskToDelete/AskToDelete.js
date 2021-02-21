@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import style from "./QuestionOfDeletion.module.css";
 
-export default function QuestionOfDeletion({ item, onClose }) {
+export default function AskToDelete({ item, onClose }) {
   const dispatch = useDispatch();
   return (
     <section className={style.container}>
@@ -19,10 +19,10 @@ export default function QuestionOfDeletion({ item, onClose }) {
     </section>
   );
 }
-QuestionOfDeletion.proprTypes = {
+AskToDelete.proprTypes = {
   item: PropTypes.string,
 };
 
-QuestionOfDeletion.defaultProps = {
+AskToDelete.defaultProps = {
   item: "проект?",
 };

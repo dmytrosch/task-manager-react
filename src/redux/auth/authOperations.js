@@ -11,7 +11,7 @@ import {
   logInSuccess,
   logInError,
 } from "./authActions";
-import { createUser, loginUser, logoutUser } from "../../utils/API/authAPI";
+import { createUser, loginUser, logoutUser } from "../../utils/taskManagerAPI";
 
 const token = {
   set(tokenValue) {

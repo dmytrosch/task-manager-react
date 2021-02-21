@@ -56,7 +56,7 @@
 .button {
   width: 20px;
   height: 20px;
-  background: url(../../assest/icons/deleteTask.svg) no-repeat;
+  background: url(../../../assest/icons/deleteTask.svg) no-repeat;
   background-position: center;
   border-radius: 25px;
   outline: none;

@@ -4,12 +4,12 @@ import {
   setModalCreateTask,
   setModalChartTable,
 } from "../../redux/modal/modalAction";
-import TasksList from "./TasksList";
-import ModalCreateTask from "../../components/Modals/ModalComponents/ModalCreateTask";
-import SideBar from "../../components/SideBar/SideBar";
-import IconButton from "../../common/IconButtons/index";
-import Chart from "../../components/Modals/ModalComponents/ModalChartTable";
-import style from "./Task.module.css";
+import TasksList from "./TaskComponents/TasksList";
+import ModalCreateTask from "../Modals/ModalComponents/ModalCreateTask";
+import SideBar from "../SideBar/SideBar";
+import IconButton from "../../common/IconButtons/IconButtons";
+import Chart from "../Modals/ModalComponents/ModalChartTable";
+import style from "./Tasks.module.css";
 import viewStyles from "../../views/SprintsView/SprintsView.module.css";
 import EditableInput from "../../common/EditableInput/EditableInput";
 

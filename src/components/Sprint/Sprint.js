@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import SprintList from "./SprintList";
+import SprintList from "./SprintList/SprintList";
 import EditableInput from "../../common/EditableInput/EditableInput";
 
 import styles from "./Sprint.module.css";
-import IconButton from "../../common/IconButtons/index.js";
+import IconButton from "../../common/IconButtons/IconButtons.js";
 
 import * as modalAction from "../../redux/modal/modalAction";
 

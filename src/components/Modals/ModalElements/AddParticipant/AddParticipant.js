@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import { makeAlertNotification } from "../../redux/notifications/notificationOperations";
+import { makeAlertNotification } from "../../../../redux/notifications/notificationOperations";
 
 import styles from "./addParticipant.module.css";
-import animateItem from "../../utils/animateItem.module.css";
+import animateItem from "../../../../styles/animateItem.module.css";
 
-import Input from "../../common/Input/index";
-import Button from "../../common/Button/index";
+import Input from "../../../../common/Input/Input";
+import Button from "../../../../common/Button/Button";
 
 export default function AddParticipant({ onClose }) {
   const dispatch = useDispatch();

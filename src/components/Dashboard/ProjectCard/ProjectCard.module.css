@@ -56,8 +56,8 @@
     width: 216px;
   }
   .navLink {
-    background: url(../../assest/icons/Vector.1.png),
-      url(../../assest/icons/Vector.2.png);
+    background: url(../../../assest/icons/Vector.1.png),
+      url(../../../assest/icons/Vector.2.png);
     background-repeat: no-repeat;
     background-position: bottom;
   }

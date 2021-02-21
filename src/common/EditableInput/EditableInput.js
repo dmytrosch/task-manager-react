@@ -2,7 +2,7 @@ import React from "react";
 import EdiText from "react-editext";
 import styles from "./EditableInput.module.css";
 import classNames from "classnames";
-import IconButton from "../IconButtons";
+import IconButton from "../IconButtons/IconButtons";
 
 export default function EditableInput({ value }) {
   const onSave = (val) => {

@@ -5,7 +5,7 @@ import { setModalCreateTask } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
 import Modal from "../Modal";
-import AddTask from "../../AddTask";
+import AddTask from "../ModalElements/AddTask/AddTask";
 
 export default function ModalCreateTask() {
   const dispatch = useDispatch();
