@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import style from "./style.module.css";
 import Button from "../../common/Button";
+import Input from "../../common/Input/index";
 
 import { signup } from "../../redux/auth/authOperations";
 
@@ -23,32 +24,42 @@ export default function Login() {
   return (
     <section className={style.container}>
       <div className={style.formContainer}>
-        <p className={style.title}>Реєстрація</p>
+        <p className={style.titleSignup}>Реєстрація</p>
         <form className={style.form} onSubmit={handlerSubmit}>
-          <input
-            className={style.input}
-            placeholder="E-mail"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            // error={email.length > 0 && !validator.isEmail(email)}
-          />
+          <div className={style.inputContainerSingup}>
+            <Input
+              label={"E-mail"}
+              type={"text"}
+              error={false}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              errorMessage={"Невірний email"}
+              // error={email.length > 0 && !validator.isEmail(email)}
+            />
+          </div>
 
-          <input
-            className={style.input}
-            placeholder="Пароль"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            className={style.input}
-            placeholder="Пароль"
-            type="password"
-            value={confirmedPassword}
-            onChange={(e) => setConfirmedPasswod(e.target.value)}
-            id="confirmedPassword"
-          />
+          <div className={style.inputContainerSingup}>
+            <Input
+              label={"Пароль"}
+              error={false}
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              errorMessage={"Невірний пароль"}
+            />
+          </div>
+          <div className={style.inputContainerSingup}>
+            <Input
+              label={"Пароль"}
+              error={false}
+              type="password"
+              value={confirmedPassword}
+              onChange={(e) => setConfirmedPasswod(e.target.value)}
+              errorMessage={"Невірний пароль"}
+              id="confirmedPassword"
+            />
+          </div>
+
           <label
             className={
               confirmedPassword !== password
