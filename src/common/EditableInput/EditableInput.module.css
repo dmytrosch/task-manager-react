@@ -7,7 +7,6 @@
   transition: var(--trans);
 }
 .sprintNameInput{
- 
     max-width: 280px;
     font-size: 18px;
     line-height: 32px;
@@ -28,6 +27,4 @@
   font-family: var(--primeFont);
   padding: 4px;
   font-size: 16px;
-  border: 1px solid var(--borderColor);
-  border-radius: 5px;
 }

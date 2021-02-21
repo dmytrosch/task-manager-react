@@ -2,13 +2,12 @@ import React from "react";
 import EdiText from "react-editext";
 import styles from "./EditableInput.module.css";
 import classNames from "classnames";
-import IconButtons from "../IconButtons";
-
+import IconButton from "../IconButtons";
 
 export default function EditableInput({ value }) {
-    const onSave = (val) => {
-      console.log("Edited Value -> ", val);
-    };
+  const onSave = (val) => {
+    console.log("Edited Value -> ", val);
+  };
   return (
     <div className="container">
       <EdiText
@@ -21,12 +20,14 @@ export default function EditableInput({ value }) {
           disabled: false,
         }}
         disable="disable"
-        saveButtonContent="+"
+        saveButtonContent={<IconButton iconName="checkmark" icon="checkmark" />}
         saveButtonClassName={classNames(styles.button, styles.applyСancel)}
-        cancelButtonContent="-"
+        cancelButtonContent={
+          <IconButton iconName="crossIcon" icon="crossIcon" />
+        }
         cancelButtonClassName={classNames(styles.button, styles.applyСancel)}
         editButtonClassName={styles.button}
-        editButtonContent={<IconButtons iconName="pen" icon="pen" />}
+        editButtonContent={<IconButton iconName="pen" icon="pen" />}
         submitOnEnter
         cancelOnEscape
         editOnViewClick={true}
