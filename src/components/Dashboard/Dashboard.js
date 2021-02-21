@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import styles from "./styles.module.css";
-import ProjectCard from "../ProjectCard/ProjectCard";
-import IconButton from "../../common/IconButtons/index.js";
+import styles from "./Dashboard.module.css";
+import ProjectCard from "./ProjectCard/ProjectCard";
+import IconButton from "../../common/IconButtons/IconButtons.js";
 
 import * as modalAction from "../../redux/modal/modalAction";
 

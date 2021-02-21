@@ -2,9 +2,9 @@ import React from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import styles from "./sprintList.module.css";
-import animateItem from "../../../utils/animateItem.module.css";
+import animateItem from "../../../styles/animateItem.module.css";
 
-import SprintItem from "../SprintItem";
+import SprintItem from "../SprintItem/SprintItem";
 
 export default function SprintList({ sprintIds }) {
   return sprintIds.length === 0 ? (

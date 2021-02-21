@@ -5,7 +5,7 @@ import { setModalCreateProject } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
 import Modal from "../Modal";
-import ProjectCreator from "./ProjectCreator";
+import ProjectCreator from "../ModalElements/ProjectCreator/ProjectCreator";
 
 export default function ModalCreateProject() {
   const dispatch = useDispatch();

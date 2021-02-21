@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import styles from "./sprintItem.module.css";
-import IconButton from "../../../common/IconButtons/index.js";
+import IconButton from "../../../common/IconButtons/IconButtons.js";
 
 const getSprintById = (id) => () => ({
   name: "Sprint Burndown Chart 1",

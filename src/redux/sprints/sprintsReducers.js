@@ -12,7 +12,7 @@ const byId = createReducer(
     }),
     [action.deleteSuccess]: (state, { payload }) => {
       delete state[payload.id];
-      return { ...newState };
+      // return { ...newState };
     },
   }
 );

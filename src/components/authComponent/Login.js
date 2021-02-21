@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import style from "./style.module.css";
-import Button from "../../common/Button";
-import Input from "../../common/Input/index";
+import style from "./styles.module.css";
+import Button from "../../common/Button/Button";
+import Input from "../../common/Input/Input";
 
 import { login } from "../../redux/auth/authOperations";
 

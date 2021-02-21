@@ -58,7 +58,7 @@
   cursor: pointer;
   transition: background-color var(--animation-duration) var(--timing-function);
   outline: none;
-  background-image: url("../../assest/icons/CloseIcon.svg");
+  background-image: url("../../../../assest/icons/CloseIcon.svg");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;

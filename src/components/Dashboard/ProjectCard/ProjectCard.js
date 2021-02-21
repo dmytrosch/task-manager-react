@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./styles.module.css";
-import IconButton from "../../common/IconButtons/index";
+import styles from "./ProjectCard.module.css";
+import IconButton from "../../../common/IconButtons/IconButtons";
 
 export default function ProejctCard({ name, description, id }) {
   const deleteCard = (e) => {

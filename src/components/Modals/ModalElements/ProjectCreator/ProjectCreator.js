@@ -1,6 +1,6 @@
 import React, { useState, useDispatch } from "react";
 import style from "./ProjectCreator.module.css";
-import Button from "../../../common/Button";
+import Button from "../../../../common/Button/Button";
 
 export default function ProjectCreator({ onClose }) {
   const [nameProject, setNameProject] = useState("");

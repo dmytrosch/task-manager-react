@@ -5,7 +5,7 @@ import { setModalAddParticipant } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
 import Modal from "../Modal";
-import AddParticipant from "../../AddParticipant";
+import AddParticipant from "../ModalElements/AddParticipant/AddParticipant";
 
 export default function ModalAddParticipant() {
   const dispatch = useDispatch();

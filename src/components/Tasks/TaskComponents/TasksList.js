@@ -2,7 +2,7 @@ import React from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import styles from "./styles.module.css";
-import animateItem from "../../utils/animateItem.module.css";
+import animateItem from "../../../styles/animateItem.module.css";
 
 import TaskItem from "./TaskItem";
 

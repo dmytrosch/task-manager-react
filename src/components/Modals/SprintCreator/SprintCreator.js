@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./SprintCreator.module.css";
-import Button from "../../../common/Button/index";
+import Button from "../../../common/Button/Button";
 import { uk } from "date-fns/locale";
 import { DateRangePickerCalendar } from "react-nice-dates";
 import "./style.css";

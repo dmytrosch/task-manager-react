@@ -1,5 +1,5 @@
 // import Button from "../../common/Button/index";
-import IconButton from "../../common/IconButtons/index.js";
+import IconButton from "../../common/IconButtons/IconButtons.js";
 import styles from "../SideBar/sideBar.module.css";
 
 export default function AddTaskBtn({ nameArrowBtn, addNewProject }) {

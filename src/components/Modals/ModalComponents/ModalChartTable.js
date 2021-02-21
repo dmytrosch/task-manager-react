@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { isModalChartTable } from "../../../redux/modal/modalSelector";
 import { setModalChartTable } from "../../../redux/modal/modalAction";
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
-import Charts from "../../ProgressChart/ProgressChart";
-import Modal from "../../ProgressChart/ModalWindow";
+import Charts from "../ModalElements/ProgressChart/ProgressChart";
+import Modal from "../ModalElements/ProgressChart/ModalWindow";
+// import Modal from '../Modal';
 
 export default function ChartTable() {
   const dispatch = useDispatch();
