@@ -122,7 +122,6 @@ export default function Task({ sprintName }) {
             ></IconButton>
           </div>
         </section>
-        <IconButton iconName="analytica" icon="analytica" />
       </main>
     </div>
   );
