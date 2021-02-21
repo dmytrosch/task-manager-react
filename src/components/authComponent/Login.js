@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import style from "./style.module.css";
-import Button from "../../common/Button";
-import Input from "../../common/Input/index";
+import style from "./styles.module.css";
+import Button from "../../common/Button/Button";
+import Input from "../../common/Input/Input";
 
 import { login } from "../../redux/auth/authOperations";
 
@@ -23,21 +23,27 @@ export default function Login() {
       <div className={style.formContainer}>
         <p className={style.title}>Вхід</p>
         <form className={style.form} onSubmit={handlerSubmit}>
-          {/* <input
-            className={style.input}
-            placeholder="E-mail"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          /> */}
-          <Input label={'E-mail'} error={false} type={'password'} errorMessage={'Hеправильный пароль'}/>
-          <input
-            className={style.input}
-            placeholder="Пароль"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className={style.inputContainer}>
+            <Input
+              label={"E-mail"}
+              value={email}
+              error={false}
+              onChange={(e) => setEmail(e.target.value)}
+              type={"text"}
+              errorMessage={"Невірний email"}
+            />
+          </div>
+          <div className={style.inputContainer}>
+            <Input
+              label={"Пароль"}
+              error={false}
+              type={"password"}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              errorMessage={"Невірний пароль"}
+            />
+          </div>
+
           <Button shape="oval" type="submit">
             Увійти
           </Button>

@@ -1,5 +1,5 @@
-import axios from 'axios'
-import { pathOr } from 'ramda'
+import axios from "axios";
+import { pathOr } from "ramda";
 import {
   logoutRequest,
   logoutSuccess,
@@ -10,70 +10,70 @@ import {
   logInRequest,
   logInSuccess,
   logInError,
-} from './authActions'
-import { createUser, loginUser, logoutUser } from '../../utils/API/authAPI'
+} from "./authActions";
+import { createUser, loginUser, logoutUser } from "../../utils/taskManagerAPI";
 
 const token = {
   set(tokenValue) {
-    axios.defaults.headers.common.Authorization = `Bearer ${tokenValue}`
+    axios.defaults.headers.common.Authorization = `Bearer ${tokenValue}`;
   },
   unset() {
-    axios.defaults.headers.common.Authorization = ''
+    axios.defaults.headers.common.Authorization = "";
   },
-}
+};
 const errorHandler = (statusCodeError) => {
-  let message = ''
+  let message = "";
   switch (statusCodeError) {
     case 400:
-      message = 'Помилка данних'
-      break
+      message = "Помилка данних";
+      break;
     case 401:
-      message = 'Не вірно вказаний логін або пароль'
-      break
+      message = "Не вірно вказаний логін або пароль";
+      break;
     case 409:
-      message = 'Користувач з цією адресою вже зареєстрований'
-      break
+      message = "Користувач з цією адресою вже зареєстрований";
+      break;
     default:
-      message = 'Щось пішло не так...'
+      message = "Щось пішло не так...";
   }
-  return message
-}
+  return message;
+};
 export const logout = () => (dispatch) => {
-  dispatch(logoutRequest())
+  dispatch(logoutRequest());
   logoutUser()
     .then(() => dispatch(logoutSuccess()))
     .catch(() => dispatch(logoutError()))
-    .finally(() => token.unset())
-}
+    .finally(() => token.unset());
+};
 
 export const signup = (credentials) => (dispatch) => {
-  dispatch(signupRequest())
+  dispatch(signupRequest());
   createUser(credentials)
     .then((response) => {
-      token.set(response.data.token)
-      dispatch(signupSuccess(response.data))
+      token.set(response.data.token);
+      dispatch(signupSuccess(response.data));
     })
     .catch((error) => {
       const errorMessage = errorHandler(
-        pathOr('', ['response', 'status'], error)
-      )
-      console.log(errorMessage)
-      dispatch(signupError(errorMessage))
-    })
-}
+        pathOr("", ["response", "status"], error)
+      );
+      console.log(errorMessage);
+      dispatch(signupError(errorMessage));
+    });
+};
 
 export const login = (credentials) => (dispatch) => {
-  dispatch(logInRequest())
+  dispatch(logInRequest());
   loginUser(credentials)
     .then((response) => {
-      token.set(response.data.token)
-      dispatch(logInSuccess(response.data))
+      token.set(response.data.token);
+      dispatch(logInSuccess(response.data));
     })
     .catch((error) => {
       const errorMessage = errorHandler(
-        pathOr('', ['response', 'status'], error)
-      )
-      console.log(errorMessage)
-      dispatch(logInError(error))
-    })
-}
+        pathOr("", ["response", "status"], error)
+      );
+      console.log(errorMessage);
+      dispatch(logInError(error));
+    });
+};

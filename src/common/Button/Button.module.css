@@ -1,42 +1,42 @@
 .button {
-    border-radius: 25px;
-    box-sizing: border-box;
-    border: 1px solid transparent;
-    transition: var(--trans);
+  border-radius: 25px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  transition: var(--trans);
 }
 
 .orange {
-    background: var(--orangeColor);
-    border: 1px solid var(--orangeColor);
-    font-family: var(--primeFont);
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: center;
-    /* letter-spacing: 0.1em; */
-    color: var(--whiteColor);
-    box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+  background: var(--orangeColor);
+  border: 1px solid var(--orangeColor);
+  font-family: var(--primeFont);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  /* letter-spacing: 0.1em; */
+  color: var(--whiteColor);
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
 }
 .orange:hover {
-    background: var(--whiteColor);
-    color: var(--orangeColor);
+  background: var(--whiteColor);
+  color: var(--orangeColor);
 }
 
 .circle {
-    border-radius: 50%;
-    width: 46px;
-    height: 46px;
-    transition: var(--trans);
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  transition: var(--trans);
 }
 
 .oval {
-    width: 154px;
-    height: 44px;
-    transition: var(--trans);
+  width: 154px;
+  height: 44px;
+  transition: var(--trans);
 }
 
 .square {
-    width: 260px;
-    height: 44px;
+  width: 260px;
+  height: 44px;
 }

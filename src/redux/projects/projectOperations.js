@@ -1,33 +1,32 @@
 import {
-    addProjectRequest,
-    addProjectSuccess,
-    addProjectError,
-    deleteProjectRequest,
-    deleteProjectSuccess,
-    deleteProjectError,
-    changeProjectNameRequest,
-    changeProjectNameSuccess,
-    changeProjectNameError,
-    changeProjectDescRequest,
-    changeProjectDescSuccess,
-    changeProjectDescError
-  } from "./projectActions";
+  addProjectRequest,
+  addProjectSuccess,
+  addProjectError,
+  deleteProjectRequest,
+  deleteProjectSuccess,
+  deleteProjectError,
+  changeProjectNameRequest,
+  changeProjectNameSuccess,
+  changeProjectNameError,
+  changeProjectDescRequest,
+  changeProjectDescSuccess,
+  changeProjectDescError,
+} from "./projectActions";
 
-  import {addProjectAPI, deleteProjectAPI} from '../../utils/taskManagerAPI';
-
+import { addProjectAPI, deleteProjectAPI } from "../../utils/taskManagerAPI";
 
 export const addProject = (project) => (dispatch) => {
-    dispatch(addProjectRequest());
+  dispatch(addProjectRequest());
 
-    addProjectAPI(project)
+  addProjectAPI(project)
     .then((resp) => dispatch(addProjectSuccess(resp.data)))
-    .catch((error) => dispatch(addProjectError(error)))
+    .catch((error) => dispatch(addProjectError(error)));
 };
 
 export const deleteProject = (project) => (dispatch) => {
-    dispatch(deleteProjectRequest());
+  dispatch(deleteProjectRequest());
 
-    deleteProjectAPI(project)
+  deleteProjectAPI(project)
     .then((resp) => dispatch(deleteProjectSuccess(resp.data)))
-    .catch((error) => dispatch(deleteProjectError(error)))
+    .catch((error) => dispatch(deleteProjectError(error)));
 };

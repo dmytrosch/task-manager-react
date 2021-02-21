@@ -1,0 +1,248 @@
+/* .container{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 120px 0px;
+    height: 768px;
+    width: 530px;
+    background: var(--formColor);
+} */
+.title {
+  width: 100%;
+  font-size: 36px;
+  margin-bottom: 50px;
+  letter-spacing: 0.1em;
+  margin-left: 20px;
+}
+
+.form {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 430px;
+}
+.input::placeholder {
+  font-size: 18px;
+  line-height: 22px;
+  padding-left: 5px;
+  letter-spacing: 0.06em;
+}
+.input {
+  text-align: left;
+  margin-bottom: 40px;
+  border: none;
+  background: none;
+  padding: 5px;
+  border-bottom: 1px solid var(--greyColor);
+  font-size: 18px;
+  color: var(--blackColor);
+  letter-spacing: 0.06em;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.subtitle {
+  width: 70px;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 20px;
+  border-bottom: 1px solid var(--greyColor);
+  color: var(--greyColor);
+}
+
+.addedBtn {
+  margin: 0 auto;
+}
+
+button:focus {
+  outline: none;
+}
+
+.radioBtnContainer {
+  width: 100%;
+  display: flex;
+  margin-bottom: 42px;
+}
+
+.radioBtn {
+  display: inline-block;
+  position: relative;
+  background: var(--formColor);
+}
+
+.btnArtibute {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--formColor);
+  border: 1px solid #d1d2d4;
+}
+
+.btnOvale {
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--orangeColor);
+}
+.btnOvaleClose {
+  background: transparent;
+}
+
+.btnText {
+  align-self: center;
+  margin-left: 10px;
+  font-family: var(--primeFont);
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--greyColor);
+}
+
+.dateInputContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dateEndBtn::placeholder {
+  font-size: 14px;
+  position: relative;
+  bottom: 26px;
+}
+.dateEndBtn {
+  font-family: var(--primeFont);
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--greyColor);
+  padding-top: 30px;
+  margin-right: 15px;
+}
+
+.durationBtn {
+  margin-left: 15px;
+  font-family: var(--primeFont);
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--greyColor);
+}
+.triangleContainer {
+  position: relative;
+}
+.triangle {
+  width: 12px;
+  height: 10px;
+  position: absolute;
+  top: 36px;
+  left: 176px;
+  transform: rotate(60deg);
+  cursor: pointer;
+  opacity: 0.6;
+}
+.triangleRot {
+  transform: rotate(120deg) !important;
+}
+
+/* =======Data-picker===== */
+.pickerDateContainer {
+  position: absolute;
+  top: 318px;
+  width: 280px;
+  height: 280px;
+}
+
+.dayWeeks {
+  font-family: var(--primeFont);
+  color: var(--orangeColor);
+  width: 280px;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 15px 0px;
+  position: absolute;
+  top: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 1000;
+  letter-spacing: 0.06em;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    height: 1024px;
+    width: 512px;
+  }
+  .subtitle {
+    width: 70px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin: 30px auto 0px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    height: 100vh;
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 26px;
+    margin-bottom: 50px;
+    letter-spacing: 0.1em;
+    margin-left: 0px;
+  }
+
+  .input {
+    width: 280px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .radioBtnContainer {
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 42px;
+  }
+  .dateInputContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .triangle {
+    position: absolute;
+    top: 36px;
+    left: 260px;
+    transform: rotate(60deg);
+    cursor: pointer;
+    opacity: 0.6;
+  }
+  .pickerDateContainer {
+    position: absolute;
+    top: 300px;
+    left: 20px;
+    width: 280px;
+    height: 280px;
+  }
+  .durationBtn {
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+  .form {
+    width: 320px;
+    text-align: center;
+  }
+}

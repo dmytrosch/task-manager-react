@@ -35,7 +35,7 @@ export default function App() {
           </Switch>
         </Suspense>
       </BrowserRouter>
-      
+
       <ModalCreateSprint />
       <ModalCreateTask />
       <ModalAddParticipant />

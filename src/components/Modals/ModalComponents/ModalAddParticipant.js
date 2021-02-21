@@ -5,7 +5,7 @@ import { setModalAddParticipant } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
 import Modal from "../Modal";
-// import AddParticipant from "../../AddParticipant";
+import AddParticipant from "../ModalElements/AddParticipant/AddParticipant";
 
 export default function ModalAddParticipant() {
   const dispatch = useDispatch();
@@ -14,9 +14,8 @@ export default function ModalAddParticipant() {
 
   return isOpen ? (
     <ModalPortal>
-      <Modal onClose={closeModal} position="modalWindowRight">
-        {/* <AddParticipant onClose={closeModal} /> */}
-        <p>Add Participant Creator</p>
+      <Modal onClose={closeModal}>
+        <AddParticipant onClose={closeModal} />
       </Modal>
     </ModalPortal>
   ) : null;

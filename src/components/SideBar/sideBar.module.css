@@ -1,12 +1,10 @@
-.aside{
+.aside {
   min-width: 100%;
   height: 100%;
   padding-bottom: 40px;
   border-right: 1px solid var(--borderColor);
-  
-
 }
-.tabsMenu{
+.tabsMenu {
   margin-bottom: 60px;
 }
 .tabsTitles {
@@ -15,29 +13,27 @@
   list-style: none;
   padding: 0px;
   margin: 0;
-  
 }
 
 .title {
   font-family: var(--primeFont);
-  background-color:transparent;
+  background-color: transparent;
   width: 160px;
   margin: 16px 0px 16px 10px;
 }
 
-.navLink{
+.navLink {
   display: flex;
   align-items: center;
-  
 }
 
 .titleActive {
-  background-color:transparent;
+  background-color: transparent;
   font-family: var(--primeFont);
   font-weight: bold;
 }
 
-.squareActive{
+.squareActive {
   box-shadow: 1px 1px 1px 1px var(--orangeColor);
 }
 
@@ -47,14 +43,12 @@
   margin: 0;
 }
 
-
-
-.navContainer{
+.navContainer {
   padding-top: 20px;
   display: flex;
 }
 
-.arrowName{
+.arrowName {
   font-family: var(--primeFont);
   color: var(--blackColor);
   font-weight: 400;
@@ -62,92 +56,75 @@
   letter-spacing: 0.04em;
   width: 100px;
   margin-left: 20px;
-  
 }
 
-.square{
+.square {
   display: block;
   width: 36px;
   height: 36px;
-  background-color:var(--greyColor);
+  background-color: var(--greyColor);
   border-radius: 5px;
   margin-right: 15px;
   flex-shrink: 0;
-  
 }
 
-.taskTitle{
+.taskTitle {
   font-family: var(--primeFont);
   font-size: 14px;
   width: 100%;
   flex: 0 0 auto;
   overflow: hidden;
-  
 }
 
-.button{
+.button {
   display: block;
   margin: 0 auto;
-  /* background-image: url('../../assest/icons/+.svg');
-  background-position: center;
-  background-size: auto;
-  background-repeat: no-repeat; */
 }
 
-.addButton{
+.addButton {
   font-family: var(--primeFont);
   margin-top: 15px;
-display: block;
-text-align: center;
+  display: block;
+  text-align: center;
 }
-
-
 
 @media (max-width: 767px) {
   .tabsMenu,
-  .addButton{
+  .addButton {
     display: none;
   }
-  .arrowName{
+  .arrowName {
     width: 320px;
   }
-  .button{
+  .button {
     display: none;
-
   }
-  .navContainer{
+  .navContainer {
     padding-top: 10px;
     padding-bottom: 10px;
-    
+    margin-left: 30%;
   }
-  .aside{
+  .aside {
     border-right: none;
     padding-bottom: 0;
   }
-  .scrollbars{
+  .scrollbars {
     display: none;
   }
 }
 
-
-
-
-@media (min-width:1024px){
+@media (min-width: 1024px) {
   .tabsTitles {
-    /* min-height: 600px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     list-style: none;
     padding: 0px;
     margin: 0;
-    /* overflow-y: scroll;
-    max-height: 100vh; */
   }
 }
 
-
-@media (min-width: 768px) and (max-width: 1023px){
+@media (min-width: 768px) and (max-width: 1023px) {
   .tabsTitles {
     display: flex;
     flex-direction: column;
@@ -155,15 +132,12 @@ text-align: center;
     list-style: none;
     padding: 0px;
     margin: 0;
-    /* overflow-y: scroll;
-    max-height: 100vh; */
   }
-  .navContainer{
+  .navContainer {
     padding-top: 10px;
     padding-bottom: 10px;
-    
   }
-  .navContainer::after{
+  /* .navContainer::after {
     content: "";
     display: inline-block;
     height: 1px;
@@ -172,10 +146,9 @@ text-align: center;
     background-color: var(--borderColor);
     top: 95px;
     position: absolute;
-}
-  .aside{
+  } */
+  .aside {
     border-right: none;
     padding-bottom: 0;
   }
 }
-

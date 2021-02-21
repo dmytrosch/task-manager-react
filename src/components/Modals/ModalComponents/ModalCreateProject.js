@@ -5,7 +5,7 @@ import { setModalCreateProject } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
 import Modal from "../Modal";
-import ProjectCreator from "./ProjectCreator";
+import ProjectCreator from "../ModalElements/ProjectCreator/ProjectCreator";
 
 export default function ModalCreateProject() {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function ModalCreateProject() {
 
   return isOpen ? (
     <ModalPortal>
-      <Modal onClose={closeModal} position="modalWindowRight">
+      <Modal onClose={closeModal}>
         <ProjectCreator onClose={closeModal} />
       </Modal>
     </ModalPortal>

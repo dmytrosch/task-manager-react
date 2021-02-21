@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import SprintList from "./SprintList";
+import SprintList from "./SprintList/SprintList";
+import EditableInput from "../../common/EditableInput/EditableInput";
 
 import styles from "./Sprint.module.css";
-import IconButton from "../../common/IconButtons/index.js"
-
+import IconButton from "../../common/IconButtons/IconButtons.js";
 
 import * as modalAction from "../../redux/modal/modalAction";
 
@@ -28,9 +28,9 @@ const getSprintIdsByProjectId = (projectId) => () => [
 export default function Sprint() {
   const { name, description } = useSelector(getProjectDataById("projectId"));
   const sprintIds = useSelector(getSprintIdsByProjectId("projectId"));
-  
+
   const dispatch = useDispatch();
-  
+
   const editProject = () => dispatch(modalAction.setModalEditProject(true));
   const addParticipant = () =>
     dispatch(modalAction.setModalAddParticipant(true));
@@ -39,22 +39,26 @@ export default function Sprint() {
   return (
     <section className={styles.container}>
       <div className={styles.wrapper}>
-        <h2
+        <div className={styles.editableInpuContainer}>
+          <EditableInput value={name} onSave/>
+        </div>
+        {/* <h2
           className={
             description
               ? styles.projectNameWithDesc
               : styles.projectNameWithOutDesc
           }
         >
-          {name}
-        </h2>
+        </h2> */}
 
-        {/* <button className={styles.editBtn} onClick={editProject}></button> */}
-        <IconButton           
-        iconButtonCustomClass={styles.editBtn}           
-        iconName="pen" icon="pen"           
-        onClick={editProject} />
-        {description && <p className={styles.description}>{description}</p>}
+        {/* <IconButton
+          iconButtonCustomClass={styles.editBtn}
+          iconName="pen"
+          icon="pen"
+          onClick={editProject}
+        /> */}
+
+        {/* {description && <p className={styles.description}>{description}</p>} */}
 
         <p className={styles.addParticipant} onClick={addParticipant}>
           Додати людей
@@ -63,11 +67,12 @@ export default function Sprint() {
         <SprintList sprintIds={sprintIds} />
 
         <div className={styles.addSprint}>
-          {/* <button className={styles.addSprintBtn} onClick={addSprint}></button> */}
-          <IconButton           
-          iconButtonCustomClass={styles.button}           
-          iconName="plus" icon="plus"           
-          onClick={addSprint}/>
+          <IconButton
+            iconButtonCustomClass={styles.button}
+            iconName="plus"
+            icon="plus"
+            onClick={addSprint}
+          />
           <span className={styles.addSprintText}>Створити спринт</span>
         </div>
       </div>
