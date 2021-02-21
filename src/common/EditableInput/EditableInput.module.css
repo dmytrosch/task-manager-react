@@ -1,0 +1,30 @@
+.sprintName {
+  font-size: 26px;
+  line-height: 32px;
+  display: inline-block;
+  word-break: break-all;
+
+  transition: var(--trans);
+}
+.sprintNameInput{
+    max-width: 280px;
+    font-size: 18px;
+    line-height: 32px;
+    display: inline-block;
+    background-color: var(--backgroundColor);
+    outline: none;
+    border: none;
+    padding: 0px 0px 0px 5px;
+    border-bottom: 1px solid var(--borderColor);
+    resize: none;
+}
+.button {
+  border: none;
+  background-color: transparent;
+  padding: 0px 0px 0px 10px;
+}
+.applyСancel {
+  font-family: var(--primeFont);
+  padding: 4px;
+  font-size: 16px;
+}

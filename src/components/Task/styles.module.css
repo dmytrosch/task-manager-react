@@ -79,6 +79,14 @@
   .containerUL {
     width: 100%;
   }
+  .list::before {
+    content: "";
+    display: inline-block;
+    height: 1px;
+    width: 96%;
+    background-color: var(--borderColor);
+    margin: 0px 0px 20px;
+  }
   .list {
     width: 100%;
     display: flex;
