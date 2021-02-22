@@ -12,6 +12,8 @@ import Chart from "../Modals/ModalComponents/ModalChartTable";
 import style from "./Tasks.module.css";
 import viewStyles from "../../views/SprintsView/SprintsView.module.css";
 import EditableInput from "../../common/EditableInput/EditableInput";
+import SearchInput from "../../common/SearchInput/SearchInput";
+import Slider from "../../common/Slider/Slider";
 
 const getProjectDataById = (projectId) => () => ({
   name: "Project Ala Carta",
@@ -38,6 +40,16 @@ export default function Task({ sprintName }) {
     dispatch(setModalChartTable(true));
   };
 
+  const handleSearchInput = (searchRequest) => {
+    // TODO: Connect dispatch
+    console.log("dispatch", searchRequest);
+  };
+
+  const handleSlider = (current) => {
+    // TODO: Connect dispatch
+    console.log("dispatch", current);
+  };
+
   return (
     <div className={viewStyles.view}>
       <section>
@@ -50,21 +62,14 @@ export default function Task({ sprintName }) {
 
       <main className={style.container}>
         <div className={style.ContainerPaginate}>
-          <div className={style.paginate}>
-            <button className={style.puginateBth}></button>
-            <span className={style.paginateSpan}>2</span>
-            <span className={style.paginateSpan}>/</span>
-            <span className={style.paginateSpan}>12</span>
-            <button className={style.puginateBth}></button>
+          <div>
+          <Slider initialCurrent={2} total={11} callback={handleSlider} />
+          <span className={style.dateCreation}>2020.02.16</span>
           </div>
-          <p className={style.dateCreation}>2020.02.16</p>
-        </div>
-
-        <div className={style.containerInput}>
-          <div className={style.wrapSearch}>
-            <input className={style.searchSubmit} value="#" type="text" />
-            <input className={style.search} name="search" type="text" />
-          </div>
+          <SearchInput
+            customContainerStyles={style.mobileSearchInp}
+            callback={handleSearchInput}
+          />
         </div>
 
         <p className={style.sprintNames}>
@@ -92,18 +97,10 @@ export default function Task({ sprintName }) {
             Витрачено
             <br /> годин
           </span>
-          <div className={style.containerInputDesctop}>
-            <div className={style.wrap}>
-              <input
-                className={style.search}
-                name="search"
-                type="text"
-                maxLength="11"
-                placeholder="Пошук..."
-              />
-              <input className={style.searchSubmit} value="" type="text" />
-            </div>
-          </div>
+          <SearchInput
+            customContainerStyles={style.desktopSearchInp}
+            callback={handleSearchInput}
+          />
         </div>
         <section className={style.containerWithTask}>
           <TasksList tasksIds={tasksIds} />

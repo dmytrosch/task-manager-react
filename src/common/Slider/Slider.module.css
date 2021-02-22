@@ -1,0 +1,40 @@
+.container {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 90px;
+}
+
+.values {
+  font-family: var(--primeFont);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--greyColor);
+}
+
+.current {
+  font-size: 18px;
+  color: var(--blackColor);
+}
+
+.button {
+  border: none;
+  width: 15px;
+  height: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+}
+
+.decBth {
+  composes: button;
+  background-image: url("../../assest/icons/ArrowLeft.icon.svg");
+}
+
+.incBth {
+  composes: button;
+  background-image: url("../../assest/icons/ArrowRight.icon.svg");
+}
