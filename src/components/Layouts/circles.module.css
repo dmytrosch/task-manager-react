@@ -39,6 +39,17 @@
   z-index: 10;
 }
 
+.thirdLay {
+  composes: orangeCircle;
+  position: absolute;
+  width: 252px;
+  height: 252px;
+  left: 286px;
+  top: 566px;
+  z-index: 999999999;
+  opacity: 0.8;
+}
+
 .fourth {
   composes: whiteCircle;
   width: 298px;
@@ -81,8 +92,8 @@
   width: 315px;
   height: 315px;
   position: relative;
-  left: 370px;
-  top: -710px;
+  left: 360px;
+  top: -700px;
   z-index: 2;
 }
 
@@ -135,6 +146,8 @@
 }
 
 .third,
+.thirdLay,
+.fifth,
 .sixth,
 .seventh,
 .ninth {
@@ -147,45 +160,4 @@
   );
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
-}
-
-.center {
-  margin: 0 auto;
-}
-
-.outerRing {
-  position: relative;
-  height: 118px;
-  width: 118px;
-  background-image: linear-gradient(
-    135deg,
-    #fec407 0%,
-    #fe6a50 5%,
-    #f8d821 15%,
-    #d5d80d 50%,
-    #f1aa0f 100%
-  );
-  border-radius: 50%;
-  animation-duration: 2s;
-  animation-name: rotate;
-  animation-iteration-count: infinite;
-}
-
-.innerRing {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  height: 108px;
-  width: 108px;
-  background-color: white;
-  border-radius: 50%;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
