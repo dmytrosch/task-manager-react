@@ -27,16 +27,7 @@
 .text {
   font-size: 12px;
 }
-.taskName {
-  width: 100%;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  margin: 0 auto 15px;
-  text-align: center;
-  padding: 0px 0px 8px;
-  border-bottom: 1px solid var(--borderColor);
-}
+
 .planingHours,
 .spendedHours {
   width: 75px;
@@ -117,14 +108,12 @@
     align-items: center;
     margin-bottom: 10px;
   }
-  .taskName {
-    width: 170px;
-  }
+ 
   .list {
     width: auto;
     display: flex;
   }
-  .taskName,
+
   .div {
     margin: 0;
   }

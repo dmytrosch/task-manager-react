@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import IconButton from "../../../common/IconButtons/IconButtons.js";
+import EditableInput from "../../../common/EditableInput/EditableInput";
 
 import styles from "./styles.module.css";
 
@@ -19,7 +20,14 @@ export default function SprintItem({ id }) {
   return (
     <>
       <li className={styles.container}>
-        <h2 className={styles.taskName}>{name}</h2>
+        <EditableInput
+          viewStyle="taskName"
+          inputStyle="taskNameInput"
+          rows={2}
+          value={name}
+          button="buttonTask"
+        />
+        {/* <h2 className={styles.taskName}>{name}</h2> */}
         <div className={styles.div}>
           <p className={styles.text}>Заплановано годин</p>
           <p className={styles.planingHours}>{ScheduledHours}</p>
