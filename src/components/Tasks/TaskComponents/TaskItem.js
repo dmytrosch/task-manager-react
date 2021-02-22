@@ -25,8 +25,8 @@ export default function SprintItem({ id }) {
           inputStyle="taskNameInput"
           rows={2}
           value={name}
-          button="buttonTask"
-          editButton="editButtonTask"
+          button="hide"
+          // editButton="editButtonTask"
         />
         {/* <h2 className={styles.taskName}>{name}</h2> */}
         <div className={styles.div}>
@@ -35,7 +35,15 @@ export default function SprintItem({ id }) {
         </div>
         <div className={styles.div}>
           <p className={styles.text}>Витрачено год/день</p>
-          <input className={styles.input} placeholder="6"></input>
+          <EditableInput
+            type="number"
+            button="hide"
+            viewStyle="searchName"
+            inputStyle="searchInput"
+            value="6"
+            onSave
+          />
+          {/* <input className={styles.input} placeholder="6"></input> */}
         </div>
         <div className={styles.div}>
           <p className={styles.text}>Витрачено годин</p>

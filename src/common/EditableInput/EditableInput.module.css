@@ -1,4 +1,64 @@
-.editButtonTask {
+.hide {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+.searchName {
+  height: 24px;
+  padding: 0;
+  padding-left: 40px;
+  font-size: 18px;
+  text-align: end;
+  width: 77px;
+}
+.searchInput {
+  height: 24px;
+  padding: 0;
+  padding-left: 40px;
+  font-size: 18px;
+  text-align: end;
+  width: 77px;
+}
+.searchName {
+  height: 24px;
+  padding: 0;
+  padding-left: 40px;
+  font-size: 18px;
+  text-align: end;
+  width: 77px;
+
+  font-family: var(--primeFont);
+  border: none;
+  outline: none;
+  color: #555;
+  background: none;
+  z-index: 0;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+  border-bottom: 1px solid var(--borderColor);
+}
+.searchInput {
+  height: 24px;
+  padding: 0;
+  padding-left: 40px;
+  font-size: 18px;
+  text-align: end;
+  width: 77px;
+
+  font-family: var(--primeFont);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #555;
+  background: none;
+  z-index: 0;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+  border-bottom: 1px solid var(--borderColor);
+}
+.buttonTask {
   position: absolute;
   clip: rect(0 0 0 0);
   width: 1px;
@@ -16,8 +76,6 @@
   border-bottom: 1px solid var(--borderColor);
   word-break: break-all;
   transition: var(--trans);
-
-  
 }
 .taskNameInput {
   max-width: 280px;
@@ -58,14 +116,12 @@
   padding: 0px 0px 0px 10px;
   margin: 0px 0px 25px 5px;
 }
-.buttonTask {
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-}
+
 .applyСancel {
   font-family: var(--primeFont);
   padding: 4px;
+}
+@media (min-width: 766px) {
 }
 @media (max-width: 1280px) {
   .taskName {
@@ -73,6 +129,21 @@
   }
 }
 @media (min-width: 1280px) {
+  .searchName {
+    padding: 20px 0px 40px 5px;
+    height: 14px;
+    text-align: start;
+    width: 105px;
+  }
+  .searchInput {
+    padding: 19px 0px 40px 5px;
+    text-align: start;
+    height: 14px;
+    width: 105px;
+  }
+  .taskNameInput {
+    width: 170px;
+  }
   .taskName {
     width: 170px;
     margin: 0;

@@ -13,7 +13,8 @@ export default function EditableInput({
   inputStyle,
   rows,
   button,
-  editButton
+  styleInputNumber,
+  type
 }) {
   const onSave = (val) => {
     console.log("Edited Value -> ", val);
@@ -21,7 +22,7 @@ export default function EditableInput({
   return (
     <div className="container">
       <EdiText
-        type="textarea"
+        type={type}
         viewProps={{
           className: styles[viewStyle],
         }}
@@ -36,7 +37,7 @@ export default function EditableInput({
         cancelButtonContent={<CrossIcon  />}
         saveButtonClassName={classNames(styles[button], styles.applyСancel)}
         cancelButtonClassName={classNames(styles[button], styles.applyСancel)}
-        editButtonClassName={classNames(styles.button, styles[editButton])}
+        editButtonClassName={classNames(styles[button], styles[styleInputNumber])}
         submitOnEnter
         cancelOnEscape
         editOnViewClick={true}
@@ -56,7 +57,9 @@ EditableInput.proprTypes = {
   shape: PropTypes.string,
   rows: PropTypes.number,
   button: PropTypes.string,
-  editButton: PropTypes.string,
+  styleInputNumber: PropTypes.string,
+  type: PropTypes.string,
+  
   
 };
 
@@ -64,4 +67,5 @@ EditableInput.defaultProps = {
   viewStyle: "sprintName",
   inputStyle: "sprintNameInput",
   button: "button",
+  type: 'textarea'
 };
