@@ -30,6 +30,7 @@ export default function AuthLayout(props) {
             <div className={circlesStyles.tenth}></div>
             <div className={circlesStyles.eleventh}></div>
           </div>
+
           {props.children}
         </div>
       )}

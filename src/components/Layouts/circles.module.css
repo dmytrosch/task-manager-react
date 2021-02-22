@@ -39,6 +39,17 @@
   z-index: 10;
 }
 
+.thirdNew {
+  composes: orangeCircle;
+  position: absolute;
+  width: 252px;
+  height: 252px;
+  left: -165px;
+  top: 223px;
+  z-index: 999999;
+  opacity: 0.8;
+}
+
 .fourth {
   composes: whiteCircle;
   width: 298px;
@@ -107,6 +118,12 @@
   border-radius: 193px;
 }
 
+@media (max-width: 768px) {
+  .thirdNew {
+    display: none;
+  }
+}
+
 @media (min-width: 1280px) {
   .fifth {
     top: -770px;
@@ -119,6 +136,9 @@
   }
   .second {
     top: 130px;
+  }
+  .thirdNew {
+    top: 279px;
   }
 }
 
@@ -135,6 +155,7 @@
 }
 
 .third,
+.thirdNew,
 .fifth,
 .sixth,
 .seventh,
