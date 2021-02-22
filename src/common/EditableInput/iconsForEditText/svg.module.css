@@ -1,0 +1,13 @@
+.svgEdit {
+  fill: #a6a6a6;
+}
+.svgSave {
+  fill: #95e964;
+}
+.svgClose {
+  fill: #f15247;
+}
+
+.svgClose:hover:focus {
+  fill: var(--orangeColor);
+}

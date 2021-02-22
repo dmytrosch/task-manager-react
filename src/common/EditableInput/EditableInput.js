@@ -3,9 +3,18 @@ import EdiText from "react-editext";
 import styles from "./EditableInput.module.css";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import IconButton from "../IconButtons/IconButtons";
+import CrossIcon from "./iconsForEditText/CrossIcon.svg";
+import Checkmark from "./iconsForEditText/Checkmark.svg";
+import Edit from "./iconsForEditText/Edit.svg";
 
-export default function EditableInput({ value, viewStyle, inputStyle, rows, button  }) {
+export default function EditableInput({
+  value,
+  viewStyle,
+  inputStyle,
+  rows,
+  button,
+  editButton
+}) {
   const onSave = (val) => {
     console.log("Edited Value -> ", val);
   };
@@ -19,17 +28,15 @@ export default function EditableInput({ value, viewStyle, inputStyle, rows, butt
         inputProps={{
           className: styles[inputStyle],
           disabled: false,
-          rows: rows
+          rows: rows,
         }}
         disable="disable"
-        saveButtonContent={<IconButton iconName="checkmark" icon="checkmark" />}
+        saveButtonContent={<Checkmark  />}
+        editButtonContent={<Edit />}
+        cancelButtonContent={<CrossIcon  />}
         saveButtonClassName={classNames(styles[button], styles.applyСancel)}
-        cancelButtonContent={
-          <IconButton iconName="crossIcon" icon="crossIcon" />
-        }
         cancelButtonClassName={classNames(styles[button], styles.applyСancel)}
-        editButtonClassName={styles.button}
-        editButtonContent={<IconButton iconName="pen" icon="pen" />}
+        editButtonClassName={classNames(styles.button, styles[editButton])}
         submitOnEnter
         cancelOnEscape
         editOnViewClick={true}
@@ -49,6 +56,8 @@ EditableInput.proprTypes = {
   shape: PropTypes.string,
   rows: PropTypes.number,
   button: PropTypes.string,
+  editButton: PropTypes.string,
+  
 };
 
 EditableInput.defaultProps = {

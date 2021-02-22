@@ -5,10 +5,10 @@ import GoBackBtn from "./goBackBtn";
 import ListItem from "./listItems";
 import AddTaskBtn from "./addTaskBtn";
 import styles from "../SideBar/sideBar.module.css";
-
 import * as modalAction from "../../redux/modal/modalAction";
 
 //for example
+
 const obj = [
   {
     id: 1,

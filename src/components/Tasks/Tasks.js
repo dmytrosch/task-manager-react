@@ -67,9 +67,9 @@ export default function Task({ sprintName }) {
           </div>
         </div>
 
-        <p className={style.sprintNames}>
+        <div className={style.sprintNames}>
           <EditableInput onSave value={name} />
-        </p>
+        </div>
         <div onClick={openModalTask} className={style.containerButton}>
           <IconButton
             iconButtonCustomClass={style.buttonAdd}

@@ -26,6 +26,7 @@ export default function SprintItem({ id }) {
           rows={2}
           value={name}
           button="buttonTask"
+          editButton="editButtonTask"
         />
         {/* <h2 className={styles.taskName}>{name}</h2> */}
         <div className={styles.div}>
