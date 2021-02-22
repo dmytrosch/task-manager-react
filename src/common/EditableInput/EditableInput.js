@@ -1,10 +1,11 @@
 import React from "react";
 import EdiText from "react-editext";
 import styles from "./EditableInput.module.css";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import IconButton from "../IconButtons/IconButtons";
 
-export default function EditableInput({ value }) {
+export default function EditableInput({ value, viewStyle, inputStyle, rows, button  }) {
   const onSave = (val) => {
     console.log("Edited Value -> ", val);
   };
@@ -13,19 +14,20 @@ export default function EditableInput({ value }) {
       <EdiText
         type="textarea"
         viewProps={{
-          className: styles.sprintName,
+          className: styles[viewStyle],
         }}
         inputProps={{
-          className: styles.sprintNameInput,
+          className: styles[inputStyle],
           disabled: false,
+          rows: rows
         }}
         disable="disable"
         saveButtonContent={<IconButton iconName="checkmark" icon="checkmark" />}
-        saveButtonClassName={classNames(styles.button, styles.applyСancel)}
+        saveButtonClassName={classNames(styles[button], styles.applyСancel)}
         cancelButtonContent={
           <IconButton iconName="crossIcon" icon="crossIcon" />
         }
-        cancelButtonClassName={classNames(styles.button, styles.applyСancel)}
+        cancelButtonClassName={classNames(styles[button], styles.applyСancel)}
         editButtonClassName={styles.button}
         editButtonContent={<IconButton iconName="pen" icon="pen" />}
         submitOnEnter
@@ -42,3 +44,15 @@ export default function EditableInput({ value }) {
     </div>
   );
 }
+EditableInput.proprTypes = {
+  viewStyle: PropTypes.string,
+  shape: PropTypes.string,
+  rows: PropTypes.number,
+  button: PropTypes.string,
+};
+
+EditableInput.defaultProps = {
+  viewStyle: "sprintName",
+  inputStyle: "sprintNameInput",
+  button: "button",
+};
