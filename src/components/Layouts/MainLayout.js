@@ -1,16 +1,12 @@
 import React from "react";
-import styles from "./Layout.module.css";
 import Header from "../Header/Header";
+import styles from "./Layout.module.css";
 
+const MainLayout = ({ children }) => (
+  <div className={styles.wrapper}>
+    <Header className={styles.header} />
+    <div className={styles.container}>{children}</div>
+  </div>
+);
 
-
-export default function MainLayout(props) {
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.containerHeader}>
-        <Header />
-      </div>
-      <div className={styles.container}>{props.children}</div>
-    </div>
-  );
-}
+export default MainLayout;
