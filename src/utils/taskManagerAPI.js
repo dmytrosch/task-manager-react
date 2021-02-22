@@ -12,10 +12,9 @@ export const logoutUser = () => {
   return axios.post("/auth/logout");
 };
 
-export const addProjectAPI = (project) =>
-  axios.post("/projects/create", project);
+export const addProject = (project) => axios.post("/projects/create", project);
 
-export const deleteProjectAPI = (projectId) =>
+export const deleteProject = (projectId) =>
   axios.delete(`/projects/${projectId}/remove`);
 
 export const addSprint = ({ projectId, sprint }) =>

@@ -8,7 +8,6 @@ export const createSprint = ({ projectId, sprint }) => (dispatch) => {
     .addSprint({ projectId, sprint })
     .then((response) => dispatch(action.createSuccess(response.data)))
     .catch((err) => dispatch(action.createError(err.message)))
-    .finally(() => {});
 };
 
 export const deleteSprint = ({ projectId, sprintId }) => (dispatch) => {
@@ -17,7 +16,6 @@ export const deleteSprint = ({ projectId, sprintId }) => (dispatch) => {
     .deleteSprint({ projectId, sprintId })
     .then(() => dispatch(action.deleteSuccess(sprintId)))
     .catch((err) => dispatch(action.deleteError(err.message)))
-    .finally(() => {});
 };
 
 export const updateSprintName = ({ sprintId, name }) => (dispatch) => {
@@ -26,7 +24,6 @@ export const updateSprintName = ({ sprintId, name }) => (dispatch) => {
     .updateSprintName({ sprintId, name })
     .then(() => dispatch(action.changeNameSuccess({ sprintId, name })))
     .catch((err) => dispatch(action.changeNameError(err.message)))
-    .finally(() => {});
 };
 
 export const sprintById = (sprintId) => (dispatch) => {
@@ -35,5 +32,4 @@ export const sprintById = (sprintId) => (dispatch) => {
     .sprintById(sprintId)
     .then((response) => dispatch(action.byIdSuccess(response.data)))
     .catch((err) => dispatch(action.byIdError(err.message)))
-    .finally(() => {});
 };
