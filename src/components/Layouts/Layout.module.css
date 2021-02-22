@@ -1,5 +1,10 @@
-.circleContainer{
+.circleContainer {
   position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 400px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .wrapper {
   min-width: 100%;
@@ -20,11 +25,20 @@
   composes: container;
   border-bottom: 1px solid var(--borderColor);
 }
+
+@media (max-width: 768px) {
+  .circleContainer {
+    display: none;
+  }
+}
 @media (min-width: 768px) {
   .container {
     min-width: 688px;
     padding-left: 40px;
     padding-right: 40px;
+  }
+  .wrapper {
+    padding-bottom: 130px;
   }
 }
 
@@ -33,5 +47,8 @@
     min-width: 1170px;
     padding-left: 55px;
     padding-right: 55px;
+  }
+  .wrapper {
+    padding-bottom: 200px;
   }
 }

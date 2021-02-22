@@ -2,6 +2,7 @@ import React from "react";
 import layoutStyles from "./Layout.module.css";
 import circlesStyles from "./circles.module.css";
 import Header from "../Header/Header";
+import classNames from "classnames";
 import { useSelector } from "react-redux";
 import { isMobileSelector } from "../../redux/clientWidth/clientWidthSelectors";
 
@@ -20,7 +21,16 @@ export default function AuthLayout(props) {
             <div className={circlesStyles.first}></div>
             <div className={circlesStyles.second}></div>
             <div className={circlesStyles.third}></div>
+            <div className={circlesStyles.fourth}></div>
+            <div className={circlesStyles.fifth}></div>
+            <div className={circlesStyles.sixth}></div>
+            <div className={circlesStyles.seventh}></div>
+            <div className={circlesStyles.eighth}></div>
+            <div className={circlesStyles.ninth}></div>
+            <div className={circlesStyles.tenth}></div>
+            <div className={circlesStyles.eleventh}></div>
           </div>
+
           {props.children}
         </div>
       )}

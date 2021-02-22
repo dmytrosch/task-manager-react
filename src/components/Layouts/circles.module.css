@@ -17,21 +17,156 @@
   width: 48px;
   height: 48px;
   position: relative;
-  top: 240px;
-  left: 230px;
+  top: 120px;
+  left: -200px;
 }
 .second {
   composes: whiteCircle;
   width: 118px;
   height: 118px;
   position: relative;
-  top: 367px;
-  left: 111px;
+  top: 170px;
+  left: -300px;
 }
+
 .third {
   composes: orangeCircle;
+  position: relative;
   width: 252px;
   height: 252px;
-  left: 183px;
-  top: 516px;
+  left: -200px;
+  top: 250px;
+  z-index: 10;
+}
+
+.thirdNew {
+  composes: orangeCircle;
+  position: absolute;
+  width: 252px;
+  height: 252px;
+  left: -165px;
+  top: 223px;
+  z-index: 999999;
+  opacity: 0.8;
+}
+
+.fourth {
+  composes: whiteCircle;
+  width: 298px;
+  height: 298px;
+  position: relative;
+  left: -230px;
+  top: -10px;
+  z-index: 0;
+}
+.fifth {
+  composes: orangeCircle;
+  width: 78px;
+  height: 78px;
+  position: relative;
+  left: 490px;
+  top: -700px;
+  z-index: 0;
+}
+.sixth {
+  composes: orangeCircle;
+  width: 26px;
+  height: 26px;
+  position: relative;
+  left: 680px;
+  top: -750px;
+}
+
+.seventh {
+  composes: orangeCircle;
+  width: 282px;
+  height: 282px;
+  position: relative;
+  left: 380px;
+  top: -400px;
+  z-index: 5;
+}
+
+.eighth {
+  composes: whiteCircle;
+  width: 315px;
+  height: 315px;
+  position: relative;
+  left: 360px;
+  top: -700px;
+  z-index: 2;
+}
+
+.ninth {
+  composes: orangeCircle;
+  width: 387px;
+  height: 387px;
+  position: relative;
+  left: 460px;
+  top: -1250px;
+  z-index: 3;
+}
+
+.tenth {
+  composes: whiteCircle;
+  width: 430px;
+  height: 430px;
+  position: relative;
+  left: 430px;
+  top: -1650px;
+  z-index: 2;
+  border-radius: 193px;
+}
+
+@media (max-width: 768px) {
+  .thirdNew {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .fifth {
+    top: -770px;
+  }
+  .sixth {
+    top: -820px;
+  }
+  .first {
+    top: 80px;
+  }
+  .second {
+    top: 130px;
+  }
+  .thirdNew {
+    top: 279px;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.third,
+.thirdNew,
+.fifth,
+.sixth,
+.seventh,
+.ninth {
+  background: linear-gradient(
+    -45deg,
+    #ff6b07,
+    #f3ad17,
+    var(--orangeColor),
+    #f16609
+  );
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
 }

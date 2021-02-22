@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import style from "./styles.module.css";
 import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
-
 import { signup } from "../../redux/auth/authOperations";
 
 export default function Login() {
@@ -71,6 +70,7 @@ export default function Login() {
             Паролі не співпадають
           </label>
           <Button type="submit">Зареєструватися</Button>
+          <div className={style.thirdNew}></div>
         </form>
         <p className={style.subtitle}>
           Маєте акаунт? &nbsp;
