@@ -1,47 +1,38 @@
 import action from "./sprintsActions";
 
-// Need
-// import * as send from "../../utils/API/fetchAPI"
+import * as send from "../../utils/taskManagerAPI";
 
-// Example
-const send = {
-  createSprint: () => {},
-  deleteSprint: () => {},
-  changeSprintName: () => {},
-  getSprint: () => {},
-};
-
-export const createSprint = (newSprint) => (dispatch) => {
+export const createSprint = ({ projectId, sprint }) => (dispatch) => {
   dispatch(action.createRequest());
   send
-    .createSprint(newSprint)
+    .addSprint({ projectId, sprint })
     .then((response) => dispatch(action.createSuccess(response.data)))
     .catch((err) => dispatch(action.createError(err.message)))
     .finally(() => {});
 };
 
-export const deleteSprint = (sprintId) => (dispatch) => {
+export const deleteSprint = ({ projectId, sprintId }) => (dispatch) => {
   dispatch(action.deleteRequest());
   send
-    .deleteSprint(sprintId)
+    .deleteSprint({ projectId, sprintId })
     .then(() => dispatch(action.deleteSuccess(sprintId)))
     .catch((err) => dispatch(action.deleteError(err.message)))
     .finally(() => {});
 };
 
-export const changeSprintName = (sprintId, newName) => (dispatch) => {
+export const updateSprintName = ({ sprintId, name }) => (dispatch) => {
   dispatch(action.changeNameRequest());
   send
-    .changeSprintName(sprintId, newName)
-    .then((response) => dispatch(action.changeNameSuccess(response.data)))
+    .updateSprintName({ sprintId, name })
+    .then(() => dispatch(action.changeNameSuccess({ sprintId, name })))
     .catch((err) => dispatch(action.changeNameError(err.message)))
     .finally(() => {});
 };
 
-export const getSprint = (sprintId) => (dispatch) => {
+export const sprintById = (sprintId) => (dispatch) => {
   dispatch(action.byIdRequest());
   send
-    .getSprint(sprintId)
+    .sprintById(sprintId)
     .then((response) => dispatch(action.byIdSuccess(response.data)))
     .catch((err) => dispatch(action.byIdError(err.message)))
     .finally(() => {});

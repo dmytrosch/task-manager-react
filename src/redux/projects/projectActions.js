@@ -8,6 +8,10 @@ export const deleteProjectRequest = createAction("project/deleteRequest");
 export const deleteProjectSuccess = createAction("project/deleteSuccess");
 export const deleteProjectError = createAction("project/deleteError");
 
+export const byIdRequest = createAction("project/byIdRequest");
+export const byIdSuccess = createAction("project/byIdSuccess");
+export const byIdError = createAction("project/byIdError");
+
 export const changeProjectNameRequest = createAction(
   "project/changeNameRequest"
 );
