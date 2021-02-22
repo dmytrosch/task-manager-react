@@ -90,12 +90,14 @@
 
 .wrapSearch {
   display: flex;
-  flex-wrap: wrap;
-  height: 32px;
+  position: relative;
+  flex-direction: row-reverse;
+  height: 28px;
   width: 100%;
 }
 
 .search {
+  align-self: flex-end;
   font-family: var(--primeFont);
   height: 14px;
   font-size: 18px;
@@ -116,10 +118,11 @@
 }
 
 .searchSubmit {
+  position: absolute;
   height: 20px;
   width: 20px;
   margin-left: auto;
-  margin-right: 14px;
+  margin-right: 0px;
   background: url("../../assest//ui/search.svg");
   background-position: center;
   background-repeat: no-repeat;
@@ -127,6 +130,7 @@
   text-indent: -10000px;
   border: none;
   z-index: 0;
+  right: 10px;
   cursor: pointer;
   opacity: 0.4;
   cursor: pointer;
@@ -141,6 +145,16 @@
 @media (max-width: 766px) {
   .searchSubmit {
     margin: 0px 20px;
+    right: 230px;
+    top: 16px;
+  }
+  .wrapSearch {
+    height: 44px;
+  }
+  .search {
+    height: 24px;
+    padding-left: 40px;
+    font-size: 18px;
   }
   .button {
     position: fixed;
@@ -174,7 +188,7 @@
   }
   .ContainerPaginate {
     display: inline-flex;
-    margin: 0px 0px 0px 10px;
+    margin: 0px 20px 0px 10px;
   }
 
   .containerWithTask {
@@ -276,7 +290,7 @@
   .wrap {
     display: flex;
     position: relative;
-    height: 20px;
+    height: 30px;
     width: 20px;
     float: right;
   }
@@ -284,24 +298,19 @@
   .search {
     font-family: var(--primeFont);
     font-weight: 400;
-    height: 20px;
+    height: 25px;
     width: 20px;
     font-size: 16px;
     border: none;
     outline: none;
     color: #555;
     position: absolute;
-    top: 0;
     right: 0;
     background: none;
     z-index: 3;
     transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
     cursor: pointer;
-  }
-
-  .search:focus:hover {
-    outline: none;
-    border-bottom: 2px solid #bbb;
+    padding-right: 20px;
   }
 
   .search:focus {
@@ -310,7 +319,9 @@
     border-bottom: 2px solid #bbb;
     cursor: text;
     outline: none;
+    transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
   }
+
   .searchSubmit {
     height: 20px;
     width: 20px;
@@ -326,11 +337,6 @@
     opacity: 0.4;
     cursor: pointer;
     transition: opacity 0.4s ease;
-  }
-
-  .searchSubmit:hover {
-    opacity: 0.8;
-    outline: none;
   }
 
   .search::-webkit-input-placeholder {
