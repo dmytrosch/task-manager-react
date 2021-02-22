@@ -39,17 +39,6 @@
   z-index: 10;
 }
 
-.thirdLay {
-  composes: orangeCircle;
-  position: absolute;
-  width: 252px;
-  height: 252px;
-  left: 286px;
-  top: 566px;
-  z-index: 999999999;
-  opacity: 0.8;
-}
-
 .fourth {
   composes: whiteCircle;
   width: 298px;
@@ -146,7 +135,6 @@
 }
 
 .third,
-.thirdLay,
 .fifth,
 .sixth,
 .seventh,
