@@ -42,7 +42,6 @@ export default function SprintItem({ id }) {
             inputStyle="searchInput"
             value="6"
             onSave
-            rows={1}
             validationMessage="Будь ласка введіть назву до 3 символів."
             validation={(val) => val.length <= 3}
           />
