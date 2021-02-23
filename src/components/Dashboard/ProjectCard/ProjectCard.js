@@ -15,8 +15,8 @@ export default function ProjectCard({ name, description, id, isOwner }) {
   };
 
   return (
-    <div className={styles.container}>
-      <NavLink to={`/projects/${id}/sprints`} className={styles.navLink}>
+    <NavLink to={`/projects/${id}/sprints`} className={styles.navLink}>
+      <div className={styles.container}>
         <h2 className={styles.title}>{name}</h2>
         <p className={styles.description}>{description}</p>
         {isOwner && (
@@ -27,7 +27,7 @@ export default function ProjectCard({ name, description, id, isOwner }) {
             onClick={deleteCard}
           />
         )}
-      </NavLink>
-    </div>
+      </div>
+    </NavLink>
   );
 }
