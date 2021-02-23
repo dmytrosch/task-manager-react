@@ -121,6 +121,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
   }
   .label {
     bottom: 76px;
@@ -146,10 +147,14 @@
   .container {
     margin-top: 56px;
   }
+  .form {
+    position: relative;
+    z-index: 0;
+  }
   .thirdNew {
     left: -165px;
     top: 300px;
-    z-index: 999999;
+    z-index: 9999999;
     opacity: 0.8;
   }
 }
