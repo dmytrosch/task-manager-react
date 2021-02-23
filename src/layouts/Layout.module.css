@@ -7,6 +7,10 @@
   overflow: hidden;
   position: relative;
 }
+.wrapperMobileAuth{
+  composes: wrapper;
+  background-color: var(--formColor);
+}
 
 .header {
   padding-left: var(--padding);
@@ -18,7 +22,6 @@
   min-width: 260px;
   margin: 0 auto;
   padding: 0 var(--padding);
-  background-color: var(--formColor);
 }
 
 .circleContainer {
@@ -34,7 +37,7 @@
 @media (min-width: 768px) {
   .container {
     min-width: 688px;
-    background-color: var(--formColor);
+    background-color: unset;
   }
 
   .wrapper {

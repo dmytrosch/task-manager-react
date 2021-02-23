@@ -38,8 +38,8 @@ import * as modalAction from "../../redux/modal/modalAction";
 export default function Dashboard() {
   const dispatch = useDispatch();
   const addProject = () => dispatch(modalAction.setModalCreateProject(true));
-  const projects = useSelector(getAllProjectsSelector)
-  console.log(projects);
+  const projects = useSelector(getAllProjectsSelector);
+  console.log("projects", projects);
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>

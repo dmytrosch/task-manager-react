@@ -7,10 +7,15 @@ import { isMobileSelector } from "../redux/clientWidth/clientWidthSelectors";
 import classNames from "classnames";
 
 const AuthLayout = ({ children }) => {
-  const isMobileMode = false;
+  const isMobileMode = useSelector(isMobileSelector);
 
   return (
-    <div className={classNames([styles.wrapper, styles.paddingBottom])}>
+    <div
+      className={classNames([
+        isMobileMode ? styles.wrapperMobileAuth : styles.wrapper,
+        styles.paddingBottom,
+      ])}
+    >
       <Header className={styles.header} />
 
       <div className={styles.container}>
