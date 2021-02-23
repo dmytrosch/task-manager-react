@@ -12,7 +12,7 @@ export default [
           "../views/SprintsView/SprintsView" /* webpackChunkName: "Sprint" */
         )
     ),
-    private: false,
+    private: true,
     restricted: false,
   },
   {
@@ -57,7 +57,7 @@ export default [
     component: lazy(
       () => import("../views/MainView/MainView" /* webpackChunkName: "Home" */)
     ),
-    private: false,
+    private: true,
     restricted: false,
   },
   {
