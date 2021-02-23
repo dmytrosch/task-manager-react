@@ -40,7 +40,7 @@
   .wrapper {
     --padding: 40px;
   }
-  .wrapperWithBottom {
+  .paddingBottom {
     padding-bottom: 130px;
   }
 }
@@ -53,7 +53,7 @@
   .wrapper {
     --padding: 55px;
   }
-  .wrapperWithBottom {
+  .paddingBottom {
     padding-bottom: 200px;
   }
 }

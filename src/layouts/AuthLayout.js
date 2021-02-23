@@ -10,7 +10,7 @@ const AuthLayout = ({ children }) => {
   const isMobileMode = false;
 
   return (
-    <div className={classNames([styles.wrapper, styles.wrapperWithBottom])}>
+    <div className={classNames([styles.wrapper, styles.paddingBottom])}>
       <Header className={styles.header} />
 
       <div className={styles.container}>
