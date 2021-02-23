@@ -5,7 +5,6 @@ import style from "./styles.module.css";
 import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
 import { signup } from "../../redux/auth/authOperations";
-import circlesStyles from "./../Layouts/circles.module.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -71,7 +70,6 @@ export default function Login() {
             Паролі не співпадають
           </label>
           <Button type="submit">Зареєструватися</Button>
-          <div className={circlesStyles.thirdSign}></div>
         </form>
         <p className={style.subtitle}>
           Маєте акаунт? &nbsp;

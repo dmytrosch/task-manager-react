@@ -39,6 +39,8 @@
 
   .wrapper {
     --padding: 40px;
+  }
+  .wrapperWithBottom {
     padding-bottom: 130px;
   }
 }
@@ -50,6 +52,8 @@
 
   .wrapper {
     --padding: 55px;
+  }
+  .wrapperWithBottom {
     padding-bottom: 200px;
   }
 }

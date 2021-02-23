@@ -4,12 +4,13 @@ import OverlayCircles from "../components/OverlayCircles/OverlayCircles";
 import styles from "./Layout.module.css";
 import { useSelector } from "react-redux";
 import { isMobileSelector } from "../redux/clientWidth/clientWidthSelectors";
+import classNames from "classnames";
 
 const AuthLayout = ({ children }) => {
   const isMobileMode = false;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={classNames([styles.wrapper, styles.wrapperWithBottom])}>
       <Header className={styles.header} />
 
       <div className={styles.container}>
