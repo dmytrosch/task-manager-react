@@ -23,7 +23,7 @@ export default [
       () =>
         import("../views/TasksView/TasksView.js" /* webpackChunkName: "Task" */)
     ),
-    private: true,
+    private: false,
     restricted: false,
   },
   {
