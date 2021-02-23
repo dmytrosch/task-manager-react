@@ -4,7 +4,7 @@ import classNames from "classnames";
 import styles from "./Slider.module.css";
 
 export default function Slider({
-  initialCurrent,
+  initialCurrent = 1,
   total,
   customContainerStyles,
   callback,

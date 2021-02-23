@@ -1,387 +1,60 @@
-.titleButton {
-  display: none;
-  margin-bottom: 300px;
-}
-
-.containerButton {
-  position: relative;
-}
-
-.tableDesctopDescrip {
-  display: none;
-}
 .container {
-  margin-top: 20px;
-  position: relative;
-  font-family: var(--primeFont);
-}
-.containerGoBack {
-  margin-bottom: 23px;
-}
-.containerGoBack::after {
-  content: "";
-  display: inline-block;
-  height: 1px;
-  width: 100vh;
-  background-color: var(--borderColor);
-  right: -20px;
-  position: absolute;
-}
-.ContainerPaginate {
-  width: 452px;
+  width: 280px;
+  padding: 20px 0;
   margin: 0 auto;
-  margin-bottom: 54px;
-}
-.paginate {
-  display: inline-flex;
-  align-items: center;
+
+  font-family: var(--primeFont);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  font-weight: 400;
 }
 
-.puginateBth {
-  margin: 0px 20px 0px 0px;
-  background: url(../../assest/icons/ArrowLeft.icon.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 15px;
-  height: 15px;
+.header {
+  margin-bottom: 27px;
 }
-.puginateBth:last-child {
-  margin: 0px 0px 0px 20px;
-  background: url(../../assest/icons/ArrowRight.icon.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 15px;
-  height: 15px;
-}
-.dateCreation {
-  display: inline-block;
-  font-size: 12px;
-  line-height: 15px;
-  color: var(--greyColor);
-}
-.containerInput {
-  margin: 0 auto;
-  width: 280px;
+
+.headerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
+.date {
+  font-size: 12px;
+  color: var(--greyColor);
+}
+
 .sprintNames {
-  margin: 0 auto;
+  font-family: var(--primeFont);
   position: relative;
   width: 280px;
   margin-bottom: 30px;
 }
-.changeTextBtn {
-  position: absolute;
-  right: -7px;
-  top: 6px;
-  background-image: url(../../assest/icons/ChangeText.icon.svg);
-  width: 20px;
-  height: 20px;
-}
-.containerWithTask {
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.wrapSearch {
-  display: flex;
-  position: relative;
-  flex-direction: row-reverse;
-  height: 28px;
-  width: 100%;
-}
-
-.search {
-  align-self: flex-end;
-  font-family: var(--primeFont);
-  height: 14px;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  color: #555;
-  width: 100%;
-  background: none;
-  z-index: 0;
-  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
-  cursor: pointer;
-  border-bottom: 1px solid var(--borderColor);
-}
-
-.search:focus:hover {
-  outline: none;
-  border-bottom: 2px solid var(--borderColor);
-}
-
-.searchSubmit {
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  margin-left: auto;
-  margin-right: 0px;
-  background: url("../../assest//ui/search.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  text-indent: -10000px;
-  border: none;
-  z-index: 0;
-  right: 10px;
-  cursor: pointer;
-  opacity: 0.4;
-  cursor: pointer;
-  transition: opacity 0.4s ease;
-}
-
-.searchSubmit:hover {
-  opacity: 0.8;
-  outline: none;
-}
-
-@media (max-width: 767px) {
-  .desktopSearchInp {
-    display: none;
-  }
-
-  .searchSubmit {
-    margin: 0px 20px;
-    right: 230px;
-    top: 16px;
-  }
-  .wrapSearch {
-    height: 44px;
-  }
-  .search {
-    height: 24px;
-    padding-left: 40px;
-    font-size: 18px;
-  }
-  .button {
-    position: fixed;
-    bottom: 5%;
-    left: 15%;
-  }
-
-  .buttonAdd {
-    position: fixed;
-    bottom: 5%;
-    right: 15%;
-    z-index: 100;
-  }
-}
 
 @media (min-width: 768px) {
-  .ContainerPaginate {
+  .container {
+    width: 452px;
+  }
+
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .button {
-    position: fixed;
-    bottom: 10%;
-    right: 10%;
+
+  .headerInner {
+    width: 200px;
+    margin-bottom: 0;
   }
 
-  .containerInput {
-    width: 214px;
-  }
-  .input {
-    width: 214px;
-  }
-  .containerInput {
-    display: inline-block;
-  }
-
-  .containerWithTask {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .containerButton {
-    position: absolute;
-    right: 7%;
-  }
   .sprintNames {
-    margin-left: 20%;
-  }
-  .containerButton {
-    display: inline-block;
-  }
-  .sprintNames {
-    display: inline-block;
-  }
-}
-
-@media (min-width: 854px) {
-  .containerButton {
-    right: 15%;
+    width: 365px;
   }
 }
 
 @media (min-width: 1280px) {
-  .desktopSearchInp {
-    display: block;
-    transform: translateX(30px);
-  }
-  .mobileSearchInp {
-    display: none;
-  }
-  .span:nth-child(1) {
-    margin: 0px 0px 0px 70px;
-  }
-  .span:nth-child(2) {
-    margin: 0px 0px 0px 50px;
-  }
-  .span:nth-child(4) {
-    margin: 0px 20px 0px 0px;
-  }
-
-  .containerButton {
-    position: absolute;
-    right: 20%;
-  }
-  .dateCreation {
-    margin: 0;
-  }
-  .containerInput {
-    display: none;
-  }
-  .ContainerPaginate {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 54px;
-  }
-
-  .sprintNames {
-    margin-left: 15%;
-    display: inline-block;
-  }
-  .tableDesctopDescrip {
-    display: flex;
-    justify-content: space-between;
-    width: 780px;
-    margin: 0 auto;
-    font-size: 14px;
-    margin-bottom: 30px;
-    margin-top: 15px;
-  }
-  .containerInputDesctop {
-    position: relative;
-    width: 50px;
-    padding-top: 10px;
-  }
-
-  .containerButton {
-    display: inline-block;
-    text-align: center;
-    margin-left: 0%;
-    padding-right: 40px;
-    position: absolute;
-  }
-  .titleButton {
-    display: inline;
-    top: 0px;
-    font-size: 18px;
-    font-weight: 500;
-    margin: 12px 16px 1px;
-    width: 160px;
-    position: absolute;
-  }
-
-  .wrap {
-    display: flex;
-    position: relative;
-    height: 30px;
-    width: 20px;
-    float: right;
-  }
-
-  .search {
-    font-family: var(--primeFont);
-    font-weight: 400;
-    height: 25px;
-    width: 20px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: #555;
-    position: absolute;
-    right: 0;
-    background: none;
-    z-index: 3;
-    transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
-    cursor: pointer;
-    padding-right: 20px;
-  }
-
-  .search:focus {
-    width: 110px;
-    z-index: 1;
-    border-bottom: 2px solid #bbb;
-    cursor: text;
-    outline: none;
-    transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
-  }
-
-  .searchSubmit {
-    height: 20px;
-    width: 20px;
-    display: inline-block;
-    background: url("../../assest//ui/search.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    text-indent: -10000px;
-    border: none;
-    z-index: 2;
-    cursor: pointer;
-    opacity: 0.4;
-    cursor: pointer;
-    transition: opacity 0.4s ease;
-  }
-
-  .search::-webkit-input-placeholder {
-    opacity: 1;
-    transition: opacity 2.5s ease;
-    color: transparent;
-  }
-  .search::-moz-placeholder {
-    opacity: 1;
-    transition: opacity 2.5s ease;
-    color: transparent;
-  }
-  .search:-moz-placeholder {
-    opacity: 1;
-    transition: opacity 2.5s ease;
-    color: transparent;
-  }
-  .search:-ms-input-placeholder {
-    opacity: 1;
-    transition: opacity 2.5s ease;
-    color: transparent;
-  }
-  .search:focus::-webkit-input-placeholder {
-    opacity: 0;
-    transition: opacity 2.5s ease;
-    color: #555;
-  }
-  .search:focus::-moz-placeholder {
-    opacity: 0;
-    transition: opacity 2.5s ease;
-    color: #555;
-  }
-  .search:focus:-moz-placeholder {
-    opacity: 0;
-    transition: opacity 2.5s ease;
-    color: #555;
-  }
-  .search:focus:-ms-input-placeholder {
-    opacity: 0;
-    transition: opacity 2.5s ease;
-    color: #555;
+  .container {
+    width: 869px;
   }
 }
