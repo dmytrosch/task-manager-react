@@ -13,6 +13,10 @@ export const logoutUser = () => {
   return axios.post("/auth/logout");
 };
 
+export const getCurrentUser = () => {
+  return axios.get("/users/current");
+};
+
 export const addProject = (project) => axios.post("/projects/create", project);
 
 export const deleteProject = (projectId) =>

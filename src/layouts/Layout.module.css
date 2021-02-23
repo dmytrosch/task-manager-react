@@ -34,7 +34,7 @@
 @media (min-width: 768px) {
   .container {
     min-width: 688px;
-    background-color: unset;
+    background-color: var(--formColor);
   }
 
   .wrapper {

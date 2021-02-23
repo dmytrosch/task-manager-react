@@ -13,7 +13,6 @@ const Header = ({ className, ...props }) => {
   const userName = useSelector(getUserNameSelector);
   const isAuth = useSelector(isAuthentificatedSelector);
   const onLogout = () => dispatch(logout());
-  console.log(userName);
   return (
     <header className={classNames(styles.header, className)}>
       <div className={styles.logoContainer}>

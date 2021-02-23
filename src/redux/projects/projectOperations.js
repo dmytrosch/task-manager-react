@@ -13,12 +13,12 @@ import {
   changeProjectDescError,
 } from "./projectActions";
 
-import { addProject, deleteProject } from "../../utils/taskManagerAPI";
+import { addProject as addProjectAPI, deleteProject as deleteProjectAPI } from "../../utils/taskManagerAPI";
 
 export const addProject = (project) => (dispatch) => {
   dispatch(addProjectRequest());
 
-  addProject(project)
+  addProjectAPI(project)
     .then((resp) => dispatch(addProjectSuccess(resp.data)))
     .catch((error) => dispatch(addProjectError(error)));
 };
@@ -26,7 +26,7 @@ export const addProject = (project) => (dispatch) => {
 export const deleteProject = (project) => (dispatch) => {
   dispatch(deleteProjectRequest());
 
-  deleteProject(project)
+  deleteProjectAPI(project)
     .then((resp) => dispatch(deleteProjectSuccess(resp.data)))
     .catch((error) => dispatch(deleteProjectError(error)));
 };

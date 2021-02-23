@@ -10,8 +10,16 @@ import {
   logInRequest,
   logInSuccess,
   logInError,
+  gettingCurrentUserRequest,
+  gettingCurrentUserSuccess,
+  gettingCurrentUserError,
 } from "./authActions";
-import { createUser, loginUser, logoutUser } from "../../utils/taskManagerAPI";
+import {
+  createUser as createUserAPI,
+  loginUser as loginUserAPI,
+  logoutUser as logoutUserAPI,
+  getCurrentUser as getCurrentUserAPI,
+} from "../../utils/taskManagerAPI";
 
 const token = {
   set(tokenValue) {
@@ -40,7 +48,7 @@ const errorHandler = (statusCodeError) => {
 };
 export const logout = () => (dispatch) => {
   dispatch(logoutRequest());
-  logoutUser()
+  logoutUserAPI()
     .then(() => dispatch(logoutSuccess()))
     .catch(() => dispatch(logoutError()))
     .finally(() => token.unset());
@@ -52,7 +60,7 @@ export const signup = (email, password) => (dispatch) => {
     email,
     password: password.trim(),
   };
-  createUser(credentials)
+  createUserAPI(credentials)
     .then((response) => {
       token.set(response.data.token);
       dispatch(signupSuccess(response.data));
@@ -72,7 +80,7 @@ export const login = (email, password) => (dispatch) => {
     email,
     password: password.trim(),
   };
-  loginUser(credentials)
+  loginUserAPI(credentials)
     .then((response) => {
       token.set(response.data.token);
       dispatch(logInSuccess(response.data));
@@ -84,4 +92,18 @@ export const login = (email, password) => (dispatch) => {
       console.log(errorMessage);
       dispatch(logInError(error));
     });
+};
+
+export const getCurrentUser = () => (dispatch, getState) => {
+  const persistedToken = getState().app.auth.token;
+  if (!persistedToken) {
+    return;
+  }
+  token.set(persistedToken);
+  dispatch(gettingCurrentUserRequest());
+  getCurrentUserAPI()
+    .then((response) => {
+      dispatch(gettingCurrentUserSuccess(response.data));
+    })
+    .catch((error) => dispatch(gettingCurrentUserError(error)));
 };

@@ -12,7 +12,7 @@ export default [
           "../views/SprintsView/SprintsView" /* webpackChunkName: "Sprint" */
         )
     ),
-    private: true,
+    private: false,
     restricted: false,
   },
   {

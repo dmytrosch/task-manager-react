@@ -6,6 +6,7 @@ import routes from "../utils/routes";
 import { setClientWidth } from "../redux/clientWidth/clientWidthAction";
 import { isMobileSelector } from "../redux/clientWidth/clientWidthSelectors";
 import { isAuthentificatedSelector } from "../redux/auth/authSelectors";
+import { getCurrentUser } from "../redux/auth/authOperations";
 
 import PublicRoute from "./Routes/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute";
@@ -20,9 +21,13 @@ import ModalEditProject from "./Modals/ModalComponents/ModalEditProject";
 
 export default function App() {
   const dispatch = useDispatch();
+  const isAuth = useSelector(isAuthentificatedSelector);
   useEffect(() => {
     dispatch(setClientWidth(document.documentElement.clientWidth));
   }, []);
+  useEffect(() => {
+    isAuth && dispatch(getCurrentUser());
+  }, [isAuth]);
   // const isMobileMode = useSelector(isMobileSelector);
   return (
     <>

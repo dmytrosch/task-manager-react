@@ -1,42 +1,45 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Dashboard.module.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import IconButton from "../../common/IconButtons/IconButtons.js";
+import { getAllProjectsSelector } from "../../redux/projects/projectSelectors";
 
 import * as modalAction from "../../redux/modal/modalAction";
 
-const projects = [
-  {
-    id: "60291cee0822bb3f486738ce",
-    name: "Time test",
-    description: "some description",
-  },
-  {
-    id: "60291cee0822bb3f486738c6",
-    name: "Time test",
-    description: "some description",
-  },
-  {
-    id: "60291cee0822bb3f486738c3",
-    name: "Time test",
-    description: "some description",
-  },
-  {
-    id: "60291cee0822bb3f4867htht",
-    name: "Time test",
-    description: "some description",
-  },
-  {
-    id: "60291cee0fdffb3f486738ce",
-    name: "Time test",
-    description: "some description",
-  },
-];
+// const projects = [
+//   {
+//     id: "60291cee0822bb3f486738ce",
+//     name: "Time test",
+//     description: "some description",
+//   },
+//   {
+//     id: "60291cee0822bb3f486738c6",
+//     name: "Time test",
+//     description: "some description",
+//   },
+//   {
+//     id: "60291cee0822bb3f486738c3",
+//     name: "Time test",
+//     description: "some description",
+//   },
+//   {
+//     id: "60291cee0822bb3f4867htht",
+//     name: "Time test",
+//     description: "some description",
+//   },
+//   {
+//     id: "60291cee0fdffb3f486738ce",
+//     name: "Time test",
+//     description: "some description",
+//   },
+// ];
 
 export default function Dashboard() {
   const dispatch = useDispatch();
   const addProject = () => dispatch(modalAction.setModalCreateProject(true));
+  const projects = useSelector(getAllProjectsSelector)
+  console.log(projects);
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
