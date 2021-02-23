@@ -12,7 +12,6 @@ import triangle from "../../../assest/icons/triangle.svg";
 export default function SprintCreator({ onClose }) {
   const [nameTask, setNameTask] = useState("");
   const [isOn, setIsOn] = useState(false);
-  const [day, setDay] = useState("");
   const [isClose, setOn] = useState(false); // hook for opening modal
   const [scheduledTime, setScheduledTime] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -45,17 +44,8 @@ export default function SprintCreator({ onClose }) {
             type="text"
             placeholder="Назва спринта"
           />
-          <div className={style.radioBtnContainer}>
-            <button onClick={() => setDay(!day)} className={style.radioBtn}>
-              <p className={style.btnArtibute}></p>
-              {day && <p className={style.btnOvale}></p>}
-            </button>
 
-            <p className={style.btnText}>Попередні дні</p>
-          </div>
-
-          {day && (
-            <div className={style.dateInputContainer}>
+          <div className={style.dateInputContainer}>
               <div className={style.triangleContainer}>
                 <input
                   className={classNames(style.input, style.dateEndBtn)}
@@ -89,11 +79,11 @@ export default function SprintCreator({ onClose }) {
                 placeholder="Тривалість"
               />
             </div>
-          )}
+
           <Button type="submit" shape="oval" buttonCustomClass={style.addedBtn}>
             Готово
           </Button>
-          {day && isOn && (
+          {isOn && (
             <div className={style.pickerDateContainer}>
               <div className={style.dayWeeks}>
                 <p>ПН</p>
