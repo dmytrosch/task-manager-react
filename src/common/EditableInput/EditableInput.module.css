@@ -121,7 +121,10 @@
   font-family: var(--primeFont);
   padding: 4px;
 }
-@media (min-width: 766px) {
+@media (min-width: 768px) {
+  .sprintName {
+    font-size: 36px;
+  }
 }
 @media (max-width: 1280px) {
   .taskName {
@@ -150,8 +153,8 @@
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }

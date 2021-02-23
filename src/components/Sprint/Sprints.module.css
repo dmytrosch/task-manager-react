@@ -1,7 +1,7 @@
 .container {
   min-width: 100%;
   min-height: 100vh;
-  padding-top: 20px;
+  padding-top: 30px;
   background-color: transparent;
   font-family: var(--primeFont);
 }
@@ -12,7 +12,6 @@
 .infoBox {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
 }
 .title {
   font-weight: 500;
@@ -24,7 +23,7 @@
 .box {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 .button {
   position: fixed;
@@ -33,14 +32,35 @@
   z-index: 100;
 
   /* width: 44px;
-  height: 44px; */
+    height: 44px; */
   /* background: url(../../assest/icons/Btn.svg) no-repeat; */
   /* background-position: center;
-  outline: none;
-  border-radius: 25px; */
+    outline: none;
+    border-radius: 25px; */
 }
 .text {
   display: none;
+}
+.addParticipant {
+  font-weight: 500;
+  color: var(--blackColor);
+  font-size: 18px;
+  text-decoration: underline;
+  margin-bottom: 28px;
+  cursor: pointer;
+}
+
+.addParticipant::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("../../assest/icons/addParticipant.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  margin-right: 10px;
 }
 .projectList {
   display: grid;
@@ -54,7 +74,8 @@
   .title {
     font-size: 36px;
   }
-  .container{
+  .container {
+    padding-left: 20px;
     padding-top: 40px;
   }
 }
@@ -79,6 +100,7 @@
     text-align: center;
     letter-spacing: 0.72px;
     line-height: 21.94px;
+    margin-top: 10px;
   }
   .button {
     position: static;
@@ -87,5 +109,8 @@
   .projectList {
     gap: 30px;
     grid-template-columns: repeat(auto-fill, minmax(270px, 270px));
+  }
+  .container {
+    padding-left: 70px;
   }
 }

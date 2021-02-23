@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import SprintList from "./SprintList/SprintList";
 import EditableInput from "../../common/EditableInput/EditableInput";
 
-import styles from "./Sprint.module.css";
+import styles from "./Sprints.module.css";
 import IconButton from "../../common/IconButtons/IconButtons.js";
 
 import * as modalAction from "../../redux/modal/modalAction";
@@ -37,45 +37,27 @@ export default function Sprint() {
   const addSprint = () => dispatch(modalAction.setModalCreateSprint(true));
 
   return (
-    <section className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.wrapper}>
-        <div className={styles.editableInpuContainer}>
-          <EditableInput value={name} onSave/>
+        <div className={styles.infoBox}>
+          <h2 className={styles.title}>
+            <EditableInput value={name} onSave />
+          </h2>
+          <div className={styles.box}>
+            <IconButton
+              iconButtonCustomClass={styles.button}
+              iconName="plus"
+              icon="plus"
+              onClick={addSprint}
+            />
+            <p className={styles.text}>Створити спринт</p>
+          </div>
         </div>
-        {/* <h2
-          className={
-            description
-              ? styles.projectNameWithDesc
-              : styles.projectNameWithOutDesc
-          }
-        >
-        </h2> */}
-
-        {/* <IconButton
-          iconButtonCustomClass={styles.editBtn}
-          iconName="pen"
-          icon="pen"
-          onClick={editProject}
-        /> */}
-
-        {/* {description && <p className={styles.description}>{description}</p>} */}
-
         <p className={styles.addParticipant} onClick={addParticipant}>
           Додати людей
         </p>
-
         <SprintList sprintIds={sprintIds} />
-
-        <div className={styles.addSprint}>
-          <IconButton
-            iconButtonCustomClass={styles.button}
-            iconName="plus"
-            icon="plus"
-            onClick={addSprint}
-          />
-          <span className={styles.addSprintText}>Створити спринт</span>
-        </div>
       </div>
-    </section>
+    </div>
   );
 }
