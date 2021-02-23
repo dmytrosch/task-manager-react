@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import Input from "../../common/Input/Input";
 import Button from "../../common/Button/Button";
 import style from "./styles.module.css";
-import circlesStyles from "../Layouts/circles.module.css";
 
 export default function CreaterNewPassword() {
   const [password, setPassword] = useState("");
@@ -53,7 +52,6 @@ export default function CreaterNewPassword() {
             Паролі не співпадають
           </label>
           <Button type="submit">Змінити пароль</Button>
-          <div className={circlesStyles.thirdSign}></div>
         </form>
       </div>
     </section>

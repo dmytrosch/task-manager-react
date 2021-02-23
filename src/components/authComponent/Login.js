@@ -4,12 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import style from "./styles.module.css";
 import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
-<<<<<<< HEAD
-
-=======
-import circlesStyles from "../Layouts/circles.module.css";
 import PassForgot from "./resetPassword";
->>>>>>> origin/authLayout
 import { login } from "../../redux/auth/authOperations";
 
 export default function Login() {
@@ -58,19 +53,6 @@ export default function Login() {
               />
             </div>
 
-<<<<<<< HEAD
-          <Button shape="oval" type="submit">
-            Увійти
-          </Button>
-        </form>
-        <p className={style.subtitle}>
-          Немає акаунту?&nbsp;
-          <NavLink to="/signup" className={style.NavLink}>
-            Зареєструватись
-          </NavLink>
-        </p>
-      </div>
-=======
             <Button shape="oval" type="submit">
               Увійти
             </Button>
@@ -90,8 +72,6 @@ export default function Login() {
           </p>
         </div>
       </PassForgot>
-      <div className={circlesStyles.thirdNew}></div>
->>>>>>> origin/authLayout
     </section>
   );
 }
