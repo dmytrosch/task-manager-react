@@ -2,9 +2,6 @@ import {
   addProjectRequest,
   addProjectSuccess,
   addProjectError,
-  deleteProjectRequest,
-  deleteProjectSuccess,
-  deleteProjectError,
   changeProjectNameRequest,
   changeProjectNameSuccess,
   changeProjectNameError,
@@ -23,10 +20,10 @@ export const addProject = (project) => (dispatch) => {
     .catch((error) => dispatch(addProjectError(error)));
 };
 
-export const deleteProject = (project) => (dispatch) => {
+export const deleteProject = (projectId) => (dispatch) => {
   dispatch(deleteProjectRequest());
 
-  deleteProjectAPI(project)
+  deleteProjectAPI(projectId)
     .then((resp) => dispatch(deleteProjectSuccess(resp.data)))
     .catch((error) => dispatch(deleteProjectError(error)));
 };

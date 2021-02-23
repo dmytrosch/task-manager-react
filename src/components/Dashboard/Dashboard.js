@@ -64,9 +64,10 @@ export default function Dashboard() {
             {projects.map((proj) => (
               <li key={proj.id}>
                 <ProjectCard
-                  key={proj.id}
+                  id={proj.id}
                   name={proj.name}
                   description={proj.description}
+                  isOwner={proj.isOwner}
                 />
               </li>
             ))}
