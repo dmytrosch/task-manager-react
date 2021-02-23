@@ -8,7 +8,7 @@ const byId = createReducer(
   {
     [addProjectSuccess]: (state, action) => ({
       ...state,
-      [action.payload.id]: { ...action.payload },
+      [action.payload.id]: { ...action.payload, isOwner: true },
     }),
     [deleteProjectAction]: (state, { payload }) => {
       const newState = { ...state };
@@ -16,7 +16,6 @@ const byId = createReducer(
       return newState;
     },
     [gettingCurrentUserSuccess]: (_, { payload }) => {
-      console.log(payload);
       const newState = {};
       payload.projects.forEach((project) => {
         newState[project.id] = project;
@@ -27,7 +26,8 @@ const byId = createReducer(
 );
 const allIds = createReducer([], {
   [addProjectSuccess]: (state, action) => [...state, action.payload.id],
-  [deleteProjectAction]: (state, action) => state,
+  [deleteProjectAction]: (state, { payload }) =>
+    state.filter((proj) => proj.id !== payload),
   [gettingCurrentUserSuccess]: (state, { payload }) => {
     return payload.projects.map((project) => project.id);
   },

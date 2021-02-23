@@ -6,17 +6,17 @@ import { NavLink } from "react-router-dom";
 import styles from "./ProjectCard.module.css";
 import IconButton from "../../../common/IconButtons/IconButtons";
 
-export default function ProejctCard({ name, description, id, isOwner }) {
+export default function ProjectCard({ name, description, id, isOwner }) {
   const dispatch = useDispatch();
   const deleteCard = (e) => {
     e.preventDefault();
-    dispatch(deleteProject(id));
-    dispatch(deleteProjectAction(id));
+    dispatch(deleteProject(id)); //на АПИ
+    dispatch(deleteProjectAction(id)); //на редьюсер
   };
 
   return (
     <div className={styles.container}>
-      <NavLink to={`/project/${id}`} className={styles.navLink}>
+      <NavLink to={`/projects/${id}/sprints`} className={styles.navLink}>
         <h2 className={styles.title}>{name}</h2>
         <p className={styles.description}>{description}</p>
         {isOwner && (

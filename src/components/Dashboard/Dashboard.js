@@ -7,39 +7,10 @@ import { getAllProjectsSelector } from "../../redux/projects/projectSelectors";
 
 import * as modalAction from "../../redux/modal/modalAction";
 
-// const projects = [
-//   {
-//     id: "60291cee0822bb3f486738ce",
-//     name: "Time test",
-//     description: "some description",
-//   },
-//   {
-//     id: "60291cee0822bb3f486738c6",
-//     name: "Time test",
-//     description: "some description",
-//   },
-//   {
-//     id: "60291cee0822bb3f486738c3",
-//     name: "Time test",
-//     description: "some description",
-//   },
-//   {
-//     id: "60291cee0822bb3f4867htht",
-//     name: "Time test",
-//     description: "some description",
-//   },
-//   {
-//     id: "60291cee0fdffb3f486738ce",
-//     name: "Time test",
-//     description: "some description",
-//   },
-// ];
-
 export default function Dashboard() {
   const dispatch = useDispatch();
   const addProject = () => dispatch(modalAction.setModalCreateProject(true));
   const projects = useSelector(getAllProjectsSelector);
-  console.log("projects", projects);
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -47,10 +18,6 @@ export default function Dashboard() {
           <div className={styles.infoBox}>
             <h2 className={styles.title}>Проекти</h2>
             <div className={styles.box}>
-              {/* <button
-                className={styles.button}
-                onClick={(e) => setModal(true)}
-              ></button> */}
               <IconButton
                 iconButtonCustomClass={styles.button}
                 iconName="plus"
