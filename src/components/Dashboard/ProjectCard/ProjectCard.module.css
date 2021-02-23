@@ -1,48 +1,37 @@
-.navLink {
+.container {
+  --padding: 10px;
   height: 135px;
   width: 135px;
   border-radius: 5px;
   background-color: #8c72df;
-  padding: 28px 0 0 0;
+  padding: var(--padding);
   position: relative;
   color: #fff;
 }
-.container {
+/* .container {
   display: block;
   width: 100%;
   height: 100%;
-}
+} */
 
 .title {
-  margin: 0 auto 20px;
-  width: 116px;
+  margin-bottom: 6px;
   font-weight: 800;
   font-size: 16px;
   overflow: hidden;
-  word-break: break-all;
+  word-wrap: break-word;
   line-height: 19.5px;
   letter-spacing: 0.64px;
 }
 .description {
-  width: 116px;
   margin: 0 auto;
-  opacity: 0;
+  word-wrap: break-word;
   font-size: 10px;
   font-weight: 400;
   line-height: 12.19px;
 }
-.navLink:hover .description {
-  opacity: 1;
-  transition: 1s;
-}
+
 .button {
-  /* background: url(../../assest/icons/delete.svg) no-repeat;
-    background-position: center; */
-  /* background-image: url(../../assest/icons/delete.svg); */
-  /* background-repeat: no-repeat; */
-  /* background-color: transparent; */
-  /* width: 30px;
-    height: 43px; */
   position: absolute;
   right: 10px;
   bottom: 10px;
@@ -51,15 +40,14 @@
 }
 
 @media screen and (min-width: 768px) {
-  .navLink {
-    height: 216px;
-    width: 216px;
-  }
   .container {
-    background: url(../../../assest/icons/Vector.1.png),
+    --padding: 20px;
+    background-image: url(../../../assest/icons/Vector.1.png),
       url(../../../assest/icons/Vector.2.png);
     background-repeat: no-repeat;
     background-position: bottom;
+    height: 216px;
+    width: 216px;
   }
   .button {
     width: 34px;
@@ -67,14 +55,13 @@
   }
   .title {
     font-size: 26px;
-    width: 176px;
     font-weight: 800;
     line-height: 31.69px;
     letter-spacing: 1.04px;
+    margin-bottom: 10px;
   }
   .description {
     font-size: 14px;
-    width: 176px;
     font-weight: 400;
     line-height: 17.07px;
     letter-spacing: 0.56px;
@@ -82,14 +69,19 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .navLink {
+  .container {
+    --padding: 30px;
     height: 270px;
     width: 270px;
   }
   .title {
-    width: 210px;
+    margin-bottom: 20px;
   }
   .description {
-    width: 210px;
+    opacity: 0;
+  }
+  .container:hover .description {
+    opacity: 1;
+    transition: 1s;
   }
 }

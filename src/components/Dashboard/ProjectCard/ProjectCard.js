@@ -15,19 +15,17 @@ export default function ProjectCard({ name, description, id, isOwner }) {
   };
 
   return (
-    <NavLink to={`/projects/${id}/sprints`} className={styles.navLink}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>{name}</h2>
-        <p className={styles.description}>{description}</p>
-        {isOwner && (
-          <IconButton
-            iconButtonCustomClass={styles.button}
-            iconName="coloredBin"
-            icon="coloredBin"
-            onClick={deleteCard}
-          />
-        )}
-      </div>
+    <NavLink to={`/projects/${id}/sprints`} className={styles.container}>
+      <h2 className={styles.title}>{name}</h2>
+      <p className={styles.description}>{description}</p>
+      {isOwner && (
+        <IconButton
+          iconButtonCustomClass={styles.button}
+          iconName="coloredBin"
+          icon="coloredBin"
+          onClick={deleteCard}
+        />
+      )}
     </NavLink>
   );
 }
