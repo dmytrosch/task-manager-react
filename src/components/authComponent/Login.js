@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import style from "./styles.module.css";
 import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
-import circlesStyles from "../Layouts/circles.module.css";
 
 import { login } from "../../redux/auth/authOperations";
 
@@ -48,7 +47,6 @@ export default function Login() {
           <Button shape="oval" type="submit">
             Увійти
           </Button>
-          <div className={circlesStyles.thirdNew}></div>
         </form>
         <p className={style.subtitle}>
           Немає акаунту?&nbsp;

@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../Header/Header";
-import OverlayCircles from "../OverlayCircles/OverlayCircles";
+import Header from "../components/Header/Header";
+import OverlayCircles from "../components/OverlayCircles/OverlayCircles";
 import styles from "./Layout.module.css";
 import { useSelector } from "react-redux";
-import { isMobileSelector } from "../../redux/clientWidth/clientWidthSelectors";
+import { isMobileSelector } from "../redux/clientWidth/clientWidthSelectors";
 
 const AuthLayout = ({ children }) => {
   const isMobileMode = false;

@@ -1,6 +1,6 @@
 import React from "react";
 import Signup from "../../components/authComponent/Signup";
-import AuthLayout from "../../components/Layouts/AuthLayout";
+import AuthLayout from "../../layouts/AuthLayout";
 
 export default function SignupView() {
   return (
