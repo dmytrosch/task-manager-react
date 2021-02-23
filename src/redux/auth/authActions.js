@@ -12,6 +12,10 @@ const logInRequest = createAction("auth/logInRequest");
 const logInSuccess = createAction("auth/logInSuccess");
 const logInError = createAction("auth/logInError");
 
+const resetPassRequest = createAction("auth/resetPassRequest");
+const resetPassSuccess = createAction("auth/resetPassSuccess");
+const resetPassError = createAction("auth/resetPassError");
+
 export {
   signupRequest,
   signupSuccess,
@@ -22,4 +26,7 @@ export {
   logoutRequest,
   logoutSuccess,
   logoutError,
+  resetPassRequest,
+  resetPassSuccess,
+  resetPassError,
 };

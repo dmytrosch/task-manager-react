@@ -60,4 +60,17 @@ export default [
     private: false,
     restricted: true,
   },
+  {
+    path: "/reset-password/:resetPasswordToken",
+    label: "ResetPassword",
+    exact: true,
+    component: lazy(
+      () =>
+        import(
+          "../views/ResetPasswordView/ResetPasword" /* webpackChunkName: "ResetPassword" */
+        )
+    ),
+    private: false,
+    restricted: true,
+  },
 ];

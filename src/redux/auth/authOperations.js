@@ -10,8 +10,16 @@ import {
   logInRequest,
   logInSuccess,
   logInError,
+  resetPassRequest,
+  resetPassSuccess,
+  resetPassError,
 } from "./authActions";
-import { createUser, loginUser, logoutUser } from "../../utils/taskManagerAPI";
+import {
+  createUser,
+  loginUser,
+  logoutUser,
+  resetPassword,
+} from "../../utils/taskManagerAPI";
 
 const token = {
   set(tokenValue) {
@@ -75,5 +83,14 @@ export const login = (credentials) => (dispatch) => {
       );
       console.log(errorMessage);
       dispatch(logInError(error));
+    });
+};
+export const resetPass = (credentials) => (dispatch) => {
+  dispatch(resetPassRequest());
+  resetPassword(credentials)
+    .then(() => dispatch(resetPassSuccess()))
+    .catch((err) => {
+      const error = errorHandler(pathOr("", ["response", "status"], err));
+      dispatch(resetPassError(error));
     });
 };
