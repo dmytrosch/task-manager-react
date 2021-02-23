@@ -24,8 +24,6 @@ export default function App() {
     dispatch(setClientWidth(document.documentElement.clientWidth));
   }, []);
   // const isMobileMode = useSelector(isMobileSelector);
-  const isAuthentificated = useSelector(isAuthentificatedSelector);
-  console.log(isAuthentificated);
   return (
     <>
       <BrowserRouter>
