@@ -5,6 +5,7 @@ import IconButton from "../../common/IconButtons/IconButtons";
 import Slider from "../../common/Slider/Slider";
 import SearchInput from "../../common/SearchInput/SearchInput";
 import EditableInput from "../../common/EditableInput/EditableInput";
+import TasksTable from "./TaskComponents/TasksTable";
 
 import * as modalAction from "../../redux/modal/modalAction";
 import * as sprintSelector from "../../redux/sprints/sprintsSelectors";
@@ -28,12 +29,14 @@ export default function Task({ sprintId }) {
 
   const onSave = (newSprintName) => setSprintName(newSprintName);
 
-  const openModalTask = () => dispatch(modalAction.setModalCreateTask());
+  const openModalTask = () => dispatch(modalAction.setModalCreateTask(true));
+  const openModalChartTable = () =>
+    dispatch(modalAction.setModalChartTable(true));
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <div className={styles.headerInner}>
+      <div className={styles.taskControl}>
+        <div className={styles.sliderContainer}>
           <Slider initialCurrent={1} total={12} callback={handleSlider} />
           <span className={styles.date}>2020.02.16</span>
         </div>
@@ -42,17 +45,24 @@ export default function Task({ sprintId }) {
           callback={handleSearchInput}
         />
       </div>
-      <p className={styles.sprintNames}>
-        <EditableInput onSave value={sprintName} />
-      </p>
-      <div onClick={openModalTask} className={styles.containerButton}>
-        <IconButton
-          iconButtonCustomClass={styles.buttonAdd}
-          iconName="plus"
-          icon="plus"
-        />
-        <p className={styles.titleButton}>Створити задачу</p>
+      <div className={styles.sprint}>
+        <p className={styles.sprintTitle}>
+          <EditableInput onSave value={sprintName} />
+        </p>
+        <div onClick={openModalTask} className={styles.addSprintContainer}>
+          <IconButton iconName="plus" icon="plus" />
+          <p className={styles.titleButton}>Створити задачу</p>
+        </div>
       </div>
+
+      <IconButton
+        iconButtonCustomClass={styles.analyticaBtn}
+        iconName="analytica"
+        icon="analytica"
+        onClick={openModalChartTable}
+      ></IconButton>
+
+      <TasksTable />
     </div>
   );
 }

@@ -57,7 +57,7 @@
   bottom: 10px;
 }
 
-@media (min-width: 767px) and (max-width: 1081px) {
+@media (min-width: 768px) and (max-width: 1279px) {
   .container:nth-child(even) {
     margin: 0px 0px 20px 20px;
   }
@@ -84,19 +84,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-  }
-}
-@media (min-width: 1081px) {
-  .container {
-    margin: 0px 0px 20px 20px;
-  }
-}
-@media (min-width: 1142px) and (max-width: 1279px) {
-  .container {
-    display: inline-block;
-  }
-  .list {
-    display: block;
   }
 }
 

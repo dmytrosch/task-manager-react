@@ -9,11 +9,11 @@
   font-weight: 400;
 }
 
-.header {
+.taskControl {
   margin-bottom: 27px;
 }
 
-.headerInner {
+.sliderContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,11 +25,39 @@
   color: var(--greyColor);
 }
 
-.sprintNames {
+.sprintTitle {
   font-family: var(--primeFont);
   position: relative;
   width: 280px;
   margin-bottom: 30px;
+}
+
+.sprint {
+  margin-bottom: 27px;
+}
+
+.addSprintContainer {
+  position: fixed;
+  bottom: 5%;
+  right: 15%;
+  z-index: 2;
+}
+
+.titleButton {
+  display: none;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: 0.04em;
+  color: var(--blackColor);
+}
+
+.analyticaBtn {
+  position: fixed;
+  bottom: 5%;
+  left: 15%;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {
@@ -37,24 +65,59 @@
     width: 452px;
   }
 
-  .header {
+  .taskControl {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 13px;
   }
 
-  .headerInner {
+  .sliderContainer {
     width: 200px;
     margin-bottom: 0;
   }
 
-  .sprintNames {
+  .sprintTitle {
     width: 365px;
+  }
+
+  .addSprintContainer {
+    position: static;
+  }
+
+  .sprint {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .analyticaBtn {
+    left: auto;
+    right: 5%;
   }
 }
 
 @media (min-width: 1280px) {
   .container {
     width: 869px;
+  }
+
+  .mobileSearchInp {
+    display: none;
+  }
+
+  .sprint {
+    align-items: center;
+  }
+
+  .addSprintContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .titleButton {
+    display: block;
+    margin-left: 20px;
   }
 }

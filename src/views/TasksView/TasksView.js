@@ -1,6 +1,6 @@
 import React from "react";
 
-import MainLayout from "../../components/Layouts/MainLayout";
+import MainLayout from "../../layouts/MainLayout";
 import SideBar from "../../components/SideBar/SideBar";
 import Task from "../../components/Tasks/Tasks";
 import viewStyles from "./TaskView.module.css";
