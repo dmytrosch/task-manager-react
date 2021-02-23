@@ -70,7 +70,6 @@ export default function Login() {
             Паролі не співпадають
           </label>
           <Button type="submit">Зареєструватися</Button>
-          <div className={style.thirdNew}></div>
         </form>
         <p className={style.subtitle}>
           Маєте акаунт? &nbsp;

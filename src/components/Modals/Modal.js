@@ -34,7 +34,7 @@ export default function Modal({ children, position, onClose, ...props }) {
           type="button"
           onClick={onClose}
           className={style.closeBtn}
-        ></button>
+        />
         {children}
       </div>
     </div>
