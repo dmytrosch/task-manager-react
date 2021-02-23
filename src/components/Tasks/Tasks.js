@@ -68,7 +68,11 @@ export default function Task({ sprintName }) {
         </div>
 
         <div className={style.sprintNames}>
-          <EditableInput onSave value={name} />
+          <EditableInput
+            onSave
+            value={name}
+            validation={(val) => val.length <= 50}
+          />
         </div>
         <div onClick={openModalTask} className={style.containerButton}>
           <IconButton

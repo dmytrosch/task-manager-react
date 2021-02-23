@@ -26,7 +26,7 @@ export default function SprintItem({ id }) {
           rows={2}
           value={name}
           button="hide"
-          // editButton="editButtonTask"
+          validation={(val) => val.length <= 50}
         />
         {/* <h2 className={styles.taskName}>{name}</h2> */}
         <div className={styles.div}>
@@ -42,6 +42,9 @@ export default function SprintItem({ id }) {
             inputStyle="searchInput"
             value="6"
             onSave
+            rows={1}
+            validationMessage="Будь ласка введіть назву до 3 символів."
+            validation={(val) => val.length <= 3}
           />
           {/* <input className={styles.input} placeholder="6"></input> */}
         </div>

@@ -28,7 +28,7 @@
   font-size: 18px;
   text-align: end;
   width: 77px;
-
+  word-break: break-all;
   font-family: var(--primeFont);
   border: none;
   outline: none;
@@ -46,7 +46,7 @@
   font-size: 18px;
   text-align: end;
   width: 77px;
-
+  word-break: break-all;
   font-family: var(--primeFont);
   background-color: transparent;
   border: none;

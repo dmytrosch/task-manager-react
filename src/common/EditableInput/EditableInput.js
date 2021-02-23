@@ -14,7 +14,9 @@ export default function EditableInput({
   rows,
   button,
   styleInputNumber,
-  type
+  type,
+  validation,
+  validationMessage,
 }) {
   const onSave = (val) => {
     console.log("Edited Value -> ", val);
@@ -32,12 +34,15 @@ export default function EditableInput({
           rows: rows,
         }}
         disable="disable"
-        saveButtonContent={<Checkmark  />}
+        saveButtonContent={<Checkmark />}
         editButtonContent={<Edit />}
-        cancelButtonContent={<CrossIcon  />}
+        cancelButtonContent={<CrossIcon />}
         saveButtonClassName={classNames(styles[button], styles.applyСancel)}
         cancelButtonClassName={classNames(styles[button], styles.applyСancel)}
-        editButtonClassName={classNames(styles[button], styles[styleInputNumber])}
+        editButtonClassName={classNames(
+          styles[button],
+          styles[styleInputNumber]
+        )}
         submitOnEnter
         cancelOnEscape
         editOnViewClick={true}
@@ -46,8 +51,8 @@ export default function EditableInput({
         value={value}
         hideIcons={true}
         onSave={onSave}
-        validationMessage="Будь ласка введіть назву до 50 символів."
-        validation={(val) => val.length <= 50}
+        validationMessage={validationMessage}
+        validation={validation}
       />
     </div>
   );
@@ -58,8 +63,9 @@ EditableInput.proprTypes = {
   rows: PropTypes.number,
   button: PropTypes.string,
   styleInputNumber: PropTypes.string,
+  validation: PropTypes.func,
   type: PropTypes.string,
-  
+  validationMessage: PropTypes.string,
   
 };
 
@@ -67,5 +73,6 @@ EditableInput.defaultProps = {
   viewStyle: "sprintName",
   inputStyle: "sprintNameInput",
   button: "button",
-  type: 'textarea'
+  type: "textarea",
+  validationMessage: "Будь ласка введіть назву до 50 символів.",
 };
