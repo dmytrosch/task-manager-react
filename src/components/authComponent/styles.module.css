@@ -98,7 +98,8 @@
     margin-bottom: 20px;
   }
   .forgotPassLink {
-    width: 100px;
+    width: 105px;
+    text-align: center;
     display: block;
     margin: 15px auto 0px;
     border-bottom: 1px solid var(--greyColor);
@@ -242,10 +243,6 @@
   text-align: center;
 }
 
-form {
-  width: 60%;
-  margin: 30px auto 0;
-}
 
 .thirdNew {
   background: linear-gradient(
