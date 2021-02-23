@@ -36,13 +36,13 @@ export default function SprintItem({ id }) {
         <div className={styles.div}>
           <p className={styles.text}>Витрачено год/день</p>
           <EditableInput
-            type="number"
+            type="text"
             button="hide"
             viewStyle="searchName"
             inputStyle="searchInput"
             value="6"
             onSave
-            validationMessage="Будь ласка введіть назву до 3 символів."
+            validationMessage="Будь ласка введіть число до 3 цифр."
             validation={(val) => val.length <= 3}
           />
           {/* <input className={styles.input} placeholder="6"></input> */}
