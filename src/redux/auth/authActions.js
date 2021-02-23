@@ -15,6 +15,9 @@ const logInError = createAction("auth/logInError");
 const gettingCurrentUserRequest = createAction("user/gettingCurentUserRequest");
 const gettingCurrentUserSuccess = createAction("user/gettingCurentUserSuccess");
 const gettingCurrentUserError = createAction("user/gettingCurentUserError");
+const resetPassRequest = createAction("auth/resetPassRequest");
+const resetPassSuccess = createAction("auth/resetPassSuccess");
+const resetPassError = createAction("auth/resetPassError");
 
 export {
   signupRequest,
@@ -29,4 +32,7 @@ export {
   gettingCurrentUserRequest,
   gettingCurrentUserSuccess,
   gettingCurrentUserError,
+  resetPassRequest,
+  resetPassSuccess,
+  resetPassError,
 };

@@ -13,12 +13,16 @@ import {
   gettingCurrentUserRequest,
   gettingCurrentUserSuccess,
   gettingCurrentUserError,
+  resetPassRequest,
+  resetPassSuccess,
+  resetPassError,
 } from "./authActions";
 import {
   createUser as createUserAPI,
   loginUser as loginUserAPI,
   logoutUser as logoutUserAPI,
   getCurrentUser as getCurrentUserAPI,
+  resetPassword as resetPasswordAPI,
 } from "../../utils/taskManagerAPI";
 
 const token = {
@@ -106,4 +110,13 @@ export const getCurrentUser = () => (dispatch, getState) => {
       dispatch(gettingCurrentUserSuccess(response.data));
     })
     .catch((error) => dispatch(gettingCurrentUserError(error)));
+};
+export const resetPass = (credentials) => (dispatch) => {
+  dispatch(resetPassRequest());
+  resetPasswordAPI(credentials)
+    .then(() => dispatch(resetPassSuccess()))
+    .catch((err) => {
+      const error = errorHandler(pathOr("", ["response", "status"], err));
+      dispatch(resetPassError(error));
+    });
 };
