@@ -57,7 +57,7 @@ export default [
     component: lazy(
       () => import("../views/MainView/MainView" /* webpackChunkName: "Home" */)
     ),
-    private: true,
+    private: false,
     restricted: false,
   }
 ];

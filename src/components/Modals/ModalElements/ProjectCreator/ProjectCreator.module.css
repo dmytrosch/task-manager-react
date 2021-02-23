@@ -17,8 +17,10 @@
   margin-bottom: 32px;
   border: none;
   background: none;
-  padding: 5px;
+  /* padding: 5px; */
   border-bottom: 1px solid var(--greyColor);
+  overflow: none;
+  font-weight: bold;
 }
 .input:last-of-type {
   margin-bottom: 40px;
@@ -35,3 +37,14 @@
   border-bottom: 1px solid var(--greyColor);
   color: var(--greyColor);
 }
+
+.descr {
+  contain: input;
+  font-weight: normal;
+}
+
+.btnWrapper {
+  padding-top: 40px;
+}
+
+
