@@ -2,6 +2,8 @@ import React, { useState, useDispatch } from "react";
 import style from "./ProjectCreator.module.css";
 import Button from "../../../../common/Button/Button";
 
+import Input from '../../../../common/Input/Input';
+
 export default function ProjectCreator({ onClose }) {
   const [nameProject, setNameProject] = useState("");
   const [description, setDescription] = useState("");
@@ -16,23 +18,29 @@ export default function ProjectCreator({ onClose }) {
     <section className={style.container}>
       <h2 className={style.title}>Створення проекту</h2>
       <form onSubmit={handlerSubmit}>
-        <input
-          className={style.input}
-          value={nameProject}
+
+        <Input
+          type="text"
+          error={false}
+          inputClassNames={style.input}
+          label="Назва проекту"
           onChange={(e) => setNameProject(e.target.value)}
-          type="text"
-          placeholder="Назва проекту"
         />
-        <textarea
-          className={style.input}
-          value={description}
+
+        <Input
+          type="text"
+          error={false}
+          inputClassNames={style.descr}
+          label="Опис проекту"
           onChange={(e) => setDescription(e.target.value)}
-          type="text"
-          placeholder="Опис"
         />
-        <Button type="submit" shape="oval">
-          Готово
+
+        <div className={style.btnWrapper}>
+          <Button type="submit" shape="oval">
+            Готово
         </Button>
+        </div>
+
       </form>
       <span onClick={onClose} className={style.subtitle}>
         Відміна
