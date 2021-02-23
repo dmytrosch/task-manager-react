@@ -18,6 +18,7 @@ import ModalCreateTask from "./Modals/ModalComponents/ModalCreateTask";
 import ModalAddParticipant from "./Modals/ModalComponents/ModalAddParticipant";
 import ModalCreateProject from "./Modals/ModalComponents/ModalCreateProject";
 import ModalEditProject from "./Modals/ModalComponents/ModalEditProject";
+import ModalChartTable from "./Modals/ModalComponents/ModalChartTable";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ export default function App() {
       <ModalAddParticipant />
       <ModalCreateProject />
       <ModalEditProject />
+      <ModalChartTable />
     </>
   );
 }

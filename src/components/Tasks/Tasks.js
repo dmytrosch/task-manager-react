@@ -1,45 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  setModalCreateTask,
-  setModalChartTable,
-} from "../../redux/modal/modalAction";
-import TasksList from "./TaskComponents/TasksList";
-import ModalCreateTask from "../Modals/ModalComponents/ModalCreateTask";
-import SideBar from "../SideBar/SideBar";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import IconButton from "../../common/IconButtons/IconButtons";
-import Chart from "../Modals/ModalComponents/ModalChartTable";
-import style from "./Tasks.module.css";
-import viewStyles from "../../views/SprintsView/SprintsView.module.css";
-import EditableInput from "../../common/EditableInput/EditableInput";
-import SearchInput from "../../common/SearchInput/SearchInput";
 import Slider from "../../common/Slider/Slider";
+import SearchInput from "../../common/SearchInput/SearchInput";
+import EditableInput from "../../common/EditableInput/EditableInput";
+import TasksTable from "./TaskComponents/TasksTable";
 
-const getProjectDataById = (projectId) => () => ({
-  name: "Project Ala Carta",
-});
+import * as modalAction from "../../redux/modal/modalAction";
+import * as sprintSelector from "../../redux/sprints/sprintsSelectors";
 
-const getSprintIdsByProjectId = (projectId) => () => [
-  "id_1",
-  "id_2",
-  "id_3",
-  "id_4",
-  "id_5",
-  "id_6",
-  "id_7",
-];
+import styles from "./Tasks.module.css";
 
-export default function Task({ sprintName }) {
-  const { name, description } = useSelector(getProjectDataById("projectId"));
-  const tasksIds = useSelector(getSprintIdsByProjectId("projectId"));
+export default function Task({ sprintId }) {
   const dispatch = useDispatch();
-  const openModalTask = () => {
-    dispatch(setModalCreateTask(true));
-  };
-  const openModalChartTable = () => {
-    dispatch(setModalChartTable(true));
-  };
-
+  const [sprintName, setSprintName] = useState(
+    sprintSelector.nameById(sprintId)
+  );
   const handleSearchInput = (searchRequest) => {
     // TODO: Connect dispatch
     console.log("dispatch", searchRequest);
@@ -50,74 +27,42 @@ export default function Task({ sprintName }) {
     console.log("dispatch", current);
   };
 
+  const onSave = (newSprintName) => setSprintName(newSprintName);
+
+  const openModalTask = () => dispatch(modalAction.setModalCreateTask(true));
+  const openModalChartTable = () =>
+    dispatch(modalAction.setModalChartTable(true));
+
   return (
-    <div className={viewStyles.view}>
-      <section>
-        <SideBar />
-
-        <ModalCreateTask />
-
-        <Chart />
-      </section>
-
-      <main className={style.container}>
-        <div className={style.ContainerPaginate}>
-          <div>
-          <Slider initialCurrent={2} total={11} callback={handleSlider} />
-          <span className={style.dateCreation}>2020.02.16</span>
-          </div>
-          <SearchInput
-            customContainerStyles={style.mobileSearchInp}
-            callback={handleSearchInput}
-          />
+    <div className={styles.container}>
+      <div className={styles.taskControl}>
+        <div className={styles.sliderContainer}>
+          <Slider initialCurrent={1} total={12} callback={handleSlider} />
+          <span className={styles.date}>2020.02.16</span>
         </div>
+        <SearchInput
+          customContainerStyles={styles.mobileSearchInp}
+          callback={handleSearchInput}
+        />
+      </div>
+      <div className={styles.sprint}>
+        <p className={styles.sprintTitle}>
+          <EditableInput onSave value={sprintName} />
+        </p>
+        <div onClick={openModalTask} className={styles.addSprintContainer}>
+          <IconButton iconName="plus" icon="plus" />
+          <p className={styles.titleButton}>Створити задачу</p>
+        </div>
+      </div>
 
-        <div className={style.sprintNames}>
-          <EditableInput
-            onSave
-            value={name}
-            validation={(val) => val.length <= 50}
-          />
-        </div>
-        <div onClick={openModalTask} className={style.containerButton}>
-          <IconButton
-            iconButtonCustomClass={style.buttonAdd}
-            iconName="plus"
-            icon="plus"
-          />
-          <p className={style.titleButton}>Створити задачу</p>
-        </div>
+      <IconButton
+        iconButtonCustomClass={styles.analyticaBtn}
+        iconName="analytica"
+        icon="analytica"
+        onClick={openModalChartTable}
+      ></IconButton>
 
-        <div className={style.tableDesctopDescrip}>
-          <span className={style.span}>Задача</span>
-          <span className={style.span}>
-            Заплановано <br /> годин
-          </span>
-          <span className={style.span}>
-            Витрачено
-            <br /> год / день
-          </span>
-          <span className={style.span}>
-            Витрачено
-            <br /> годин
-          </span>
-          <SearchInput
-            customContainerStyles={style.desktopSearchInp}
-            callback={handleSearchInput}
-          />
-        </div>
-        <section className={style.containerWithTask}>
-          <TasksList tasksIds={tasksIds} />
-          <div className={style.button}>
-            <IconButton
-              buttonCustomClass={style.button}
-              iconName="analytica"
-              icon="analytica"
-              onClick={openModalChartTable}
-            ></IconButton>
-          </div>
-        </section>
-      </main>
+      <TasksTable />
     </div>
   );
 }

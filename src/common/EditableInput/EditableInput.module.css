@@ -71,7 +71,7 @@
   min-height: 68px;
   font-weight: 500;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 1.2;
   padding: 0px 0px 8px;
   border-bottom: 1px solid var(--borderColor);
   word-wrap: break-word;
@@ -81,7 +81,7 @@
   max-width: 280px;
   font-size: 16px;
   margin: 0 auto 15px;
-  line-height: 26px;
+  line-height: 1.2;
   display: inline-block;
   outline: none;
   border: none;
@@ -91,8 +91,8 @@
 }
 .sprintName {
   font-size: 26px;
-  height: 65px;
-  line-height: 32px;
+  /* height: 65px; */
+  line-height: 1.2;
   display: inline-block;
   word-wrap: break-word;
 
@@ -101,7 +101,7 @@
 .sprintNameInput {
   max-width: 280px;
   font-size: 18px;
-  line-height: 32px;
+  line-height: 1.2;
   display: inline-block;
   background-color: var(--backgroundColor);
   outline: none;
@@ -116,16 +116,17 @@
   padding: 0px 0px 0px 10px;
   margin: 0px 0px 25px 5px;
 }
-
 .applyСancel {
   font-family: var(--primeFont);
   padding: 4px;
 }
+
 @media (min-width: 768px) {
   .sprintName {
     font-size: 36px;
   }
 }
+
 @media (max-width: 1280px) {
   .taskName {
     padding: 20px 0px 8px;
