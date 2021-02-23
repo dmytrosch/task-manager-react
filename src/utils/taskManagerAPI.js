@@ -3,6 +3,7 @@ import axios from "axios";
 axios.defaults.baseURL = "https://task-manager-goit-api.herokuapp.com/api";
 
 export const createUser = (credentials) => {
+  console.log(credentials);
   return axios.post("/auth/register", credentials);
 };
 export const loginUser = (credentials) => {

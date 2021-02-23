@@ -2,10 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 
-import { isAuthentificated } from "../../redux/auth/authSelectors";
+import { isAuthentificatedSelector } from "../../redux/auth/authSelectors";
 
 export default function PrivateRoute({ component: Component, ...routerProps }) {
-  const isAuth = useSelector(isAuthentificated);
+  const isAuth = useSelector(isAuthentificatedSelector);
   return (
     <Route
       {...routerProps}

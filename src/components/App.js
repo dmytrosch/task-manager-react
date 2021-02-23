@@ -5,8 +5,10 @@ import routes from "../utils/routes";
 
 import { setClientWidth } from "../redux/clientWidth/clientWidthAction";
 import { isMobileSelector } from "../redux/clientWidth/clientWidthSelectors";
+import { isAuthentificatedSelector } from "../redux/auth/authSelectors";
 
 import PublicRoute from "./Routes/PublicRoute";
+import PrivateRoute from "./Routes/PrivateRoute";
 
 import Loader from "../components/Loader/Loader";
 
@@ -22,15 +24,20 @@ export default function App() {
     dispatch(setClientWidth(document.documentElement.clientWidth));
   }, []);
   // const isMobileMode = useSelector(isMobileSelector);
-
+  const isAuthentificated = useSelector(isAuthentificatedSelector);
+  console.log(isAuthentificated);
   return (
     <>
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
           <Switch>
-            {routes.map((route) => (
-              <PublicRoute key={route.path} {...route} />
-            ))}
+            {routes.map((route) =>
+              route.private ? (
+                <PrivateRoute key={route.path} {...route} />
+              ) : (
+                <PublicRoute key={route.path} {...route} />
+              )
+            )}
             <Redirect to="/" />
           </Switch>
         </Suspense>

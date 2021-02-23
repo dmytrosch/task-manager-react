@@ -14,7 +14,7 @@ export default function Login() {
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    dispatch(login({ email, password }));
+    dispatch(login(email, password));
     setEmail("");
     setPassword("");
   };

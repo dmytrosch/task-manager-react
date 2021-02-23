@@ -3,16 +3,6 @@ import { lazy } from "react";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
-    path: "/",
-    label: "Projects",
-    exact: true,
-    component: lazy(
-      () => import("../views/MainView/MainView" /* webpackChunkName: "Home" */)
-    ),
-    private: true,
-    restricted: false,
-  },
-  {
     path: "/projects/:projectId/sprints",
     label: "Sprints",
     exact: true,
@@ -60,4 +50,14 @@ export default [
     private: false,
     restricted: true,
   },
+  {
+    path: "/",
+    label: "Projects",
+    exact: true,
+    component: lazy(
+      () => import("../views/MainView/MainView" /* webpackChunkName: "Home" */)
+    ),
+    private: true,
+    restricted: false,
+  }
 ];

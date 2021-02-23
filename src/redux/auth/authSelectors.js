@@ -1,3 +1,2 @@
-export const isAuthentificated = (state) =>
-  state.app.auth.token ? true : false;
-export const getUserName = (state) => state.app.auth.user.username;
+export const isAuthentificatedSelector = (state) => Boolean(state.app.auth.token)
+export const getUserNameSelector = (state) => state.app.auth.user.username;

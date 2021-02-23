@@ -46,8 +46,12 @@ export const logout = () => (dispatch) => {
     .finally(() => token.unset());
 };
 
-export const signup = (credentials) => (dispatch) => {
+export const signup = (email, password) => (dispatch) => {
   dispatch(signupRequest());
+  const credentials = {
+    email,
+    password: password.trim(),
+  };
   createUser(credentials)
     .then((response) => {
       token.set(response.data.token);
@@ -62,8 +66,12 @@ export const signup = (credentials) => (dispatch) => {
     });
 };
 
-export const login = (credentials) => (dispatch) => {
+export const login = (email, password) => (dispatch) => {
   dispatch(logInRequest());
+  const credentials = {
+    email,
+    password: password.trim(),
+  };
   loginUser(credentials)
     .then((response) => {
       token.set(response.data.token);
