@@ -5,15 +5,20 @@ import {
   logInSuccess,
   logoutSuccess,
   logoutError,
+  gettingCurrentUserSuccess,
+  gettingCurrentUserError,
 } from "./authActions";
 
 const user = createReducer(
   {},
   {
-    [signupSuccess]: (_, { payload }) => payload.user,
     [logInSuccess]: (_, { payload }) => payload.user,
     [logoutSuccess]: () => ({}),
     [logoutError]: () => ({}),
+    [gettingCurrentUserSuccess]: (state, { payload }) => ({
+      ...state,
+      email: payload.email,
+    }),
   }
 );
 const token = createReducer(null, {
@@ -21,6 +26,7 @@ const token = createReducer(null, {
   [logInSuccess]: (_, { payload }) => payload.token,
   [logoutSuccess]: () => null,
   [logoutError]: () => null,
+  [gettingCurrentUserError]: () => null,
 });
 export default combineReducers({
   user,

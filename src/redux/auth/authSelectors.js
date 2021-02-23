@@ -1,3 +1,9 @@
-export const isAuthentificated = (state) =>
-  state.app.auth.token ? true : false;
-export const getUserName = (state) => state.app.auth.user.username;
+import { pathOr } from "ramda";
+
+export const isAuthentificatedSelector = (state) =>
+  Boolean(state.app.auth.token);
+export const getUserNameSelector = (state) => {
+  const email = pathOr("", ["email"], state.app.auth.user);
+  const [username, _] = email.split("@");
+  return username;
+};

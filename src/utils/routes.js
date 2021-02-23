@@ -3,16 +3,6 @@ import { lazy } from "react";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
-    path: "/",
-    label: "Projects",
-    exact: true,
-    component: lazy(
-      () => import("../views/MainView/MainView" /* webpackChunkName: "Home" */)
-    ),
-    private: true,
-    restricted: false,
-  },
-  {
     path: "/projects/:projectId/sprints",
     label: "Sprints",
     exact: true,
@@ -22,7 +12,7 @@ export default [
           "../views/SprintsView/SprintsView" /* webpackChunkName: "Sprint" */
         )
     ),
-    private: true,
+    private: false,
     restricted: false,
   },
   {
@@ -56,6 +46,29 @@ export default [
     component: lazy(
       () =>
         import("../views/LoginView/LoginView" /* webpackChunkName: "Login" */)
+    ),
+    private: false,
+    restricted: true,
+  },
+  {
+    path: "/",
+    label: "Projects",
+    exact: true,
+    component: lazy(
+      () => import("../views/MainView/MainView" /* webpackChunkName: "Home" */)
+    ),
+    private: true,
+    restricted: false,
+  },
+  {
+    path: "/reset-password/:resetPasswordToken",
+    label: "ResetPassword",
+    exact: true,
+    component: lazy(
+      () =>
+        import(
+          "../views/ResetPasswordView/ResetPasword" /* webpackChunkName: "ResetPassword" */
+        )
     ),
     private: false,
     restricted: true,

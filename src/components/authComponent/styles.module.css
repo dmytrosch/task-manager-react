@@ -13,9 +13,22 @@
   width: 252px;
   height: 252px;
   left: -165px;
-  top: 244px;
+  top: 400px;
   z-index: 999999;
   opacity: 0.8;
+}
+.inputContainer {
+  padding: 0px 0px 57px;
+}
+.inputContainerSingup {
+  padding: 0px 0px 32px;
+}
+.inputContainerSingup:last-of-type {
+  margin: 0px 0px 32px;
+}
+/* .inputContainer:nth-child(2){ */
+.inputContainer:last-of-type {
+  padding: 0px 0px 40px;
 }
 @media (min-width: 320px) {
   .container {
@@ -33,7 +46,6 @@
   .form {
     position: relative;
     text-align: center;
-    padding: 0px 70px;
     z-index: 10;
   }
   .input {
@@ -83,6 +95,13 @@
   .NavLink {
     display: inline;
     border-bottom: 1px solid var(--greyColor);
+    margin-bottom: 20px;
+  }
+  .forgotPassLink {
+    width: 100px;
+    display: block;
+    margin: 15px auto 0px;
+    border-bottom: 1px solid var(--greyColor);
   }
   .thirdNew {
     display: none;
@@ -91,19 +110,11 @@
 @media (min-width: 768px) {
   .inputContainer {
     width: 429px;
-    padding: 0px 0px 57px;
   }
   .inputContainerSingup {
-    width: 429px;
-    padding: 0px 0px 32px;
+    width: 429px;;
   }
-  .inputContainerSingup:last-of-type {
-    margin: 0px 0px 32px;
-  }
-  /* .inputContainer:nth-child(2){ */
-  .inputContainer:last-of-type {
-    padding: 0px 0px 40px;
-  }
+
   .container {
     width: 570px;
     height: 538px;
@@ -121,6 +132,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
   }
   .label {
     bottom: 76px;
@@ -133,7 +145,7 @@
     margin-bottom: 55px;
   }
   .title {
-    padding: 63px 0px 53px 0px;
+    padding: 30px 0px 30px 0px;
   }
   .titleSignup {
     padding: 63px 0px 30px 0px;
@@ -146,13 +158,118 @@
   .container {
     margin-top: 56px;
   }
+  .form {
+    position: relative;
+    z-index: 0;
+  }
   .thirdNew {
     left: -165px;
     top: 300px;
-    z-index: 999999;
+    z-index: 9999999;
     opacity: 0.8;
   }
 }
+
+/* =========flipper====== */
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: 0.7s linear;
+}
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.front {
+  z-index: 2;
+  transform: rotateX(0deg);
+}
+.back {
+  transform: rotateX(-180deg);
+  color: rgb(121, 116, 116);
+}
+.flipperRotate {
+  transform: rotateX(180deg);
+}
+.inner {
+  line-height: 2;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.5px;
+  margin-right: 5px;
+  color: var(--greyColor);
+}
+
+.NavLink {
+  font-size: 12px;
+}
+
+.btnWrapper {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btnWrapper a {
+  margin: 0px 0px 3px 0px;
+  height: 22px;
+}
+.btnWrapper p {
+  margin: 0px;
+}
+
+.headTitle,
+.title {
+  margin: 30px auto 0;
+  text-align: center;
+}
+
+.btnSubmit {
+  margin-top: 40px;
+  text-align: center;
+}
+
+form {
+  width: 60%;
+  margin: 30px auto 0;
+}
+
+.thirdNew {
+  background: linear-gradient(
+    -45deg,
+    #ff6b07,
+    #f3ad17,
+    var(--orangeColor),
+    #f16609
+  );
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .thirdNew {
   background: linear-gradient(
     -45deg,

@@ -10,8 +10,20 @@ import {
   logInRequest,
   logInSuccess,
   logInError,
+  gettingCurrentUserRequest,
+  gettingCurrentUserSuccess,
+  gettingCurrentUserError,
+  resetPassRequest,
+  resetPassSuccess,
+  resetPassError,
 } from "./authActions";
-import { createUser, loginUser, logoutUser } from "../../utils/taskManagerAPI";
+import {
+  createUser as createUserAPI,
+  loginUser as loginUserAPI,
+  logoutUser as logoutUserAPI,
+  getCurrentUser as getCurrentUserAPI,
+  resetPassword as resetPasswordAPI,
+} from "../../utils/taskManagerAPI";
 
 const token = {
   set(tokenValue) {
@@ -40,15 +52,19 @@ const errorHandler = (statusCodeError) => {
 };
 export const logout = () => (dispatch) => {
   dispatch(logoutRequest());
-  logoutUser()
+  logoutUserAPI()
     .then(() => dispatch(logoutSuccess()))
     .catch(() => dispatch(logoutError()))
     .finally(() => token.unset());
 };
 
-export const signup = (credentials) => (dispatch) => {
+export const signup = (email, password) => (dispatch) => {
   dispatch(signupRequest());
-  createUser(credentials)
+  const credentials = {
+    email,
+    password: password.trim(),
+  };
+  createUserAPI(credentials)
     .then((response) => {
       token.set(response.data.token);
       dispatch(signupSuccess(response.data));
@@ -62,9 +78,13 @@ export const signup = (credentials) => (dispatch) => {
     });
 };
 
-export const login = (credentials) => (dispatch) => {
+export const login = (email, password) => (dispatch) => {
   dispatch(logInRequest());
-  loginUser(credentials)
+  const credentials = {
+    email,
+    password: password.trim(),
+  };
+  loginUserAPI(credentials)
     .then((response) => {
       token.set(response.data.token);
       dispatch(logInSuccess(response.data));
@@ -75,5 +95,28 @@ export const login = (credentials) => (dispatch) => {
       );
       console.log(errorMessage);
       dispatch(logInError(error));
+    });
+};
+
+export const getCurrentUser = () => (dispatch, getState) => {
+  const persistedToken = getState().app.auth.token;
+  if (!persistedToken) {
+    return;
+  }
+  token.set(persistedToken);
+  dispatch(gettingCurrentUserRequest());
+  getCurrentUserAPI()
+    .then((response) => {
+      dispatch(gettingCurrentUserSuccess(response.data));
+    })
+    .catch((error) => dispatch(gettingCurrentUserError(error)));
+};
+export const resetPass = (credentials) => (dispatch) => {
+  dispatch(resetPassRequest());
+  resetPasswordAPI(credentials)
+    .then(() => dispatch(resetPassSuccess()))
+    .catch((err) => {
+      const error = errorHandler(pathOr("", ["response", "status"], err));
+      dispatch(resetPassError(error));
     });
 };

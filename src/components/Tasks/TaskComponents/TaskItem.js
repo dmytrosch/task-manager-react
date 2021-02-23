@@ -25,7 +25,8 @@ export default function SprintItem({ id }) {
           inputStyle="taskNameInput"
           rows={2}
           value={name}
-          button="buttonTask"
+          button="hide"
+          validation={(val) => val.length <= 50}
         />
         {/* <h2 className={styles.taskName}>{name}</h2> */}
         <div className={styles.div}>
@@ -34,7 +35,17 @@ export default function SprintItem({ id }) {
         </div>
         <div className={styles.div}>
           <p className={styles.text}>Витрачено год/день</p>
-          <input className={styles.input} placeholder="6"></input>
+          <EditableInput
+            type="number"
+            button="hide"
+            viewStyle="searchName"
+            inputStyle="searchInput"
+            value="6"
+            onSave
+            validationMessage="Будь ласка, введіть число до 3 цифр."
+            validation={(val) => val.length <= 3}
+          />
+          {/* <input className={styles.input} placeholder="6"></input> */}
         </div>
         <div className={styles.div}>
           <p className={styles.text}>Витрачено годин</p>

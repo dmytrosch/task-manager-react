@@ -70,4 +70,5 @@
 
 body {
   letter-spacing: 0.04em;
+  font-family: var(--primeFont);
 }

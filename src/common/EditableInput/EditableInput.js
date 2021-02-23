@@ -3,33 +3,46 @@ import EdiText from "react-editext";
 import styles from "./EditableInput.module.css";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import IconButton from "../IconButtons/IconButtons";
+import CrossIcon from "./iconsForEditText/CrossIcon.svg";
+import Checkmark from "./iconsForEditText/Checkmark.svg";
+import Edit from "./iconsForEditText/Edit.svg";
 
-export default function EditableInput({ value, viewStyle, inputStyle, rows, button  }) {
+export default function EditableInput({
+  value,
+  viewStyle,
+  inputStyle,
+  rows,
+  button,
+  styleInputNumber,
+  type,
+  validation,
+  validationMessage,
+}) {
   const onSave = (val) => {
     console.log("Edited Value -> ", val);
   };
   return (
     <div className="container">
       <EdiText
-        type="textarea"
+        type={type}
         viewProps={{
           className: styles[viewStyle],
         }}
         inputProps={{
           className: styles[inputStyle],
           disabled: false,
-          rows: rows
+          rows: rows,
         }}
         disable="disable"
-        saveButtonContent={<IconButton iconName="checkmark" icon="checkmark" />}
+        saveButtonContent={<Checkmark />}
+        editButtonContent={<Edit />}
+        cancelButtonContent={<CrossIcon />}
         saveButtonClassName={classNames(styles[button], styles.applyСancel)}
-        cancelButtonContent={
-          <IconButton iconName="crossIcon" icon="crossIcon" />
-        }
         cancelButtonClassName={classNames(styles[button], styles.applyСancel)}
-        editButtonClassName={styles.button}
-        editButtonContent={<IconButton iconName="pen" icon="pen" />}
+        editButtonClassName={classNames(
+          styles[button],
+          styles[styleInputNumber]
+        )}
         submitOnEnter
         cancelOnEscape
         editOnViewClick={true}
@@ -38,8 +51,8 @@ export default function EditableInput({ value, viewStyle, inputStyle, rows, butt
         value={value}
         hideIcons={true}
         onSave={onSave}
-        validationMessage="Будь ласка введіть назву до 50 символів."
-        validation={(val) => val.length <= 50}
+        validationMessage={validationMessage}
+        validation={validation}
       />
     </div>
   );
@@ -49,10 +62,17 @@ EditableInput.proprTypes = {
   shape: PropTypes.string,
   rows: PropTypes.number,
   button: PropTypes.string,
+  styleInputNumber: PropTypes.string,
+  validation: PropTypes.func,
+  type: PropTypes.string,
+  validationMessage: PropTypes.string,
+  
 };
 
 EditableInput.defaultProps = {
   viewStyle: "sprintName",
   inputStyle: "sprintNameInput",
   button: "button",
+  type: "textarea",
+  validationMessage: "Будь ласка введіть назву до 50 символів.",
 };

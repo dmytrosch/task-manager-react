@@ -1,29 +1,31 @@
-.circleContainer {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  top: 400px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 .wrapper {
+  --padding: 20px;
+
   min-width: 100%;
   min-height: 100vh;
   background-color: var(--backgroundColor);
+  overflow: hidden;
+  position: relative;
 }
-.container {
-  min-width: 260px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto;
-}
-.containerMobile {
-  composes: container;
+.wrapperMobileAuth{
+  composes: wrapper;
   background-color: var(--formColor);
 }
-.containerHeader {
-  composes: container;
+
+.header {
+  padding-left: var(--padding);
+  padding-right: var(--padding);
   border-bottom: 1px solid var(--borderColor);
+}
+
+.container {
+  min-width: 260px;
+  margin: 0 auto;
+  padding: 0 var(--padding);
+}
+
+.circleContainer {
+  position: absolute;
 }
 
 @media (max-width: 768px) {
@@ -31,13 +33,17 @@
     display: none;
   }
 }
+
 @media (min-width: 768px) {
   .container {
     min-width: 688px;
-    padding-left: 40px;
-    padding-right: 40px;
+    background-color: unset;
   }
+
   .wrapper {
+    --padding: 40px;
+  }
+  .paddingBottom {
     padding-bottom: 130px;
   }
 }
@@ -45,10 +51,12 @@
 @media (min-width: 1280px) {
   .container {
     min-width: 1170px;
-    padding-left: 55px;
-    padding-right: 55px;
   }
+
   .wrapper {
+    --padding: 55px;
+  }
+  .paddingBottom {
     padding-bottom: 200px;
   }
 }

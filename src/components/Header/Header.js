@@ -1,19 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserName, isAuthentificated } from "../../redux/auth/authSelectors";
-import { logout } from "../../redux/auth/authOperations";
-import styles from "./header.module.css";
 import { CSSTransition } from "react-transition-group";
+import classNames from 'classnames';
+import { getUserNameSelector, isAuthentificatedSelector } from "../../redux/auth/authSelectors";
+import { logout } from "../../redux/auth/authOperations";
 import mainLogo from "../../assest/icons/mainLogo.svg";
+import styles from "./header.module.css";
 
-export default function Header(props) {
+const Header = ({ className, ...props }) => {
   const dispatch = useDispatch();
-  const userName = useSelector(getUserName);
-  const isAuth = useSelector(isAuthentificated);
+  const userName = useSelector(getUserNameSelector);
+  const isAuth = useSelector(isAuthentificatedSelector);
   const onLogout = () => dispatch(logout());
   return (
-    <header className={styles.header}>
+    <header className={classNames(styles.header, className)}>
       <div className={styles.logoContainer}>
         <NavLink to={isAuth ? "/" : "/login"}>
           <CSSTransition
@@ -40,3 +41,5 @@ export default function Header(props) {
     </header>
   );
 }
+
+export default Header;
