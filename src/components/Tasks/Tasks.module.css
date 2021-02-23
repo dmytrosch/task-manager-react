@@ -1,6 +1,6 @@
 .container {
   width: 280px;
-  padding: 20px 0;
+  padding-top: 20px;
   margin: 0 auto;
 
   font-family: var(--primeFont);

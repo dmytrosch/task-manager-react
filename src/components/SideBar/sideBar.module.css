@@ -71,7 +71,7 @@
 .taskTitle {
   font-family: var(--primeFont);
   font-size: 14px;
-  width: 100%;
+  max-width: 120px;
   flex: 0 0 auto;
   overflow: hidden;
 }
@@ -102,7 +102,6 @@
   .navContainer {
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-left: 30%;
   }
   .aside {
     border-right: none;
@@ -148,7 +147,6 @@
     position: absolute;
   } */
   .aside {
-    border-right: none;
     padding-bottom: 0;
   }
 }

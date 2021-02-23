@@ -93,9 +93,7 @@ export default function SideBar() {
   return (
     <aside className={styles.aside}>
       <GoBackBtn props={{ pathname, history, nameArrowBtn }} />
-
       <ListItem props={{ obj, visibleTab, setVisibleTab }} />
-
       <AddTaskBtn nameArrowBtn={nameArrowBtn} addNewProject={add} />
     </aside>
   );

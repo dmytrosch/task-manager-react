@@ -6,7 +6,17 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
+  .onlyDesktop {
+    display: block;
+  }
+
+  .desktopSearchInp {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 30px;
+  }
   .tableDesctopDescrip {
     display: flex;
     justify-content: space-around;
@@ -17,19 +27,5 @@
 
   .desktopSearchInp {
     display: none;
-  }
-}
-
-@media (min-width: 1280px) {
-
-  .onlyDesktop {
-    display: block;
-  }
-
-  .desktopSearchInp {
-    display: block;
-    position: relative;
-    top: 0;
-    left: 30px;
   }
 }
