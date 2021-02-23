@@ -49,12 +49,12 @@ export default function Login() {
           </div>
           <div className={style.inputContainerSingup}>
             <Input
-              label={"Пароль"}
+              label={"Повторіть пароль"}
               error={false}
               type="password"
               value={confirmedPassword}
               onChange={(e) => setConfirmedPasswod(e.target.value)}
-              errorMessage={"Невірний пароль"}
+              errorMessage={"повторіть пароль"}
               id="confirmedPassword"
             />
           </div>

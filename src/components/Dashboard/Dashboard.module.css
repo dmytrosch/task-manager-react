@@ -27,9 +27,10 @@
   align-items: center;
 }
 .button {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
+  position: fixed;
+  bottom: 5%;
+  right: 15%;
+  z-index: 100;
 
   /* width: 44px;
   height: 44px; */
