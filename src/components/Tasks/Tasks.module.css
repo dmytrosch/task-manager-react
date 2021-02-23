@@ -28,8 +28,8 @@
   position: absolute;
 }
 .ContainerPaginate {
-  display: flex;
-  justify-content: space-around;
+  width: 452px;
+  margin: 0 auto;
   margin-bottom: 54px;
 }
 .paginate {
@@ -47,7 +47,7 @@
   height: 15px;
 }
 .puginateBth:last-child {
-  margin: 0px 65px 0px 20px;
+  margin: 0px 0px 0px 20px;
   background: url(../../assest/icons/ArrowRight.icon.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -142,7 +142,11 @@
   outline: none;
 }
 
-@media (max-width: 766px) {
+@media (max-width: 767px) {
+  .desktopSearchInp {
+    display: none;
+  }
+
   .searchSubmit {
     margin: 0px 20px;
     right: 230px;
@@ -170,7 +174,12 @@
   }
 }
 
-@media (min-width: 767px) {
+@media (min-width: 768px) {
+  .ContainerPaginate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .button {
     position: fixed;
     bottom: 10%;
@@ -185,10 +194,6 @@
   }
   .containerInput {
     display: inline-block;
-  }
-  .ContainerPaginate {
-    display: inline-flex;
-    margin: 0px 20px 0px 10px;
   }
 
   .containerWithTask {
@@ -212,19 +217,19 @@
 }
 
 @media (min-width: 854px) {
-  .ContainerPaginate {
-    margin: 0px 20px 0px 30px;
-  }
   .containerButton {
     right: 15%;
   }
 }
-@media (min-width: 1105px) and (max-width: 1279px) {
-  .ContainerPaginate {
-    margin: 0px 66px 0px 125px;
+
+@media (min-width: 1280px) {
+  .desktopSearchInp {
+    display: block;
+    transform: translateX(30px);
   }
-}
-@media (min-width: 1279px) {
+  .mobileSearchInp {
+    display: none;
+  }
   .span:nth-child(1) {
     margin: 0px 0px 0px 70px;
   }
@@ -232,7 +237,7 @@
     margin: 0px 0px 0px 50px;
   }
   .span:nth-child(4) {
-    margin: 0px 0px 0px 21px;
+    margin: 0px 20px 0px 0px;
   }
 
   .containerButton {
