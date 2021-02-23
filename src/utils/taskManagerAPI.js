@@ -36,3 +36,18 @@ export const resetPassword = (credentials) => {
 
 export const updateSprintName = ({ sprintId, name }) =>
   axios.patch(`/sprints/${sprintId}/change-name`, name);
+
+export const addTask = (sprintId, task) =>
+  axios.post(`/tasks/${sprintId}/create`, task);
+
+export const deleteTask = (sprintId, taskId) =>
+  axios.delete(`/tasks/${sprintId}/${taskId}/remove`);
+
+export const updateTaskName = (taskId, name) =>
+  axios.patch(`/tasks/${taskId}/change-name`, name);
+
+export const updateTaskTime = (taskId, dateId, hours) =>
+  axios.patch(`/tasks/${taskId}/${dateId}/update-time`, hours);
+
+export const searchTasksByName = (sprintId, query) =>
+  axios.get(`/tasks/${sprintId}/${query}`);
