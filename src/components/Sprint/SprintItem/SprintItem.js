@@ -14,14 +14,16 @@ import IconButton from "../../../common/IconButtons/IconButtons.js";
 //   duration: 226,
 // });
 
-export default function SprintItem({ id, isOwner }) {
-  const { name, dateStart, dateEnd, duration } = useSelector(byIdSelector(id));
+export default function SprintItem({ id: sprintId, isOwner, projectId }) {
+  const { name, dateStart, dateEnd, duration } = useSelector(
+    byIdSelector(sprintId)
+  );
   const dispatch = useDispatch();
-  const handlerDeleteSprint = () => dispatch(deleteSprint(id));
+  const handlerDeleteSprint = () => dispatch(deleteSprint(projectId, sprintId));
 
   return (
     <div className={styles.container}>
-      <NavLink to={`/sprint/${id}`} className={styles.navLink}>
+      <NavLink to={`/sprint/${sprintId}`} className={styles.navLink}>
         <h2 className={styles.title}>{name}</h2>
         <ul>
           <li className={styles.item}>
@@ -38,10 +40,6 @@ export default function SprintItem({ id, isOwner }) {
           </li>
         </ul>
       </NavLink>
-      {/* <button
-        className={styles.deleteBtn}
-        onClick={() => deleteSprint(id)}
-      ></button> */}
       {isOwner && (
         <IconButton
           iconButtonCustomClass={styles.deleteBtn}

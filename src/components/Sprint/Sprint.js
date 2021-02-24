@@ -54,12 +54,12 @@ export default function Sprint({ projectId }) {
           Додати людей
         </p>
         {sprintIds.length > 0 ? (
-          <SprintList sprintIds={sprintIds} isOwner={isOwner} />
+          <SprintList sprintIds={sprintIds} isOwner={isOwner} projectId={projectId}/>
         ) : (
           <p className={styles.notSprints}>
-            У проєкта відсутні спрінти.{" "}
+            У проєкта відсутні спринт.{" "}
             <span className={styles.addSprintText} onClick={addSprint}>
-              Створити проект
+              Створити спринт
             </span>
           </p>
         )}

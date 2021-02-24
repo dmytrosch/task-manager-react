@@ -32,7 +32,7 @@ export const addSprint = (projectId, sprint) => {
   console.log("projectid:", projectId, sprint);
   return axios.post(`/sprints/${projectId}/create`, sprint);
 };
-export const deleteSprint = ({ projectId, sprintId }) =>
+export const deleteSprint = (projectId, sprintId) =>
   axios.delete(`/sprints/${projectId}/${sprintId}/remove`);
 
 export const sprintById = (sprintId) => axios.get(`/sprints/${sprintId}`);

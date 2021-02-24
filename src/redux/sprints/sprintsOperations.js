@@ -10,10 +10,10 @@ export const createSprint = (projectId, sprint) => (dispatch) => {
     .catch((err) => dispatch(action.createError(err.message)));
 };
 
-export const deleteSprint = ({ projectId, sprintId }) => (dispatch) => {
+export const deleteSprint = (projectId, sprintId) => (dispatch) => {
   dispatch(action.deleteRequest());
   send
-    .deleteSprint({ projectId, sprintId })
+    .deleteSprint(projectId, sprintId)
     .then(() => dispatch(action.deleteSuccess(sprintId)))
     .catch((err) => dispatch(action.deleteError(err.message)));
 };
