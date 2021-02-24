@@ -1,14 +1,11 @@
 import React from "react";
 import { CSSTransition } from "react-transition-group";
-import { useSelector } from "react-redux";
 import classNames from "classnames";
 import styles from "./Notification.module.css";
 import animation from "./animation.module.css";
 
-import { getNotification } from "../../redux/notifications/notificationSelectors";
-
-const Notification = () => {
-  const { type, message } = useSelector((state) => getNotification(state));
+const Notification = ({message, type}) => {
+  console.log('show noti');
   return (
     <CSSTransition
       in={message ? true : false}

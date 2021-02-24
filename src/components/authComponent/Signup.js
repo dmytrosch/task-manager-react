@@ -11,11 +11,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPasswod] = useState("");
   const dispatch = useDispatch();
-
   const handlerSubmit = (e) => {
     e.preventDefault();
     dispatch(signup(email, password));
-
     setEmail("");
     setPassword("");
     setConfirmedPasswod("");

@@ -73,4 +73,17 @@ export default [
     private: false,
     restricted: true,
   },
+  {
+    path: "/verify/:verifyToken",
+    label: "Email verification",
+    exact: true,
+    component: lazy(
+      () =>
+        import(
+          "../components/EmailVerification/EmailVerification.js" /* webpackChunkName: "VerifyEmail" */
+        )
+    ),
+    private: false,
+    restricted: true,
+  },
 ];

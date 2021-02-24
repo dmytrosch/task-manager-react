@@ -6,13 +6,14 @@ import routes from "../utils/routes";
 import { setClientWidth } from "../redux/clientWidth/clientWidthAction";
 import { isMobileSelector } from "../redux/clientWidth/clientWidthSelectors";
 import { isAuthentificatedSelector } from "../redux/auth/authSelectors";
+import { getNotificationSelector } from "../redux/notifications/notificationSelector";
 import { getCurrentUser } from "../redux/auth/authOperations";
 
 import PublicRoute from "./Routes/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute";
 
 import Loader from "../components/Loader/Loader";
-
+import Notification from "../common/Notification/Notification";
 import ModalCreateSprint from "./../components/Modals/ModalComponents/ModalCreateSprint";
 import ModalCreateTask from "./Modals/ModalComponents/ModalCreateTask";
 import ModalAddParticipant from "./Modals/ModalComponents/ModalAddParticipant";
@@ -23,6 +24,7 @@ import ModalChartTable from "./Modals/ModalComponents/ModalChartTable";
 export default function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(isAuthentificatedSelector);
+  const notification = useSelector(getNotificationSelector);
   useEffect(() => {
     dispatch(setClientWidth(document.documentElement.clientWidth));
   }, []);
@@ -46,7 +48,9 @@ export default function App() {
           </Switch>
         </Suspense>
       </BrowserRouter>
-
+      {notification && (
+        <Notification type={notification.type} message={notification.message} />
+      )}
       <ModalCreateSprint />
       <ModalCreateTask />
       <ModalAddParticipant />

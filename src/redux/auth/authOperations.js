@@ -22,7 +22,7 @@ import {
   loginUser as loginUserAPI,
   logoutUser as logoutUserAPI,
   getCurrentUser as getCurrentUserAPI,
-  resetPassword as resetPasswordAPI,
+  resetPassword as resetPasswordAPI
 } from "../../utils/taskManagerAPI";
 
 const token = {
@@ -120,3 +120,4 @@ export const resetPass = (credentials) => (dispatch) => {
       dispatch(resetPassError(error));
     });
 };
+
