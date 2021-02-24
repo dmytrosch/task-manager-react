@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./styles.module.css";
 import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
-import PassForgot from "./resetPassword";
 import { login } from "../../redux/auth/authOperations";
 
-export default function Login() {
+export default function Login({ setVissible }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [vissibleBack, setVissibleBack] = useState(false);
-
-  function setVissibleForgetPass() {
-    setVissibleBack((prev) => !prev);
-  }
   const dispatch = useDispatch();
-
   const handlerSubmit = (e) => {
     e.preventDefault();
     dispatch(login(email, password));
@@ -24,54 +17,47 @@ export default function Login() {
     setPassword("");
   };
   return (
-    <section className={style.container}>
-      <PassForgot
-        vissibleBack={vissibleBack}
-        setVissible={setVissibleForgetPass}
-      >
-        <div className={style.formContainer}>
-          <p className={style.title}>Вхід</p>
-          <form className={style.form} onSubmit={handlerSubmit}>
-            <div className={style.inputContainer}>
-              <Input
-                label={"E-mail"}
-                value={email}
-                error={false}
-                onChange={(e) => setEmail(e.target.value)}
-                type={"text"}
-                errorMessage={"Невірний email"}
-              />
-            </div>
-            <div className={style.inputContainer}>
-              <Input
-                label={"Пароль"}
-                error={false}
-                type={"password"}
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                errorMessage={"Невірний пароль"}
-              />
-            </div>
-
-            <Button shape="oval" type="submit">
-              Увійти
-            </Button>
-          </form>
-          <p className={style.subtitle}>
-            Немає акаунту?&nbsp;
-            <NavLink to="/signup" className={style.NavLink}>
-              Зареєструватись
-            </NavLink>
-            <NavLink
-              to="/login"
-              onClick={setVissibleForgetPass}
-              className={style.forgotPassLink}
-            >
-              Забули пароль?
-            </NavLink>
-          </p>
+    <div className={style.formContainer}>
+      <p className={style.title}>Вхід</p>
+      <form className={style.form} onSubmit={handlerSubmit}>
+        <div className={style.inputContainer}>
+          <Input
+            label={"E-mail"}
+            value={email}
+            error={false}
+            onChange={(e) => setEmail(e.target.value)}
+            type={"text"}
+            errorMessage={"Невірний email"}
+          />
         </div>
-      </PassForgot>
-    </section>
+        <div className={style.inputContainer}>
+          <Input
+            label={"Пароль"}
+            error={false}
+            type={"password"}
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            errorMessage={"Невірний пароль"}
+          />
+        </div>
+
+        <Button shape="oval" type="submit">
+          Увійти
+        </Button>
+      </form>
+      <p className={style.subtitle}>
+        Немає акаунту?&nbsp;
+        <NavLink to="/signup" className={style.NavLink}>
+          Зареєструватись
+        </NavLink>
+        <NavLink
+          to="/login"
+          onClick={setVissible}
+          className={style.forgotPassLink}
+        >
+          Забули пароль?
+        </NavLink>
+      </p>
+    </div>
   );
 }

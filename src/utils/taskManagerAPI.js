@@ -31,8 +31,8 @@ export const deleteSprint = ({ projectId, sprintId }) =>
 
 export const sprintById = (sprintId) => axios.get(`/sprints/${sprintId}`);
 
-export const resetPassword = (credentials) => {
-  return axios.patch("/auth/reset-password/:resetPasswordToken");
+export const resetPassword = (qwery, newPassword) => {
+  return axios.patch(`/auth/reset-password/${qwery}`, newPassword);
 };
 
 export const updateSprintName = ({ sprintId, name }) =>
@@ -52,3 +52,5 @@ export const updateTaskTime = (taskId, dateId, hours) =>
 
 export const searchTasksByName = (sprintId, query) =>
   axios.get(`/tasks/${sprintId}/${query}`);
+
+export const sendEmail = (email) => axios.get(`/reset-password/request`, email);

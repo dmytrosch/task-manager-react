@@ -7,3 +7,5 @@ export const getUserNameSelector = (state) => {
   const [username, _] = email.split("@");
   return username;
 };
+export const getUpdatePasswordResult = (state) => state.app.auth.resetPassword;
+export const getResultSendingEmail = (state) => state.app.auth.sendEmailAuth;

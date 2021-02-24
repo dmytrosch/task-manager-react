@@ -6,7 +6,7 @@ import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
 import { signup } from "../../redux/auth/authOperations";
 
-export default function Login() {
+export default function Signup({ setVissible }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPasswod] = useState("");
@@ -19,63 +19,66 @@ export default function Login() {
     setConfirmedPasswod("");
   };
   return (
-    <section className={style.container}>
-      <div className={style.formContainer}>
-        <p className={style.titleSignup}>Реєстрація</p>
-        <form className={style.form} onSubmit={handlerSubmit}>
-          <div className={style.inputContainerSingup}>
-            <Input
-              label={"E-mail"}
-              type={"text"}
-              error={false}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              errorMessage={"Невірний email"}
-              // error={email.length > 0 && !validator.isEmail(email)}
-            />
-          </div>
+    <div className={style.formContainer}>
+      <p className={style.titleSignup}>Реєстрація</p>
+      <form className={style.form} onSubmit={handlerSubmit}>
+        <div className={style.inputContainerSingup}>
+          <Input
+            label={"E-mail"}
+            type={"text"}
+            error={false}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            errorMessage={"Невірний email"}
+            // error={email.length > 0 && !validator.isEmail(email)}
+          />
+        </div>
 
-          <div className={style.inputContainerSingup}>
-            <Input
-              label={"Пароль"}
-              error={false}
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              errorMessage={"Невірний пароль"}
-            />
-          </div>
-          <div className={style.inputContainerSingup}>
-            <Input
-              label={"Повторіть пароль"}
-              error={false}
-              type="password"
-              value={confirmedPassword}
-              onChange={(e) => setConfirmedPasswod(e.target.value)}
-              errorMessage={"повторіть пароль"}
-              id="confirmedPassword"
-            />
-          </div>
+        <div className={style.inputContainerSingup}>
+          <Input
+            label={"Пароль"}
+            error={false}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            errorMessage={"Невірний пароль"}
+          />
+        </div>
+        <div className={style.inputContainerSingup}>
+          <Input
+            label={"Повторіть пароль"}
+            error={false}
+            type="password"
+            value={confirmedPassword}
+            onChange={(e) => setConfirmedPasswod(e.target.value)}
+            errorMessage={"повторіть пароль"}
+            id="confirmedPassword"
+          />
+        </div>
 
-          <label
-            className={
-              confirmedPassword !== password
-                ? style.label
-                : style.visuallyHidden
-            }
-            htmlFor="confirmedPassword"
-          >
-            Паролі не співпадають
-          </label>
-          <Button type="submit">Зареєструватися</Button>
-        </form>
-        <p className={style.subtitle}>
-          Маєте акаунт? &nbsp;
-          <NavLink to="/login" className={style.NavLink}>
-            Увійти
-          </NavLink>
-        </p>
-      </div>
-    </section>
+        <label
+          className={
+            confirmedPassword !== password ? style.label : style.visuallyHidden
+          }
+          htmlFor="confirmedPassword"
+        >
+          Паролі не співпадають
+        </label>
+        <Button type="submit">Зареєструватися</Button>
+      </form>
+      <p className={style.subtitle}>
+        Маєте акаунт? &nbsp;
+        <NavLink to="/login" className={style.NavLink}>
+          Увійти
+        </NavLink>
+      </p>
+      <NavLink
+        to="/signup"
+        onClick={setVissible}
+        className={style.forgotPassLink}
+      >
+        Забули пароль?
+      </NavLink>
+    </div>
   );
 }
