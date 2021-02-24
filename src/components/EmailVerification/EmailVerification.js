@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   makeSuccessNotification,
@@ -15,26 +15,42 @@ export default function EmailVerification() {
   const history = useHistory();
   const { params } = useRouteMatch();
   const token = params.verifyToken;
-  useCallback(async () => {
-    // setLoading(true);
-    try {
-      await verifyEmail(token);
-      setTimeout(() => {
+  useEffect(() => {
+    verifyEmail(token)
+      .then(() => {
         dispatch(
           makeSuccessNotification("Електронна адреса успішно підтверджена")
         );
-      }, 3000);
-    } catch {
-      setTimeout(() => {
+      })
+      .catch(() => {
         dispatch(
           makeAlertNotification(
             "Неправильні данні, для підтвердження електронної адреси"
           )
         );
-      }, 3000);
-    } finally {
-      history.push("/login");
-    }
+      })
+      .finally(() => history.push("/login"));
   }, [token]);
+  // useCallback(async () => {
+  //   // setLoading(true);
+  //   try {
+  //     await verifyEmail(token);
+  //     setTimeout(() => {
+  //       dispatch(
+  //         makeSuccessNotification("Електронна адреса успішно підтверджена")
+  //       );
+  //     }, 3000);
+  //   } catch {
+  //     setTimeout(() => {
+  //       dispatch(
+  //         makeAlertNotification(
+  //           "Неправильні данні, для підтвердження електронної адреси"
+  //         )
+  //       );
+  //     }, 3000)();
+  //   } finally {
+  //     history.push("/login");
+  //   }
+  // }, [token]);
   return <Loader />;
 }
