@@ -24,7 +24,7 @@ const getTaskbyIdRequest = createAction("tasks/getTaskByIdRequest");
 const getTaskbyIdSuccess = createAction("tasks/getTaskByIdSuccess");
 const getTaskbyIdError = createAction("tasks/getTaskByIdError");
 
-export default {
+const taskActionsObj = {
   createTaskRequest,
   createTaskSuccess,
   createTaskError,
@@ -44,3 +44,5 @@ export default {
   searchTaskByNameSucces,
   searchTaskByNameError,
 };
+
+export default taskActionsObj;

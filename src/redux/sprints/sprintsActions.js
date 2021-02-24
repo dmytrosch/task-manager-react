@@ -16,7 +16,7 @@ const sprintByIdRequest = createAction("sprint/byIdRequest");
 const sprinByIdSuccess = createAction("sprint/byIdSuccess");
 const sprinByIdError = createAction("sprint/byIdError");
 
-export default {
+const sprintActionsObj = {
   createRequest,
   createSuccess,
   createError,
@@ -30,3 +30,5 @@ export default {
   sprinByIdSuccess,
   sprinByIdError,
 };
+
+export default sprintActionsObj;
