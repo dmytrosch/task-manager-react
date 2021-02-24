@@ -15,10 +15,9 @@ export default function CreaterNewPassword() {
   const [confirmedPassword, setConfirmedPasswod] = useState("");
   const dispatch = useDispatch();
   const updatePass = useSelector(getUpdatePasswordResult);
-  console.log(updatePass);
   const handlerSubmit = (e) => {
     e.preventDefault();
-    dispatch(resetPass(qweryParams, confirmedPassword));
+    dispatch(resetPass(qweryParams.resetPasswordToken, confirmedPassword));
     setPassword("");
     setConfirmedPasswod("");
   };

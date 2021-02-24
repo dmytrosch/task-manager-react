@@ -21,13 +21,13 @@ export default function SendEmail({ setVissible }) {
   }
   return (
     <div className={style.formContainer}>
-      {sendedEmail && (
+      {sendEmail && (
         <h2 className={style.sendTitle}>
           {" "}
           Підтвердіть відновлення паролю у вашій поштовій скринці
         </h2>
       )}
-      {!sendedEmail && (
+      {!sendEmail && (
         <div className={style.inputContainer}>
           <h2 className={style.headTitle}> Вiдновлення паролю </h2>
           <p className={style.title}>Введіть email адресу користувача. </p>

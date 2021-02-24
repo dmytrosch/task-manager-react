@@ -134,7 +134,7 @@ export const resetPass = (qwery, newPassword) => (dispatch) => {
     });
 };
 
-export const sendMail = (email) => (dispatch) => {
+export const sendMail = ({ email }) => (dispatch) => {
   dispatch(sendEmailRequest());
   sendEmailAPI(email)
     .then(
