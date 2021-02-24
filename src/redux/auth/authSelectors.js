@@ -7,3 +7,25 @@ export const getUserNameSelector = (state) => {
   const [username, _] = email.split("@");
   return username;
 };
+
+export const errorMessageSelector = (state) => {
+  const errorStatus = state.app.auth.error;
+  const errorHandler = (status) => {
+    let message = "";
+    switch (status) {
+      case 400:
+        message = "Помилка данних";
+        break;
+      case 401:
+        message = "Не вірно вказаний логін або пароль";
+        break;
+      case 409:
+        message = "Користувач з цією адресою вже зареєстрований";
+        break;
+      default:
+        message = "Щось пішло не так";
+    }
+    return message;
+  };
+  return errorStatus ? errorHandler(errorStatus) : null;
+};

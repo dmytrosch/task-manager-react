@@ -5,19 +5,48 @@ import style from "./styles.module.css";
 import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
 import { signup } from "../../redux/auth/authOperations";
+import validator from "validator";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPasswod] = useState("");
+  const [errMesEmail, setErrMesEmail] = useState(null);
+  const [errMesPassword, setErrMesPassword] = useState(null);
+  const [errMesConfirmedPassword, setErrMesConfirmedPassword] = useState(null);
   const dispatch = useDispatch();
+
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value);
+    if (!validator.isEmail(e.target.value)) {
+      return setErrMesEmail("Введіть коректний email");
+    }
+    setErrMesEmail(null);
+  };
+  const onChangePassword = (e) => {
+    setPassword(e.target.value);
+    if (e.target.value.length < 8) {
+      return setErrMesPassword("Пароль повинен містити не менше 8 символів");
+    }
+    setErrMesPassword(null);
+  };
+
+  const onChangeСonfirmedPassword = (e) => {
+    setConfirmedPasswod(e.target.value);
+    if (password !== e.target.value) {
+      return setErrMesConfirmedPassword("Паролі не співпадають");
+    }
+    setErrMesConfirmedPassword(null);
+  };
   const handlerSubmit = (e) => {
     e.preventDefault();
+    if (errMesEmail && errMesPassword && errMesConfirmedPassword) return;
     dispatch(signup(email, password));
     setEmail("");
     setPassword("");
     setConfirmedPasswod("");
   };
+
   return (
     <section className={style.container}>
       <div className={style.formContainer}>
@@ -27,46 +56,35 @@ export default function Login() {
             <Input
               label={"E-mail"}
               type={"text"}
-              error={false}
+              error={errMesEmail}
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              errorMessage={"Невірний email"}
-              // error={email.length > 0 && !validator.isEmail(email)}
+              onChange={onChangeEmail}
+              errorMessage={errMesEmail}
             />
           </div>
 
           <div className={style.inputContainerSingup}>
             <Input
               label={"Пароль"}
-              error={false}
+              error={errMesPassword}
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              errorMessage={"Невірний пароль"}
+              onChange={onChangePassword}
+              errorMessage={errMesPassword}
             />
           </div>
           <div className={style.inputContainerSingup}>
             <Input
               label={"Повторіть пароль"}
-              error={false}
+              error={errMesConfirmedPassword}
               type="password"
               value={confirmedPassword}
-              onChange={(e) => setConfirmedPasswod(e.target.value)}
-              errorMessage={"повторіть пароль"}
+              onChange={onChangeСonfirmedPassword}
+              errorMessage={errMesConfirmedPassword}
               id="confirmedPassword"
             />
           </div>
 
-          <label
-            className={
-              confirmedPassword !== password
-                ? style.label
-                : style.visuallyHidden
-            }
-            htmlFor="confirmedPassword"
-          >
-            Паролі не співпадають
-          </label>
           <Button type="submit">Зареєструватися</Button>
         </form>
         <p className={style.subtitle}>

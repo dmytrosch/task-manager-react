@@ -8,9 +8,9 @@ const signupRequest = createAction("auth/signupRequest");
 const signupSuccess = createAction("auth/signupSuccess");
 const signupError = createAction("auth/signupError");
 
-const logInRequest = createAction("auth/logInRequest");
-const logInSuccess = createAction("auth/logInSuccess");
-const logInError = createAction("auth/logInError");
+const loginRequest = createAction("auth/loginRequest");
+const loginSuccess = createAction("auth/loginSuccess");
+const loginError = createAction("auth/loginError");
 
 const gettingCurrentUserRequest = createAction("user/gettingCurentUserRequest");
 const gettingCurrentUserSuccess = createAction("user/gettingCurentUserSuccess");
@@ -23,9 +23,9 @@ export {
   signupRequest,
   signupSuccess,
   signupError,
-  logInRequest,
-  logInSuccess,
-  logInError,
+  loginRequest,
+  loginSuccess,
+  loginError,
   logoutRequest,
   logoutSuccess,
   logoutError,

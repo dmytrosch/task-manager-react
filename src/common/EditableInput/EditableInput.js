@@ -17,6 +17,7 @@ export default function EditableInput({
   type,
   validation,
   validationMessage,
+  disable
 }) {
   const onSave = (val) => {
     console.log("Edited Value -> ", val);
@@ -33,7 +34,7 @@ export default function EditableInput({
           disabled: false,
           rows: rows,
         }}
-        disable="disable"
+        disable={disable}
         saveButtonContent={<Checkmark />}
         editButtonContent={<Edit />}
         cancelButtonContent={<CrossIcon />}
