@@ -9,26 +9,27 @@ import styles from "./Sprints.module.css";
 import IconButton from "../../common/IconButtons/IconButtons.js";
 
 import * as modalAction from "../../redux/modal/modalAction";
+import {allIdsSelector} from "../../redux/sprints/sprintsSelectors";
 
-const getProjectDataById = (projectId) => () => ({
-  name: "Project 1",
-  description:
-    "Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового блоку",
-});
+// const getProjectDataById = (projectId) => () => ({
+//   name: "Project 1",
+//   description:
+//     "Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового блоку",
+// });
 
-const getSprintIdsByProjectId = (projectId) => () => [
-  "id_1",
-  "id_2",
-  "id_3",
-  "id_4",
-  "id_5",
-  "id_6",
-  "id_7",
-];
+// const getSprintIdsByProjectId = (projectId) => () => [
+//   "id_1",
+//   "id_2",
+//   "id_3",
+//   "id_4",
+//   "id_5",
+//   "id_6",
+//   "id_7",
+// ];
 
-export default function Sprint() {
-  const { name, description } = useSelector(getProjectDataById("projectId"));
-  const sprintIds = useSelector(getSprintIdsByProjectId("projectId"));
+export default function Sprint({projectId}) {
+  // const { name, description } = useSelector(getProjectDataById("projectId"));
+  const sprintIds = useSelector(allIdsSelector(projectId));
 
   const dispatch = useDispatch();
   const isOwner = true;
