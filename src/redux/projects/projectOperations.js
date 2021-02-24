@@ -8,6 +8,9 @@ import {
   changeProjectDescRequest,
   changeProjectDescSuccess,
   changeProjectDescError,
+  deleteProjectSuccess,
+  deleteProjectError,
+  deleteProjectRequest,
 } from "./projectActions";
 
 import {
@@ -17,12 +20,14 @@ import {
 
 export const addProject = (project) => (dispatch) => {
   dispatch(addProjectRequest());
-  console.log(project);
   addProjectAPI(project)
     .then((resp) => dispatch(addProjectSuccess(resp.data)))
-    .catch((error) => dispatch(addProjectError(error)));
+    .catch((error) => dispatch(addProjectError()));
 };
 
 export const deleteProject = (projectId) => (dispatch) => {
-  deleteProjectAPI(projectId);
+  dispatch(deleteProjectRequest());
+  deleteProjectAPI(projectId)
+    .then(() => dispatch(deleteProjectSuccess(projectId)))
+    .catch(() => dispatch(deleteProjectError()));
 };

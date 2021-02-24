@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./Dashboard.module.css";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import IconButton from "../../common/IconButtons/IconButtons.js";
-import { getAllProjectsSelector } from "../../redux/projects/projectSelectors";
+import { getAllIdsSelector } from "../../redux/projects/projectSelectors";
 
 import * as modalAction from "../../redux/modal/modalAction";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
   const addProject = () => dispatch(modalAction.setModalCreateProject(true));
-  const projects = useSelector(getAllProjectsSelector);
+  const projects = useSelector(getAllIdsSelector);
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -27,18 +27,20 @@ export default function Dashboard() {
               <p className={styles.text}>Створити проект</p>
             </div>
           </div>
-          <ul className={styles.projectList}>
-            {projects.map((proj) => (
-              <li key={proj.id}>
-                <ProjectCard
-                  id={proj.id}
-                  name={proj.name}
-                  description={proj.description}
-                  isOwner={proj.isOwner}
-                />
-              </li>
-            ))}
-          </ul>
+          {projects.length > 0 ? (
+            <ul className={styles.projectList}>
+              {projects.map((id) => (
+                <li key={id}>
+                  <ProjectCard id={id} />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>
+              Ви ще не додали, або не є учасником жодного проекту.{" "}
+              <span className={styles.addProjectText} onClick={addProject}>Створити проект</span>
+            </p>
+          )}
         </>
       </div>
     </div>

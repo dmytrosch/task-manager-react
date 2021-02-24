@@ -1,17 +1,17 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteProject } from "../../../redux/projects/projectOperations";
-import { deleteProjectAction } from "../../../redux/projects/projectActions";
+import { getByIdSelector } from "../../../redux/projects/projectSelectors";
 import { NavLink } from "react-router-dom";
 import styles from "./ProjectCard.module.css";
 import IconButton from "../../../common/IconButtons/IconButtons";
 
-export default function ProjectCard({ name, description, id, isOwner }) {
+export default function ProjectCard({ id }) {
   const dispatch = useDispatch();
+  const {name, description, isOwner} = useSelector(getByIdSelector(id));
   const deleteCard = (e) => {
     e.preventDefault();
-    dispatch(deleteProject(id)); //на АПИ
-    dispatch(deleteProjectAction(id)); //на редьюсер
+    dispatch(deleteProject(id));
   };
 
   return (
