@@ -8,6 +8,7 @@ import { isMobileSelector } from "../redux/clientWidth/clientWidthSelectors";
 import { isAuthentificatedSelector } from "../redux/auth/authSelectors";
 import { getNotificationSelector } from "../redux/notifications/notificationSelector";
 import { getCurrentUser } from "../redux/auth/authOperations";
+import { isLoading } from "../redux/loading/loadingSelector";
 
 import PublicRoute from "./Routes/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute";
@@ -32,6 +33,8 @@ export default function App() {
     isAuth && dispatch(getCurrentUser());
   }, [isAuth]);
   // const isMobileMode = useSelector(isMobileSelector);
+
+  const loading = useSelector(isLoading);
   return (
     <>
       <BrowserRouter>
@@ -57,6 +60,8 @@ export default function App() {
       <ModalCreateProject />
       <ModalEditProject />
       <ModalChartTable />
+
+      {loading && <Loader />}
     </>
   );
 }
