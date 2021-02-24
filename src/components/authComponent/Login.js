@@ -12,7 +12,6 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [vissibleBack, setVissibleBack] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
   const errorStatus = useSelector(errorMessageSelector);
 
 
@@ -23,7 +22,6 @@ export default function Login() {
   const dispatch = useDispatch();
 
   const handlerSubmit = (e) => {
-    setErrorMessage(errorStatus);
     e.preventDefault();
     dispatch(login(email, password));
     setEmail("");
