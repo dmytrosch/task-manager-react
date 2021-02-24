@@ -104,7 +104,6 @@ button:focus {
 .btnText {
   align-self: center;
   margin-left: 10px;
-  font-family: var(--primeFont);
   font-size: 18px;
   line-height: 22px;
   color: var(--greyColor);
@@ -122,7 +121,6 @@ button:focus {
   bottom: 26px;
 }
 .dateEndBtn {
-  font-family: var(--primeFont);
   font-size: 18px;
   line-height: 22px;
   color: var(--greyColor);
@@ -134,7 +132,6 @@ button:focus {
 .durationBtn {
   margin-left: 15px;
   padding-top: 30px;
-  font-family: var(--primeFont);
   font-size: 18px;
   line-height: 22px;
   color: var(--greyColor);
@@ -167,7 +164,6 @@ button:focus {
 }
 
 .dayWeeks {
-  font-family: var(--primeFont);
   color: var(--orangeColor);
   width: 280px;
   display: flex;
@@ -225,7 +221,6 @@ button:focus {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
   }
 
   .triangle {
