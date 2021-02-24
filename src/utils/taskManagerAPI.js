@@ -13,27 +13,25 @@ export const logoutUser = () => {
 };
 
 export const verifyEmail = (token) => axios.get(`/auth/verify/${token}`);
+export const resetPassword = (credentials) => {
+  return axios.patch("/auth/reset-password/:resetPasswordToken");
+};
 
 export const getCurrentUser = () => {
   return axios.get("/users/current");
 };
-
 export const addProject = (project) => axios.post("/projects/create", project);
-
 export const deleteProject = (projectId) =>
   axios.delete(`/projects/${projectId}/remove`);
+export const editProjectName = (projectId, name) =>
+  axios.patch(`/projects/${projectId}/change-name`, { name });
 
 export const addSprint = ({ projectId, sprint }) =>
   axios.post(`/sprints/${projectId}/create`, sprint);
-
 export const deleteSprint = ({ projectId, sprintId }) =>
   axios.delete(`/sprints/${projectId}/${sprintId}`);
 
 export const sprintById = (sprintId) => axios.get(`/sprints/${sprintId}`);
-
-export const resetPassword = (credentials) => {
-  return axios.patch("/auth/reset-password/:resetPasswordToken");
-};
 
 export const updateSprintName = ({ sprintId, name }) =>
   axios.patch(`/sprints/${sprintId}/change-name`, name);

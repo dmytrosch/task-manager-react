@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import SprintList from "./SprintList/SprintList";
 import EditableInput from "../../common/EditableInput/EditableInput";
+import { editProjectName } from "../../redux/projects/projectOperations";
 
 import styles from "./Sprints.module.css";
 import IconButton from "../../common/IconButtons/IconButtons.js";
@@ -30,18 +31,24 @@ export default function Sprint() {
   const sprintIds = useSelector(getSprintIdsByProjectId("projectId"));
 
   const dispatch = useDispatch();
-
-  const editProject = () => dispatch(modalAction.setModalEditProject(true));
+  const isOwner = true;
+  // const editProject = () => dispatch(modalAction.setModalEditProject(true));
   const addParticipant = () =>
     dispatch(modalAction.setModalAddParticipant(true));
   const addSprint = () => dispatch(modalAction.setModalCreateSprint(true));
-
+  const changeProjectName = (newName) => {
+    dispatch(editProjectName("6036414917a7af0015bb1104", newName));
+  };
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.infoBox}>
           <h2 className={styles.title}>
-            <EditableInput value={name} onSave />
+            <EditableInput
+              disable={!isOwner}
+              value={name}
+              onSave={changeProjectName}
+            />
           </h2>
           <div className={styles.box}>
             <IconButton

@@ -16,6 +16,7 @@ import {
 import {
   addProject as addProjectAPI,
   deleteProject as deleteProjectAPI,
+  editProjectName as editProjectNameAPI,
 } from "../../utils/taskManagerAPI";
 
 export const addProject = (project) => (dispatch) => {
@@ -30,4 +31,11 @@ export const deleteProject = (projectId) => (dispatch) => {
   deleteProjectAPI(projectId)
     .then(() => dispatch(deleteProjectSuccess(projectId)))
     .catch(() => dispatch(deleteProjectError()));
+};
+
+export const editProjectName = (projectId, newName) => (dispatch) => {
+  dispatch(changeProjectNameRequest());
+  editProjectNameAPI(projectId, newName)
+    .then((response) => dispatch(changeProjectNameSuccess(response.data)))
+    .catch(() => dispatch(changeProjectNameError()));
 };

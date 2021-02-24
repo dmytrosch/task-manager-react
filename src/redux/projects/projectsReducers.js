@@ -1,6 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import { addProjectSuccess, deleteProjectSuccess } from "./projectActions";
+import {
+  addProjectSuccess,
+  deleteProjectSuccess,
+  changeProjectNameSuccess,
+  changeProjectNameError,
+} from "./projectActions";
 import { gettingCurrentUserSuccess } from "../auth/authActions";
 
 const byId = createReducer(
@@ -22,12 +27,19 @@ const byId = createReducer(
       });
       return newState;
     },
+    [changeProjectNameSuccess]: (state, { payload }) => {
+      return { ...state, [payload.id]: payload };
+    },
+    // [changeProjectNameError]: (state)
   }
 );
 const allIds = createReducer([], {
   [addProjectSuccess]: (state, action) => [...state, action.payload.id],
-  [deleteProjectSuccess]: (state, { payload }) =>
-    state.filter((proj) => proj.id !== payload),
+  [deleteProjectSuccess]: (state, { payload }) => {
+    const arr = state.filter((proj) => proj !== payload);
+    console.log(payload);
+    return arr;
+  },
   [gettingCurrentUserSuccess]: (state, { payload }) => {
     return payload.projects.map((project) => project.id);
   },

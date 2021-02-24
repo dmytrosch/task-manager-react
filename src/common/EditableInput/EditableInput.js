@@ -17,10 +17,8 @@ export default function EditableInput({
   type,
   validation,
   validationMessage,
+  onSave,
 }) {
-  const onSave = (val) => {
-    console.log("Edited Value -> ", val);
-  };
   return (
     <div className="container">
       <EdiText
@@ -66,7 +64,6 @@ EditableInput.proprTypes = {
   validation: PropTypes.func,
   type: PropTypes.string,
   validationMessage: PropTypes.string,
-  
 };
 
 EditableInput.defaultProps = {
