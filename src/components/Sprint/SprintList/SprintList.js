@@ -6,23 +6,18 @@ import animateItem from "../../../styles/animateItem.module.css";
 
 import SprintItem from "../SprintItem/SprintItem";
 
-export default function SprintList({ sprintIds }) {
-  return sprintIds.length === 0 ? (
-    <p className={styles.notSprints}>There are not sprints</p>
-  ) : (
+export default function SprintList({ sprintIds, isOwner }) {
+  return (
     <TransitionGroup component="ul" className={styles.list}>
-      {sprintIds.map((sprint) => (
+      {sprintIds.map((id) => (
         <CSSTransition
           timeout={250}
-          key={sprint.id}
+          key={id}
           classNames={animateItem}
           unmountOnExit
         >
-          <li className={styles.item} key={sprint.id}>
-            <SprintItem id={sprint.id}
-              isOwner={sprint.isOwner}
-
-             />
+          <li className={styles.item}>
+            <SprintItem id={id} isOwner={isOwner} />
           </li>
         </CSSTransition>
       ))}

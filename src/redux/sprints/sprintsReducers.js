@@ -21,9 +21,12 @@ const byId = createReducer(
       return { ...state };
     },
     [projectsActions.byIdSuccess]: (state, { payload }) => {
-      const newSprints = {};
-      payload.sprints.forEach((sprint) => (newSprints[sprint.id] = sprint));
-      return newSprints;
+      // const newSprints = {};
+      // payload.sprints.forEach((sprint) => (newSprints[sprint.id] = sprint));
+      // return newSprints;
+      return payload.sprints.reduce((acc, sprint) => {
+        return (acc[sprint.id] = sprint);
+      }, {});
     },
   }
 );

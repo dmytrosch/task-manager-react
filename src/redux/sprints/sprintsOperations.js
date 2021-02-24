@@ -2,12 +2,12 @@ import action from "./sprintsActions";
 
 import * as send from "../../utils/taskManagerAPI";
 
-export const createSprint = ({ projectId, sprint }) => (dispatch) => {
+export const createSprint = (projectId, sprint) => (dispatch) => {
   dispatch(action.createRequest());
   send
-    .addSprint({ projectId, sprint })
+    .addSprint(projectId, sprint)
     .then((response) => dispatch(action.createSuccess(response.data)))
-    .catch((err) => dispatch(action.createError(err.message)))
+    .catch((err) => dispatch(action.createError(err.message)));
 };
 
 export const deleteSprint = ({ projectId, sprintId }) => (dispatch) => {
@@ -15,7 +15,7 @@ export const deleteSprint = ({ projectId, sprintId }) => (dispatch) => {
   send
     .deleteSprint({ projectId, sprintId })
     .then(() => dispatch(action.deleteSuccess(sprintId)))
-    .catch((err) => dispatch(action.deleteError(err.message)))
+    .catch((err) => dispatch(action.deleteError(err.message)));
 };
 
 export const updateSprintName = ({ sprintId, name }) => (dispatch) => {
@@ -23,7 +23,7 @@ export const updateSprintName = ({ sprintId, name }) => (dispatch) => {
   send
     .updateSprintName({ sprintId, name })
     .then(() => dispatch(action.changeNameSuccess({ sprintId, name })))
-    .catch((err) => dispatch(action.changeNameError(err.message)))
+    .catch((err) => dispatch(action.changeNameError(err.message)));
 };
 
 export const sprintById = (sprintId) => (dispatch) => {
@@ -31,5 +31,5 @@ export const sprintById = (sprintId) => (dispatch) => {
   send
     .sprintById(sprintId)
     .then((response) => dispatch(action.byIdSuccess(response.data)))
-    .catch((err) => dispatch(action.byIdError(err.message)))
+    .catch((err) => dispatch(action.byIdError(err.message)));
 };

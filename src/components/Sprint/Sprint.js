@@ -1,44 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import SprintList from "./SprintList/SprintList";
 import EditableInput from "../../common/EditableInput/EditableInput";
-import { editProjectName } from "../../redux/projects/projectOperations";
+import {
+  editProjectName,
+  getProjectById,
+} from "../../redux/projects/projectOperations";
+import { getByIdSelector } from "../../redux/projects/projectSelectors";
 
 import styles from "./Sprints.module.css";
 import IconButton from "../../common/IconButtons/IconButtons.js";
 
 import * as modalAction from "../../redux/modal/modalAction";
-import {allIdsSelector} from "../../redux/sprints/sprintsSelectors";
+import { allIdsSelector } from "../../redux/sprints/sprintsSelectors";
 
-// const getProjectDataById = (projectId) => () => ({
-//   name: "Project 1",
-//   description:
-//     "Короткий опис проекту, якщо він є, розміщуєтсья тут. Ширина тектового блоку",
-// });
-
-// const getSprintIdsByProjectId = (projectId) => () => [
-//   "id_1",
-//   "id_2",
-//   "id_3",
-//   "id_4",
-//   "id_5",
-//   "id_6",
-//   "id_7",
-// ];
-
-export default function Sprint({projectId}) {
-  // const { name, description } = useSelector(getProjectDataById("projectId"));
-  const sprintIds = useSelector(allIdsSelector(projectId));
-
+export default function Sprint({ projectId }) {
   const dispatch = useDispatch();
-  const isOwner = true;
-  // const editProject = () => dispatch(modalAction.setModalEditProject(true));
+  const sprintIds = useSelector(allIdsSelector);
+  const currentProject = useSelector(getByIdSelector(projectId));
+  const { name, isOwner, description } = currentProject;
+  useEffect(() => {
+    dispatch(getProjectById(projectId));
+  }, [projectId]);
   const addParticipant = () =>
     dispatch(modalAction.setModalAddParticipant(true));
-  const addSprint = () => dispatch(modalAction.setModalCreateSprint(true));
+  const addSprint = () => dispatch(modalAction.setModalCreateSprint(projectId));
   const changeProjectName = (newName) => {
-    dispatch(editProjectName("6036414917a7af0015bb1104", newName));
+    dispatch(editProjectName(projectId, newName));
   };
   return (
     <div className={styles.container}>
@@ -64,7 +53,16 @@ export default function Sprint({projectId}) {
         <p className={styles.addParticipant} onClick={addParticipant}>
           Додати людей
         </p>
-        <SprintList sprintIds={sprintIds} />
+        {sprintIds.length > 0 ? (
+          <SprintList sprintIds={sprintIds} isOwner={isOwner} />
+        ) : (
+          <p className={styles.notSprints}>
+            У проєкта відсутні спрінти.{" "}
+            <span className={styles.addSprintText} onClick={addSprint}>
+              Створити проект
+            </span>
+          </p>
+        )}
       </div>
     </div>
   );

@@ -11,13 +11,23 @@ import {
   deleteProjectSuccess,
   deleteProjectError,
   deleteProjectRequest,
+  byIdError,
+  byIdSuccess,
+  byIdRequest,
 } from "./projectActions";
 
 import {
   addProject as addProjectAPI,
   deleteProject as deleteProjectAPI,
   editProjectName as editProjectNameAPI,
+  getCurrentProject as getCurrentProjectAPI,
 } from "../../utils/taskManagerAPI";
+export const getProjectById = (projectId) => (dispatch) => {
+  dispatch(byIdRequest());
+  getCurrentProjectAPI(projectId)
+    .then((response) => dispatch(byIdSuccess(response.data)))
+    .catch(() => dispatch(byIdError));
+};
 
 export const addProject = (project) => (dispatch) => {
   dispatch(addProjectRequest());

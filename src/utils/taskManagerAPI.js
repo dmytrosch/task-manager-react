@@ -20,14 +20,18 @@ export const resetPassword = (credentials) => {
 export const getCurrentUser = () => {
   return axios.get("/users/current");
 };
+export const getCurrentProject = (projectId) =>
+  axios.get(`/projects/${projectId}`);
 export const addProject = (project) => axios.post("/projects/create", project);
 export const deleteProject = (projectId) =>
   axios.delete(`/projects/${projectId}/remove`);
 export const editProjectName = (projectId, name) =>
   axios.patch(`/projects/${projectId}/change-name`, { name });
 
-export const addSprint = ({ projectId, sprint }) =>
-  axios.post(`/sprints/${projectId}/create`, sprint);
+export const addSprint = (projectId, sprint) => {
+  console.log("projectid:", projectId, sprint);
+  return axios.post(`/sprints/${projectId}/create`, sprint);
+};
 export const deleteSprint = ({ projectId, sprintId }) =>
   axios.delete(`/sprints/${projectId}/${sprintId}/remove`);
 
