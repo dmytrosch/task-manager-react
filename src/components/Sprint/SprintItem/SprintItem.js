@@ -1,21 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {byId} from '../../../redux/sprints/sprintsSelectors';
+import {deleteSprint} from "../../../redux/sprints/sprintsOperations";
 
 import styles from "./sprintItem.module.css";
 import IconButton from "../../../common/IconButtons/IconButtons.js";
 
-const getSprintById = (id) => () => ({
-  name: "Sprint Burndown Chart 1",
-  dateStart: "10 Лип",
-  dateEnd: "22 Лип",
-  duration: 226,
-});
+// const getSprintById = (id) => () => ({
+//   name: "Sprint Burndown Chart 1",
+//   dateStart: "10 Лип",
+//   dateEnd: "22 Лип",
+//   duration: 226,
+// });
 
-export default function SprintItem({ id }) {
-  const { name, dateStart, dateEnd, duration } = useSelector(getSprintById(id));
-
-  const deleteSprint = (id) => console.log("delete sprint");
+export default function SprintItem({ id, isOwner }) {
+  const { name, dateStart, dateEnd, duration } = useSelector(byId(id));
+  const dispatch = useDispatch();
+  const handlerDeleteSprint = (id) => dispatch(deleteSprint(id));
 
   return (
     <div className={styles.container}>
@@ -40,12 +42,15 @@ export default function SprintItem({ id }) {
         className={styles.deleteBtn}
         onClick={() => deleteSprint(id)}
       ></button> */}
-      <IconButton
+      {isOwner && (
+        <IconButton
         iconButtonCustomClass={styles.deleteBtn}
         iconName="greyBin"
         icon="greyBin"
-        onClick={() => deleteSprint(id)}
+        onClick={handlerDeleteSprint}
       />
+      )}
+      
     </div>
   );
 }

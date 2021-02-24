@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {addSprint} from "../../../redux/sprints/sprintsOperations";
 import style from "./SprintCreator.module.css";
 import Button from "../../../common/Button/Button";
 import { uk } from "date-fns/locale";
@@ -20,7 +22,11 @@ export default function SprintCreator({ onClose }) {
   const handleFocusChange = (newFocus) => {
     setFocus(newFocus || START_DATE);
   };
-  function heandleSubmit() {
+  const dispatch = useDispatch();
+  const heandleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addSprint({name: nameTask, startAt: startDate, finishedAt: endDate}));
+    setNameTask("");
     //send data
   }
 
@@ -37,6 +43,7 @@ export default function SprintCreator({ onClose }) {
       <section className={style.container}>
         <div className={style.form}>
           <p className={style.title}>Створення спринта</p>
+          <form onSubmit={heandleSubmit} >
           <input
             className={style.input}
             defaultValue={nameTask}
@@ -44,6 +51,7 @@ export default function SprintCreator({ onClose }) {
             type="text"
             placeholder="Назва спринта"
           />
+          </form>
 
           <div className={style.dateInputContainer}>
               <div className={style.triangleContainer}>

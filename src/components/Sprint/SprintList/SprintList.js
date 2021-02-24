@@ -11,15 +11,18 @@ export default function SprintList({ sprintIds }) {
     <p className={styles.notSprints}>There are not sprints</p>
   ) : (
     <TransitionGroup component="ul" className={styles.list}>
-      {sprintIds.map((id) => (
+      {sprintIds.map((sprint) => (
         <CSSTransition
           timeout={250}
-          key={id}
+          key={sprint.id}
           classNames={animateItem}
           unmountOnExit
         >
-          <li className={styles.item} key={id}>
-            <SprintItem id={id} />
+          <li className={styles.item} key={sprint.id}>
+            <SprintItem id={sprint.id}
+              isOwner={sprint.isOwner}
+
+             />
           </li>
         </CSSTransition>
       ))}
