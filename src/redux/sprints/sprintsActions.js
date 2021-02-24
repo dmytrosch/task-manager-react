@@ -12,9 +12,9 @@ const changeNameRequest = createAction("sprint/changeNameRequest");
 const changeNameSuccess = createAction("sprint/changeNameSuccess");
 const changeNameError = createAction("sprint/changeNameError");
 
-const byIdRequest = createAction("sprint/byIdRequest");
-const byIdSuccess = createAction("sprint/byIdSuccess");
-const byIdError = createAction("sprint/byIdError");
+const sprintByIdRequest = createAction("sprint/byIdRequest");
+const sprinByIdSuccess = createAction("sprint/byIdSuccess");
+const sprinByIdError = createAction("sprint/byIdError");
 
 export default {
   createRequest,
@@ -26,7 +26,7 @@ export default {
   changeNameRequest,
   changeNameSuccess,
   changeNameError,
-  byIdRequest,
-  byIdSuccess,
-  byIdError,
+  sprintByIdRequest,
+  sprinByIdSuccess,
+  sprinByIdError,
 };
