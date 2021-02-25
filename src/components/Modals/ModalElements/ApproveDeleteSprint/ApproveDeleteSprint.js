@@ -11,14 +11,15 @@ import styles from "./ApproveDeleteSprint.module.css";
 
 export default function ApproveDeleteProject({ onClose }) {
   const dispatch = useDispatch();
-  const sprintId = useSelector(isModalApproveDeleteSprint);
+  const { projectId, sprintId } = useSelector(isModalApproveDeleteSprint);
 
   const sprint = useSelector(byIdSelector(sprintId));
 
   const handleDelete = () => {
-    dispatch(deleteSprint(sprintId));
+    dispatch(deleteSprint(projectId, sprintId));
     onClose();
   };
+
 
   return (
     <div className={styles.conatiner}>

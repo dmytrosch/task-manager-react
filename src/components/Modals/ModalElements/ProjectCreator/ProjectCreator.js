@@ -14,8 +14,7 @@ export default function ProjectCreator({ onClose }) {
   const handlerSubmit = (e) => {
     e.preventDefault();
     dispatch(addProject({ name: nameProject, description }));
-    setNameProject("");
-    setDescription("");
+    onClose();
   };
 
   return (
