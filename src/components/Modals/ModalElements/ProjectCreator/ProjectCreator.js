@@ -21,8 +21,8 @@ export default function ProjectCreator({ onClose }) {
   };
   const handlerNameProjest = (e) => {
     setNameProject(e.target.value);
-    if (e.target.value.length > 60) {
-      return setErrorLengthName("Максимальна кількість символів 60");
+    if (e.target.value.length > 30) {
+      return setErrorLengthName("Максимальна кількість символів 30");
     }
     setErrorLengthName(null);
   };
