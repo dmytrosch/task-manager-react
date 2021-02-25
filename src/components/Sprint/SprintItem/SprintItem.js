@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { setModalApproveDeleteSprint } from "../../../redux/modal/modalAction";
 
 import styles from "./sprintItem.module.css";
 import IconButton from "../../../common/IconButtons/IconButtons.js";
@@ -13,9 +15,10 @@ const getSprintById = (id) => () => ({
 });
 
 export default function SprintItem({ id }) {
+  const dispatch = useDispatch();
   const { name, dateStart, dateEnd, duration } = useSelector(getSprintById(id));
 
-  const deleteSprint = (id) => console.log("delete sprint");
+  const deleteSprint = () => dispatch(setModalApproveDeleteSprint(id));
 
   return (
     <div className={styles.container}>
@@ -36,15 +39,11 @@ export default function SprintItem({ id }) {
           </li>
         </ul>
       </NavLink>
-      {/* <button
-        className={styles.deleteBtn}
-        onClick={() => deleteSprint(id)}
-      ></button> */}
       <IconButton
         iconButtonCustomClass={styles.deleteBtn}
         iconName="greyBin"
         icon="greyBin"
-        onClick={() => deleteSprint(id)}
+        onClick={deleteSprint}
       />
     </div>
   );

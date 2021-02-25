@@ -1,0 +1,55 @@
+.conatiner {
+  font-family: var(--primeFont);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--blackColor);
+
+  height: 100%;
+}
+
+.wrapper {
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.action {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.itemName {
+  font-size: 26px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--orangeColor);
+}
+
+.controlContainer {
+  width: 260px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  width: 120px;
+}
+
+@media (min-width: 768px) {
+  .conatiner {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+  }
+  .action {
+    font-size: 18px;
+  }
+  .itemName {
+    font-size: 36px;
+  }
+}

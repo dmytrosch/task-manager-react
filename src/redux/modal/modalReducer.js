@@ -26,6 +26,18 @@ const chartTable = createReducer(null, {
   [modalAction.setModalChartTable]: (state, { payload }) => payload,
 });
 
+const approveDeleteProject = createReducer(null, {
+  [modalAction.setModalApproveDeleteProject]: (state, { payload }) => payload,
+});
+
+const approveDeleteSprint = createReducer(null, {
+  [modalAction.setModalApproveDeleteSprint]: (state, { payload }) => payload,
+});
+
+const approveDeleteTask = createReducer(null, {
+  [modalAction.setModalApproveDeleteTask]: (state, { payload }) => payload,
+});
+
 const modal = combineReducers({
   createTask,
   createSprint,
@@ -33,5 +45,8 @@ const modal = combineReducers({
   createProject,
   editProject,
   chartTable,
+  approveDeleteProject,
+  approveDeleteSprint,
+  approveDeleteTask,
 });
 export default modal;

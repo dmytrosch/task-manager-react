@@ -5,3 +5,9 @@ export const isModalAddParticipant = (state) => state.ui.modal.addParticipant;
 export const isModalCreateProject = (state) => state.ui.modal.createProject;
 export const isModalEditProject = (state) => state.ui.modal.editProject;
 export const isModalChartTable = (state) => state.ui.modal.chartTable;
+export const isModalApproveDeleteProject = (state) =>
+  state.ui.modal.approveDeleteProject;
+export const isModalApproveDeleteSprint = (state) =>
+  state.ui.modal.approveDeleteSprint;
+export const isModalApproveDeleteTask = (state) =>
+  state.ui.modal.approveDeleteTask;
