@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { isModalCreateTask } from "../../../redux/modal/modalSelector";
+import { isModalCreateTask } from "../../../redux/modal/modalSelectors";
 import { setModalCreateTask } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
@@ -13,7 +13,7 @@ export default function ModalCreateTask() {
   const closeModal = () => dispatch(setModalCreateTask(false));
   return isOpen ? (
     <ModalPortal>
-      <Modal onClose={closeModal} >
+      <Modal onClose={closeModal}>
         <AddTask onClose={closeModal} />
       </Modal>
     </ModalPortal>

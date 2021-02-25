@@ -115,3 +115,7 @@
     padding-left: 70px;
   }
 }
+.addSprintText {
+  text-decoration: underline;
+  cursor: pointer;
+}

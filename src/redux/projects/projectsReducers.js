@@ -5,6 +5,7 @@ import {
   deleteProjectSuccess,
   changeProjectNameSuccess,
   changeProjectNameError,
+  byIdSuccess,
 } from "./projectActions";
 import { gettingCurrentUserSuccess } from "../auth/authActions";
 
@@ -29,6 +30,15 @@ const byId = createReducer(
     },
     [changeProjectNameSuccess]: (state, { payload }) => {
       return { ...state, [payload.id]: payload };
+    },
+    [byIdSuccess]: (state, { payload }) => {
+      return {
+        ...state,
+        [payload.id]: {
+          ...state[payload.id],
+          participants: payload.participants,
+        },
+      };
     },
     // [changeProjectNameError]: (state)
   }

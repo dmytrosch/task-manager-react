@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createSprint } from "../../../redux/sprints/sprintsOperations";
+import { currentProjectId } from "../../../redux/modal/modalSelectors";
 import style from "./SprintCreator.module.css";
 import Button from "../../../common/Button/Button";
 import { uk } from "date-fns/locale";
@@ -20,9 +23,20 @@ export default function SprintCreator({ onClose }) {
   const handleFocusChange = (newFocus) => {
     setFocus(newFocus || START_DATE);
   };
-  function heandleSubmit() {
+  const projectId = useSelector(currentProjectId);
+  const dispatch = useDispatch();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(
+      createSprint(projectId, {
+        name: nameTask,
+        startAt: startDate.toString(),
+        finishedAt: endDate.toString(),
+      })
+    );
+    setNameTask("");
     //send data
-  }
+  };
 
   function handlerReset(e) {
     e.preventDefault();
@@ -37,15 +51,16 @@ export default function SprintCreator({ onClose }) {
       <section className={style.container}>
         <div className={style.form}>
           <p className={style.title}>Створення спринта</p>
-          <input
-            className={style.input}
-            defaultValue={nameTask}
-            onChange={(e) => setNameTask(e.target.value)}
-            type="text"
-            placeholder="Назва спринта"
-          />
+          <form onSubmit={submitHandler}>
+            <input
+              className={style.input}
+              defaultValue={nameTask}
+              onChange={(e) => setNameTask(e.target.value)}
+              type="text"
+              placeholder="Назва спринта"
+            />
 
-          <div className={style.dateInputContainer}>
+            <div className={style.dateInputContainer}>
               <div className={style.triangleContainer}>
                 <input
                   className={classNames(style.input, style.dateEndBtn)}
@@ -80,9 +95,14 @@ export default function SprintCreator({ onClose }) {
               />
             </div>
 
-          <Button type="submit" shape="oval" buttonCustomClass={style.addedBtn}>
-            Готово
-          </Button>
+            <Button
+              type="submit"
+              shape="oval"
+              buttonCustomClass={style.addedBtn}
+            >
+              Готово
+            </Button>
+          </form>
           {isOn && (
             <div className={style.pickerDateContainer}>
               <div className={style.dayWeeks}>

@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Button from "../../../../common/Button/Button";
 
 import { deleteSprint } from "../../../../redux/sprints/sprintsOperations";
-import { isModalApproveDeleteSprint } from "../../../../redux/modal/modalSelector";
-import { byId } from "../../../../redux/sprints/sprintsSelectors";
+import { isModalApproveDeleteSprint } from "../../../../redux/modal/modalSelectors";
+import { byIdSelector } from "../../../../redux/sprints/sprintsSelectors";
 
 import styles from "./ApproveDeleteSprint.module.css";
 
@@ -13,7 +13,7 @@ export default function ApproveDeleteProject({ onClose }) {
   const dispatch = useDispatch();
   const sprintId = useSelector(isModalApproveDeleteSprint);
 
-  const sprint = useSelector(byId(sprintId));
+  const sprint = useSelector(byIdSelector(sprintId));
 
   const handleDelete = () => {
     dispatch(deleteSprint(sprintId));

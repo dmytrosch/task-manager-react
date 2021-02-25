@@ -1,37 +1,40 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import { makeAlertNotification } from "../../../../redux/notifications/notificationOperations";
+import { currentProjectId } from "../../../../redux/modal/modalSelectors";
+import { getAllParticipantsSelector } from "../../../../redux/projects/projectSelectors";
 
 import styles from "./addParticipant.module.css";
 import animateItem from "../../../../styles/animateItem.module.css";
 
 import Input from "../../../../common/Input/Input";
 import Button from "../../../../common/Button/Button";
+import { getCurrentProject } from "../../../../utils/taskManagerAPI";
 
 export default function AddParticipant({ onClose }) {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
-  const [list, setList] = useState([]);
-
+  const projectId = useSelector(currentProjectId);
+  const participants = useSelector(getAllParticipantsSelector(projectId));
   const addEmail = (e) => {
     e.preventDefault();
     // TODO: Add validation email
     // if (!isEmailValid(email)) {
     //   retrun dispatch(makeAlertNotification('Введіть коректний e-mail'))
     // }
-    if (list.includes(email)) {
+    if (participants.includes(email)) {
       return dispatch(makeAlertNotification("Цей e-mail вже є у списку"));
     }
-    setList([...list, email]);
+    // setList([...participants, email]);
     setEmail("");
   };
 
   const handleSendInvite = () => {
-    if (list.length !== 0) {
+    if (participants.length !== 0) {
       // TODO: Connect
-      console.log("send", list);
+      console.log("send", participants);
       return onClose();
     }
     dispatch(makeAlertNotification("Додайте e-mail користувачів"));
@@ -39,7 +42,7 @@ export default function AddParticipant({ onClose }) {
 
   const handleRemoveItem = (e) => {
     const removeItem = e.target.dataset.item;
-    setList(list.filter((item) => item !== removeItem));
+    // setList(participants.filter((item) => item !== removeItem));
   };
 
   return (
@@ -64,23 +67,22 @@ export default function AddParticipant({ onClose }) {
         </div>
 
         <p className={styles.listTitle}>Додані користувачі:</p>
-        {list.length === 0 ? (
+        {participants.length === 0 ? (
           <p className={styles.message}>Ви ще не додали жодного користувача</p>
         ) : (
           <TransitionGroup component="ul" className={styles.list}>
-            {list.map((item) => (
+            {participants.map((item) => (
               <CSSTransition
                 timeout={250}
-                key={item}
+                key={item.id}
                 classNames={animateItem}
                 unmountOnExit
               >
                 <li
                   className={styles.item}
-                  data-item={item}
                   onClick={handleRemoveItem}
                 >
-                  {item}
+                  {item.email}
                 </li>
               </CSSTransition>
             ))}

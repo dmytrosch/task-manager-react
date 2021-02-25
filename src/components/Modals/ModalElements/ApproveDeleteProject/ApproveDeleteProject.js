@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Button from "../../../../common/Button/Button";
 
 import { deleteProject } from "../../../../redux/projects/projectOperations";
-import { isModalApproveDeleteProject } from "../../../../redux/modal/modalSelector";
+import { isModalApproveDeleteProject } from "../../../../redux/modal/modalSelectors";
 import { getByIdSelector } from "../../../../redux/projects/projectSelectors";
 
 import styles from "./ApproveDeleteProject.module.css";

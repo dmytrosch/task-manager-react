@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { isModalCreateSprint } from "../../../redux/modal/modalSelector";
+import { isModalCreateSprint } from "../../../redux/modal/modalSelectors";
 import { setModalCreateSprint } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
