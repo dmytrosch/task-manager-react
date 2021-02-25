@@ -11,7 +11,7 @@ import TasksTable from "./TaskComponents/TasksTable";
 import * as modalAction from "../../redux/modal/modalAction";
 import * as sprintSelector from "../../redux/sprints/sprintsSelectors";
 import * as currentSprintOperations from "../../redux/currentSprint/currentSprintOperations";
-import {currentSprintSelector} from '../../redux/currentSprint/currentSprintSelectors';
+import { currentSprintSelector } from "../../redux/currentSprint/currentSprintSelectors";
 
 import styles from "./Tasks.module.css";
 
@@ -23,6 +23,7 @@ export default function Task({ sprintId }) {
   const params = useParams();
   const currentSprint = useSelector(currentSprintSelector);
   useEffect(() => {
+    console.log("QQQQQQ--------");
     dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
   }, []);
   const handleSearchInput = (searchRequest) => {
