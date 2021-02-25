@@ -39,7 +39,12 @@
   color: var(--blackColor);
   letter-spacing: 0.06em;
 }
-
+.inputSprint{
+  margin: 0px 0px 10px 0px;
+}
+.inputSprintContainer{
+height: 71px;
+}
 .input:focus {
   outline: none;
 }

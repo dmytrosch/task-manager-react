@@ -7,7 +7,24 @@ import style from "./styles.module.css";
 export default function CreaterNewPassword() {
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPasswod] = useState("");
+  const [errMesPassword, setErrMesPassword] = useState(null);
+  const [errMesConfirmedPassword, setErrMesConfirmedPassword] = useState(null);
   const dispatch = useDispatch();
+  const onChangePassword = (e) => {
+    setPassword(e.target.value);
+    if (e.target.value.length < 8) {
+      return setErrMesPassword("Мінімум 8 символів");
+    }
+    setErrMesPassword(null);
+  };
+
+  const onChangeСonfirmedPassword = (e) => {
+    setConfirmedPasswod(e.target.value);
+    if (password !== e.target.value) {
+      return setErrMesConfirmedPassword("Паролі не співпадають");
+    }
+    setErrMesConfirmedPassword(null);
+  };
   const handlerSubmit = (e) => {
     e.preventDefault();
 
@@ -22,21 +39,21 @@ export default function CreaterNewPassword() {
           <div className={style.inputContainerSingup}>
             <Input
               label={"Пароль"}
-              error={false}
+              error={errMesPassword}
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              errorMessage={"Невірний пароль"}
+              onChange={onChangePassword}
+              errorMessage={errMesPassword}
             />
           </div>
           <div className={style.inputContainerSingup}>
             <Input
               label={"Пароль"}
-              error={false}
+              error={errMesConfirmedPassword}
               type="password"
               value={confirmedPassword}
-              onChange={(e) => setConfirmedPasswod(e.target.value)}
-              errorMessage={"Невірний пароль"}
+              onChange={onChangeСonfirmedPassword}
+              errorMessage={errMesConfirmedPassword}
               id="confirmedPassword"
             />
           </div>

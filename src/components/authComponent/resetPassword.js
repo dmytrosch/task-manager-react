@@ -9,7 +9,9 @@ import Button from "../../common/Button/Button";
 export default function ForgetPass({ children, vissibleBack, setVissible }) {
   const [emailAdress, setEmailAdress] = useState("");
   const [sendedEmail, setSendedEmail] = useState(false);
+
   const dispatch = useDispatch();
+
   function submitFormHeandler(e) {
     e.preventDefault();
     setSendedEmail(true);

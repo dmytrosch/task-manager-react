@@ -1,3 +1,16 @@
+
+.visuallyHidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+.label {
+  font-size: 14px;
+  line-height: 14px;
+  color: var(--greyColor);
+}
 .container {
   text-align: center;
   height: 100vh;
@@ -48,3 +61,8 @@
 }
 
 
+@media (min-width: 768px) {
+  .label {
+    margin: 0px 175px 0px 0px;
+  }
+}
