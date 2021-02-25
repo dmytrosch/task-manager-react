@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createSprint } from "../../../redux/sprints/sprintsOperations";
-import { currentProjectId } from "../../../redux/modal/modalSelector";
+import { currentProjectId } from "../../../redux/modal/modalSelectors";
 import style from "./SprintCreator.module.css";
 import Button from "../../../common/Button/Button";
 import { uk } from "date-fns/locale";

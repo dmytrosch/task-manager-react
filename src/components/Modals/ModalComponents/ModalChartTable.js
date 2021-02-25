@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { isModalChartTable } from "../../../redux/modal/modalSelector";
+import { isModalChartTable } from "../../../redux/modal/modalSelectors";
 import { setModalChartTable } from "../../../redux/modal/modalAction";
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
 import Charts from "../ModalElements/ProgressChart/ProgressChart";

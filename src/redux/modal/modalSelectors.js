@@ -9,4 +9,5 @@ export const isModalCreateProject = (state) =>
 export const isModalEditProject = (state) =>
   Boolean(state.ui.modal.editProject);
 export const isModalChartTable = (state) => Boolean(state.ui.modal.chartTable);
-export const currentProjectId = (state) => state.ui.modal.createSprint;
+export const currentProjectId = (state) =>
+  state.ui.modal.createSprint || state.ui.modal.addParticipant;
