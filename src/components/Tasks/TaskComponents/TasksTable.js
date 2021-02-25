@@ -37,7 +37,7 @@ export default function TasksTable() {
           callback={handleSearchInput}
         />
       </div>
-      <TasksList tasksIds={tasksIds} />
+      <TasksList/>
     </div>
   );
 }

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import IconButton from "../../common/IconButtons/IconButtons";
 import Slider from "../../common/Slider/Slider";
@@ -9,6 +10,8 @@ import TasksTable from "./TaskComponents/TasksTable";
 
 import * as modalAction from "../../redux/modal/modalAction";
 import * as sprintSelector from "../../redux/sprints/sprintsSelectors";
+import * as currentSprintOperations from "../../redux/currentSprint/currentSprintOperations";
+import {currentSprintSelector} from '../../redux/currentSprint/currentSprintSelectors';
 
 import styles from "./Tasks.module.css";
 
@@ -17,6 +20,11 @@ export default function Task({ sprintId }) {
   const [sprintName, setSprintName] = useState(
     sprintSelector.nameById(sprintId)
   );
+  const params = useParams();
+  const currentSprint = useSelector(currentSprintSelector);
+  useEffect(() => {
+    dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
+  }, []);
   const handleSearchInput = (searchRequest) => {
     // TODO: Connect dispatch
     console.log("dispatch", searchRequest);
@@ -47,7 +55,7 @@ export default function Task({ sprintId }) {
       </div>
       <div className={styles.sprint}>
         <p className={styles.sprintTitle}>
-          <EditableInput onSave value={sprintName} />
+          <EditableInput onSave value={currentSprint.name} />
         </p>
         <div onClick={openModalTask} className={styles.addSprintContainer}>
           <IconButton iconName="plus" icon="plus" />

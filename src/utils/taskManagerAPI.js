@@ -50,3 +50,5 @@ export const updateTaskTime = (taskId, dateId, hours) =>
 
 export const searchTasksByName = (sprintId, query) =>
   axios.get(`/tasks/${sprintId}/${query}`);
+
+export const getCurrentSprint = (sprintId) => axios.get(`/sprints/${sprintId}`);

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import IconButton from "../../../common/IconButtons/IconButtons.js";
 import EditableInput from "../../../common/EditableInput/EditableInput";
 
@@ -12,8 +13,10 @@ const getSprintById = (id) => () => ({
   hoursSpent: "666",
 });
 
-export default function SprintItem({ id }) {
-  const { name, ScheduledHours, hoursSpent } = useSelector(getSprintById(id));
+export default function SprintItem({ task }) {
+  // const { name, ScheduledHours, hoursSpent } = useSelector(getSprintById(id));
+  const params = useParams();
+  const currentDay = params.day;
 
   const deleteSprint = (id) => console.log("delete sprint");
 
@@ -24,14 +27,14 @@ export default function SprintItem({ id }) {
           viewStyle="taskName"
           inputStyle="taskNameInput"
           rows={2}
-          value={name}
+          value={task.name}
           button="hide"
           validation={(val) => val.length <= 50}
         />
         {/* <h2 className={styles.taskName}>{name}</h2> */}
         <div className={styles.div}>
           <p className={styles.text}>Заплановано годин</p>
-          <p className={styles.planingHours}>{ScheduledHours}</p>
+          <p className={styles.planingHours}>{task.plannedTime}</p>
         </div>
         <div className={styles.div}>
           <p className={styles.text}>Витрачено год/день</p>
@@ -49,7 +52,7 @@ export default function SprintItem({ id }) {
         </div>
         <div className={styles.div}>
           <p className={styles.text}>Витрачено годин</p>
-          <p className={styles.spendedHours}>{hoursSpent}</p>
+          <p className={styles.spendedHours}>{task.totalWastedTime}</p>
         </div>
         {/* <button
               className={styles.button}
@@ -59,7 +62,7 @@ export default function SprintItem({ id }) {
           iconButtonCustomClass={styles.button}
           iconName="greyBin"
           icon="greyBin"
-          onClick={() => deleteSprint(id)}
+          onClick={() => deleteSprint(task.id)}
         />
       </li>
     </>
