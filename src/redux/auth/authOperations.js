@@ -7,9 +7,9 @@ import {
   signupRequest,
   signupSuccess,
   signupError,
-  logInRequest,
-  logInSuccess,
-  logInError,
+  loginRequest,
+  loginSuccess,
+  loginError,
   gettingCurrentUserRequest,
   gettingCurrentUserSuccess,
   gettingCurrentUserError,
@@ -22,7 +22,7 @@ import {
   loginUser as loginUserAPI,
   logoutUser as logoutUserAPI,
   getCurrentUser as getCurrentUserAPI,
-  resetPassword as resetPasswordAPI
+  resetPassword as resetPasswordAPI,
 } from "../../utils/taskManagerAPI";
 
 const token = {
@@ -79,7 +79,7 @@ export const signup = (email, password) => (dispatch) => {
 };
 
 export const login = (email, password) => (dispatch) => {
-  dispatch(logInRequest());
+  dispatch(loginRequest());
   const credentials = {
     email,
     password: password.trim(),
@@ -87,14 +87,10 @@ export const login = (email, password) => (dispatch) => {
   loginUserAPI(credentials)
     .then((response) => {
       token.set(response.data.token);
-      dispatch(logInSuccess(response.data));
+      dispatch(loginSuccess(response.data));
     })
     .catch((error) => {
-      const errorMessage = errorHandler(
-        pathOr("", ["response", "status"], error)
-      );
-      console.log(errorMessage);
-      dispatch(logInError(error));
+      dispatch(loginError(pathOr("", ["response", "status"], error)));
     });
 };
 
@@ -120,4 +116,3 @@ export const resetPass = (credentials) => (dispatch) => {
       dispatch(resetPassError(error));
     });
 };
-
