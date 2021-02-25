@@ -1,5 +1,4 @@
 .noTasks {
-  font-family: var(--primeFont);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2;
@@ -7,7 +6,6 @@
   color: var(--blackColor);
 }
 .container {
-  font-family: var(--primeFont);
   width: 280px;
   padding: 20px;
   background-color: #fff;
@@ -35,7 +33,6 @@
   text-align: end;
 }
 .input::placeholder {
-  font-family: var(--primeFont);
   font-size: 14px;
   text-align: end;
 }
@@ -96,7 +93,7 @@
     align-items: center;
     margin-bottom: 10px;
   }
- 
+
   .list {
     width: auto;
     display: flex;

@@ -17,7 +17,6 @@
 }
 
 .username {
-  font-family: var(--primeFont);
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
@@ -70,7 +69,6 @@
     display: flex;
     margin-left: 77px;
     opacity: 0.6;
-    font-family: var(--primeFont);
     font-weight: 400;
     font-size: 14px;
   }

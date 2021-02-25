@@ -2,7 +2,6 @@
   min-width: 100%;
   padding-top: 20px;
   background-color: transparent;
-  font-family: var(--primeFont);
 }
 .wrapper {
   min-width: 100%;
@@ -30,13 +29,6 @@
   bottom: 5%;
   right: 5%;
   z-index: 100;
-
-  /* width: 44px;
-  height: 44px; */
-  /* background: url(../../assest/icons/Btn.svg) no-repeat; */
-  /* background-position: center;
-  outline: none;
-  border-radius: 25px; */
 }
 .text {
   display: none;

@@ -2,8 +2,6 @@
   width: 280px;
   padding-top: 20px;
   margin: 0 auto;
-
-  font-family: var(--primeFont);
   letter-spacing: 0.04em;
   line-height: 1.2;
   font-weight: 400;
@@ -26,7 +24,6 @@
 }
 
 .sprintTitle {
-  font-family: var(--primeFont);
   position: relative;
   width: 280px;
   margin-bottom: 30px;

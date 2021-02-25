@@ -29,7 +29,6 @@
   text-align: end;
   width: 77px;
   word-break: break-all;
-  font-family: var(--primeFont);
   border: none;
   outline: none;
   color: #555;
@@ -47,7 +46,6 @@
   text-align: end;
   width: 77px;
   word-break: break-all;
-  font-family: var(--primeFont);
   background-color: transparent;
   border: none;
   outline: none;
@@ -66,7 +64,6 @@
   margin: -1px;
 }
 .taskName {
-  font-family: var(--primeFont);
   width: 100%;
   min-height: 68px;
   font-weight: 500;
@@ -116,7 +113,6 @@
   padding: 0px 0px 0px 10px;
 }
 .applyСancel {
-  font-family: var(--primeFont);
   padding: 4px;
 }
 

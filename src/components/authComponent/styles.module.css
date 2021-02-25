@@ -36,7 +36,6 @@
     height: 100vh;
     margin: 0 auto;
     background-color: var(--formColor);
-    font-family: var(--primeFont);
   }
   .formContainer {
     display: flex;
@@ -113,7 +112,7 @@
     width: 429px;
   }
   .inputContainerSingup {
-    width: 429px;;
+    width: 429px;
   }
 
   .container {
@@ -242,7 +241,6 @@
   margin-top: 40px;
   text-align: center;
 }
-
 
 .thirdNew {
   background: linear-gradient(
