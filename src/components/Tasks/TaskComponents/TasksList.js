@@ -11,25 +11,22 @@ import { currentSprintSelector } from "../../../redux/currentSprint/currentSprin
 
 export default function TasksList() {
   const currentSprint = useSelector(currentSprintSelector);
+  console.log(currentSprint);
 
-  return currentSprint.isNotEmpty ? (
-    currentSprint.tasks.length === 0 ? (
-      <p className={styles.noTasks}>There are not tasks</p>
-    ) : (
-      <TransitionGroup component="ul" className={styles.list}>
-        {currentSprint.tasks.map((item) => (
-          <CSSTransition
-            timeout={250}
-            key={item.id}
-            classNames={animateItem}
-            unmountOnExit
-          >
-            <TaskItem key={item.id} task={item} />
-          </CSSTransition>
-        ))}
-      </TransitionGroup>
-    )
+  return currentSprint.tasks.length === 0 ? (
+    <p className={styles.noTasks}>There are not tasks</p>
   ) : (
-    <div>Loading...</div>
+    <TransitionGroup component="ul" className={styles.list}>
+      {currentSprint.tasks.map((item) => (
+        <CSSTransition
+          timeout={250}
+          key={item.id}
+          classNames={animateItem}
+          unmountOnExit
+        >
+          <TaskItem key={item.id} task={item} />
+        </CSSTransition>
+      ))}
+    </TransitionGroup>
   );
 }
