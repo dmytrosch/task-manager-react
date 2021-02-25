@@ -30,8 +30,8 @@ export default function SprintCreator({ onClose }) {
     dispatch(
       createSprint(projectId, {
         name: nameTask,
-        startAt: startDate.toString(),
-        finishedAt: endDate.toString(),
+        startAt: format(startDate, "yyyy.MM.dd", { locale: uk }),
+        finishedAt: format(endDate, "yyyy.MM.dd", { locale: uk }),
       })
     );
     setNameTask("");
