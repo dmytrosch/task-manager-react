@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import IconButton from "../../../common/IconButtons/IconButtons.js";
 import EditableInput from "../../../common/EditableInput/EditableInput";
+import {
+  deleteTask,
+  updateTaskName,
+} from "../../../redux/currentSprint/currentSprintOperations";
 
 import styles from "./styles.module.css";
-
-const getSprintById = (id) => () => ({
-  name: "KN-1 Configure project",
-  ScheduledHours: "76",
-  hoursSpent: "666",
-});
 
 export default function SprintItem({ task }) {
   // const { name, ScheduledHours, hoursSpent } = useSelector(getSprintById(id));
   const params = useParams();
   const currentDay = params.day;
+  const sprintId = params.sprintId;
+  const [taskName, setTaskName] = useState(task.name);
+  const dispatch = useDispatch();
 
-  const deleteSprint = (id) => console.log("delete sprint");
+  const deleteSprint = (id) => dispatch(deleteTask(sprintId, id));
+
+  const changeName = (e) => {
+    e.preventDefault();
+    const newTaskName = {
+      name: taskName,
+    };
+    dispatch(updateTaskName(task.id, newTaskName));
+  };
 
   return (
     <>
@@ -27,9 +36,12 @@ export default function SprintItem({ task }) {
           viewStyle="taskName"
           inputStyle="taskNameInput"
           rows={2}
-          value={task.name}
+          value={taskName}
           button="hide"
           validation={(val) => val.length <= 50}
+          onChange={(e) => {
+            setTaskName(e.target.value);
+          }}
         />
         {/* <h2 className={styles.taskName}>{name}</h2> */}
         <div className={styles.div}>
@@ -44,7 +56,6 @@ export default function SprintItem({ task }) {
             viewStyle="searchName"
             inputStyle="searchInput"
             value="6"
-            onSave
             validationMessage="Будь ласка, введіть число до 3 цифр."
             validation={(val) => val.length <= 3}
           />

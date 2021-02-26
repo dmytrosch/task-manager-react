@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import { useParams } from "react-router-dom";
 
 import styles from "./addTask.module.css";
+import { createTask } from "../../../../redux/currentSprint/currentSprintOperations";
 
 import Input from "../../../../common/Input/Input";
 import Button from "../../../../common/Button/Button";
+import { useDispatch } from "react-redux";
 
 export default function AddTask({ onClose }) {
   const [name, setName] = useState("");
   const [duration, setDuration] = useState("");
+  // const params = useParams();
+
+  // const dispatch = useDispatch();
+
+  // const sprintId = params.sprintId;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +24,8 @@ export default function AddTask({ onClose }) {
       name,
       duration,
     };
+    // dispatch(createTask(sprintId, task));
+
     // TODO: Connect to Redax
     console.log(task);
     onClose();
@@ -43,7 +53,11 @@ export default function AddTask({ onClose }) {
       </div>
 
       <div className={styles.control}>
-        <Button buttonCustomClass={styles.submitBtn} type="submit">
+        <Button
+          buttonCustomClass={styles.submitBtn}
+          type="submit"
+          onClick={handleSubmit}
+        >
           Готово
         </Button>
         <Button

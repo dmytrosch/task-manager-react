@@ -31,6 +31,7 @@ export default function App() {
   useEffect(() => {
     isAuth && dispatch(getCurrentUser());
   }, [isAuth]);
+
   // const isMobileMode = useSelector(isMobileSelector);
   return (
     <>

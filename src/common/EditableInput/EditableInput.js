@@ -18,6 +18,7 @@ export default function EditableInput({
   validation,
   validationMessage,
   onSave,
+  onChange,
 }) {
   return (
     <div className="container">
@@ -51,6 +52,7 @@ export default function EditableInput({
         onSave={onSave}
         validationMessage={validationMessage}
         validation={validation}
+        onChange={onChange}
       />
     </div>
   );

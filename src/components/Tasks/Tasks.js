@@ -23,7 +23,6 @@ export default function Task({ sprintId }) {
   const params = useParams();
   const currentSprint = useSelector(currentSprintSelector);
   useEffect(() => {
-    console.log("QQQQQQ--------");
     dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
   }, []);
   const handleSearchInput = (searchRequest) => {
