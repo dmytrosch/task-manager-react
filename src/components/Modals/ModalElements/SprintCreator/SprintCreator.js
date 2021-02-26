@@ -11,15 +11,17 @@ import { START_DATE } from "react-nice-dates";
 import classNames from "classnames";
 import { format } from "date-fns";
 import triangle from "../../../../assest/icons/triangle.svg";
+import Input from '../../../../common/Input/Input';
 
 export default function SprintCreator({ onClose }) {
-  const [nameTask, setNameTask] = useState("");
+  const [nameSprint, setNameSprint] = useState("");
   const [isOn, setIsOn] = useState(false);
   const [isClose, setOn] = useState(false); // hook for opening modal
   const [scheduledTime, setScheduledTime] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [focus, setFocus] = useState(START_DATE);
+  const [errorLengthSprint, setErrorLengthSprint] = useState("");
   const handleFocusChange = (newFocus) => {
     setFocus(newFocus || START_DATE);
   };
@@ -27,9 +29,10 @@ export default function SprintCreator({ onClose }) {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
+    if (errorLengthSprint) return;
     dispatch(
       createSprint(projectId, {
-        name: nameTask,
+        name: nameSprint,
         startAt: format(startDate, "yyyy/MM/dd", { locale: uk }),
         finishedAt: format(endDate, "yyyy/MM/dd", { locale: uk }),
       })
@@ -40,25 +43,35 @@ export default function SprintCreator({ onClose }) {
 
   function handlerReset(e) {
     e.preventDefault();
-    setNameTask("");
+    setNameSprint("");
     setScheduledTime("");
     setEndDate();
     setStartDate();
   }
-
+  const handlerNameSprint = (e) => {
+    setNameSprint(e.target.value);
+    if (e.target.value.length > 50) {
+      return setErrorLengthSprint("Максимальна кількість символів 50");
+    }
+    setErrorLengthSprint(null);
+  };
   return (
     <>
       <section className={style.container}>
         <div className={style.form}>
           <p className={style.title}>Створення спринта</p>
           <form onSubmit={submitHandler}>
-            <input
-              className={style.input}
-              defaultValue={nameTask}
-              onChange={(e) => setNameTask(e.target.value)}
-              type="text"
-              placeholder="Назва спринта"
-            />
+            <div className={style.inputSprintContainer}>
+              <Input
+                onChange={handlerNameSprint}
+                type="text"
+                error={errorLengthSprint}
+                errorMessage={errorLengthSprint}
+                inputClassNames={style.inputSprint}
+                label="Назва спрінта"
+                value={nameSprint}
+              />
+            </div>
 
             <div className={style.dateInputContainer}>
               <div className={style.triangleContainer}>
