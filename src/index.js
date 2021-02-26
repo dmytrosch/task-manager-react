@@ -10,9 +10,9 @@ import "./styles/main.css";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <PersistGate loading='load' persistor={persistor}> */}
+      <PersistGate loading='load' persistor={persistor}>
       <App />
-      {/* </PersistGate> */}
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
