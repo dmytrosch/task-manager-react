@@ -27,3 +27,11 @@ export const changeProjectDescSuccess = createAction(
   "project/changeDescSuccess"
 );
 export const changeProjectDescError = createAction("project/changeDescError");
+
+export const addParticipantSuccess = createAction(
+  "project/addParticipantSuccess"
+);
+export const addParticipantError = createAction("project/addParticipantError");
+export const addParticipantRequest = createAction(
+  "project/addParticipantRequest"
+);

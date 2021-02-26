@@ -30,6 +30,8 @@ export const deleteProject = (projectId) =>
   axios.delete(`/projects/${projectId}/remove`);
 export const editProjectName = (projectId, name) =>
   axios.patch(`/projects/${projectId}/change-name`, { name });
+export const addParticipantToProject = (projectId, participant) =>
+  axios.patch(`/projects/${projectId}/add-participant`, participant);
 
 export const addSprint = (projectId, sprint) => {
   console.log("projectid:", projectId, sprint);

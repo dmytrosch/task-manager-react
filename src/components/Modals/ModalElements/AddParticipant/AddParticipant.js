@@ -1,37 +1,40 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import validator from "validator";
 
-import { makeAlertNotification } from "../../../../redux/notifications/notificationOperations";
+import {
+  makeAlertNotification,
+  makeSuccessNotification,
+} from "../../../../redux/notifications/notificationOperations";
 import { currentProjectId } from "../../../../redux/modal/modalSelectors";
-import { getAllParticipantsSelector } from "../../../../redux/projects/projectSelectors";
-
+import { getParticipantsWithoutCurrentUserSelector } from "../../../../redux/projects/projectSelectors";
+import { addParticipant } from "../../../../redux/projects/projectOperations";
 import styles from "./addParticipant.module.css";
 
 import Input from "../../../../common/Input/Input";
 import Button from "../../../../common/Button/Button";
-import { getCurrentProject } from "../../../../utils/taskManagerAPI";
 
 export default function AddParticipant({ onClose }) {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const projectId = useSelector(currentProjectId);
-  const participants = useSelector(getAllParticipantsSelector(projectId));
+  const participants = useSelector(
+    getParticipantsWithoutCurrentUserSelector(projectId)
+  );
   const addEmail = (e) => {
     e.preventDefault();
-    // TODO: Add validation email
-    // if (!isEmailValid(email)) {
-    //   retrun dispatch(makeAlertNotification('Введіть коректний e-mail'))
-    // }
-    const isEmailPresent = (participants, email) => {
-      const result = participants.filter((item) => item.email === email);
-      return result.length === 0 ? false : true;
-    };
-
-    if (isEmailPresent(participants, email)) {
-      return dispatch(makeAlertNotification("Цей e-mail вже є у списку"));
+    if (!validator.isEmail(email)) {
+      setEmailError("Направильний e-mail");
+      return;
     }
-    console.log("dispatch", { email });
+    if (participants.find((item) => item.email === email)) {
+      setEmailError("Користувач вже є учасником проєкту");
+      return;
+    }
+    dispatch(addParticipant(projectId, { email }));
     onClose();
+    dispatch(makeSuccessNotification("Користувач доданий до проєкту"));
   };
 
   return (
@@ -43,6 +46,8 @@ export default function AddParticipant({ onClose }) {
             type="mail"
             placeholder="Введіть e-mail"
             value={email}
+            error={emailError}
+            errorMessage={emailError}
             onChange={(e) => setEmail(e.target.value)}
             inputClassNames={styles.input}
           />

@@ -14,6 +14,9 @@ import {
   byIdError,
   byIdSuccess,
   byIdRequest,
+  addParticipantError,
+  addParticipantSuccess,
+  addParticipantRequest,
 } from "./projectActions";
 
 import {
@@ -21,6 +24,7 @@ import {
   deleteProject as deleteProjectAPI,
   editProjectName as editProjectNameAPI,
   getCurrentProject as getCurrentProjectAPI,
+  addParticipantToProject as addParticipantToProjectAPI,
 } from "../../utils/taskManagerAPI";
 export const getProjectById = (projectId) => (dispatch) => {
   dispatch(byIdRequest());
@@ -48,4 +52,12 @@ export const editProjectName = (projectId, newName) => (dispatch) => {
   editProjectNameAPI(projectId, newName)
     .then((response) => dispatch(changeProjectNameSuccess(response.data)))
     .catch(() => dispatch(changeProjectNameError()));
+};
+export const addParticipant = (projectId, participant) => (dispatch) => {
+  dispatch(addParticipantRequest());
+  addParticipantToProjectAPI(projectId, participant)
+  .then(() =>
+    dispatch(addParticipantSuccess())
+  .catch(() => dispatch(addParticipantError))
+  );
 };
