@@ -24,23 +24,25 @@ const getTaskbyIdRequest = createAction("tasks/getTaskByIdRequest");
 const getTaskbyIdSuccess = createAction("tasks/getTaskByIdSuccess");
 const getTaskbyIdError = createAction("tasks/getTaskByIdError");
 
-export default {
-    createTaskRequest,
-    createTaskSuccess,
-    createTaskError,
-    deleteTaskRequest,
-    deleteTaskSuccess,
-    deleteTaskError,
-    changeTaskNameRequest,
-    changeTaskNameSuccess,
-    changeTaskNameError,
-    getTaskbyIdRequest,
-    getTaskbyIdSuccess,
-    getTaskbyIdError,
-    updateTaskTimeRequest,
-    updateTaskTimeSuccess,
-    updateTaskTimeError,
-    searchTaskByNameRequest,
-    searchTaskByNameSucces,
-    searchTaskByNameError,
-}
+const taskActionsObj = {
+  createTaskRequest,
+  createTaskSuccess,
+  createTaskError,
+  deleteTaskRequest,
+  deleteTaskSuccess,
+  deleteTaskError,
+  changeTaskNameRequest,
+  changeTaskNameSuccess,
+  changeTaskNameError,
+  getTaskbyIdRequest,
+  getTaskbyIdSuccess,
+  getTaskbyIdError,
+  updateTaskTimeRequest,
+  updateTaskTimeSuccess,
+  updateTaskTimeError,
+  searchTaskByNameRequest,
+  searchTaskByNameSucces,
+  searchTaskByNameError,
+};
+
+export default taskActionsObj;

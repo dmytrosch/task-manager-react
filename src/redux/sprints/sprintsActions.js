@@ -8,25 +8,27 @@ const deleteRequest = createAction("sprint/deleteRequest");
 const deleteSuccess = createAction("sprint/deleteSuccess");
 const deleteError = createAction("sprint/deleteError");
 
-const changeNameRequest = createAction("sprint/changeNameRequest");
-const changeNameSuccess = createAction("sprint/changeNameSuccess");
-const changeNameError = createAction("sprint/changeNameError");
+const sprintChangeNameRequest = createAction("sprint/changeNameRequest");
+const sprintChangeNameSuccess = createAction("sprint/changeNameSuccess");
+const sprintChangeNameError = createAction("sprint/changeNameError");
 
-const byIdRequest = createAction("sprint/byIdRequest");
-const byIdSuccess = createAction("sprint/byIdSuccess");
-const byIdError = createAction("sprint/byIdError");
+const sprintByIdRequest = createAction("sprint/byIdRequest");
+const sprinByIdSuccess = createAction("sprint/byIdSuccess");
+const sprinByIdError = createAction("sprint/byIdError");
 
-export default {
+const sprintActionsObj = {
   createRequest,
   createSuccess,
   createError,
   deleteRequest,
   deleteSuccess,
   deleteError,
-  changeNameRequest,
-  changeNameSuccess,
-  changeNameError,
-  byIdRequest,
-  byIdSuccess,
-  byIdError,
+  sprintChangeNameRequest,
+  sprintChangeNameSuccess,
+  sprintChangeNameError,
+  sprintByIdRequest,
+  sprinByIdSuccess,
+  sprinByIdError,
 };
+
+export default sprintActionsObj;
