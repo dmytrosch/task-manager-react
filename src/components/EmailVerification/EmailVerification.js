@@ -9,8 +9,6 @@ import { Redirect, useRouteMatch, useHistory } from "react-router-dom";
 import { verifyEmail } from "../../utils/taskManagerAPI";
 
 export default function EmailVerification() {
-  //   const [isVerify, setStatusOfVerification] = useState(false);
-  //   const [isLoading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const { params } = useRouteMatch();

@@ -13,7 +13,9 @@ export const logoutUser = () => {
 };
 
 export const verifyEmail = (token) => axios.get(`/auth/verify/${token}`);
-export const sendEmail = (email) => axios.get(`/reset-password/request`, email);
+export const sendEmail = (email) =>
+  axios.post(`/auth/reset-password/request`, email);
+
 export const resetPassword = (token, credentials) => {
   return axios.patch(`/auth/reset-password/${token}`, credentials);
 };

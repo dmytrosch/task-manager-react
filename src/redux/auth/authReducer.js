@@ -37,23 +37,27 @@ const token = createReducer(null, {
 });
 const error = createReducer(null, {
   [loginError]: (_, { payload }) => payload,
+  [loginSuccess]: () => null,
   [signupError]: (_, { payload }) => payload,
+  [signupSuccess]: () => null,
+  [sendEmailError]: (_, { payload }) => payload,
+  [sendEmailSuccess]: (_, { payload }) => null,
 });
 
-const resetPassword = createReducer(null, {
-  [resetPassSuccess]: () => true,
-  [resetPassError]: () => false,
-});
+// const resetPassword = createReducer(null, {
+//   [resetPassSuccess]: () => true,
+//   [resetPassError]: () => false,
+// });
 
-const sendEmailAuth = createReducer(null, {
-  [sendEmailSuccess]: () => true,
-  [sendEmailError]: () => false,
-});
+// const sendEmailAuth = createReducer(null, {
+//   [sendEmailSuccess]: () => true,
+//   [sendEmailError]: () => false,
+// });
 
 export default combineReducers({
   user,
   token,
   error,
-  resetPassword,
-  sendEmailAuth,
+  // resetPassword,
+  // sendEmailAuth,
 });

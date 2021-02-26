@@ -42,23 +42,7 @@ const token = {
     axios.defaults.headers.common.Authorization = "";
   },
 };
-const errorHandler = (statusCodeError) => {
-  let message = "";
-  switch (statusCodeError) {
-    case 400:
-      message = "Помилка данних";
-      break;
-    case 401:
-      message = "Не вірно вказаний логін або пароль";
-      break;
-    case 409:
-      message = "Користувач з цією адресою вже зареєстрований";
-      break;
-    default:
-      message = "Щось пішло не так...";
-  }
-  return message;
-};
+
 export const logout = () => (dispatch) => {
   dispatch(logoutRequest());
   logoutUserAPI()
@@ -119,24 +103,24 @@ export const resetPass = (token, newPassword) => (dispatch) => {
       dispatch(resetPassSuccess());
       useDispatch(makeSuccessNotification("Пароль успішно змінено"));
     })
-    .catch((err) => {
-      const error = errorHandler(pathOr("", ["response", "status"], err));
+    .catch((error) => {
       dispatch(makeAlertNotification("Сталася помилка"));
       dispatch(resetPassError(error));
     });
 };
 
-export const sendMail = ({ email }) => (dispatch) => {
+export const sendMail = (email) => (dispatch) => {
   dispatch(sendEmailRequest());
   sendEmailAPI(email)
-    .then(
-      sendEmailSuccess(() => {
-        useDispatch(makeSuccessNotification("Операція успішна"));
-      })
-    )
-    .catch((err) => {
-      const error = errorHandler(pathOr("", ["response", "status"], err));
-      dispatch(sendEmailError(error));
-      dispatch(makeAlertNotification("Сталася помилка"));
+    .then(() => {
+      dispatch(sendEmailSuccess());
+      dispatch(
+        makeSuccessNotification(
+          "Посилання на відновлення паролю відіслано на Вашу електронну адресу"
+        )
+      );
+    })
+    .catch((error) => {
+      dispatch(sendEmailError(pathOr("", ["response", "status"], error)));
     });
 };
