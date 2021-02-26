@@ -32,7 +32,6 @@ export const editProjectName = (projectId, name) =>
   axios.patch(`/projects/${projectId}/change-name`, { name });
 
 export const addSprint = (projectId, sprint) => {
-  console.log("projectid:", projectId, sprint);
   return axios.post(`/sprints/${projectId}/create`, sprint);
 };
 export const deleteSprint = (projectId, sprintId) =>

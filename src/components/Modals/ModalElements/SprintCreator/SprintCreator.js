@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createSprint } from "../../../../redux/sprints/sprintsOperations";
 import { currentProjectId } from "../../../../redux/modal/modalSelectors";
@@ -11,7 +11,7 @@ import { START_DATE } from "react-nice-dates";
 import classNames from "classnames";
 import { format } from "date-fns";
 import triangle from "../../../../assest/icons/triangle.svg";
-import Input from '../../../../common/Input/Input';
+import Input from "../../../../common/Input/Input";
 
 export default function SprintCreator({ onClose }) {
   const [nameSprint, setNameSprint] = useState("");
@@ -38,16 +38,8 @@ export default function SprintCreator({ onClose }) {
       })
     );
     onClose();
-    //send data
   };
 
-  function handlerReset(e) {
-    e.preventDefault();
-    setNameSprint("");
-    setScheduledTime("");
-    setEndDate();
-    setStartDate();
-  }
   const handlerNameSprint = (e) => {
     setNameSprint(e.target.value);
     if (e.target.value.length > 50) {
@@ -70,6 +62,7 @@ export default function SprintCreator({ onClose }) {
                 inputClassNames={style.inputSprint}
                 label="Назва спрінта"
                 value={nameSprint}
+                required
               />
             </div>
 
@@ -84,6 +77,7 @@ export default function SprintCreator({ onClose }) {
                   type="text"
                   placeholder="Дата закінчення"
                   onClick={() => setIsOn(!isOn)}
+                  required
                 />
                 <img
                   onClick={() => setIsOn(!isOn)}
@@ -105,6 +99,7 @@ export default function SprintCreator({ onClose }) {
                 }
                 type="text"
                 placeholder="Тривалість"
+                required
               />
             </div>
 

@@ -1,18 +1,11 @@
-/* .container{
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 120px 0px;
-    height: 768px;
-    width: 530px;
-    background: var(--formColor);
-} */
+.container {
+  text-align: center;
+}
 .title {
   width: 100%;
   font-size: 36px;
   margin-bottom: 50px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   margin-left: 20px;
 }
 
@@ -23,10 +16,12 @@
   width: 430px;
 }
 .input::placeholder {
-  font-size: 18px;
-  line-height: 22px;
+  font-family: var(--primeFont);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
   padding-left: 5px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
 }
 .input {
   text-align: left;
@@ -34,16 +29,19 @@
   border: none;
   background: none;
   padding: 5px;
-  border-bottom: 1px solid var(--greyColor);
+  border-bottom: 1px solid var(--borderColor);
   font-size: 18px;
   color: var(--blackColor);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
 }
-.inputSprint{
+.inputSprint {
   margin: 0px 0px 10px 0px;
 }
-.inputSprintContainer{
-height: 71px;
+.inputSprint ~ label {
+  font-size: 14px;
+}
+.inputSprintContainer {
+  height: 71px;
 }
 .input:focus {
   outline: none;
@@ -57,9 +55,9 @@ height: 71px;
   text-align: center;
   font-weight: 400;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 1.2;
   margin-top: 20px;
-  border-bottom: 1px solid var(--greyColor);
+  border-bottom: 1px solid var(--borderColor);
   color: var(--greyColor);
 }
 
@@ -110,7 +108,7 @@ button:focus {
   align-self: center;
   margin-left: 10px;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 1.2;
   color: var(--greyColor);
 }
 
@@ -121,13 +119,16 @@ button:focus {
 }
 
 .dateEndBtn::placeholder {
+  font-family: var(--primeFont);
+  font-weight: 500;
   font-size: 14px;
+  line-height: 1.2;
   position: relative;
   bottom: 26px;
 }
 .dateEndBtn {
   font-size: 18px;
-  line-height: 22px;
+  line-height: 1.2;
   color: var(--greyColor);
   padding-top: 30px;
   margin-right: 15px;
@@ -138,7 +139,7 @@ button:focus {
   margin-left: 15px;
   padding-top: 30px;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 1.2;
   color: var(--greyColor);
   width: 200px;
 }
@@ -202,15 +203,19 @@ button:focus {
     margin: 0 auto;
   }
 
+  .triangleContainer {
+    width: 100%;
+  }
+
   .title {
     font-size: 26px;
     margin-bottom: 50px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.04em;
     margin-left: 0px;
   }
 
   .input {
-    width: 280px;
+    width: 100%;
     display: block;
     margin: 0 auto;
   }
@@ -231,7 +236,8 @@ button:focus {
   .triangle {
     position: absolute;
     top: 36px;
-    left: 260px;
+    left: auto;
+    right: 0;
     transform: rotate(60deg);
     cursor: pointer;
     opacity: 0.6;
@@ -244,7 +250,7 @@ button:focus {
     height: 280px;
   }
   .durationBtn {
-    margin-top: 80px;
+    margin-top: 20px;
     margin-bottom: 40px;
   }
   .form {

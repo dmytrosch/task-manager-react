@@ -47,7 +47,6 @@ const allIds = createReducer([], {
   [addProjectSuccess]: (state, action) => [...state, action.payload.id],
   [deleteProjectSuccess]: (state, { payload }) => {
     const arr = state.filter((proj) => proj !== payload);
-    console.log(payload);
     return arr;
   },
   [gettingCurrentUserSuccess]: (state, { payload }) => {

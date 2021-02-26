@@ -25,9 +25,7 @@ export default function ApproveDeleteProject({ onClose }) {
     <div className={styles.conatiner}>
       <div className={styles.wrapper}>
         <p className={styles.action}>Видалити спринт?</p>
-        <p className={styles.itemName}>Sprint Name</p>
-        {/* TODO: подключить нижнюю строчку */}
-        {/* <p className={styles.itemName}>{sprint.name}</p> */}
+        <p className={styles.itemName}>{sprint.name}</p>
         <div className={styles.controlContainer}>
           <Button buttonCustomClass={styles.btn} onClick={handleDelete}>
             Видалити
