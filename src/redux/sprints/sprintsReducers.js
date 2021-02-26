@@ -14,7 +14,6 @@ const byId = createReducer(
     [sprintsActions.deleteSuccess]: (state, { payload }) => {
       const newState = { ...state };
       delete newState[payload];
-      console.log(newState);
       return newState;
     },
     [sprintsActions.changeNameSuccess]: (state, { payload }) => {
