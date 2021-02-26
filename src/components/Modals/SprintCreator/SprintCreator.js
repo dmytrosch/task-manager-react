@@ -38,10 +38,6 @@ export default function SprintCreator({ onClose }) {
     //send data
   };
 
-  // data for sending to dataBase ( format: 2021.02.25)
-
-  // console.log(startDate && format(startDate, "yyyy.MM.dd", { locale: uk })); =====
-
   function handlerReset(e) {
     e.preventDefault();
     setNameTask("");
@@ -87,34 +83,17 @@ export default function SprintCreator({ onClose }) {
                 ></img>
               </div>
               <input
-                className={classNames(style.input, style.dateEndBtn)}
+                className={classNames(style.input, style.durationBtn)}
                 defaultValue=""
                 value={
-                  startDate ? format(startDate, "dd MMM", { locale: uk }) : ""
+                  endDate
+                    ? format(endDate - startDate, "d", { locale: uk })
+                    : ""
                 }
                 type="text"
-                placeholder="Дата закінчення"
-                onClick={() => setIsOn(!isOn)}
+                placeholder="Тривалість"
               />
-              <img
-                onClick={() => setIsOn(!isOn)}
-                src={triangle}
-                className={classNames(
-                  style.triangle,
-                  isOn && style.triangleRot
-                )}
-                alt="triangle"
-              ></img>
             </div>
-            <input
-              className={classNames(style.input, style.durationBtn)}
-              defaultValue=""
-              value={
-                endDate ? format(endDate - startDate, "d", { locale: uk }) : ""
-              }
-              type="text"
-              placeholder="Тривалість"
-            />
 
             <Button
               type="submit"
