@@ -2,6 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import {
   signupSuccess,
+  signupError,
   loginSuccess,
   logoutSuccess,
   logoutError,
@@ -36,6 +37,7 @@ const token = createReducer(null, {
 });
 const error = createReducer(null, {
   [loginError]: (_, { payload }) => payload,
+  [signupError]: (_, { payload }) => payload,
 });
 
 const resetPassword = createReducer(null, {
@@ -50,7 +52,8 @@ const sendEmailAuth = createReducer(null, {
 
 export default combineReducers({
   user,
-  token, error,
+  token,
+  error,
   resetPassword,
   sendEmailAuth,
 });

@@ -79,11 +79,7 @@ export const signup = (email, password) => (dispatch) => {
       dispatch(signupSuccess(response.data));
     })
     .catch((error) => {
-      const errorMessage = errorHandler(
-        pathOr("", ["response", "status"], error)
-      );
-      console.log(errorMessage);
-      dispatch(signupError(errorMessage));
+      dispatch(signupError(pathOr("", ["response", "status"], error)));
     });
 };
 

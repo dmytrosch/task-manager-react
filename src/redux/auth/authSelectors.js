@@ -10,24 +10,25 @@ export const getUserNameSelector = (state) => {
 
 export const errorMessageSelector = (state) => {
   const errorStatus = state.app.auth.error;
-  const errorHandler = (status) => {
-    let message = "";
-    switch (status) {
-      case 400:
-        message = "Помилка данних";
-        break;
-      case 401:
-        message = "Не вірно вказаний логін або пароль";
-        break;
-      case 409:
-        message = "Користувач з цією адресою вже зареєстрований";
-        break;
-      default:
-        message = "Щось пішло не так";
-    }
-    return message;
-  };
   return errorStatus ? errorHandler(errorStatus) : null;
 };
 export const getUpdatePasswordResult = (state) => state.app.auth.resetPassword;
 export const getResultSendingEmail = (state) => state.app.auth.sendEmailAuth;
+
+function errorHandler(status) {
+  let message = "";
+  switch (status) {
+    case 400:
+      message = "Не вірно вказаний логін або пароль";
+      break;
+    case 401:
+      message = "Не вірно вказаний логін або пароль";
+      break;
+    case 409:
+      message = "Користувач з цією адресою вже зареєстрований";
+      break;
+    default:
+      message = "Щось пішло не так";
+  }
+  return message;
+}

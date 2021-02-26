@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import style from "./styles.module.css";
 import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
 import { signup } from "../../redux/auth/authOperations";
 import validator from "validator";
+import { errorMessageSelector } from "../../redux/auth/authSelectors";
+import { signupError } from "../../redux/auth/authActions";
 
 export default function Signup({ setVissible }) {
   const [email, setEmail] = useState("");
@@ -14,7 +16,13 @@ export default function Signup({ setVissible }) {
   const [errMesEmail, setErrMesEmail] = useState(null);
   const [errMesPassword, setErrMesPassword] = useState(null);
   const [errMesConfirmedPassword, setErrMesConfirmedPassword] = useState(null);
+  const errorMessage = useSelector(errorMessageSelector);
   const dispatch = useDispatch();
+  useEffect(() => {
+    return () => {
+      dispatch(signupError(null));
+    };
+  }, []);
 
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -40,7 +48,10 @@ export default function Signup({ setVissible }) {
   };
   const handlerSubmit = (e) => {
     e.preventDefault();
-    if (errMesEmail && errMesPassword && errMesConfirmedPassword) return;
+    if (errMesEmail || errMesPassword || errMesConfirmedPassword) return;
+    if (password !== confirmedPassword) {
+      return setErrMesConfirmedPassword("Паролі не співпадають");
+    }
     dispatch(signup(email, password));
     setEmail("");
     setPassword("");
@@ -84,6 +95,12 @@ export default function Signup({ setVissible }) {
               id="confirmedPassword"
             />
           </div>
+          <label
+            className={errorMessage ? style.label : style.visuallyHidden}
+            htmlFor="confirmedPassword"
+          >
+            {errorMessage}
+          </label>
 
           <Button type="submit">Зареєструватися</Button>
         </form>
