@@ -12,7 +12,7 @@ export const errorMessageSelector = (state) => {
   const errorStatus = state.app.auth.error;
   return errorStatus ? errorHandler(errorStatus) : null;
 };
-export const getUpdatePasswordResult = (state) => state.app.auth.resetPassword;
+export const getUpdatePasswordResult = (state) => state.app.auth.error;
 export const getResultSendingEmail = (state) => state.app.auth.error;
 
 function errorHandler(status) {

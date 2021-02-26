@@ -59,8 +59,12 @@ export const signup = (email, password) => (dispatch) => {
   };
   createUserAPI(credentials)
     .then((response) => {
-      token.set(response.data.token);
       dispatch(signupSuccess(response.data));
+      dispatch(
+        makeSuccessNotification(
+          "Ви успішно зареєструвались. Підвердіть вашу електронну адресу"
+        )
+      );
     })
     .catch((error) => {
       dispatch(signupError(pathOr("", ["response", "status"], error)));
@@ -104,8 +108,7 @@ export const resetPass = (token, newPassword) => (dispatch) => {
       useDispatch(makeSuccessNotification("Пароль успішно змінено"));
     })
     .catch((error) => {
-      dispatch(makeAlertNotification("Сталася помилка"));
-      dispatch(resetPassError(error));
+      dispatch(resetPassError(pathOr("", ["response", "status"], error)));
     });
 };
 

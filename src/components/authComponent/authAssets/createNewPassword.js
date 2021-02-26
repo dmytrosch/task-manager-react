@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -8,15 +8,21 @@ import Input from "../../../common/Input/Input";
 import Button from "../../../common/Button/Button";
 import classNames from "classnames";
 import style from "../styles.module.css";
+import { resetPassError } from "../../../redux/auth/authActions";
 
 export default function CreaterNewPassword() {
   const qweryParams = useParams();
   const [password, setPassword] = useState("");
-  const [confirmedPassword, setConfirmedPasswod] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
   const [errMesPassword, setErrMesPassword] = useState(null);
   const [errMesConfirmedPassword, setErrMesConfirmedPassword] = useState(null);
+  const errorMessage = useSelector(getUpdatePasswordResult);
   const dispatch = useDispatch();
-  const updatePass = useSelector(getUpdatePasswordResult);
+  useEffect(() => {
+    return () => {
+      dispatch(resetPassError(null))
+    };
+  }, []);
   const onChangePassword = (e) => {
     setPassword(e.target.value);
     if (e.target.value.length < 8) {
@@ -26,7 +32,7 @@ export default function CreaterNewPassword() {
   };
 
   const onChangeСonfirmedPassword = (e) => {
-    setConfirmedPasswod(e.target.value);
+    setConfirmedPassword(e.target.value);
     if (password !== e.target.value) {
       return setErrMesConfirmedPassword("Паролі не співпадають");
     }
@@ -34,9 +40,15 @@ export default function CreaterNewPassword() {
   };
   const handlerSubmit = (e) => {
     e.preventDefault();
-    dispatch(resetPass(qweryParams.resetPasswordToken, confirmedPassword));
+    if (password !== confirmedPassword) {
+      return setErrMesConfirmedPassword("Паролі не співпадають");
+    }
+    if (errMesPassword || errMesConfirmedPassword) return;
+    dispatch(
+      resetPass(qweryParams.resetPasswordToken, { password: confirmedPassword })
+    );
     setPassword(null);
-    setConfirmedPasswod(null);
+    setConfirmedPassword(null);
   };
   return (
     <section className={style.container}>
@@ -69,14 +81,10 @@ export default function CreaterNewPassword() {
               </div>
 
               <label
-                className={
-                  confirmedPassword !== password
-                    ? style.label
-                    : style.visuallyHidden
-                }
+                className={errorMessage ? style.label : style.visuallyHidden}
                 htmlFor="confirmedPassword"
               >
-                Паролі не співпадають
+                Щось пішло не так... Спробуйте ще раз
               </label>
               <Button type="submit">Змінити пароль</Button>
             </form>

@@ -12,7 +12,7 @@ import { signupError } from "../../redux/auth/authActions";
 export default function Signup({ setVissible }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmedPassword, setConfirmedPasswod] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
   const [errMesEmail, setErrMesEmail] = useState(null);
   const [errMesPassword, setErrMesPassword] = useState(null);
   const [errMesConfirmedPassword, setErrMesConfirmedPassword] = useState(null);
@@ -40,7 +40,7 @@ export default function Signup({ setVissible }) {
   };
 
   const onChangeСonfirmedPassword = (e) => {
-    setConfirmedPasswod(e.target.value);
+    setConfirmedPassword(e.target.value);
     if (password !== e.target.value) {
       return setErrMesConfirmedPassword("Паролі не співпадають");
     }
@@ -48,14 +48,14 @@ export default function Signup({ setVissible }) {
   };
   const handlerSubmit = (e) => {
     e.preventDefault();
-    if (errMesEmail || errMesPassword || errMesConfirmedPassword) return;
     if (password !== confirmedPassword) {
       return setErrMesConfirmedPassword("Паролі не співпадають");
     }
+    if (errMesEmail || errMesPassword || errMesConfirmedPassword) return;
     dispatch(signup(email, password));
     setEmail("");
     setPassword("");
-    setConfirmedPasswod("");
+    setConfirmedPassword("");
   };
 
   return (

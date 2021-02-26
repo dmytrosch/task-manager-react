@@ -15,7 +15,13 @@ export default function ProjectCreator({ onClose }) {
   const handlerSubmit = (e) => {
     e.preventDefault();
     if (errorLengthName || errorLengthDescription) return;
-    dispatch(addProject({ name: nameProject, description }));
+    const project = {
+      name: nameProject,
+    };
+    if (description) {
+      project.description = description;
+    }
+    dispatch(addProject(project));
     onClose();
   };
   const handlerNameProjest = (e) => {

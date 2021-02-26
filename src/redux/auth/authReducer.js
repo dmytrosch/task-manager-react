@@ -33,7 +33,6 @@ const token = createReducer(null, {
   [logoutSuccess]: () => null,
   [logoutError]: () => null,
   [gettingCurrentUserError]: () => null,
-  [resetPassSuccess]: () => null,
 });
 const error = createReducer(null, {
   [loginError]: (_, { payload }) => payload,
@@ -41,7 +40,9 @@ const error = createReducer(null, {
   [signupError]: (_, { payload }) => payload,
   [signupSuccess]: () => null,
   [sendEmailError]: (_, { payload }) => payload,
-  [sendEmailSuccess]: (_, { payload }) => null,
+  [sendEmailSuccess]: () => null,
+  [resetPassError]: (_, { payload }) => payload,
+  [resetPassSuccess]: () => null,
 });
 
 // const resetPassword = createReducer(null, {
