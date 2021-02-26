@@ -16,7 +16,7 @@ export default function Dashboard() {
       <div className={styles.wrapper}>
         <>
           <div className={styles.infoBox}>
-            <h2 className={styles.title}>Проекти</h2>
+            <h2 className={styles.title}>Проєкти</h2>
             <div className={styles.box}>
               <IconButton
                 iconButtonCustomClass={styles.button}

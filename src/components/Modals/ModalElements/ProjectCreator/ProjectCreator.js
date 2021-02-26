@@ -25,7 +25,7 @@ export default function ProjectCreator({ onClose }) {
           type="text"
           error={false}
           inputClassNames={style.input}
-          label="Назва проекту"
+          label="Назва проєкту"
           onChange={(e) => setNameProject(e.target.value)}
           value={nameProject}
         />
