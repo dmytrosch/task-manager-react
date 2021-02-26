@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import IconButton from "../../../common/IconButtons/IconButtons.js";
 import EditableInput from "../../../common/EditableInput/EditableInput";
+
+import { setModalApproveDeleteTask } from "../../../redux/modal/modalAction";
 
 import styles from "./styles.module.css";
 
@@ -12,10 +14,11 @@ const getSprintById = (id) => () => ({
   hoursSpent: "666",
 });
 
-export default function SprintItem({ id }) {
+export default function TaskItem({ id }) {
+  const dispatch = useDispatch();
   const { name, ScheduledHours, hoursSpent } = useSelector(getSprintById(id));
 
-  const deleteSprint = (id) => console.log("delete sprint");
+  const deleteTask = () => dispatch(setModalApproveDeleteTask(id));
 
   return (
     <>
@@ -59,7 +62,7 @@ export default function SprintItem({ id }) {
           iconButtonCustomClass={styles.button}
           iconName="greyBin"
           icon="greyBin"
-          onClick={() => deleteSprint(id)}
+          onClick={deleteTask}
         />
       </li>
     </>

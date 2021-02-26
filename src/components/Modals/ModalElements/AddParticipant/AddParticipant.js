@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import { makeAlertNotification } from "../../../../redux/notifications/notificationOperations";
 import { currentProjectId } from "../../../../redux/modal/modalSelectors";
 import { getAllParticipantsSelector } from "../../../../redux/projects/projectSelectors";
 
 import styles from "./addParticipant.module.css";
-import animateItem from "../../../../styles/animateItem.module.css";
 
 import Input from "../../../../common/Input/Input";
 import Button from "../../../../common/Button/Button";
@@ -24,25 +22,16 @@ export default function AddParticipant({ onClose }) {
     // if (!isEmailValid(email)) {
     //   retrun dispatch(makeAlertNotification('Введіть коректний e-mail'))
     // }
-    if (participants.includes(email)) {
+    const isEmailPresent = (participants, email) => {
+      const result = participants.filter((item) => item.email === email);
+      return result.length === 0 ? false : true;
+    };
+
+    if (isEmailPresent(participants, email)) {
       return dispatch(makeAlertNotification("Цей e-mail вже є у списку"));
     }
-    // setList([...participants, email]);
-    setEmail("");
-  };
-
-  const handleSendInvite = () => {
-    if (participants.length !== 0) {
-      // TODO: Connect
-      console.log("send", participants);
-      return onClose();
-    }
-    dispatch(makeAlertNotification("Додайте e-mail користувачів"));
-  };
-
-  const handleRemoveItem = (e) => {
-    const removeItem = e.target.dataset.item;
-    // setList(participants.filter((item) => item !== removeItem));
+    console.log("dispatch", { email });
+    onClose();
   };
 
   return (
@@ -70,33 +59,23 @@ export default function AddParticipant({ onClose }) {
         {participants.length === 0 ? (
           <p className={styles.message}>Ви ще не додали жодного користувача</p>
         ) : (
-          <TransitionGroup component="ul" className={styles.list}>
+          <ul className={styles.list}>
             {participants.map((item) => (
-              <CSSTransition
-                timeout={250}
-                key={item.id}
-                classNames={animateItem}
-                unmountOnExit
-              >
-                <li
-                  className={styles.item}
-                  onClick={handleRemoveItem}
-                >
-                  {item.email}
-                </li>
-              </CSSTransition>
+              <li key={item.id} className={styles.item}>
+                {item.email}
+              </li>
             ))}
-          </TransitionGroup>
+          </ul>
         )}
+        <div className={styles.control}>
+          <Button buttonCustomClass={styles.submitBtn} type="submit">
+            Готово
+          </Button>
+          <Button buttonCustomClass={styles.cancelBtn} onClick={onClose}>
+            Відміна
+          </Button>
+        </div>
       </form>
-      <div className={styles.control}>
-        <Button buttonCustomClass={styles.submitBtn} onClick={handleSendInvite}>
-          Готово
-        </Button>
-        <Button buttonCustomClass={styles.cancelBtn} onClick={onClose}>
-          Відміна
-        </Button>
-      </div>
     </div>
   );
 }

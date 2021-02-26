@@ -6,3 +6,12 @@ export const setModalAddParticipant = createAction("modal/AddParticipant");
 export const setModalCreateProject = createAction("modal/CreateProject");
 export const setModalEditProject = createAction("modal/EditProject");
 export const setModalChartTable = createAction("modal/ChartTable");
+export const setModalApproveDeleteProject = createAction(
+  "modal/ApproveDeleteProject"
+);
+export const setModalApproveDeleteSprint = createAction(
+  "modal/ApproveDeleteSprint"
+);
+export const setModalApproveDeleteTask = createAction(
+  "modal/ApproveDeleteTask"
+);

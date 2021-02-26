@@ -1,7 +1,6 @@
 // export const getModalType = (state) => state.modal;
 export const isModalCreateTask = (state) => Boolean(state.ui.modal.createTask);
-export const isModalCreateSprint = (state) =>
-  Boolean(state.ui.modal.createSprint);
+export const isModalCreateSprint = (state) => state.ui.modal.createSprint;
 export const isModalAddParticipant = (state) =>
   Boolean(state.ui.modal.addParticipant);
 export const isModalCreateProject = (state) =>
@@ -11,3 +10,9 @@ export const isModalEditProject = (state) =>
 export const isModalChartTable = (state) => Boolean(state.ui.modal.chartTable);
 export const currentProjectId = (state) =>
   state.ui.modal.createSprint || state.ui.modal.addParticipant;
+export const isModalApproveDeleteProject = (state) =>
+  state.ui.modal.approveDeleteProject;
+export const isModalApproveDeleteSprint = (state) =>
+  state.ui.modal.approveDeleteSprint;
+export const isModalApproveDeleteTask = (state) =>
+  state.ui.modal.approveDeleteTask;

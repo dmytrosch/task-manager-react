@@ -21,6 +21,9 @@ import ModalAddParticipant from "./Modals/ModalComponents/ModalAddParticipant";
 import ModalCreateProject from "./Modals/ModalComponents/ModalCreateProject";
 import ModalEditProject from "./Modals/ModalComponents/ModalEditProject";
 import ModalChartTable from "./Modals/ModalComponents/ModalChartTable";
+import ModalApproveDeleteProject from "./Modals/ModalComponents/ModalApproveDeleteProject";
+import ModalApproveDeleteSprint from "./Modals/ModalComponents/ModalApproveDeleteSprint";
+import ModalApproveDeleteTask from "./Modals/ModalComponents/ModalApproveDeleteTask";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -60,7 +63,9 @@ export default function App() {
       <ModalCreateProject />
       <ModalEditProject />
       <ModalChartTable />
-
+      <ModalApproveDeleteProject />
+      <ModalApproveDeleteSprint />
+      <ModalApproveDeleteTask />
       {loading && <Loader />}
     </>
   );
