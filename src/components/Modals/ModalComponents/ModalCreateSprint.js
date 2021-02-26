@@ -5,7 +5,7 @@ import { setModalCreateSprint } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
 import Modal from "../Modal";
-import SprintCreator from "../SprintCreator/SprintCreator";
+import SprintCreator from "../ModalElements/SprintCreator/SprintCreator";
 
 export default function ModalCreateSprint() {
   const dispatch = useDispatch();

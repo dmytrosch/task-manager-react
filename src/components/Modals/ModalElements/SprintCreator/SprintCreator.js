@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createSprint } from "../../../redux/sprints/sprintsOperations";
-import { currentProjectId } from "../../../redux/modal/modalSelectors";
+import { createSprint } from "../../../../redux/sprints/sprintsOperations";
+import { currentProjectId } from "../../../../redux/modal/modalSelectors";
 import style from "./SprintCreator.module.css";
-import Button from "../../../common/Button/Button";
+import Button from "../../../../common/Button/Button";
 import { uk } from "date-fns/locale";
 import { DateRangePickerCalendar } from "react-nice-dates";
 import "./style.css";
 import { START_DATE } from "react-nice-dates";
 import classNames from "classnames";
 import { format } from "date-fns";
-import triangle from "../../../assest/icons/triangle.svg";
+import triangle from "../../../../assest/icons/triangle.svg";
 
 export default function SprintCreator({ onClose }) {
   const [nameTask, setNameTask] = useState("");
@@ -34,7 +34,7 @@ export default function SprintCreator({ onClose }) {
         finishedAt: format(endDate, "yyyy/MM/dd", { locale: uk }),
       })
     );
-    setNameTask("");
+    onClose();
     //send data
   };
 
