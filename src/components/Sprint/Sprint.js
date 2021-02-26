@@ -5,6 +5,7 @@ import SprintList from "./SprintList/SprintList";
 import EditableInput from "../../common/EditableInput/EditableInput";
 import {
   editProjectName,
+  editProjectDespription,
   getProjectById,
 } from "../../redux/projects/projectOperations";
 import { getByIdSelector } from "../../redux/projects/projectSelectors";
@@ -29,17 +30,33 @@ export default function Sprint({ projectId }) {
   const changeProjectName = (newName) => {
     dispatch(editProjectName(projectId, newName));
   };
+  const changeProjectDescription = (newDescription) => {
+    dispatch(editProjectDespription(projectId, newDescription));
+  };
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.infoBox}>
-          <h2 className={styles.title}>
-            <EditableInput
-              disable={!isOwner}
-              value={name}
-              onSave={changeProjectName}
-            />
-          </h2>
+          <div>
+            <h2 className={styles.title}>
+              <EditableInput
+                disable={!isOwner}
+                value={name}
+                onSave={changeProjectName}
+              />
+            </h2>
+            {description && (
+              <p className={styles.description}>
+                <EditableInput
+                  value={description}
+                  disable={!isOwner}
+                  viewStyle="description"
+                  type="textarea"
+                  onSave={changeProjectDescription}
+                />
+              </p>
+            )}
+          </div>
           <div className={styles.box}>
             <IconButton
               iconButtonCustomClass={styles.button}
