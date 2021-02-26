@@ -29,3 +29,5 @@ export const errorMessageSelector = (state) => {
   };
   return errorStatus ? errorHandler(errorStatus) : null;
 };
+export const getUpdatePasswordResult = (state) => state.app.auth.resetPassword;
+export const getResultSendingEmail = (state) => state.app.auth.sendEmailAuth;

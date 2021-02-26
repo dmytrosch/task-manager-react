@@ -7,7 +7,7 @@ import Input from "../../common/Input/Input";
 import { signup } from "../../redux/auth/authOperations";
 import validator from "validator";
 
-export default function Login() {
+export default function Signup({ setVissible }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPasswod] = useState("");

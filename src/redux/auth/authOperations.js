@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useDispatch } from "react-redux";
 import { pathOr } from "ramda";
 import {
   logoutRequest,
@@ -16,6 +17,9 @@ import {
   resetPassRequest,
   resetPassSuccess,
   resetPassError,
+  sendEmailRequest,
+  sendEmailSuccess,
+  sendEmailError,
 } from "./authActions";
 import {
   createUser as createUserAPI,
@@ -23,7 +27,12 @@ import {
   logoutUser as logoutUserAPI,
   getCurrentUser as getCurrentUserAPI,
   resetPassword as resetPasswordAPI,
+  sendEmail as sendEmailAPI,
 } from "../../utils/taskManagerAPI";
+import {
+  makeSuccessNotification,
+  makeAlertNotification,
+} from "../notifications/notificationOperations";
 
 const token = {
   set(tokenValue) {
@@ -107,12 +116,31 @@ export const getCurrentUser = () => (dispatch, getState) => {
     })
     .catch((error) => dispatch(gettingCurrentUserError(error)));
 };
-export const resetPass = (credentials) => (dispatch) => {
+export const resetPass = (token, newPassword) => (dispatch) => {
   dispatch(resetPassRequest());
-  resetPasswordAPI(credentials)
-    .then(() => dispatch(resetPassSuccess()))
+  resetPasswordAPI(token, newPassword)
+    .then(() => {
+      dispatch(resetPassSuccess());
+      useDispatch(makeSuccessNotification("Пароль успішно змінено"));
+    })
     .catch((err) => {
       const error = errorHandler(pathOr("", ["response", "status"], err));
+      dispatch(makeAlertNotification("Сталася помилка"));
       dispatch(resetPassError(error));
+    });
+};
+
+export const sendMail = ({ email }) => (dispatch) => {
+  dispatch(sendEmailRequest());
+  sendEmailAPI(email)
+    .then(
+      sendEmailSuccess(() => {
+        useDispatch(makeSuccessNotification("Операція успішна"));
+      })
+    )
+    .catch((err) => {
+      const error = errorHandler(pathOr("", ["response", "status"], err));
+      dispatch(sendEmailError(error));
+      dispatch(makeAlertNotification("Сталася помилка"));
     });
 };

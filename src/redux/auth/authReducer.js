@@ -8,6 +8,10 @@ import {
   loginError,
   gettingCurrentUserSuccess,
   gettingCurrentUserError,
+  resetPassSuccess,
+  resetPassError,
+  sendEmailSuccess,
+  sendEmailError,
 } from "./authActions";
 
 const user = createReducer(
@@ -28,12 +32,25 @@ const token = createReducer(null, {
   [logoutSuccess]: () => null,
   [logoutError]: () => null,
   [gettingCurrentUserError]: () => null,
+  [resetPassSuccess]: () => null,
 });
 const error = createReducer(null, {
   [loginError]: (_, { payload }) => payload,
 });
+
+const resetPassword = createReducer(null, {
+  [resetPassSuccess]: () => true,
+  [resetPassError]: () => false,
+});
+
+const sendEmailAuth = createReducer(null, {
+  [sendEmailSuccess]: () => true,
+  [sendEmailError]: () => false,
+});
+
 export default combineReducers({
   user,
-  token,
-  error,
+  token, error,
+  resetPassword,
+  sendEmailAuth,
 });

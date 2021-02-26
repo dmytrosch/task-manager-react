@@ -18,6 +18,9 @@ const gettingCurrentUserError = createAction("user/gettingCurentUserError");
 const resetPassRequest = createAction("auth/resetPassRequest");
 const resetPassSuccess = createAction("auth/resetPassSuccess");
 const resetPassError = createAction("auth/resetPassError");
+const sendEmailRequest = createAction("auth/sendEmailRequest");
+const sendEmailSuccess = createAction("auth/sendEmailSuccess");
+const sendEmailError = createAction("auth/sendEmailError");
 
 export {
   signupRequest,
@@ -35,4 +38,7 @@ export {
   resetPassRequest,
   resetPassSuccess,
   resetPassError,
+  sendEmailRequest,
+  sendEmailSuccess,
+  sendEmailError,
 };
