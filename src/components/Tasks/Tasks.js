@@ -12,14 +12,12 @@ import * as modalAction from "../../redux/modal/modalAction";
 import * as sprintSelector from "../../redux/sprints/sprintsSelectors";
 import * as currentSprintOperations from "../../redux/currentSprint/currentSprintOperations";
 import { currentSprintSelector } from "../../redux/currentSprint/currentSprintSelectors";
+import { updateSprintName } from "../../redux/sprints/sprintsOperations";
 
 import styles from "./Tasks.module.css";
 
 export default function Task({ sprintId }) {
   const dispatch = useDispatch();
-  const [sprintName, setSprintName] = useState(
-    // sprintSelector.nameById(sprintId)
-  );
   const params = useParams();
   const currentSprint = useSelector(currentSprintSelector);
   useEffect(() => {
@@ -35,7 +33,13 @@ export default function Task({ sprintId }) {
     console.log("dispatch", current);
   };
 
-  const onSave = (newSprintName) => setSprintName(newSprintName);
+  const changeSprintName = (value) => {
+    const newSprintName = {
+      name: value,
+    };
+
+    dispatch(updateSprintName(params.sprintId, newSprintName));
+  };
 
   const openModalTask = () => dispatch(modalAction.setModalCreateTask(true));
   const openModalChartTable = () =>
@@ -55,7 +59,7 @@ export default function Task({ sprintId }) {
       </div>
       <div className={styles.sprint}>
         <p className={styles.sprintTitle}>
-          <EditableInput onSave value={currentSprint.name} />
+          <EditableInput onSave={changeSprintName} value={currentSprint.name} />
         </p>
         <div onClick={openModalTask} className={styles.addSprintContainer}>
           <IconButton iconName="plus" icon="plus" />

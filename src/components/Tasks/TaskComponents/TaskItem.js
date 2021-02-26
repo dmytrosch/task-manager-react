@@ -7,6 +7,7 @@ import EditableInput from "../../../common/EditableInput/EditableInput";
 import {
   deleteTask,
   updateTaskName,
+  updateTaskTime,
 } from "../../../redux/currentSprint/currentSprintOperations";
 
 import { setModalApproveDeleteTask } from "../../../redux/modal/modalAction";
@@ -16,19 +17,23 @@ import styles from "./styles.module.css";
 export default function SprintItem({ task }) {
   // const { name, ScheduledHours, hoursSpent } = useSelector(getSprintById(id));
   const params = useParams();
-  const currentDay = params.day;
+  const currentDay = params.day - 1;
   const sprintId = params.sprintId;
-  const [taskName, setTaskName] = useState(task.name);
   const dispatch = useDispatch();
 
   const deleteSprint = (id) => dispatch(deleteTask(sprintId, id));
 
-  const changeName = (e) => {
-    e.preventDefault();
+  const changeName = (value) => {
     const newTaskName = {
-      name: taskName,
+      name: value,
     };
     dispatch(updateTaskName(task.id, newTaskName));
+  };
+  const changeTaskTime = (value) => {
+    const newHours = {
+      hours: Number(value),
+    };
+    dispatch(updateTaskTime(task.id, currentDay, newHours));
   };
 
   return (
@@ -38,12 +43,10 @@ export default function SprintItem({ task }) {
           viewStyle="taskName"
           inputStyle="taskNameInput"
           rows={2}
-          value={taskName}
+          value={task.name}
           button="hide"
           validation={(val) => val.length <= 50}
-          onChange={(e) => {
-            setTaskName(e.target.value);
-          }}
+          onSave={changeName}
         />
         {/* <h2 className={styles.taskName}>{name}</h2> */}
         <div className={styles.div}>
@@ -57,9 +60,10 @@ export default function SprintItem({ task }) {
             button="hide"
             viewStyle="searchName"
             inputStyle="searchInput"
-            value="6"
+            value={task.spendedTime[currentDay].wastedTime.toString()}
             validationMessage="Будь ласка, введіть число до 3 цифр."
             validation={(val) => val.length <= 3}
+            onSave={changeTaskTime}
           />
           {/* <input className={styles.input} placeholder="6"></input> */}
         </div>
