@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { resetPass } from "../../../redux/auth/authOperations";
-import { getUpdatePasswordResult } from "../../../redux/auth/authSelectors";
+import { getUpdatePasswordResult, isPasswordChangedSelector } from "../../../redux/auth/authSelectors";
 import Input from "../../../common/Input/Input";
 import Button from "../../../common/Button/Button";
 import classNames from "classnames";
@@ -17,6 +17,7 @@ export default function CreaterNewPassword() {
   const [errMesPassword, setErrMesPassword] = useState(null);
   const [errMesConfirmedPassword, setErrMesConfirmedPassword] = useState(null);
   const errorMessage = useSelector(getUpdatePasswordResult);
+  const isPasswordChanged = useSelector(isPasswordChangedSelector)
   const dispatch = useDispatch();
   useEffect(() => {
     return () => {
@@ -53,10 +54,10 @@ export default function CreaterNewPassword() {
   return (
     <section className={style.container}>
       <div className={style.formContainer}>
-        {true ? (
+        {!isPasswordChanged ? (
           <>
             {" "}
-            <p className={style.title}> Відновити пароль </p>
+            <p className={style.title}> Відновити доступ </p>
             <form className={style.form} onSubmit={handlerSubmit}>
               <div className={style.inputContainerSingup}>
                 <Input
@@ -70,7 +71,7 @@ export default function CreaterNewPassword() {
               </div>
               <div className={style.inputContainerSingup}>
                 <Input
-                  label={"Пароль"}
+                  label={"Повторіть пароль"}
                   error={errMesConfirmedPassword}
                   type="password"
                   value={confirmedPassword}

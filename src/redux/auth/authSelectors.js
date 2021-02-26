@@ -14,6 +14,8 @@ export const errorMessageSelector = (state) => {
 };
 export const getUpdatePasswordResult = (state) => state.app.auth.error;
 export const getResultSendingEmail = (state) => state.app.auth.error;
+export const isPasswordChangedSelector = (state) =>
+  state.app.auth.isPassowordChanged;
 
 function errorHandler(status) {
   let message = "";

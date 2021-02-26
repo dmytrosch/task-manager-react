@@ -61,7 +61,7 @@ export default function Signup({ setVissible }) {
   return (
     <section className={style.container}>
       <div className={style.formContainer}>
-        <p className={style.titleSignup}>Реєстрація</p>
+        <p className={style.title}>Реєстрація</p>
         <form className={style.form} onSubmit={handlerSubmit}>
           <div className={style.inputContainerSingup}>
             <Input

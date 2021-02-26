@@ -17,10 +17,11 @@ export default function ProjectCreator({ onClose }) {
     if (errorLengthName || errorLengthDescription) return;
     const project = {
       name: nameProject,
+      description
     };
-    if (description) {
-      project.description = description;
-    }
+    // if (description) {
+    //   project.description = description;
+    // }
     dispatch(addProject(project));
     onClose();
   };

@@ -37,8 +37,8 @@ export default function SendEmail({ setVissible }) {
   return (
     <div className={style.formContainer}>
       <div className={style.inputContainer}>
-        <h2 className={style.headTitle}> Вiдновлення паролю </h2>
-        <p className={style.title}>Введіть email адресу користувача. </p>
+        <h2 className={style.title}> Вiдновлення паролю </h2>
+        <p className={style.subtitle}>Введіть email адресу користувача. </p>
         <form onSubmit={(e) => submitFormHeandler(e)}>
           <Input
             label={"E-mail"}

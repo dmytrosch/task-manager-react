@@ -44,6 +44,9 @@ const error = createReducer(null, {
   [resetPassError]: (_, { payload }) => payload,
   [resetPassSuccess]: () => null,
 });
+const isPassowordChanged = createReducer(null, {
+  [resetPassSuccess]: () => true,
+});
 
 // const resetPassword = createReducer(null, {
 //   [resetPassSuccess]: () => true,
@@ -59,6 +62,7 @@ export default combineReducers({
   user,
   token,
   error,
+  isPassowordChanged,
   // resetPassword,
   // sendEmailAuth,
 });
