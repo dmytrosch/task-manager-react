@@ -20,7 +20,6 @@ const Input = ({
           ].join(" ")}
           type={type}
           {...props}
-          required
         />
         <label className={styles.label}>{label}</label>
         {error && <span className={styles.errorMessage}>{errorMessage}</span>}

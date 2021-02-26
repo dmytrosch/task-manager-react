@@ -3,6 +3,7 @@
   min-height: 100vh;
   padding-top: 30px;
   background-color: transparent;
+  text-align: center;
 }
 .wrapper {
   min-width: 100%;
@@ -10,10 +11,12 @@
 }
 .infoBox {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 30px;
+  word-break: break-word;
 }
 .title {
+  width: 240px;
   font-weight: 500;
   font-size: 26px;
   text-align: center;
@@ -24,6 +27,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  position: absolute;
+  right: 20px;
 }
 .button {
   position: fixed;
@@ -72,17 +77,31 @@
 }
 @media (min-width: 768px) {
   .title {
-    font-size: 36px;
+    font-size: 34px;
+    width: 500px;
   }
   .container {
     padding-left: 20px;
     padding-top: 40px;
   }
+  .description {
+    width: 260px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+  .description {
+    display: flex;
+    justify-content: center;
+  }
+  .title {
+    width: 315px;
+  }
   .infoBox {
-    justify-content: space-between;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    word-break: break-word;
   }
   .button {
     position: static;
@@ -92,7 +111,34 @@
     grid-template-columns: repeat(auto-fill, minmax(216px, 216px));
   }
 }
+@media (min-width: 950px) and (max-width: 1279px) {
+  .title {
+    width: 480px;
+  }
+  .description {
+    margin: 0 auto;
+  }
+}
 @media screen and (min-width: 1280px) {
+  .container {
+    text-align: inherit;
+  }
+  .title {
+    text-align: initial;
+  }
+  .description {
+    text-align: initial;
+  }
+  .box {
+    right: 80px;
+  }
+  .infoBox {
+    width: 100%;
+    word-break: break-word;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
   .text {
     display: block;
     font-weight: 500;
@@ -117,4 +163,13 @@
 .addSprintText {
   text-decoration: underline;
   cursor: pointer;
+}
+@media (min-width: 1400px) {
+  .title {
+    font-size: 34px;
+    width: 650px;
+  }
+  .description{
+    width: 400px;
+  }
 }

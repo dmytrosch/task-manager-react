@@ -24,15 +24,21 @@ export const getCurrentUser = () => {
 export const getCurrentProject = (projectId) =>
   axios.get(`/projects/${projectId}`);
 export const addProject = (project) => axios.post("/projects/create", project);
+
 export const deleteProject = (projectId) =>
   axios.delete(`/projects/${projectId}/remove`);
+
 export const editProjectName = (projectId, name) =>
   axios.patch(`/projects/${projectId}/change-name`, { name });
+
+export const editProjectDescription = (projectId, description) =>
+  axios.patch(`/projects/${projectId}/change-description`, { description });
 
 export const addSprint = (projectId, sprint) => {
   console.log("projectid:", projectId, sprint);
   return axios.post(`/sprints/${projectId}/create`, sprint);
 };
+
 export const deleteSprint = (projectId, sprintId) =>
   axios.delete(`/sprints/${projectId}/${sprintId}/remove`);
 

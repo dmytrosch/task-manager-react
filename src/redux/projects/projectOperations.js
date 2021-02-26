@@ -22,6 +22,7 @@ import {
   editProjectName as editProjectNameAPI,
   getCurrentProject as getCurrentProjectAPI,
 } from "../../utils/taskManagerAPI";
+import { editProjectDescription } from "../../utils/taskManagerAPI";
 export const getProjectById = (projectId) => (dispatch) => {
   dispatch(byIdRequest());
   getCurrentProjectAPI(projectId)
@@ -48,4 +49,14 @@ export const editProjectName = (projectId, newName) => (dispatch) => {
   editProjectNameAPI(projectId, newName)
     .then((response) => dispatch(changeProjectNameSuccess(response.data)))
     .catch(() => dispatch(changeProjectNameError()));
+};
+export const editProjectDespription = (projectId, newDescription) => (
+  dispatch
+) => {
+  dispatch(changeProjectDescRequest());
+  editProjectDescription(projectId, newDescription).then((response) =>
+    dispatch(changeProjectDescSuccess(response.data)).catch(() =>
+      dispatch(changeProjectDescError())
+    )
+  );
 };

@@ -5,6 +5,11 @@
   height: 1px;
   margin: -1px;
 }
+.description {
+  margin-top: 20px;
+  width: 205px;
+  word-break: break-word;
+}
 .searchName {
   height: 24px;
   padding: 0;
@@ -120,6 +125,9 @@
   .sprintName {
     font-size: 36px;
   }
+  .description {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1280px) {
@@ -132,6 +140,9 @@
     padding: 0px 0px 0px 10px;
     text-align: start;
     width: 105px;
+  }
+  .sprintName {
+    font-size: 34px;
   }
   .searchInput {
     text-align: start;

@@ -43,12 +43,12 @@ export default function EditableInput({
           styles[styleInputNumber]
         )}
         submitOnEnter
+        submitOnUnfocus
         cancelOnEscape
         editOnViewClick={true}
-        submitOnUnfocus
+        hideIcons={true}
         startEditingOnFocus
         value={value}
-        hideIcons={true}
         onSave={onSave}
         validationMessage={validationMessage}
         validation={validation}
