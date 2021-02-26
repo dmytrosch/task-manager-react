@@ -7,6 +7,7 @@ export const getAllIdsSelector = (state) => state.domain.projects.allIds;
 export const getParticipantsWithoutCurrentUserSelector = (projectId) => (
   state
 ) =>
+  state.domain.projects.byId[projectId] &&
   state.domain.projects.byId[projectId].participants.filter(
     (participant) => participant.id !== state.app.auth.user.id
   );

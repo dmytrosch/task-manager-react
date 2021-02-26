@@ -34,7 +34,6 @@ export default function AddParticipant({ onClose }) {
     }
     dispatch(addParticipant(projectId, { email }));
     onClose();
-    dispatch(makeSuccessNotification("Користувач доданий до проєкту"));
   };
 
   return (

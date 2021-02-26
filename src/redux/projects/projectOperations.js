@@ -26,6 +26,11 @@ import {
   getCurrentProject as getCurrentProjectAPI,
   addParticipantToProject as addParticipantToProjectAPI,
 } from "../../utils/taskManagerAPI";
+import {
+  makeAlertNotification,
+  makeSuccessNotification,
+} from "../notifications/notificationOperations";
+import { error } from "highcharts";
 export const getProjectById = (projectId) => (dispatch) => {
   dispatch(byIdRequest());
   getCurrentProjectAPI(projectId)
@@ -56,8 +61,16 @@ export const editProjectName = (projectId, newName) => (dispatch) => {
 export const addParticipant = (projectId, participant) => (dispatch) => {
   dispatch(addParticipantRequest());
   addParticipantToProjectAPI(projectId, participant)
-  .then(() =>
-    dispatch(addParticipantSuccess())
-  .catch(() => dispatch(addParticipantError))
-  );
+    .then(() => dispatch(addParticipantSuccess()))
+    .catch((error) => {
+      dispatch(() => {
+        addParticipantError();
+        dispatch(makeSuccessNotification("Користувач доданий до проєкту"));
+      });
+      dispatch(
+        makeAlertNotification(
+          error.status(404) ? "Користувача не існує" : "Щось пішло не так..."
+        )
+      );
+    });
 };
