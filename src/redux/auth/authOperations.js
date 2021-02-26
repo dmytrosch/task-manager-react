@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useDispatch } from "react-redux";
 import { pathOr } from "ramda";
 import {
   logoutRequest,
@@ -7,23 +8,31 @@ import {
   signupRequest,
   signupSuccess,
   signupError,
-  logInRequest,
-  logInSuccess,
-  logInError,
+  loginRequest,
+  loginSuccess,
+  loginError,
   gettingCurrentUserRequest,
   gettingCurrentUserSuccess,
   gettingCurrentUserError,
   resetPassRequest,
   resetPassSuccess,
   resetPassError,
+  sendEmailRequest,
+  sendEmailSuccess,
+  sendEmailError,
 } from "./authActions";
 import {
   createUser as createUserAPI,
   loginUser as loginUserAPI,
   logoutUser as logoutUserAPI,
   getCurrentUser as getCurrentUserAPI,
-  resetPassword as resetPasswordAPI
+  resetPassword as resetPasswordAPI,
+  sendEmail as sendEmailAPI,
 } from "../../utils/taskManagerAPI";
+import {
+  makeSuccessNotification,
+  makeAlertNotification,
+} from "../notifications/notificationOperations";
 
 const token = {
   set(tokenValue) {
@@ -33,23 +42,7 @@ const token = {
     axios.defaults.headers.common.Authorization = "";
   },
 };
-const errorHandler = (statusCodeError) => {
-  let message = "";
-  switch (statusCodeError) {
-    case 400:
-      message = "Помилка данних";
-      break;
-    case 401:
-      message = "Не вірно вказаний логін або пароль";
-      break;
-    case 409:
-      message = "Користувач з цією адресою вже зареєстрований";
-      break;
-    default:
-      message = "Щось пішло не так...";
-  }
-  return message;
-};
+
 export const logout = () => (dispatch) => {
   dispatch(logoutRequest());
   logoutUserAPI()
@@ -66,20 +59,20 @@ export const signup = (email, password) => (dispatch) => {
   };
   createUserAPI(credentials)
     .then((response) => {
-      token.set(response.data.token);
       dispatch(signupSuccess(response.data));
+      dispatch(
+        makeSuccessNotification(
+          "Ви успішно зареєструвались. Підвердіть вашу електронну адресу"
+        )
+      );
     })
     .catch((error) => {
-      const errorMessage = errorHandler(
-        pathOr("", ["response", "status"], error)
-      );
-      console.log(errorMessage);
-      dispatch(signupError(errorMessage));
+      dispatch(signupError(pathOr("", ["response", "status"], error)));
     });
 };
 
 export const login = (email, password) => (dispatch) => {
-  dispatch(logInRequest());
+  dispatch(loginRequest());
   const credentials = {
     email,
     password: password.trim(),
@@ -87,14 +80,10 @@ export const login = (email, password) => (dispatch) => {
   loginUserAPI(credentials)
     .then((response) => {
       token.set(response.data.token);
-      dispatch(logInSuccess(response.data));
+      dispatch(loginSuccess(response.data));
     })
     .catch((error) => {
-      const errorMessage = errorHandler(
-        pathOr("", ["response", "status"], error)
-      );
-      console.log(errorMessage);
-      dispatch(logInError(error));
+      dispatch(loginError(pathOr("", ["response", "status"], error)));
     });
 };
 
@@ -111,13 +100,30 @@ export const getCurrentUser = () => (dispatch, getState) => {
     })
     .catch((error) => dispatch(gettingCurrentUserError(error)));
 };
-export const resetPass = (credentials) => (dispatch) => {
+export const resetPass = (token, newPassword) => (dispatch) => {
   dispatch(resetPassRequest());
-  resetPasswordAPI(credentials)
-    .then(() => dispatch(resetPassSuccess()))
-    .catch((err) => {
-      const error = errorHandler(pathOr("", ["response", "status"], err));
-      dispatch(resetPassError(error));
+  resetPasswordAPI(token, newPassword)
+    .then(() => {
+      dispatch(resetPassSuccess());
+      useDispatch(makeSuccessNotification("Пароль успішно змінено"));
+    })
+    .catch((error) => {
+      dispatch(resetPassError(pathOr("", ["response", "status"], error)));
     });
 };
 
+export const sendMail = (email) => (dispatch) => {
+  dispatch(sendEmailRequest());
+  sendEmailAPI(email)
+    .then(() => {
+      dispatch(sendEmailSuccess());
+      dispatch(
+        makeSuccessNotification(
+          "Посилання на відновлення паролю відіслано на Вашу електронну адресу"
+        )
+      );
+    })
+    .catch((error) => {
+      dispatch(sendEmailError(pathOr("", ["response", "status"], error)));
+    });
+};

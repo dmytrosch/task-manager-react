@@ -1,11 +1,11 @@
 import React from "react";
-import Login from "../../components/authComponent/Login";
+import Auth from "../../components/authComponent/Auth";
 import AuthLayout from "../../layouts/AuthLayout";
 
 export default function LoginView() {
   return (
     <AuthLayout>
-      <Login />
+      <Auth />
     </AuthLayout>
   );
 }

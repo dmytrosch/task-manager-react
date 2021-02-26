@@ -18,7 +18,7 @@ import styles from "./Tasks.module.css";
 export default function Task({ sprintId }) {
   const dispatch = useDispatch();
   const [sprintName, setSprintName] = useState(
-    sprintSelector.nameById(sprintId)
+    // sprintSelector.nameById(sprintId)
   );
   const params = useParams();
   const currentSprint = useSelector(currentSprintSelector);

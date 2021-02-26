@@ -1,8 +1,16 @@
 import React, { useEffect } from "react";
+import classNames from "classnames";
 import style from "./Modal.module.css";
 import PropTypes from "prop-types";
 
-export default function Modal({ children, position, onClose, ...props }) {
+export default function Modal({
+  children,
+  position,
+  onClose,
+  type,
+  customModalWindowStyles,
+  ...props
+}) {
   const handleKeyboardCloseWindow = (e) => {
     if (e.code === "Escape") {
       onClose();
@@ -29,12 +37,10 @@ export default function Modal({ children, position, onClose, ...props }) {
       className={style.modalBackdrop}
       onClick={handleClick}
     >
-      <div className={style[position]}>
-        <button
-          type="button"
-          onClick={onClose}
-          className={style.closeBtn}
-        />
+      <div
+        className={classNames(style[position], style[type], ...[customModalWindowStyles])}
+      >
+        <button type="button" onClick={onClose} className={style.closeBtn} />
         {children}
       </div>
     </div>

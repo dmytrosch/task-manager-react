@@ -20,7 +20,8 @@
 
 .right,
 .left,
-.center {
+.center,
+.centerSmall {
   composes: modalBase;
 }
 
@@ -66,6 +67,16 @@
   .center {
     width: 688px;
     height: 340px;
+    padding: 30px 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .centerSmall {
+    width: 400px;
+    height: 230px;
+    padding: 30px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -79,6 +90,10 @@
 
   .center {
     width: 933px;
-    height: 461px;
+    min-height: 461px;
+  }
+
+  .centerSmall {
+    width: 400px;
   }
 }

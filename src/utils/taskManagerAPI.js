@@ -13,23 +13,32 @@ export const logoutUser = () => {
 };
 
 export const verifyEmail = (token) => axios.get(`/auth/verify/${token}`);
-export const resetPassword = (credentials) => {
-  return axios.patch("/auth/reset-password/:resetPasswordToken");
+export const sendEmail = (email) =>
+  axios.post(`/auth/reset-password/request`, email);
+
+export const resetPassword = (token, credentials) => {
+  return axios.patch(`/auth/reset-password/${token}`, credentials);
 };
 
 export const getCurrentUser = () => {
   return axios.get("/users/current");
 };
+export const getCurrentProject = (projectId) =>
+  axios.get(`/projects/${projectId}`);
 export const addProject = (project) => axios.post("/projects/create", project);
 export const deleteProject = (projectId) =>
   axios.delete(`/projects/${projectId}/remove`);
 export const editProjectName = (projectId, name) =>
   axios.patch(`/projects/${projectId}/change-name`, { name });
+export const addParticipantToProject = (projectId, participant) =>
+  axios.patch(`/projects/${projectId}/add-participant`, participant);
 
-export const addSprint = ({ projectId, sprint }) =>
-  axios.post(`/sprints/${projectId}/create`, sprint);
-export const deleteSprint = ({ projectId, sprintId }) =>
-  axios.delete(`/sprints/${projectId}/${sprintId}`);
+export const addSprint = (projectId, sprint) => {
+  console.log("projectid:", projectId, sprint);
+  return axios.post(`/sprints/${projectId}/create`, sprint);
+};
+export const deleteSprint = (projectId, sprintId) =>
+  axios.delete(`/sprints/${projectId}/${sprintId}/remove`);
 
 export const sprintById = (sprintId) => axios.get(`/sprints/${sprintId}`);
 

@@ -16,6 +16,7 @@
   color: #181c27;
   font-size: 18px;
   caret-color: #75727b;
+  font-family: var(--primeFont);
 }
 
 .input:focus {

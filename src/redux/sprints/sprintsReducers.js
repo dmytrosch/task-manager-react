@@ -12,19 +12,21 @@ const byId = createReducer(
       [payload.id]: payload,
     }),
     [sprintsActions.deleteSuccess]: (state, { payload }) => {
-      delete state[payload.id];
-      return { ...state };
+      const newState = { ...state };
+      delete newState[payload];
+      console.log(newState);
+      return newState;
     },
     [sprintsActions.changeNameSuccess]: (state, { payload }) => {
       const { sprintId, newName } = payload;
       state[sprintId].name = newName;
       return { ...state };
     },
-    [projectsActions.byIdSuccess]: (state, { payload }) => {
-      const newSprints = {};
-      payload.sprints.forEach((sprint) => (newSprints[sprint.id] = sprint));
-      return newSprints;
-    },
+    [projectsActions.byIdSuccess]: (state, { payload }) =>
+      payload.sprints.reduce((acc, sprint) => {
+        acc[sprint.id] = sprint;
+        return acc;
+      }, {}),
   }
 );
 
@@ -34,7 +36,7 @@ const allIds = createReducer([], {
     payload.id,
   ],
   [sprintsActions.deleteSuccess]: (state, { payload }) =>
-    state.filter((item) => item !== payload.id),
+    state.filter((item) => item !== payload),
   [projectsActions.byIdSuccess]: (state, { payload }) =>
     payload.sprints.map((sprint) => sprint.id),
 });

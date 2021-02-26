@@ -2,17 +2,23 @@ import { createReducer } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import {
   signupSuccess,
-  logInSuccess,
+  signupError,
+  loginSuccess,
   logoutSuccess,
   logoutError,
+  loginError,
   gettingCurrentUserSuccess,
   gettingCurrentUserError,
+  resetPassSuccess,
+  resetPassError,
+  sendEmailSuccess,
+  sendEmailError,
 } from "./authActions";
 
 const user = createReducer(
   {},
   {
-    [logInSuccess]: (_, { payload }) => payload.user,
+    [loginSuccess]: (_, { payload }) => payload.user,
     [logoutSuccess]: () => ({}),
     [logoutError]: () => ({}),
     [gettingCurrentUserSuccess]: (state, { payload }) => ({
@@ -23,12 +29,40 @@ const user = createReducer(
 );
 const token = createReducer(null, {
   [signupSuccess]: (_, { payload }) => payload.token,
-  [logInSuccess]: (_, { payload }) => payload.token,
+  [loginSuccess]: (_, { payload }) => payload.token,
   [logoutSuccess]: () => null,
   [logoutError]: () => null,
   [gettingCurrentUserError]: () => null,
 });
+const error = createReducer(null, {
+  [loginError]: (_, { payload }) => payload,
+  [loginSuccess]: () => null,
+  [signupError]: (_, { payload }) => payload,
+  [signupSuccess]: () => null,
+  [sendEmailError]: (_, { payload }) => payload,
+  [sendEmailSuccess]: () => null,
+  [resetPassError]: (_, { payload }) => payload,
+  [resetPassSuccess]: () => null,
+});
+const isPasswordChanged = createReducer(null, {
+  [resetPassSuccess]: () => true,
+});
+
+// const resetPassword = createReducer(null, {
+//   [resetPassSuccess]: () => true,
+//   [resetPassError]: () => false,
+// });
+
+// const sendEmailAuth = createReducer(null, {
+//   [sendEmailSuccess]: () => true,
+//   [sendEmailError]: () => false,
+// });
+
 export default combineReducers({
   user,
   token,
+  error,
+  isPasswordChanged,
+  // resetPassword,
+  // sendEmailAuth,
 });

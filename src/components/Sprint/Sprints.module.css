@@ -3,7 +3,6 @@
   min-height: 100vh;
   padding-top: 30px;
   background-color: transparent;
-  font-family: var(--primeFont);
 }
 .wrapper {
   min-width: 100%;
@@ -114,4 +113,8 @@
   .container {
     padding-left: 70px;
   }
+}
+.addSprintText {
+  text-decoration: underline;
+  cursor: pointer;
 }

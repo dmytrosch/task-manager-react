@@ -8,9 +8,9 @@ const signupRequest = createAction("auth/signupRequest");
 const signupSuccess = createAction("auth/signupSuccess");
 const signupError = createAction("auth/signupError");
 
-const logInRequest = createAction("auth/logInRequest");
-const logInSuccess = createAction("auth/logInSuccess");
-const logInError = createAction("auth/logInError");
+const loginRequest = createAction("auth/loginRequest");
+const loginSuccess = createAction("auth/loginSuccess");
+const loginError = createAction("auth/loginError");
 
 const gettingCurrentUserRequest = createAction("user/gettingCurentUserRequest");
 const gettingCurrentUserSuccess = createAction("user/gettingCurentUserSuccess");
@@ -18,14 +18,17 @@ const gettingCurrentUserError = createAction("user/gettingCurentUserError");
 const resetPassRequest = createAction("auth/resetPassRequest");
 const resetPassSuccess = createAction("auth/resetPassSuccess");
 const resetPassError = createAction("auth/resetPassError");
+const sendEmailRequest = createAction("auth/sendEmailRequest");
+const sendEmailSuccess = createAction("auth/sendEmailSuccess");
+const sendEmailError = createAction("auth/sendEmailError");
 
 export {
   signupRequest,
   signupSuccess,
   signupError,
-  logInRequest,
-  logInSuccess,
-  logInError,
+  loginRequest,
+  loginSuccess,
+  loginError,
   logoutRequest,
   logoutSuccess,
   logoutError,
@@ -35,4 +38,7 @@ export {
   resetPassRequest,
   resetPassSuccess,
   resetPassError,
+  sendEmailRequest,
+  sendEmailSuccess,
+  sendEmailError,
 };

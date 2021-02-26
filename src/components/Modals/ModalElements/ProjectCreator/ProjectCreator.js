@@ -9,13 +9,35 @@ import Input from "../../../../common/Input/Input";
 export default function ProjectCreator({ onClose }) {
   const [nameProject, setNameProject] = useState("");
   const [description, setDescription] = useState("");
+  const [errorLengthName, setErrorLengthName] = useState("");
+  const [errorLengthDescription, setErrorLengthDescription] = useState("");
   const dispatch = useDispatch();
-
   const handlerSubmit = (e) => {
     e.preventDefault();
-    dispatch(addProject({ name: nameProject, description }));
-    setNameProject("");
-    setDescription("");
+    if (errorLengthName || errorLengthDescription) return;
+    const project = {
+      name: nameProject,
+      description
+    };
+    // if (description) {
+    //   project.description = description;
+    // }
+    dispatch(addProject(project));
+    onClose();
+  };
+  const handlerNameProjest = (e) => {
+    setNameProject(e.target.value);
+    if (e.target.value.length > 30) {
+      return setErrorLengthName("Максимальна кількість символів 30");
+    }
+    setErrorLengthName(null);
+  };
+  const handlerNameDescription = (e) => {
+    setDescription(e.target.value);
+    if (e.target.value.length > 60) {
+      return setErrorLengthDescription("Максимальна кількість символів 60");
+    }
+    setErrorLengthDescription(null);
   };
 
   return (
@@ -24,21 +46,31 @@ export default function ProjectCreator({ onClose }) {
       <form onSubmit={handlerSubmit}>
         <Input
           type="text"
-          error={false}
+          error={errorLengthName}
           inputClassNames={style.input}
           label="Назва проекту"
-          onChange={(e) => setNameProject(e.target.value)}
+          onChange={handlerNameProjest}
           value={nameProject}
         />
 
         <Input
           type="text"
-          error={false}
+          error={errorLengthDescription}
           inputClassNames={style.descr}
           label="Опис проекту"
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={handlerNameDescription}
           value={description}
         />
+        <label
+          className={
+            errorLengthName || errorLengthDescription
+              ? style.label
+              : style.visuallyHidden
+          }
+          htmlFor="confirmedPassword"
+        >
+          {errorLengthName}
+        </label>
 
         <div className={style.btnWrapper}>
           <Button type="submit" shape="oval">

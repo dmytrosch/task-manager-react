@@ -6,10 +6,8 @@ import animateItem from "../../../styles/animateItem.module.css";
 
 import SprintItem from "../SprintItem/SprintItem";
 
-export default function SprintList({ sprintIds }) {
-  return sprintIds.length === 0 ? (
-    <p className={styles.notSprints}>There are not sprints</p>
-  ) : (
+export default function SprintList({ sprintIds, isOwner, projectId }) {
+  return (
     <TransitionGroup component="ul" className={styles.list}>
       {sprintIds.map((id) => (
         <CSSTransition
@@ -18,8 +16,8 @@ export default function SprintList({ sprintIds }) {
           classNames={animateItem}
           unmountOnExit
         >
-          <li className={styles.item} key={id}>
-            <SprintItem id={id} />
+          <li className={styles.item}>
+            <SprintItem id={id} isOwner={isOwner} projectId={projectId}/>
           </li>
         </CSSTransition>
       ))}

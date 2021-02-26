@@ -8,6 +8,7 @@ import { isMobileSelector } from "../redux/clientWidth/clientWidthSelectors";
 import { isAuthentificatedSelector } from "../redux/auth/authSelectors";
 import { getNotificationSelector } from "../redux/notifications/notificationSelector";
 import { getCurrentUser } from "../redux/auth/authOperations";
+import { isLoading } from "../redux/loading/loadingSelector";
 
 import PublicRoute from "./Routes/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute";
@@ -20,11 +21,15 @@ import ModalAddParticipant from "./Modals/ModalComponents/ModalAddParticipant";
 import ModalCreateProject from "./Modals/ModalComponents/ModalCreateProject";
 import ModalEditProject from "./Modals/ModalComponents/ModalEditProject";
 import ModalChartTable from "./Modals/ModalComponents/ModalChartTable";
+import ModalApproveDeleteProject from "./Modals/ModalComponents/ModalApproveDeleteProject";
+import ModalApproveDeleteSprint from "./Modals/ModalComponents/ModalApproveDeleteSprint";
+import ModalApproveDeleteTask from "./Modals/ModalComponents/ModalApproveDeleteTask";
 
 export default function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(isAuthentificatedSelector);
   const notification = useSelector(getNotificationSelector);
+  console.log(isAuth);
   useEffect(() => {
     dispatch(setClientWidth(document.documentElement.clientWidth));
   }, []);
@@ -33,6 +38,8 @@ export default function App() {
   }, [isAuth]);
 
   // const isMobileMode = useSelector(isMobileSelector);
+
+  const loading = useSelector(isLoading);
   return (
     <>
       <BrowserRouter>
@@ -58,6 +65,10 @@ export default function App() {
       <ModalCreateProject />
       <ModalEditProject />
       <ModalChartTable />
+      <ModalApproveDeleteProject />
+      <ModalApproveDeleteSprint />
+      <ModalApproveDeleteTask />
+      {loading && <Loader />}
     </>
   );
 }

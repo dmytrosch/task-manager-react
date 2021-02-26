@@ -9,6 +9,8 @@ import {
   updateTaskName,
 } from "../../../redux/currentSprint/currentSprintOperations";
 
+import { setModalApproveDeleteTask } from "../../../redux/modal/modalAction";
+
 import styles from "./styles.module.css";
 
 export default function SprintItem({ task }) {

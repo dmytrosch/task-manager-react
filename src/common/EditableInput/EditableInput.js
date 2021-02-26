@@ -19,6 +19,7 @@ export default function EditableInput({
   validationMessage,
   onSave,
   onChange,
+  disable,
 }) {
   return (
     <div className="container">
@@ -32,7 +33,7 @@ export default function EditableInput({
           disabled: false,
           rows: rows,
         }}
-        disable="disable"
+        disable={disable}
         saveButtonContent={<Checkmark />}
         editButtonContent={<Edit />}
         cancelButtonContent={<CrossIcon />}
