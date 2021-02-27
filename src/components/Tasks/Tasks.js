@@ -13,6 +13,7 @@ import * as sprintSelector from "../../redux/sprints/sprintsSelectors";
 import * as currentSprintOperations from "../../redux/currentSprint/currentSprintOperations";
 import { currentSprintSelector } from "../../redux/currentSprint/currentSprintSelectors";
 import { updateSprintName } from "../../redux/sprints/sprintsOperations";
+import { currentTasksSelector } from "../../redux/currentSprint/currentSprintSelectors";
 
 import styles from "./Tasks.module.css";
 
@@ -20,6 +21,16 @@ export default function Task({ sprintId }) {
   const dispatch = useDispatch();
   const params = useParams();
   const currentSprint = useSelector(currentSprintSelector);
+  const task = useSelector(currentTasksSelector);
+  let sprintDuration;
+
+  if (task) {
+    task.map((item) => {
+      const taskLength = item.spendedTime.length;
+      sprintDuration = taskLength;
+    });
+  }
+
   useEffect(() => {
     dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
   }, []);
@@ -49,7 +60,11 @@ export default function Task({ sprintId }) {
     <div className={styles.container}>
       <div className={styles.taskControl}>
         <div className={styles.sliderContainer}>
-          <Slider initialCurrent={1} total={12} callback={handleSlider} />
+          <Slider
+            initialCurrent={1}
+            total={sprintDuration}
+            callback={handleSlider}
+          />
           <span className={styles.date}>2020.02.16</span>
         </div>
         <SearchInput
