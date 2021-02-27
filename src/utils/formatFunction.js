@@ -1,37 +1,47 @@
 export function formatDate(date) {
-    const data = date.split('/');
-    const dataSlice = data.slice(1);
-    console.log(data);
-    console.log(dataSlice);
-    // let monthName = "";
-    switch(dataSlice[0]) {
-        case "1": dataSlice[0] = "Січ";
-            break;
-        case "2": dataSlice[0] = "Люn";
-            break;
-        case "3": dataSlice[0] = "Бер";
-            break;
-        case "4": dataSlice[0] = "Квіт";
-            break;
-        case "5": dataSlice[0] = "Трав";
-            break;
-        case "6": dataSlice[0] = "Черв";
-            break;
-        case "7": dataSlice[0] = "Лип";
-            break;
-        case "8": dataSlice[0] = "Серп";
-            break;
-        case "9": dataSlice[0] = "Вер";
-            break;
-        case "10": dataSlice[0] = "Жовт";
-            break;
-        case "11": dataSlice[0] = "Лист";
-            break;
-        case "12": dataSlice[0] = "Груд";
-            break;
-        default: data[1] = "";
-    }
-    const formatData = dataSlice.join(' ');
-    return formatData;
+  const [year, month, day] = date.split("/");
+  let textMonth;
+  // let monthName = "";
+  switch (month) {
+    case "1":
+      textMonth = "Січ";
+      break;
+    case "2":
+      textMonth = "Лют";
+      break;
+    case "3":
+      textMonth = "Бер";
+      break;
+    case "4":
+      textMonth = "Квіт";
+      break;
+    case "5":
+      textMonth = "Трав";
+      break;
+    case "6":
+      textMonth = "Черв";
+      break;
+    case "7":
+      textMonth = "Лип";
+      break;
+    case "8":
+      textMonth = "Серп";
+      break;
+    case "9":
+      textMonth = "Вер";
+      break;
+    case "10":
+      textMonth = "Жовт";
+      break;
+    case "11":
+      textMonth = "Лист";
+      break;
+    case "12":
+      textMonth = "Груд";
+      break;
+    default:
+      textMonth = "";
+  }
+  const formatData = `${day} ${textMonth}`;
+  return formatData;
 }
-
