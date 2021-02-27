@@ -24,8 +24,6 @@ export default function Task({ sprintId }) {
   const currentSprint = useSelector(currentSprintSelector);
   const task = useSelector(currentTasksSelector);
   let sprintDuration;
-  // let day;
-  console.log("task", task);
 
   if (task) {
     task.map((item) => {
@@ -45,9 +43,7 @@ export default function Task({ sprintId }) {
 
   const handleSlider = (current) => {
     const date = (params.day = current.toString());
-
     dispatch(getCurrentTaskDay(params.sprintId, date));
-
     console.log("dispatch", current);
   };
 
