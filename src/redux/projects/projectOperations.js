@@ -26,15 +26,11 @@ import {
   getCurrentProject as getCurrentProjectAPI,
   addParticipantToProject as addParticipantToProjectAPI,
 } from "../../utils/taskManagerAPI";
-<<<<<<< HEAD
 import {
   makeAlertNotification,
   makeSuccessNotification,
 } from "../notifications/notificationOperations";
-import { error } from "highcharts";
-=======
 import { editProjectDescription } from "../../utils/taskManagerAPI";
->>>>>>> b1
 export const getProjectById = (projectId) => (dispatch) => {
   dispatch(byIdRequest());
   getCurrentProjectAPI(projectId)
@@ -77,6 +73,7 @@ export const addParticipant = (projectId, participant) => (dispatch) => {
         )
       );
     });
+};
 export const editProjectDespription = (projectId, newDescription) => (
   dispatch
 ) => {
