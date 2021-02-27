@@ -23,6 +23,8 @@ export default function Task({ sprintId }) {
   const currentSprint = useSelector(currentSprintSelector);
   const task = useSelector(currentTasksSelector);
   let sprintDuration;
+  // let day;
+  console.log("task", task);
 
   if (task) {
     task.map((item) => {
@@ -36,11 +38,25 @@ export default function Task({ sprintId }) {
   }, []);
   const handleSearchInput = (searchRequest) => {
     // TODO: Connect dispatch
+
     console.log("dispatch", searchRequest);
   };
 
   const handleSlider = (current) => {
-    // TODO: Connect dispatch
+    // if (task) {
+    //   task.map((item) => {
+    //     const taskDay = item.spendedTime;
+    //     taskDay.map((item) => {
+    //       if (item.id + 1 === current) {
+    //         day = item.id;
+    //       }
+    //     });
+    //   });
+    // }
+    // console.log(day + 1);
+    params.day = current.toString();
+    console.log(params);
+
     console.log("dispatch", current);
   };
 

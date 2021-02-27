@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import classNames from 'classnames'
+import classNames from "classnames";
 
 import TasksList from "./TasksList";
 import SearchInput from "../../../common/SearchInput/SearchInput";
@@ -37,7 +37,7 @@ export default function TasksTable() {
           callback={handleSearchInput}
         />
       </div>
-      <TasksList/>
+      <TasksList />
     </div>
   );
 }

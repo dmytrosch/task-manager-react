@@ -13,7 +13,6 @@ import {
 } from "../../../redux/currentSprint/currentSprintSelectors";
 
 export default function TasksList() {
-  const currentSprint = useSelector(currentSprintSelector);
   const currentTasks = useSelector(currentTasksSelector);
 
   return !currentTasks || currentTasks.length === 0 ? (
