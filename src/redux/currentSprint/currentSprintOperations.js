@@ -52,14 +52,3 @@ export const getCurrentSprint = (sprintId) => (dispatch) => {
       dispatch(action.getCurrentSprintError(err));
     });
 };
-
-export const getCurrentTaskDay = (sprintId, day) => (dispatch) => {
-  dispatch(action.getCurrentSprintRequest());
-  send
-    .getCurrentSprint(sprintId, day)
-    .then((response) => dispatch(action.getCurrentSprintSuccess(response.data)))
-    .catch((err) => {
-      console.log(err);
-      dispatch(action.getCurrentSprintError(err));
-    });
-};

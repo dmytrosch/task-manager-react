@@ -5,8 +5,7 @@ const currentSprint = createReducer(
   {},
   {
     [currentSprintActions.getCurrentSprintSuccess]: (_, { payload }) => payload,
-    [currentSprintActions.getCurrentTaskDaySuccess]: (_, { payload }) =>
-      payload,
+
     [currentSprintActions.createTaskSuccess]: (state, { payload }) =>
       void (state.tasks = [payload, ...state.tasks]),
     [currentSprintActions.deleteTaskSuccess]: (state, { payload }) => {

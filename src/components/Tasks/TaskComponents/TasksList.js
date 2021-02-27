@@ -12,7 +12,7 @@ import {
   currentTasksSelector,
 } from "../../../redux/currentSprint/currentSprintSelectors";
 
-export default function TasksList() {
+export default function TasksList({ currentDate }) {
   const currentTasks = useSelector(currentTasksSelector);
 
   return !currentTasks || currentTasks.length === 0 ? (
@@ -26,7 +26,7 @@ export default function TasksList() {
           classNames={animateItem}
           unmountOnExit
         >
-          <TaskItem key={item.id} task={item} />
+          <TaskItem key={item.id} task={item} currentDate={currentDate} />
         </CSSTransition>
       ))}
     </TransitionGroup>

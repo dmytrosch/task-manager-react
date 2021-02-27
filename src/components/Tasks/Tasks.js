@@ -24,11 +24,11 @@ export default function Task({ sprintId }) {
   const currentSprint = useSelector(currentSprintSelector);
   const task = useSelector(currentTasksSelector);
   let sprintDuration;
+  const [currentDate, setCurrentDate] = useState(1);
 
   if (task) {
     task.map((item) => {
-      const taskLength = item.spendedTime.length;
-      sprintDuration = taskLength;
+      sprintDuration = item.spendedTime.length;
     });
   }
 
@@ -36,15 +36,11 @@ export default function Task({ sprintId }) {
     dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
   }, []);
   const handleSearchInput = (searchRequest) => {
-    // TODO: Connect dispatch
-
     console.log("dispatch", searchRequest);
   };
 
   const handleSlider = (current) => {
-    const date = (params.day = current.toString());
-    dispatch(getCurrentTaskDay(params.sprintId, date));
-    console.log("dispatch", current);
+    setCurrentDate(current);
   };
 
   const changeSprintName = (value) => {
@@ -55,7 +51,8 @@ export default function Task({ sprintId }) {
     dispatch(updateSprintName(params.sprintId, newSprintName));
   };
 
-  const openModalTask = () => dispatch(modalAction.setModalCreateTask(true));
+  const openModalTask = () =>
+    dispatch(modalAction.setModalCreateTask(currentSprint.id));
   const openModalChartTable = () =>
     dispatch(modalAction.setModalChartTable(true));
 
@@ -92,7 +89,7 @@ export default function Task({ sprintId }) {
         onClick={openModalChartTable}
       ></IconButton>
 
-      <TasksTable />
+      <TasksTable currentDate={currentDate} />
     </div>
   );
 }

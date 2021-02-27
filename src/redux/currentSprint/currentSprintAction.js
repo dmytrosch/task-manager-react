@@ -48,17 +48,7 @@ const getTaskbyIdRequest = createAction("currentSprint/getTaskByIdRequest");
 const getTaskbyIdSuccess = createAction("currentSprint/getTaskByIdSuccess");
 const getTaskbyIdError = createAction("currentSprint/getTaskByIdError");
 
-const getCurrentTaskDayRequest = createAction(
-  "currentSprint/getCurrentTaskDayRequest"
-);
-const getCurrentTaskDaySuccess = createAction(
-  "currentSprint/getCurrentTaskDaySuccess"
-);
-const getCurrentTaskDayError = createAction(
-  "currentSprint/getCurrentTaskDayError"
-);
-
-export default {
+const currentSprintActions = {
   createTaskRequest,
   createTaskSuccess,
   createTaskError,
@@ -80,7 +70,6 @@ export default {
   getCurrentSprintRequest,
   getCurrentSprintSuccess,
   getCurrentSprintError,
-  getCurrentTaskDayRequest,
-  getCurrentTaskDaySuccess,
-  getCurrentTaskDayError,
 };
+
+export default currentSprintActions;

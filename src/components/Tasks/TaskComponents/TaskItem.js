@@ -14,10 +14,10 @@ import { setModalApproveDeleteTask } from "../../../redux/modal/modalAction";
 
 import styles from "./styles.module.css";
 
-export default function SprintItem({ task }) {
+export default function SprintItem({ task, currentDate }) {
   // const { name, ScheduledHours, hoursSpent } = useSelector(getSprintById(id));
   const params = useParams();
-  const currentDay = params.day - 1;
+  const currentDay = currentDate - 1;
   const sprintId = params.sprintId;
   const dispatch = useDispatch();
 
