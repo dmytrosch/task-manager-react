@@ -28,9 +28,11 @@ export default function Sprint({ projectId }) {
     dispatch(modalAction.setModalAddParticipant(projectId));
   const addSprint = () => dispatch(modalAction.setModalCreateSprint(projectId));
   const changeProjectName = (newName) => {
+    if (name === newName) return;
     dispatch(editProjectName(projectId, newName));
   };
   const changeProjectDescription = (newDescription) => {
+    if (description === newDescription) return;
     dispatch(editProjectDespription(projectId, newDescription));
   };
   return (
