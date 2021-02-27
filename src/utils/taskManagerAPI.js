@@ -61,3 +61,6 @@ export const searchTasksByName = (sprintId, query) =>
   axios.get(`/tasks/${sprintId}/${query}`);
 
 export const getCurrentSprint = (sprintId) => axios.get(`/sprints/${sprintId}`);
+
+export const getCurrentTaskDay = (sprintId, day) =>
+  axios.get(`/sprints/${sprintId}/tasks/${day}`);

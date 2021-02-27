@@ -5,11 +5,13 @@ const currentSprint = createReducer(
   {},
   {
     [currentSprintActions.getCurrentSprintSuccess]: (_, { payload }) => payload,
+    [currentSprintActions.getCurrentTaskDaySuccess]: (_, { payload }) =>
+      payload,
     [currentSprintActions.createTaskSuccess]: (state, { payload }) =>
-      void((state.tasks = [payload, ...state.tasks])),
+      void (state.tasks = [payload, ...state.tasks]),
     [currentSprintActions.deleteTaskSuccess]: (state, { payload }) => {
       const items = state.tasks.filter((item) => item.id !== payload);
-      return void(state.tasks = items);
+      return void (state.tasks = items);
     },
     [currentSprintActions.changeTaskNameSuccess]: (state, { payload }) => {
       const items = state.tasks.map((item) => {
@@ -19,7 +21,7 @@ const currentSprint = createReducer(
         return item;
       });
 
-      return void(state.tasks = items);
+      return void (state.tasks = items);
     },
   }
 );

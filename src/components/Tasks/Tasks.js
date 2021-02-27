@@ -14,6 +14,7 @@ import * as currentSprintOperations from "../../redux/currentSprint/currentSprin
 import { currentSprintSelector } from "../../redux/currentSprint/currentSprintSelectors";
 import { updateSprintName } from "../../redux/sprints/sprintsOperations";
 import { currentTasksSelector } from "../../redux/currentSprint/currentSprintSelectors";
+import { getCurrentTaskDay } from "../../redux/currentSprint/currentSprintOperations";
 
 import styles from "./Tasks.module.css";
 
@@ -43,19 +44,9 @@ export default function Task({ sprintId }) {
   };
 
   const handleSlider = (current) => {
-    // if (task) {
-    //   task.map((item) => {
-    //     const taskDay = item.spendedTime;
-    //     taskDay.map((item) => {
-    //       if (item.id + 1 === current) {
-    //         day = item.id;
-    //       }
-    //     });
-    //   });
-    // }
-    // console.log(day + 1);
-    params.day = current.toString();
-    console.log(params);
+    const date = (params.day = current.toString());
+
+    dispatch(getCurrentTaskDay(params.sprintId, date));
 
     console.log("dispatch", current);
   };
