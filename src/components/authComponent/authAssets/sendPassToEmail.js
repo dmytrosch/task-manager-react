@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import validator from "validator";
 import style from "../styles.module.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Input from "../../../common/Input/Input";
@@ -15,10 +15,19 @@ export default function SendEmail({ setVissible }) {
   const [errMessEmail, setErrMessEmail] = useState(null);
   const location = useLocation();
   const dispatch = useDispatch();
-  const errorMessage = useSelector(getResultSendingEmail);
+  const history = useHistory();
+  const errorMsg = useSelector(getResultSendingEmail);
+  let id = null;
+  function clickEvent(e) {
+    if (e.target.nodeName !== "INPUT" || emailAdress === "") {
+      dispatch(sendEmailSuccess(null));
+      setErrMessEmail(null);
+    }
+  }
   useEffect(() => {
     return () => {
       dispatch(sendEmailSuccess(null));
+      clearTimeout(id);
     };
   }, []);
   function submitFormHeandler(e) {
@@ -26,6 +35,10 @@ export default function SendEmail({ setVissible }) {
     if (errMessEmail) return;
     dispatch(sendMail({ email: emailAdress }));
     setEmailAdress(null);
+    setEmailAdress("");
+    id = setTimeout(() => {
+      history.replace("/loginn");
+    }, 3000);
   }
   function onChangeEmail(e) {
     setEmailAdress(e.target.value);
@@ -33,9 +46,10 @@ export default function SendEmail({ setVissible }) {
       return setErrMessEmail("Введіть коректний email");
     }
     setErrMessEmail(null);
+    dispatch(sendEmailSuccess(null));
   }
   return (
-    <div className={style.formContainer}>
+    <div onClick={(e) => clickEvent(e)} className={style.formContainer}>
       <div className={style.inputContainer}>
         <h2 className={style.title}> Вiдновлення паролю </h2>
         <p className={style.subtitle}>Введіть email адресу користувача. </p>
@@ -49,10 +63,10 @@ export default function SendEmail({ setVissible }) {
             errorMessage={errMessEmail}
           />
           <label
-            className={errorMessage ? style.label : style.visuallyHidden}
+            className={errorMsg ? style.labelSend : style.visuallyHidden}
             htmlFor="confirmedPassword"
           >
-            Користувача з таким e-mail не існує
+            {errorMsg === 404 && "Користувача з таким e-mail не існує"}
           </label>
 
           <div className={style.btnSubmit}>
