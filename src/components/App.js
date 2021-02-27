@@ -33,7 +33,7 @@ export default function App() {
   useEffect(() => {
     dispatch(setClientWidth(document.documentElement.clientWidth));
   }, []);
-  
+
   useEffect(() => {
     isAuth && dispatch(getCurrentUser());
   }, [isAuth]);

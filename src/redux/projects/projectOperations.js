@@ -78,9 +78,7 @@ export const editProjectDespription = (projectId, newDescription) => (
   dispatch
 ) => {
   dispatch(changeProjectDescRequest());
-  editProjectDescription(projectId, newDescription).then((response) =>
-    dispatch(changeProjectDescSuccess(response.data)).catch(() =>
-      dispatch(changeProjectDescError())
-    )
-  );
+  editProjectDescription(projectId, newDescription)
+    .then((response) => dispatch(changeProjectDescSuccess(response.data)))
+    .catch(() => dispatch(changeProjectDescError()));
 };

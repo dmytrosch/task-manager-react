@@ -27,9 +27,13 @@ export default function SendEmail({ setVissible }) {
   useEffect(() => {
     return () => {
       dispatch(sendEmailSuccess(null));
+      dispatch(setErrMessEmail(null));
       clearTimeout(id);
     };
   }, []);
+  useEffect(() => {
+    errorMsg && dispatch(setErrMessEmail(null));
+  }, [emailAdress]);
   function submitFormHeandler(e) {
     e.preventDefault();
     if (errMessEmail) return;
@@ -37,7 +41,7 @@ export default function SendEmail({ setVissible }) {
     setEmailAdress(null);
     setEmailAdress("");
     id = setTimeout(() => {
-      history.replace("/loginn");
+      history.replace("/login");
     }, 3000);
   }
   function onChangeEmail(e) {

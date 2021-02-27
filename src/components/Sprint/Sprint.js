@@ -49,7 +49,7 @@ export default function Sprint({ projectId }) {
               />
             </h2>
             {description && (
-              <p className={styles.description}>
+              <div className={styles.description}>
                 <EditableInput
                   value={description}
                   disable={!isOwner}
@@ -57,7 +57,7 @@ export default function Sprint({ projectId }) {
                   type="textarea"
                   onSave={changeProjectDescription}
                 />
-              </p>
+              </div>
             )}
           </div>
           <div className={styles.box}>

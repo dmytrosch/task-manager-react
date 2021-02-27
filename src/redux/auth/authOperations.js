@@ -98,7 +98,7 @@ export const getCurrentUser = () => (dispatch, getState) => {
     .then((response) => {
       dispatch(gettingCurrentUserSuccess(response.data));
     })
-    .catch((error) => dispatch(gettingCurrentUserError(error)));
+    .catch((error) => dispatch(gettingCurrentUserError()));
 };
 export const resetPass = (token, newPassword) => (dispatch) => {
   dispatch(resetPassRequest());
