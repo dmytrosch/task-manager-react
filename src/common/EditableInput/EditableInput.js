@@ -20,7 +20,6 @@ export default function EditableInput({
   onSave,
   disable,
 }) {
-  console.log(disable, "disable");
   return (
     <div className="container">
       <EdiText
