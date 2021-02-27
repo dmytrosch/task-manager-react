@@ -23,6 +23,14 @@ export default function Signup({ setVissible }) {
       dispatch(signupError(null));
     };
   }, []);
+  const clickEvent = (e) => {
+    if (e.target.nodeName !== "INPUT") {
+      dispatch(signupError(null));
+      setErrMesEmail(null);
+      setErrMesPassword(null);
+      setErrMesConfirmedPassword(null);
+    }
+  };
 
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -59,58 +67,63 @@ export default function Signup({ setVissible }) {
   };
 
   return (
-    <section className={style.container}>
-      <div className={style.formContainer}>
-        <p className={style.title}>Реєстрація</p>
-        <form className={style.form} onSubmit={handlerSubmit}>
-          <div className={style.inputContainerSingup}>
-            <Input
-              label={"E-mail"}
-              type={"text"}
-              error={errMesEmail}
-              value={email}
-              onChange={onChangeEmail}
-              errorMessage={errMesEmail}
-            />
-          </div>
+    <div onClick={(e) => clickEvent(e)} className={style.formContainer}>
+      <p className={style.title}>Реєстрація</p>
+      <form className={style.form} onSubmit={handlerSubmit}>
+        <div className={style.inputContainerSingup}>
+          <Input
+            label={"E-mail"}
+            type={"text"}
+            error={errMesEmail}
+            value={email}
+            onChange={onChangeEmail}
+            errorMessage={errMesEmail}
+          />
+        </div>
 
-          <div className={style.inputContainerSingup}>
-            <Input
-              label={"Пароль"}
-              error={errMesPassword}
-              type="password"
-              value={password}
-              onChange={onChangePassword}
-              errorMessage={errMesPassword}
-            />
-          </div>
-          <div className={style.inputContainerSingup}>
-            <Input
-              label={"Повторіть пароль"}
-              error={errMesConfirmedPassword}
-              type="password"
-              value={confirmedPassword}
-              onChange={onChangeСonfirmedPassword}
-              errorMessage={errMesConfirmedPassword}
-              id="confirmedPassword"
-            />
-          </div>
-          <label
-            className={errorMessage ? style.label : style.visuallyHidden}
-            htmlFor="confirmedPassword"
-          >
-            {errorMessage}
-          </label>
+        <div className={style.inputContainerSingup}>
+          <Input
+            label={"Пароль"}
+            error={errMesPassword}
+            type="password"
+            value={password}
+            onChange={onChangePassword}
+            errorMessage={errMesPassword}
+          />
+        </div>
+        <div className={style.inputContainerSingup}>
+          <Input
+            label={"Повторіть пароль"}
+            error={errMesConfirmedPassword}
+            type="password"
+            value={confirmedPassword}
+            onChange={onChangeСonfirmedPassword}
+            errorMessage={errMesConfirmedPassword}
+            id="confirmedPassword"
+          />
+        </div>
+        <label
+          className={errorMessage ? style.label : style.visuallyHidden}
+          htmlFor="confirmedPassword"
+        >
+          {errorMessage}
+        </label>
 
-          <Button type="submit">Зареєструватися</Button>
-        </form>
-        <p className={style.subtitle}>
-          Маєте акаунт? &nbsp;
-          <NavLink to="/login" className={style.NavLink}>
-            Увійти
-          </NavLink>
-        </p>
-      </div>
-    </section>
+        <Button type="submit">Зареєструватися</Button>
+      </form>
+      <p className={style.subtitle}>
+        Маєте акаунт? &nbsp;
+        <NavLink to="/login" className={style.NavLink}>
+          Увійти
+        </NavLink>
+      </p>
+      <NavLink
+        to="/signup"
+        onClick={setVissible}
+        className={style.forgotPassLink}
+      >
+        Забули пароль?
+      </NavLink>
+    </div>
   );
 }

@@ -78,11 +78,20 @@
     line-height: 14px;
     color: var(--greyColor);
   }
+
+  .labelSend {
+    bottom: 65px;
+    left: 5px;
+    font-size: 14px;
+    line-height: 14px;
+    color: var(--greyColor);
+  }
   .title {
     font-weight: 500;
     font-size: 26px;
     line-height: 32px;
     padding: 47px 0px 30px 0px;
+    color: var(--blackColor);
   }
   .titleSignup {
     font-weight: 500;
@@ -94,7 +103,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 14.5px;
-    margin-top: 18px;
+    margin: 12px;
     color: var(--greyColor);
   }
   .NavLink {
@@ -106,10 +115,10 @@
     color: var(--greyColor);
     display: inline-block;
     font-size: 12px;
-    width: 105px;
+    width: 118px;
     text-align: center;
     display: block;
-    margin: 15px auto 0px;
+    margin: 25px auto 0px;
     border-bottom: 1px solid var(--greyColor);
   }
   .thirdNew {
@@ -136,6 +145,7 @@
   }
   .formContainer {
     height: 100%;
+    padding-top: 46px;
   }
   .form {
     display: flex;
@@ -156,6 +166,7 @@
   .title {
     font-size: 36px;
     padding: 30px 0px 30px 0px;
+    color: var();
   }
   .titleSignup {
     padding: 63px 0px 30px 0px;
