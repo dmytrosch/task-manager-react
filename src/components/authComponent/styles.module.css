@@ -95,6 +95,7 @@
     font-size: 12px;
     line-height: 14.5px;
     margin-top: 18px;
+    padding: 0 10px 5px 10px;
     color: var(--greyColor);
   }
   .NavLink {
@@ -106,7 +107,7 @@
     color: var(--greyColor);
     display: inline-block;
     font-size: 12px;
-    width: 105px;
+    width: 110px;
     text-align: center;
     display: block;
     margin: 15px auto 0px;

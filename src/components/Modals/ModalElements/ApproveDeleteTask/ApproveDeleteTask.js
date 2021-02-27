@@ -28,7 +28,7 @@ export default function ApproveDeleteProject({ onClose }) {
         {/* TODO: подключить нижнюю строчку */}
         {/* <p className={styles.itemName}>{task.name}</p> */}
         <div className={styles.controlContainer}>
-          <Button buttonCustomClass={styles.btn} onClick={handleDelete}>
+          <Button color = "white" buttonCustomClass={styles.btn} onClick={handleDelete}>
             Видалити
           </Button>
           <Button buttonCustomClass={styles.btn} onClick={onClose}>

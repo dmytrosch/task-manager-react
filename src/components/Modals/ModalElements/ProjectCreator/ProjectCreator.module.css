@@ -1,4 +1,3 @@
-
 .visuallyHidden {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -19,6 +18,8 @@
   font-size: 36px;
   line-height: 44px;
   margin-bottom: 50px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
 }
 .input::placeholder {
   font-size: 18px;
@@ -60,7 +61,6 @@
 .btnWrapper {
   padding-top: 40px;
 }
-
 
 @media (min-width: 768px) {
   .label {
