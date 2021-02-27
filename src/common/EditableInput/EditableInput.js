@@ -22,36 +22,40 @@ export default function EditableInput({
 }) {
   return (
     <div className="container">
-      <EdiText
-        type={type}
-        viewProps={{
-          className: styles[viewStyle],
-        }}
-        inputProps={{
-          className: styles[inputStyle],
-          disabled: disable,
-          rows: rows,
-        }}
-        saveButtonContent={<Checkmark />}
-        editButtonContent={<Edit />}
-        cancelButtonContent={<CrossIcon />}
-        saveButtonClassName={classNames(styles[button], styles.applyСancel)}
-        cancelButtonClassName={classNames(styles[button], styles.applyСancel)}
-        editButtonClassName={classNames(
-          styles[button],
-          styles[styleInputNumber]
-        )}
-        submitOnEnter
-        submitOnUnfocus
-        cancelOnEscape
-        editOnViewClick={true}
-        hideIcons={true}
-        startEditingOnFocus
-        value={value}
-        onSave={onSave}
-        validationMessage={validationMessage}
-        validation={validation}
-      />
+      {disable ? (
+        <p className={styles[viewStyle]}>{value}</p>
+      ) : (
+        <EdiText
+          type={type}
+          viewProps={{
+            className: styles[viewStyle],
+          }}
+          inputProps={{
+            className: styles[inputStyle],
+            disabled: disable,
+            rows: rows,
+          }}
+          saveButtonContent={<Checkmark />}
+          editButtonContent={<Edit />}
+          cancelButtonContent={<CrossIcon />}
+          saveButtonClassName={classNames(styles[button], styles.applyСancel)}
+          cancelButtonClassName={classNames(styles[button], styles.applyСancel)}
+          editButtonClassName={classNames(
+            styles[button],
+            styles[styleInputNumber]
+          )}
+          submitOnEnter
+          submitOnUnfocus
+          cancelOnEscape
+          editOnViewClick={true}
+          hideIcons={true}
+          startEditingOnFocus
+          value={value}
+          onSave={onSave}
+          validationMessage={validationMessage}
+          validation={validation}
+        />
+      )}
     </div>
   );
 }

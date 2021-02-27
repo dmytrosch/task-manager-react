@@ -45,6 +45,7 @@ export default function Sprint({ projectId }) {
                 disable={!isOwner}
                 value={name}
                 onSave={changeProjectName}
+                type="text"
               />
             </h2>
             {description && (
