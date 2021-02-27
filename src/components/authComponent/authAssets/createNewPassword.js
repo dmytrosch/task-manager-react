@@ -3,7 +3,10 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { resetPass } from "../../../redux/auth/authOperations";
-import { getUpdatePasswordResult, isPasswordChangedSelector } from "../../../redux/auth/authSelectors";
+import {
+  resetPasswordErrorSelector,
+  isPasswordChangedSelector,
+} from "../../../redux/auth/authSelectors";
 import Input from "../../../common/Input/Input";
 import Button from "../../../common/Button/Button";
 import classNames from "classnames";
@@ -14,46 +17,50 @@ export default function CreaterNewPassword() {
   const qweryParams = useParams();
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
-  const [errMesPassword, setErrMesPassword] = useState(null);
-  const [errMesConfirmedPassword, setErrMesConfirmedPassword] = useState(null);
-  const errorMessage = useSelector(getUpdatePasswordResult);
-  const isPasswordChanged = useSelector(isPasswordChangedSelector)
+  const [passwordError, setPasswordError] = useState(null);
+  const [confirmedPasswordError, setConfirmedPasswordError] = useState(null);
+  const errorMessage = useSelector(resetPasswordErrorSelector);
+  const isPasswordChanged = useSelector(isPasswordChangedSelector);
   const dispatch = useDispatch();
-  useEffect(() => {
-    return () => {
-      dispatch(resetPassError(null))
-    };
-  }, []);
+  const resetError = () => {
+    errorMessage && dispatch(resetPassError(null));
+  };
+  const resetErrorOnClick = (e) => {
+    if (e.target.nodeName !== "INPUT") {
+      resetError();
+    }
+  };
   const onChangePassword = (e) => {
     setPassword(e.target.value);
     if (e.target.value.length < 8) {
-      return setErrMesPassword("Мінімум 8 символів");
+      return setPasswordError("Мінімум 8 символів");
     }
-    setErrMesPassword(null);
+    setPasswordError(null);
   };
 
   const onChangeСonfirmedPassword = (e) => {
     setConfirmedPassword(e.target.value);
     if (password !== e.target.value) {
-      return setErrMesConfirmedPassword("Паролі не співпадають");
+      return setConfirmedPasswordError("Паролі не співпадають");
     }
-    setErrMesConfirmedPassword(null);
+    setConfirmedPasswordError(null);
   };
   const handlerSubmit = (e) => {
     e.preventDefault();
     if (password !== confirmedPassword) {
-      return setErrMesConfirmedPassword("Паролі не співпадають");
+      return setConfirmedPasswordError("Паролі не співпадають");
     }
-    if (errMesPassword || errMesConfirmedPassword) return;
+    if (passwordError || confirmedPasswordError) return;
     dispatch(
       resetPass(qweryParams.resetPasswordToken, { password: confirmedPassword })
     );
+    resetError();
     setPassword(null);
     setConfirmedPassword(null);
   };
   return (
     <section className={style.container}>
-      <div className={style.formContainer}>
+      <div className={style.formContainer} onClick={resetErrorOnClick}>
         {!isPasswordChanged ? (
           <>
             {" "}
@@ -62,21 +69,21 @@ export default function CreaterNewPassword() {
               <div className={style.inputContainerSingup}>
                 <Input
                   label={"Пароль"}
-                  error={errMesPassword}
+                  error={passwordError}
                   type="password"
                   value={password}
                   onChange={onChangePassword}
-                  errorMessage={errMesPassword}
+                  errorMessage={passwordError}
                 />
               </div>
               <div className={style.inputContainerSingup}>
                 <Input
                   label={"Повторіть пароль"}
-                  error={errMesConfirmedPassword}
+                  error={confirmedPasswordError}
                   type="password"
                   value={confirmedPassword}
                   onChange={onChangeСonfirmedPassword}
-                  errorMessage={errMesConfirmedPassword}
+                  errorMessage={confirmedPasswordError}
                   id="confirmedPassword"
                 />
               </div>

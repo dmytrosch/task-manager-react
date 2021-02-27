@@ -17,9 +17,9 @@ import {
   resetPassRequest,
   resetPassSuccess,
   resetPassError,
-  sendEmailRequest,
-  sendEmailSuccess,
-  sendEmailError,
+  sendEmailToResetPasswordRequest,
+  sendEmailToResetPasswordSuccess,
+  sendEmailToResetPasswordError,
 } from "./authActions";
 import {
   createUser as createUserAPI,
@@ -113,10 +113,10 @@ export const resetPass = (token, newPassword) => (dispatch) => {
 };
 
 export const sendMail = (email) => (dispatch) => {
-  dispatch(sendEmailRequest());
+  dispatch(sendEmailToResetPasswordRequest());
   sendEmailAPI(email)
     .then(() => {
-      dispatch(sendEmailSuccess());
+      dispatch(sendEmailToResetPasswordSuccess());
       dispatch(
         makeSuccessNotification(
           "Посилання на відновлення паролю відіслано на Вашу електронну адресу"
@@ -124,6 +124,8 @@ export const sendMail = (email) => (dispatch) => {
       );
     })
     .catch((error) => {
-      dispatch(sendEmailError(pathOr("", ["response", "status"], error)));
+      dispatch(
+        sendEmailToResetPasswordError(pathOr("", ["response", "status"], error))
+      );
     });
 };

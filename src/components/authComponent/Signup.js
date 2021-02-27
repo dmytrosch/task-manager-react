@@ -6,60 +6,55 @@ import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
 import { signup } from "../../redux/auth/authOperations";
 import validator from "validator";
-import { errorMessageSelector } from "../../redux/auth/authSelectors";
+import { signupErrorSelector } from "../../redux/auth/authSelectors";
 import { signupError } from "../../redux/auth/authActions";
 
 export default function Signup({ setVissible }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
-  const [errMesEmail, setErrMesEmail] = useState(null);
-  const [errMesPassword, setErrMesPassword] = useState(null);
-  const [errMesConfirmedPassword, setErrMesConfirmedPassword] = useState(null);
-  const errorMessage = useSelector(errorMessageSelector);
+  const [emailError, setEmailError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
+  const [confirmedPasswordError, setConfirmedPasswordError] = useState(null);
+  const errorMessage = useSelector(signupErrorSelector);
   const dispatch = useDispatch();
-  useEffect(() => {
-    return () => {
-      dispatch(signupError(null));
-    };
-  }, []);
-  const clickEvent = (e) => {
+  const resetError = () => {
+    errorMessage && dispatch(signupError(null));
+  };
+  const resetErrorOnClick = (e) => {
     if (e.target.nodeName !== "INPUT") {
-      dispatch(signupError(null));
-      setErrMesEmail(null);
-      setErrMesPassword(null);
-      setErrMesConfirmedPassword(null);
+      resetError();
     }
   };
 
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
     if (!validator.isEmail(e.target.value)) {
-      return setErrMesEmail("Введіть коректний email");
+      return setEmailError("Введіть коректний email");
     }
-    setErrMesEmail(null);
+    setEmailError(null);
   };
   const onChangePassword = (e) => {
     setPassword(e.target.value);
     if (e.target.value.length < 8) {
-      return setErrMesPassword("Пароль повинен містити не менше 8 символів");
+      return setPasswordError("Пароль повинен містити не менше 8 символів");
     }
-    setErrMesPassword(null);
+    setPasswordError(null);
   };
 
   const onChangeСonfirmedPassword = (e) => {
     setConfirmedPassword(e.target.value);
     if (password !== e.target.value) {
-      return setErrMesConfirmedPassword("Паролі не співпадають");
+      return setConfirmedPasswordError("Паролі не співпадають");
     }
-    setErrMesConfirmedPassword(null);
+    setConfirmedPasswordError(null);
   };
   const handlerSubmit = (e) => {
     e.preventDefault();
     if (password !== confirmedPassword) {
-      return setErrMesConfirmedPassword("Паролі не співпадають");
+      return setConfirmedPasswordError("Паролі не співпадають");
     }
-    if (errMesEmail || errMesPassword || errMesConfirmedPassword) return;
+    if (emailError || passwordError || confirmedPasswordError) return;
     dispatch(signup(email, password));
     setEmail("");
     setPassword("");
@@ -67,38 +62,42 @@ export default function Signup({ setVissible }) {
   };
 
   return (
-    <div onClick={(e) => clickEvent(e)} className={style.formContainer}>
+    <div onClick={resetErrorOnClick} className={style.formContainer}>
       <p className={style.title}>Реєстрація</p>
-      <form className={style.form} onSubmit={handlerSubmit}>
+      <form
+        className={style.form}
+        onSubmit={handlerSubmit}
+        onChange={() => resetError()}
+      >
         <div className={style.inputContainerSingup}>
           <Input
             label={"E-mail"}
             type={"text"}
-            error={errMesEmail}
+            error={emailError || errorMessage}
             value={email}
             onChange={onChangeEmail}
-            errorMessage={errMesEmail}
+            errorMessage={emailError}
           />
         </div>
 
         <div className={style.inputContainerSingup}>
           <Input
             label={"Пароль"}
-            error={errMesPassword}
+            error={passwordError || errorMessage}
             type="password"
             value={password}
             onChange={onChangePassword}
-            errorMessage={errMesPassword}
+            errorMessage={passwordError}
           />
         </div>
         <div className={style.inputContainerSingup}>
           <Input
             label={"Повторіть пароль"}
-            error={errMesConfirmedPassword}
+            error={confirmedPasswordError || errorMessage}
             type="password"
             value={confirmedPassword}
             onChange={onChangeСonfirmedPassword}
-            errorMessage={errMesConfirmedPassword}
+            errorMessage={confirmedPasswordError}
             id="confirmedPassword"
           />
         </div>

@@ -11,8 +11,8 @@ import {
   gettingCurrentUserError,
   resetPassSuccess,
   resetPassError,
-  sendEmailSuccess,
-  sendEmailError,
+  sendEmailToResetPasswordSuccess,
+  sendEmailToResetPasswordError,
 } from "./authActions";
 
 const user = createReducer(
@@ -34,34 +34,44 @@ const token = createReducer(null, {
   [logoutError]: () => null,
   [gettingCurrentUserError]: () => null,
 });
-const error = createReducer(null, {
-  [loginError]: (_, { payload }) => payload,
-  [loginSuccess]: () => null,
-  [signupError]: (_, { payload }) => payload,
-  [signupSuccess]: () => null,
-  [sendEmailError]: (_, { payload }) => payload,
-  [sendEmailSuccess]: () => null,
-  [resetPassError]: (_, { payload }) => payload,
-  [resetPassSuccess]: () => null,
-});
+// const error = createReducer(null, {
+//   [loginSuccess]: () => null,
+
+//   [signupSuccess]: () => null,
+//   [sendEmailToResetPasswordSuccess]: () => null,
+
+//   [resetPassSuccess]: () => null,
+// });
 const isPasswordChanged = createReducer(null, {
   [resetPassSuccess]: () => true,
 });
-
-// const resetPassword = createReducer(null, {
-//   [resetPassSuccess]: () => true,
-//   [resetPassError]: () => false,
-// });
+const login = createReducer(null, {
+  [loginError]: (_, { payload }) => payload,
+});
+const signup = createReducer(null, {
+  [signupError]: (_, { payload }) => payload,
+});
+const resetPasswordRequest = createReducer(null, {
+  [sendEmailToResetPasswordError]: (_, { payload }) => payload,
+});
+const resetPassword = createReducer(null, {
+  [resetPassError]: (_, { payload }) => payload,
+});
 
 // const sendEmailAuth = createReducer(null, {
-//   [sendEmailSuccess]: () => true,
-//   [sendEmailError]: () => false,
+//   [sendEmailToResetPasswordSuccess]: () => true,
+//   [sendEmailToResetPasswordError]: () => false,
 // });
 
 export default combineReducers({
   user,
   token,
-  error,
+  errors: combineReducers({
+    login,
+    signup,
+    resetPasswordRequest,
+    resetPassword,
+  }),
   isPasswordChanged,
   // resetPassword,
   // sendEmailAuth,

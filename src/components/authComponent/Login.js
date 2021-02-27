@@ -5,53 +5,64 @@ import style from "./styles.module.css";
 import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
 import { login } from "../../redux/auth/authOperations";
-import { errorMessageSelector } from "../../redux/auth/authSelectors";
+import { loginErrorSelector } from "../../redux/auth/authSelectors";
 import { loginError } from "../../redux/auth/authActions";
+import validator from "validator";
 
 export default function Login({ setVissible }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const errorMessage = useSelector(errorMessageSelector);
-  function ClickEvent(e) {
-    if (e.target.nodeName !== "INPUT" || email === "" || password === "") {
-      dispatch(loginError(null));
-    }
-  }
+  const [emailError, setEmailError] = useState(null);
+  const errorMessage = useSelector(loginErrorSelector);
   const dispatch = useDispatch();
-  useEffect(() => {
-    return () => {
-      dispatch(loginError(null));
-    };
-  }, []);
+  const resetError = () => {
+    errorMessage && dispatch(loginError(null));
+  };
+  const resetErrorOnClick = (e) => {
+    if (e.target.nodeName !== "INPUT") {
+      resetError();
+    }
+  };
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value);
+    if (!validator.isEmail(e.target.value)) {
+      return setEmailError("Введіть коректний email");
+    }
+    setEmailError(null);
+  };
   const handlerSubmit = (e) => {
     e.preventDefault();
+    if (emailError) return;
     dispatch(login(email, password));
     setEmail("");
     setPassword("");
-    dispatch(loginError(null));
+    resetError();
   };
   return (
-    <div onClick={(e) => ClickEvent(e)} className={style.formContainer}>
+    <div onClick={resetErrorOnClick} className={style.formContainer}>
       <p className={style.title}>Вхід</p>
-      <form className={style.form} onSubmit={handlerSubmit}>
+      <form
+        className={style.form}
+        onSubmit={handlerSubmit}
+        onChange={() => resetError()}
+      >
         <div className={style.inputContainer}>
           <Input
             label={"E-mail"}
             value={email}
-            error={errorMessage}
-            onChange={(e) => setEmail(e.target.value)}
+            error={emailError || errorMessage}
+            onChange={onChangeEmail}
             type={"text"}
-            // errorMessage={errorMessage}
+            errorMessage={emailError}
           />
         </div>
         <div className={style.inputContainer}>
           <Input
             label={"Пароль"}
-            error={errorMessage}
             type={"password"}
+            error={errorMessage}
             onChange={(e) => setPassword(e.target.value)}
             value={password}
-            // errorMessage={"Невірний пароль"}
           />
         </div>
 

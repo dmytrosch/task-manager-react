@@ -3,7 +3,7 @@ import style from "./styles.module.css";
 import classNames from "classnames";
 import Login from "./Login";
 import Signup from "./Signup";
-import SendEmail from "./authAssets/sendPassToEmail";
+import ResetPasswordRequest from "./authAssets/ResetPasswordRequest";
 import { useLocation } from "react-router-dom";
 
 export default function Auth() {
@@ -30,7 +30,7 @@ export default function Auth() {
         </div>
         <div className={style.back}>
           <div className={style.inner}>
-            <SendEmail setVissible={setVissible} />
+            <ResetPasswordRequest setVissible={setVissible} />
           </div>
         </div>
       </div>

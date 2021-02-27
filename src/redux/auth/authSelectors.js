@@ -7,15 +7,28 @@ export const getUserNameSelector = (state) => {
   const [username, _] = email.split("@");
   return username;
 };
-
-export const errorMessageSelector = (state) => {
-  const errorStatus = state.app.auth.error;
-  return errorStatus ? errorHandler(errorStatus) : null;
+export const signupErrorSelector = (state) => {
+  const status = state.app.auth.errors.signup;
+  return status && errorHandler(status);
 };
-export const getUpdatePasswordResult = (state) => state.app.auth.error;
-export const getResultSendingEmail = (state) => state.app.auth.error;
-export const isPasswordChangedSelector = (state) =>
-  state.app.auth.isPasswordChanged;
+export const loginErrorSelector = (state) => {
+  const status = state.app.auth.errors.login;
+  return status && errorHandler(status);
+};
+export const resetPasswordRequestErrorSelector = (state) => {
+  const status = state.app.auth.errors.resetPasswordRequest;
+  return (
+    status &&
+    (status
+      ? 404 && "Користувача з таким e-mail не існує"
+      : "Щось пішло не так")
+  );
+};
+export const resetPasswordErrorSelector = (state) => {
+  const status = state.app.auth.errors.resetPassword;
+  return status ;
+};
+export const isPasswordChangedSelector = state => state.app.auth.isPasswordChanged
 
 function errorHandler(status) {
   let message = "";
