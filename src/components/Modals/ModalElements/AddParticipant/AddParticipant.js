@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import validator from "validator";
-
 import {
   makeAlertNotification,
   makeSuccessNotification,
@@ -10,7 +9,6 @@ import { currentProjectId } from "../../../../redux/modal/modalSelectors";
 import { getParticipantsWithoutCurrentUserSelector } from "../../../../redux/projects/projectSelectors";
 import { addParticipant } from "../../../../redux/projects/projectOperations";
 import styles from "./addParticipant.module.css";
-import { useParams, useRouteMatch } from 'react-router-dom';
 
 import Input from "../../../../common/Input/Input";
 import Button from "../../../../common/Button/Button";
@@ -36,13 +34,16 @@ export default function AddParticipant({ onClose }) {
     dispatch(addParticipant(projectId, { email }));
     onClose();
   };
-  const params = useParams()
-  const match = useRouteMatch()
-  console.log('match', match, 'params', params);
 
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={addEmail}>
+      <form
+        className={styles.form}
+        onSubmit={addEmail}
+        onChange={() => {
+          setEmailError(null);
+        }}
+      >
         <h2 className={styles.title}>Додати людей</h2>
         <div className={styles.inputContainer}>
           <Input

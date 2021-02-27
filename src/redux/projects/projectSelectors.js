@@ -9,5 +9,5 @@ export const getParticipantsWithoutCurrentUserSelector = (projectId) => (
 ) =>
   state.domain.projects.byId[projectId] &&
   state.domain.projects.byId[projectId].participants.filter(
-    (participant) => participant.id !== state.app.auth.user.id
+    (participant) => participant.email !== state.app.auth.user.email
   );

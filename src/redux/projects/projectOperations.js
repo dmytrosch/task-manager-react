@@ -31,27 +31,25 @@ import {
   makeSuccessNotification,
 } from "../notifications/notificationOperations";
 import { editProjectDescription } from "../../utils/taskManagerAPI";
+
 export const getProjectById = (projectId) => (dispatch) => {
   dispatch(byIdRequest());
   getCurrentProjectAPI(projectId)
     .then((response) => dispatch(byIdSuccess(response.data)))
     .catch(() => dispatch(byIdError));
 };
-
 export const addProject = (project) => (dispatch) => {
   dispatch(addProjectRequest());
   addProjectAPI(project)
     .then((resp) => dispatch(addProjectSuccess(resp.data)))
     .catch((error) => dispatch(addProjectError()));
 };
-
 export const deleteProject = (projectId) => (dispatch) => {
   dispatch(deleteProjectRequest());
   deleteProjectAPI(projectId)
     .then(() => dispatch(deleteProjectSuccess(projectId)))
     .catch(() => dispatch(deleteProjectError()));
 };
-
 export const editProjectName = (projectId, newName) => (dispatch) => {
   dispatch(changeProjectNameRequest());
   editProjectNameAPI(projectId, newName)
@@ -61,15 +59,17 @@ export const editProjectName = (projectId, newName) => (dispatch) => {
 export const addParticipant = (projectId, participant) => (dispatch) => {
   dispatch(addParticipantRequest());
   addParticipantToProjectAPI(projectId, participant)
-    .then(() => dispatch(addParticipantSuccess()))
+    .then((response) => {
+      dispatch(addParticipantSuccess(response.data));
+      dispatch(makeSuccessNotification("Користувач доданий до проєкту"));
+    })
     .catch((error) => {
-      dispatch(() => {
-        addParticipantError();
-        dispatch(makeSuccessNotification("Користувач доданий до проєкту"));
-      });
+      dispatch(addParticipantError());
       dispatch(
         makeAlertNotification(
-          error.status(404) ? "Користувача не існує" : "Щось пішло не так..."
+          error.response.status(404)
+            ? "Користувача не існує"
+            : "Щось пішло не так..."
         )
       );
     });

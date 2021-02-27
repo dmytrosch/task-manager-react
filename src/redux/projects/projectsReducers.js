@@ -6,6 +6,7 @@ import {
   changeProjectNameSuccess,
   changeProjectNameError,
   byIdSuccess,
+  addParticipantSuccess,
 } from "./projectActions";
 import { gettingCurrentUserSuccess } from "../auth/authActions";
 
@@ -22,11 +23,10 @@ const byId = createReducer(
       return newState;
     },
     [gettingCurrentUserSuccess]: (_, { payload }) => {
-      const newState = {};
-      payload.projects.forEach((project) => {
-        newState[project.id] = project;
-      });
-      return newState;
+      return payload.projects.reduce((acc, project) => {
+        acc[project.id] = project;
+        return acc;
+      }, {});
     },
     [changeProjectNameSuccess]: (state, { payload }) => {
       return { ...state, [payload.id]: payload };
@@ -39,6 +39,9 @@ const byId = createReducer(
           participants: payload.participants,
         },
       };
+    },
+    [addParticipantSuccess]: (state, { payload })=>{
+      return { ...state, [payload.id]: payload };
     },
     // [changeProjectNameError]: (state)
   }
