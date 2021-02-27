@@ -5,18 +5,7 @@
   height: 1px;
   margin: -1px;
 }
-.thirdNew {
-  border-radius: 50%;
-  display: block;
-  background-color: var(--orangeColor);
-  position: absolute;
-  width: 252px;
-  height: 252px;
-  left: -165px;
-  top: 400px;
-  z-index: 999999;
-  opacity: 0.8;
-}
+
 .return {
   margin-top: 200px;
 }
@@ -32,7 +21,6 @@
 .inputContainerSingup:last-of-type {
   margin: 0px 0px 32px;
 }
-/* .inputContainer:nth-child(2){ */
 .inputContainer:last-of-type {
   padding: 0px 0px 40px;
 }
@@ -254,11 +242,6 @@
   margin: 0px;
 }
 
-/* .title {
-  font-size: 16px;
-  margin: 30px auto 0;
-  text-align: center;
-} */
 .headTitle {
   margin: 30px auto 0;
   text-align: center;
