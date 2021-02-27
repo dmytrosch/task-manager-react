@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import sprintActionsObj from "../sprints/sprintsActions";
-import taskActionsObj from "../tasks/tasksActions";
+import currentSprintActions from "../currentSprint/currentSprintAction";
 
 import {
   signupRequest,
@@ -81,24 +81,27 @@ const loadingReducer = createReducer(false, {
   [sprintActionsObj.sprintByIdRequest]: () => true,
   [sprintActionsObj.sprinByIdSuccess]: () => false,
   [sprintActionsObj.sprinByIdError]: () => false,
-  [taskActionsObj.createTaskRequest]: () => true,
-  [taskActionsObj.createTaskSuccess]: () => false,
-  [taskActionsObj.createTaskError]: () => false,
-  [taskActionsObj.deleteTaskRequest]: () => true,
-  [taskActionsObj.deleteTaskSuccess]: () => false,
-  [taskActionsObj.deleteTaskError]: () => false,
-  [taskActionsObj.changeTaskNameRequest]: () => true,
-  [taskActionsObj.changeTaskNameSuccess]: () => false,
-  [taskActionsObj.changeTaskNameError]: () => false,
-  [taskActionsObj.getTaskbyIdRequest]: () => true,
-  [taskActionsObj.getTaskbyIdSuccess]: () => false,
-  [taskActionsObj.getTaskbyIdError]: () => false,
-  [taskActionsObj.updateTaskTimeRequest]: () => true,
-  [taskActionsObj.updateTaskTimeSuccess]: () => false,
-  [taskActionsObj.updateTaskTimeError]: () => false,
-  [taskActionsObj.searchTaskByNameRequest]: () => true,
-  [taskActionsObj.searchTaskByNameSucces]: () => false,
-  [taskActionsObj.searchTaskByNameError]: () => false,
+  [currentSprintActions.createTaskRequest]: () => true,
+  [currentSprintActions.createTaskSuccess]: () => false,
+  [currentSprintActions.createTaskError]: () => false,
+  [currentSprintActions.deleteTaskRequest]: () => true,
+  [currentSprintActions.deleteTaskSuccess]: () => false,
+  [currentSprintActions.deleteTaskError]: () => false,
+  [currentSprintActions.changeTaskNameRequest]: () => true,
+  [currentSprintActions.changeTaskNameSuccess]: () => false,
+  [currentSprintActions.changeTaskNameError]: () => false,
+  [currentSprintActions.getTaskbyIdRequest]: () => true,
+  [currentSprintActions.getTaskbyIdSuccess]: () => false,
+  [currentSprintActions.getTaskbyIdError]: () => false,
+  [currentSprintActions.updateTaskTimeRequest]: () => true,
+  [currentSprintActions.updateTaskTimeSuccess]: () => false,
+  [currentSprintActions.updateTaskTimeError]: () => false,
+  [currentSprintActions.searchTaskByNameRequest]: () => true,
+  [currentSprintActions.searchTaskByNameSucces]: () => false,
+  [currentSprintActions.searchTaskByNameError]: () => false,
+  [currentSprintActions.getCurrentSprintRequest]: () => true,
+  [currentSprintActions.getCurrentSprintSuccess]: () => false,
+  [currentSprintActions.getCurrentSprintError]: () => false,
 });
 
 export default loadingReducer;

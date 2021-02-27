@@ -1,4 +1,4 @@
-import action from "./tasksActions";
+import action from "./currentSprintAction";
 
 import * as send from "../../utils/taskManagerAPI";
 
@@ -40,4 +40,15 @@ export const searchTaskByName = (sprintId, query) => (dispatch) => {
     .searchTasksByName(sprintId, query)
     .then((response) => dispatch(action.searchTaskByNameSucces(response.data)))
     .catch((err) => dispatch(action.updateTaskTimeError(err)));
+};
+
+export const getCurrentSprint = (sprintId) => (dispatch) => {
+  dispatch(action.getCurrentSprintRequest());
+  send
+    .getCurrentSprint(sprintId)
+    .then((response) => dispatch(action.getCurrentSprintSuccess(response.data)))
+    .catch((err) => {
+      console.log(err);
+      dispatch(action.getCurrentSprintError(err));
+    });
 };

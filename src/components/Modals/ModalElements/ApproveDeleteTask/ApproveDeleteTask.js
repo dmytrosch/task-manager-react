@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Button from "../../../../common/Button/Button";
 
-import { deleteTask } from "../../../../redux/tasks/tasksOperations";
+import { deleteTask } from "../../../../redux/currentSprint/currentSprintOperations";
 import { isModalApproveDeleteTask } from "../../../../redux/modal/modalSelectors";
 // import { getTaskById } from "../../../../redux/sprints/sprintsSelectors";
 

@@ -14,21 +14,24 @@ import storage from "redux-persist/lib/storage";
 
 import projects from "./projects/projectsReducers";
 import sprints from "./sprints/sprintsReducers";
-import tasks from "./tasks/tasksReducers";
+import currentSprint from "./currentSprint/currentSprintReducers";
 import notification from "./notifications/notificationReduser";
 import auth from "./auth/authReducer";
 import clientWidth from "./clientWidth/clientWidthReducer";
 import loading from "./loading/loadingReducer";
 import modal from "./modal/modalReducer";
+import search from "./search/searchRedusers";
 
 const authPersistConfig = {
   key: "auth",
   storage,
   whitelist: ["token"],
 };
-const domain = combineReducers({ projects, sprints, tasks });
+const domain = combineReducers({ projects, sprints });
 const app = combineReducers({
   auth: persistReducer(authPersistConfig, auth),
+  currentSprint,
+  search,
   clientWidth,
 });
 const ui = combineReducers({ loading, modal, notification });

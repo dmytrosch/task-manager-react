@@ -18,12 +18,15 @@ export const deleteSprint = (projectId, sprintId) => (dispatch) => {
     .catch((err) => dispatch(action.deleteError(err.message)));
 };
 
-export const updateSprintName = ({ sprintId, name }) => (dispatch) => {
-  dispatch(action.changeNameRequest());
+export const updateSprintName = (sprintId, name) => (dispatch) => {
+  dispatch(action.sprintChangeNameRequest());
   send
     .updateSprintName({ sprintId, name })
-    .then(() => dispatch(action.changeNameSuccess({ sprintId, name })))
-    .catch((err) => dispatch(action.changeNameError(err.message)));
+    .then(() => dispatch(action.sprintChangeNameSuccess({ sprintId, name })))
+    .catch((err) => {
+      console.log(err);
+      dispatch(action.sprintChangeNameError(err.message));
+    });
 };
 
 export const sprintById = (sprintId) => (dispatch) => {

@@ -1,24 +1,32 @@
 import React from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { useSelector } from "react-redux";
 
 import styles from "./styles.module.css";
 import animateItem from "../../../styles/animateItem.module.css";
 
 import TaskItem from "./TaskItem";
 
-export default function TasksList({ tasksIds }) {
-  return tasksIds.length === 0 ? (
+import {
+  currentSprintSelector,
+  currentTasksSelector,
+} from "../../../redux/currentSprint/currentSprintSelectors";
+
+export default function TasksList({ currentDate }) {
+  const currentTasks = useSelector(currentTasksSelector);
+
+  return !currentTasks || currentTasks.length === 0 ? (
     <p className={styles.noTasks}>There are not tasks</p>
   ) : (
     <TransitionGroup component="ul" className={styles.list}>
-      {tasksIds.map((id) => (
+      {currentTasks.map((item) => (
         <CSSTransition
           timeout={250}
-          key={id}
+          key={item.id}
           classNames={animateItem}
           unmountOnExit
         >
-          <TaskItem key={id} id={id} />
+          <TaskItem key={item.id} task={item} currentDate={currentDate} />
         </CSSTransition>
       ))}
     </TransitionGroup>
