@@ -39,7 +39,6 @@ export const editProjectDescription = (projectId, description) =>
   axios.patch(`/projects/${projectId}/change-description`, { description });
 
 export const addSprint = (projectId, sprint) => {
-  console.log("projectid:", projectId, sprint);
   return axios.post(`/sprints/${projectId}/create`, sprint);
 };
 

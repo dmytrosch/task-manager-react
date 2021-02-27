@@ -12,7 +12,7 @@ import * as sprintSelector from "../../redux/sprints/sprintsSelectors";
 
 import styles from "./Tasks.module.css";
 
-export default function Task({ sprintId }) {
+export default function Tasks({ sprintId }) {
   const dispatch = useDispatch();
   const [sprintName, setSprintName] = useState(
     // sprintSelector.nameById(sprintId)

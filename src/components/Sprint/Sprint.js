@@ -67,6 +67,7 @@ export default function Sprint({ projectId }) {
             <p className={styles.text}>Створити спринт</p>
           </div>
         </div>
+        {description && <p className={styles.description}>{description}</p>}
         <p className={styles.addParticipant} onClick={addParticipant}>
           Додати людей
         </p>

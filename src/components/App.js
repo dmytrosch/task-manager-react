@@ -29,14 +29,14 @@ export default function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(isAuthentificatedSelector);
   const notification = useSelector(getNotificationSelector);
-  console.log(isAuth);
+
   useEffect(() => {
     dispatch(setClientWidth(document.documentElement.clientWidth));
   }, []);
+  
   useEffect(() => {
     isAuth && dispatch(getCurrentUser());
   }, [isAuth]);
-  // const isMobileMode = useSelector(isMobileSelector);
 
   const loading = useSelector(isLoading);
   return (
