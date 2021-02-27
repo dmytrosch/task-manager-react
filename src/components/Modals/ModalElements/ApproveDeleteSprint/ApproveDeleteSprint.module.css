@@ -28,7 +28,7 @@
 }
 
 .controlContainer {
-  width: 260px;
+  width: 270px;
   margin: 0 auto;
 
   display: flex;
@@ -37,7 +37,7 @@
 }
 
 .btn {
-  width: 120px;
+  width: 130px;
 }
 
 @media (min-width: 768px) {
