@@ -25,6 +25,7 @@ export default function Tasks({ sprintId }) {
   const task = useSelector(currentTasksSelector);
   let sprintDuration;
   const [currentDate, setCurrentDate] = useState(1);
+  const currentDay = currentDate - 1;
 
   if (task) {
     task.map((item) => {
@@ -65,7 +66,7 @@ export default function Tasks({ sprintId }) {
             total={sprintDuration}
             callback={handleSlider}
           />
-          <span className={styles.date}>2020.02.16</span>
+          {task && <span className={styles.date}>{task[2].spendedTime[currentDay].date.toString()}</span>}
         </div>
         <SearchInput
           customContainerStyles={styles.mobileSearchInp}
