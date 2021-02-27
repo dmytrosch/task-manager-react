@@ -13,7 +13,6 @@ import IconButton from "../../../common/IconButtons/IconButtons.js";
 export default function SprintItem({ id: sprintId, isOwner, projectId }) {
   const dispatch = useDispatch();
   const { name, startAt, finishedAt, timeDifference } = useSelector(byIdSelector(sprintId));
-  console.log(startAt);
   const startAtFormat = formatDate(startAt);
   const finishedAtFormat = formatDate(finishedAt);
   const handlerDeleteSprint = () =>

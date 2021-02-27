@@ -1,47 +1,46 @@
 export function formatDate(date) {
   const [year, month, day] = date.split("/");
-  let textMonth;
-  // let monthName = "";
+  let monthName;
   switch (month) {
     case "1":
-      textMonth = "Січ";
+      monthName = "Січ";
       break;
     case "2":
-      textMonth = "Лют";
+      monthName = "Лют";
       break;
     case "3":
-      textMonth = "Бер";
+      monthName = "Бер";
       break;
     case "4":
-      textMonth = "Квіт";
+      monthName = "Квіт";
       break;
     case "5":
-      textMonth = "Трав";
+      monthName = "Трав";
       break;
     case "6":
-      textMonth = "Черв";
+      monthName = "Черв";
       break;
     case "7":
-      textMonth = "Лип";
+      monthName = "Лип";
       break;
     case "8":
-      textMonth = "Серп";
+      monthName = "Серп";
       break;
     case "9":
-      textMonth = "Вер";
+      monthName = "Вер";
       break;
     case "10":
-      textMonth = "Жовт";
+      monthName = "Жовт";
       break;
     case "11":
-      textMonth = "Лист";
+      monthName = "Лист";
       break;
     case "12":
-      textMonth = "Груд";
+      monthName = "Груд";
       break;
     default:
-      textMonth = "";
+      monthName = "";
   }
-  const formatData = `${day} ${textMonth}`;
+  const formatData = `${day} ${monthName}`;
   return formatData;
 }
