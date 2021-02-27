@@ -73,9 +73,9 @@ export default function Tasks({ sprintId }) {
         />
       </div>
       <div className={styles.sprint}>
-        <p className={styles.sprintTitle}>
+        <div className={styles.sprintTitle}>
           <EditableInput onSave={changeSprintName} value={currentSprint.name} />
-        </p>
+        </div>
         <div onClick={openModalTask} className={styles.addSprintContainer}>
           <IconButton iconName="plus" icon="plus" />
           <p className={styles.titleButton}>Створити задачу</p>
