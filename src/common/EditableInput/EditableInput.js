@@ -18,8 +18,9 @@ export default function EditableInput({
   validation,
   validationMessage,
   onSave,
-  disable
+  disable,
 }) {
+  console.log(disable, "disable");
   return (
     <div className="container">
       <EdiText
@@ -29,10 +30,9 @@ export default function EditableInput({
         }}
         inputProps={{
           className: styles[inputStyle],
-          disabled: false,
+          disabled: disable,
           rows: rows,
         }}
-        disable={disable}
         saveButtonContent={<Checkmark />}
         editButtonContent={<Edit />}
         cancelButtonContent={<CrossIcon />}
