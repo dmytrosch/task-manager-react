@@ -5,7 +5,6 @@ import styles from "./Notification.module.css";
 import animation from "./animation.module.css";
 
 const Notification = ({message, type}) => {
-  console.log('show noti');
   return (
     <CSSTransition
       in={message ? true : false}

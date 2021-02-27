@@ -57,12 +57,11 @@ export default function Sprint({ projectId }) {
               </p>
             )}
           </div>
-          <div className={styles.box}>
+          <div className={styles.box} onClick={addSprint}>
             <IconButton
               iconButtonCustomClass={styles.button}
               iconName="plus"
               icon="plus"
-              onClick={addSprint}
             />
             <p className={styles.text}>Створити спринт</p>
           </div>
