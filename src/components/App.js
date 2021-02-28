@@ -29,7 +29,6 @@ export default function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(isAuthentificatedSelector);
   const notification = useSelector(getNotificationSelector);
-  console.log(isAuth);
   useEffect(() => {
     dispatch(setClientWidth(document.documentElement.clientWidth));
   }, []);
