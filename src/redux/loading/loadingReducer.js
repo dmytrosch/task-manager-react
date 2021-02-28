@@ -1,4 +1,4 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { createReducer, combineReducers } from "@reduxjs/toolkit";
 import sprintActionsObj from "../sprints/sprintsActions";
 import currentSprintActions from "../currentSprint/currentSprintAction";
 
@@ -38,7 +38,7 @@ import {
   changeProjectDescError,
 } from "../projects/projectActions";
 
-const loadingReducer = createReducer(false, {
+const loading = createReducer(false, {
   [signupRequest]: () => true,
   [signupSuccess]: () => false,
   [signupError]: () => false,
@@ -104,4 +104,86 @@ const loadingReducer = createReducer(false, {
   [currentSprintActions.getCurrentSprintError]: () => false,
 });
 
-export default loadingReducer;
+const auth = createReducer(false, {
+  [signupRequest]: () => true,
+  [signupSuccess]: () => false,
+  [signupError]: () => false,
+  [loginRequest]: () => true,
+  [loginSuccess]: () => false,
+  [loginError]: () => false,
+  [logoutRequest]: () => true,
+  [logoutSuccess]: () => false,
+  [logoutError]: () => false,
+});
+
+const currentUser = createReducer(false, {
+  [gettingCurrentUserRequest]: () => true,
+  [gettingCurrentUserSuccess]: () => false,
+  [gettingCurrentUserError]: () => false,
+});
+
+const projects = createReducer(false, {
+  [addProjectRequest]: () => true,
+  [addProjectSuccess]: () => false,
+  [addProjectError]: () => false,
+  [deleteProjectRequest]: () => true,
+  [deleteProjectSuccess]: () => false,
+  [deleteProjectError]: () => false,
+  [byIdRequest]: () => true,
+  [byIdSuccess]: () => false,
+  [byIdError]: () => false,
+  [changeProjectNameRequest]: () => true,
+  [changeProjectNameSuccess]: () => false,
+  [changeProjectNameError]: () => false,
+  [changeProjectDescRequest]: () => true,
+  [changeProjectDescSuccess]: () => false,
+  [changeProjectDescError]: () => false,
+});
+
+const sprints = createReducer(false, {
+  [sprintActionsObj.createSuccess]: () => false,
+  [sprintActionsObj.createRequest]: () => true,
+  [sprintActionsObj.createError]: () => false,
+  [sprintActionsObj.deleteRequest]: () => true,
+  [sprintActionsObj.deleteSuccess]: () => false,
+  [sprintActionsObj.deleteError]: () => false,
+  [sprintActionsObj.sprintChangeNameRequest]: () => true,
+  [sprintActionsObj.sprintChangeNameSuccess]: () => false,
+  [sprintActionsObj.sprintChangeNameError]: () => false,
+  [sprintActionsObj.sprintByIdRequest]: () => true,
+  [sprintActionsObj.sprinByIdSuccess]: () => false,
+  [sprintActionsObj.sprinByIdError]: () => false,
+  [currentSprintActions.getCurrentSprintRequest]: () => true,
+  [currentSprintActions.getCurrentSprintSuccess]: () => false,
+  [currentSprintActions.getCurrentSprintError]: () => false,
+});
+
+const tasks = createReducer(false, {
+  [currentSprintActions.createTaskRequest]: () => true,
+  [currentSprintActions.createTaskSuccess]: () => false,
+  [currentSprintActions.createTaskError]: () => false,
+  [currentSprintActions.deleteTaskRequest]: () => true,
+  [currentSprintActions.deleteTaskSuccess]: () => false,
+  [currentSprintActions.deleteTaskError]: () => false,
+  [currentSprintActions.changeTaskNameRequest]: () => true,
+  [currentSprintActions.changeTaskNameSuccess]: () => false,
+  [currentSprintActions.changeTaskNameError]: () => false,
+  [currentSprintActions.getTaskbyIdRequest]: () => true,
+  [currentSprintActions.getTaskbyIdSuccess]: () => false,
+  [currentSprintActions.getTaskbyIdError]: () => false,
+  [currentSprintActions.updateTaskTimeRequest]: () => true,
+  [currentSprintActions.updateTaskTimeSuccess]: () => false,
+  [currentSprintActions.updateTaskTimeError]: () => false,
+  [currentSprintActions.searchTaskByNameRequest]: () => true,
+  [currentSprintActions.searchTaskByNameSucces]: () => false,
+  [currentSprintActions.searchTaskByNameError]: () => false,
+});
+
+export default combineReducers({
+  loading,
+  auth,
+  currentUser,
+  projects,
+  sprints,
+  tasks,
+});
