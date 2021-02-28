@@ -8,7 +8,7 @@ import transition from "../sideBarTransition.module.css";
 
 export default function LinkRouter({ projId, visibleTab }) {
   const project = useSelector(getByIdSelector(projId));
-  const { name, id } = project
+  const { name, id, color } = project;
   const [wobble, setWobble] = useState(0);
   return (
     <>
@@ -25,6 +25,7 @@ export default function LinkRouter({ projId, visibleTab }) {
               ? classNames(styles.square, styles.squareActive, transition.image)
               : styles.square
           }
+          style={{ backgroundColor: color }}
         ></p>
 
         <p className={styles.taskTitle}>
