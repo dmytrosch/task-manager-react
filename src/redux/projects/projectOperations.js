@@ -26,6 +26,7 @@ import {
   getCurrentProject as getCurrentProjectAPI,
   addParticipantToProject as addParticipantToProjectAPI,
 } from "../../utils/taskManagerAPI";
+
 import {
   makeAlertNotification,
   makeSuccessNotification,
@@ -74,6 +75,7 @@ export const addParticipant = (projectId, participant) => (dispatch) => {
       );
     });
 };
+
 export const editProjectDespription = (projectId, newDescription) => (
   dispatch
 ) => {
