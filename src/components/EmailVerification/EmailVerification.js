@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   makeSuccessNotification,
@@ -14,6 +14,7 @@ export default function EmailVerification() {
   const { params } = useRouteMatch();
   const token = params.verifyToken;
   useEffect(() => {
+    document.title = "Зачекайте...";
     verifyEmail(token)
       .then(() => {
         dispatch(
