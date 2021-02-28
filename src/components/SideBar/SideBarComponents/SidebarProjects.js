@@ -12,7 +12,6 @@ import AddBtn from "../SideBarElements/AddBtn";
 import { getAllIdsSelector } from "../../../redux/projects/projectSelectors";
 // import { getProjectById } from "../../../redux/projects/projectOperations";
 import { setModalCreateProject } from "../../../redux/modal/modalAction";
-import { getCurrentUser } from "../../../utils/taskManagerAPI";
 
 export default function SidebarProjects() {
   const projectMatch = useRouteMatch().params.projectId;
@@ -20,9 +19,6 @@ export default function SidebarProjects() {
   const projectsIds = useSelector(getAllIdsSelector);
   const dispatch = useDispatch();
   const add = () => dispatch(setModalCreateProject(true));
-  useEffect(() => {
-    projectsIds.length === 0 && dispatch(getCurrentUser());
-  }, []);
   return (
     <aside className={styles.aside}>
       <GoBackBtn nameArrowBtn="проєкти" link="/" />

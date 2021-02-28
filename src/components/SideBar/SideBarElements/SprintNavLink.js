@@ -6,18 +6,14 @@ import styles from "../sideBar.module.css";
 import transition from "../sideBarTransition.module.css";
 import { byIdSelector } from "../../../redux/sprints/sprintsSelectors";
 import { sprintById } from "../../../redux/sprints/sprintsOperations";
-export default function LinkRouter({ sprintId, projectMatch, visibleTab }) {
+export default function LinkRouter({ sprintId, projectId, visibleTab }) {
   const { name, id } = useSelector(byIdSelector(sprintId));
   const [wobble, setWobble] = useState(0);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(sprintById(sprintId));
-  }, [sprintId]);
 
   return (
     <>
       <NavLink
-        to={`/projects/${projectMatch}/sprints/${id}/tasks/1`}
+        to={`/projects/${projectId}/sprints/${id}/tasks/1`}
         onClick={() => setWobble(1)}
         onAnimationEnd={() => setWobble(0)}
         className={styles.navLink}

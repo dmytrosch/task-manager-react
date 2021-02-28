@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "../sideBar.module.css";
 import transition from "../sideBarTransition.module.css";
 import SprintNavLink from "../SideBarElements/SprintNavLink";
@@ -8,24 +8,39 @@ import classNames from "classnames";
 import { Scrollbars } from "rc-scrollbars";
 import { allIdsSelector } from "../../../redux/sprints/sprintsSelectors";
 import { useRouteMatch } from "react-router-dom";
-export default function SprintsLink() {
-  const projectMatch = useRouteMatch().params.projectId;
-  const sprintsMatch = useRouteMatch().params.sprintId;
-  const [visibleTab, setVisibleTab] = useState(sprintsMatch);
+import { setModalCreateSprint } from "../../../redux/modal/modalAction";
+import { getProjectById } from "../../../redux/projects/projectOperations";
+import GoBackBtn from "../SideBarElements/GoBackBtn";
+import AddBtn from "../SideBarElements/AddBtn";
+import { useEffect } from "react";
+
+export default function SidebarSprints() {
+  const sprintId = useRouteMatch().params.sprintId;
+  const projectId = useRouteMatch().params.projectId;
+  const [visibleTab, setVisibleTab] = useState(sprintId);
   const sprintIds = useSelector(allIdsSelector);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    sprintIds.length === 0 && dispatch(getProjectById(projectId));
+  }, []);
+  const add = () => dispatch(setModalCreateSprint(projectId));
   return (
-    <>
-      {projectMatch && sprintsMatch && (
-        <Scrollbars
-          className={styles.scrollbars}
-          autoHeight={true}
-          autoHeightMin={430}
-          autoHeightMax={540}
-          autoHide={true}
-        >
-          <div className={styles.tabsMenu}>
-            <TransitionGroup component="ul" className={styles.tabsTitles}>
-              {sprintIds.map((id) => (
+    <aside className={styles.aside}>
+      <GoBackBtn
+        nameArrowBtn="спринти"
+        link={`/projects/${projectId}/sprints`}
+      />
+      <Scrollbars
+        className={styles.scrollbars}
+        autoHeight={true}
+        autoHeightMin={430}
+        autoHeightMax={540}
+        autoHide={true}
+      >
+        <div className={styles.tabsMenu}>
+          <TransitionGroup component="ul" className={styles.tabsTitles}>
+            {sprintIds &&
+              sprintIds.map((id) => (
                 <CSSTransition
                   in={true}
                   appear={true}
@@ -46,17 +61,17 @@ export default function SprintsLink() {
                     }
                   >
                     <SprintNavLink
+                      projectId={projectId}
                       sprintId={id}
                       visibleTab={visibleTab}
-                      projectMatch={projectMatch}
                     />
                   </li>
                 </CSSTransition>
               ))}
-            </TransitionGroup>
-          </div>
-        </Scrollbars>
-      )}
-    </>
+          </TransitionGroup>
+        </div>
+      </Scrollbars>
+      <AddBtn nameArrowBtn="спринт" addNewProject={add} />
+    </aside>
   );
 }
