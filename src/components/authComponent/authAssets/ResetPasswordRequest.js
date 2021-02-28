@@ -28,7 +28,7 @@ export default function ResetPasswordRequest({ setVissible }) {
     e.preventDefault();
     if (emailError) return;
     dispatch(sendMail({ email: emailAdress }));
-    setEmailAdress(null);
+    setEmailAdress("");
   }
   function onChangeEmail(e) {
     setEmailAdress(e.target.value);
