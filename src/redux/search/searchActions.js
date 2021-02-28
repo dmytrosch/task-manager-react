@@ -4,8 +4,17 @@ const searchTaskByNameRequest = createAction("currentSprint/searchTaskByNameRequ
 const searchTaskByNameSucces = createAction("currentSprint/searchTaskByNameSucces");
 const searchTaskByNameError = createAction("currentSprint/searchTaskByNameError");
 
-export default {
+const setSearchValue = createAction("currentSprint/setSearchValue");
+
+
+
+
+const searchActions =  {
     searchTaskByNameRequest,
     searchTaskByNameSucces,
     searchTaskByNameError, 
+
+    setSearchValue,
 }
+
+export default searchActions;

@@ -2,34 +2,40 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./SearchInput.module.css";
+
+import setSearchValue from "../../redux/search/searchActions";
+import { search } from '../../redux/currentSprint/currentSprintSelectors';
+
+
+
+
 
 export default function SearchInput({
   customContainerStyles,
   customInputStyles,
   callback,
+  searchValue
 }) {
-  const [searchText, setSearchText] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (searchText === "") return;
-    callback(searchText);
-    setSearchText("");
-  };
+
+  // console.log(search);
+
 
   return (
-    <form
+    <div
       className={classNames(styles.form, customContainerStyles)}
-      onSubmit={handleSubmit}
+    // onSubmit={handleSubmit}
     >
-      <button className={styles.submitBtn} type="submit"></button>
+      <button className={styles.submitBtn} type="button"></button>
       <input
         className={classNames(styles.input, customInputStyles)}
         type="text"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
+        // value={searchValue}
+        onChange={(e) => callback(e.target.value)}
+        
       />
-    </form>
+    </div>
   );
 }

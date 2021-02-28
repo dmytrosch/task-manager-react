@@ -10,6 +10,7 @@ import TaskItem from "./TaskItem";
 import {
   currentSprintSelector,
   currentTasksSelector,
+  resultTaskArray,
 } from "../../../redux/currentSprint/currentSprintSelectors";
 
 export default function TasksList({ currentDate, loading, addTask }) {

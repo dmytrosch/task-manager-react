@@ -21,6 +21,10 @@ import {
   isTasksLoading,
   isSprintsLoading,
 } from "../../redux/loading/loadingSelector";
+import { search } from "../../redux/currentSprint/currentSprintSelectors";
+
+import searchActions from "../../redux/search/searchActions";
+import resultTaskArray from "../../redux/currentSprint/currentSprintSelectors";
 
 export default function Tasks({ sprintId }) {
   const dispatch = useDispatch();
@@ -32,6 +36,7 @@ export default function Tasks({ sprintId }) {
   const loading = tasksLoading || sprintsLoading;
   let sprintDuration;
   const [currentDate, setCurrentDate] = useState(1);
+  const currentDay = currentDate - 1;
 
   if (task) {
     task.map((item) => {
@@ -42,8 +47,17 @@ export default function Tasks({ sprintId }) {
   useEffect(() => {
     dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
   }, []);
+
   const handleSearchInput = (searchRequest) => {
-    console.log("dispatch", searchRequest);
+    const searchResult = task.filter((item) => {
+      const variable = item.name.includes(searchRequest);
+      return variable;
+    });
+
+    dispatch(searchActions.setSearchValue(searchRequest));
+
+    // console.log(searchResult);
+    // return searchResult;
   };
 
   const handleSlider = (current) => {
@@ -73,11 +87,16 @@ export default function Tasks({ sprintId }) {
               total={sprintDuration}
               callback={handleSlider}
             />
-            <span className={styles.date}>2020.02.16</span>
+            {task && task[0]?.spendedTime && (
+              <span className={styles.date}>
+                {task[0].spendedTime[currentDay].date.toString()}
+              </span>
+            )}
           </div>
           <SearchInput
             customContainerStyles={styles.mobileSearchInp}
             callback={handleSearchInput}
+            searchValue={search}
           />
         </div>
         <div className={styles.sprint}>
@@ -100,7 +119,11 @@ export default function Tasks({ sprintId }) {
           onClick={openModalChartTable}
         ></IconButton>
 
-        <TasksTable currentDate={currentDate} loading={loading} addTask={openModalTask}/>
+        <TasksTable
+          currentDate={currentDate}
+          loading={loading}
+          addTask={openModalTask}
+        />
       </div>
     </Loader>
   );
