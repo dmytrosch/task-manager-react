@@ -17,12 +17,11 @@ export default function Dashboard() {
         <>
           <div className={styles.infoBox}>
             <h2 className={styles.title}>Проєкти</h2>
-            <div className={styles.box}>
+            <div className={styles.box} onClick={addProject}>
               <IconButton
                 iconButtonCustomClass={styles.button}
                 iconName="plus"
                 icon="plus"
-                onClick={addProject}
               />
               <p className={styles.text}>Створити проект</p>
             </div>

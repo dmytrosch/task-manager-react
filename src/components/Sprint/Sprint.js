@@ -45,7 +45,7 @@ export default function Sprint({ projectId }) {
                 disable={!isOwner}
                 value={name}
                 onSave={changeProjectName}
-                type="text"
+                type="textarea"
               />
             </h2>
             {description && (
@@ -60,12 +60,11 @@ export default function Sprint({ projectId }) {
               </div>
             )}
           </div>
-          <div className={styles.box}>
+          <div className={styles.box} onClick={addSprint}>
             <IconButton
               iconButtonCustomClass={styles.button}
               iconName="plus"
               icon="plus"
-              onClick={addSprint}
             />
             <p className={styles.text}>Створити спринт</p>
           </div>

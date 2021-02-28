@@ -9,6 +9,7 @@ import {
   addParticipantSuccess,
 } from "./projectActions";
 import { gettingCurrentUserSuccess } from "../auth/authActions";
+import generateColor from "../../utils/projectColorsGenerator";
 
 const byId = createReducer(
   {},
@@ -24,6 +25,7 @@ const byId = createReducer(
     },
     [gettingCurrentUserSuccess]: (_, { payload }) => {
       return payload.projects.reduce((acc, project) => {
+        project.color = generateColor();
         acc[project.id] = project;
         return acc;
       }, {});
@@ -40,7 +42,7 @@ const byId = createReducer(
         },
       };
     },
-    [addParticipantSuccess]: (state, { payload })=>{
+    [addParticipantSuccess]: (state, { payload }) => {
       return { ...state, [payload.id]: payload };
     },
     // [changeProjectNameError]: (state)

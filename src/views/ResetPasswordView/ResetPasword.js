@@ -1,5 +1,5 @@
 import React from "react";
-import ResetPassword from "../../components/authComponent/authAssets/createNewPassword";
+import ResetPassword from "../../components/authComponent/authAssets/CreateNewPassword";
 import AuthLayout from "../../layouts/AuthLayout";
 
 export default function ResetPasswordView() {
