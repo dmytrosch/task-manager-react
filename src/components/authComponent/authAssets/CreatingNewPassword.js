@@ -12,6 +12,8 @@ import Button from "../../../common/Button/Button";
 import classNames from "classnames";
 import style from "../styles.module.css";
 import { resetPassError } from "../../../redux/auth/authActions";
+import Loader from "../../Loaders/LoaderForComponents/LoaderForComponents";
+import { isAuthLoading } from "../../../redux/loading/loadingSelector";
 
 export default function CreaterNewPassword() {
   const qweryParams = useParams();
@@ -21,6 +23,7 @@ export default function CreaterNewPassword() {
   const [confirmedPasswordError, setConfirmedPasswordError] = useState(null);
   const errorMessage = useSelector(resetPasswordErrorSelector);
   const isPasswordChanged = useSelector(isPasswordChangedSelector);
+  const loading = useSelector(isAuthLoading);
   const dispatch = useDispatch();
   const resetError = () => {
     errorMessage && dispatch(resetPassError(null));
@@ -59,55 +62,57 @@ export default function CreaterNewPassword() {
     setConfirmedPassword(null);
   };
   return (
-    <section className={style.container}>
-      <div className={style.formContainer} onClick={resetErrorOnClick}>
-        {!isPasswordChanged ? (
-          <>
-            {" "}
-            <p className={style.title}> Відновити доступ </p>
-            <form className={style.form} onSubmit={handlerSubmit}>
-              <div className={style.inputContainerSingup}>
-                <Input
-                  label={"Пароль"}
-                  error={passwordError}
-                  type="password"
-                  value={password}
-                  onChange={onChangePassword}
-                  errorMessage={passwordError}
-                />
-              </div>
-              <div className={style.inputContainerSingup}>
-                <Input
-                  label={"Повторіть пароль"}
-                  error={confirmedPasswordError}
-                  type="password"
-                  value={confirmedPassword}
-                  onChange={onChangeСonfirmedPassword}
-                  errorMessage={confirmedPasswordError}
-                  id="confirmedPassword"
-                />
-              </div>
+    <Loader loading={loading}>
+      <section className={style.container}>
+        <div className={style.formContainer} onClick={resetErrorOnClick}>
+          {!isPasswordChanged ? (
+            <>
+              {" "}
+              <p className={style.title}> Відновити доступ </p>
+              <form className={style.form} onSubmit={handlerSubmit}>
+                <div className={style.inputContainerSingup}>
+                  <Input
+                    label={"Пароль"}
+                    error={passwordError}
+                    type="password"
+                    value={password}
+                    onChange={onChangePassword}
+                    errorMessage={passwordError}
+                  />
+                </div>
+                <div className={style.inputContainerSingup}>
+                  <Input
+                    label={"Повторіть пароль"}
+                    error={confirmedPasswordError}
+                    type="password"
+                    value={confirmedPassword}
+                    onChange={onChangeСonfirmedPassword}
+                    errorMessage={confirmedPasswordError}
+                    id="confirmedPassword"
+                  />
+                </div>
 
-              <label
-                className={errorMessage ? style.label : style.visuallyHidden}
-                htmlFor="confirmedPassword"
-              >
-                Щось пішло не так... Спробуйте ще раз
-              </label>
-              <Button type="submit">Змінити пароль</Button>
-            </form>
-          </>
-        ) : (
-          <>
-            <h3 className={classNames(style.return)}>
-              Пароль успішно змінено!&nbsp;
-              <NavLink to="/login" className={style.forgotPassLink}>
-                Повернутися на сторінку авторизації
-              </NavLink>
-            </h3>
-          </>
-        )}
-      </div>
-    </section>
+                <label
+                  className={errorMessage ? style.label : style.visuallyHidden}
+                  htmlFor="confirmedPassword"
+                >
+                  Щось пішло не так... Спробуйте ще раз
+                </label>
+                <Button type="submit">Змінити пароль</Button>
+              </form>
+            </>
+          ) : (
+            <>
+              <h3 className={classNames(style.return)}>
+                Пароль успішно змінено!&nbsp;
+                <NavLink to="/login" className={style.forgotPassLink}>
+                  Повернутися на сторінку авторизації
+                </NavLink>
+              </h3>
+            </>
+          )}
+        </div>
+      </section>
+    </Loader>
   );
 }

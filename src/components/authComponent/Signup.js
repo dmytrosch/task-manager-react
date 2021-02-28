@@ -4,10 +4,12 @@ import { NavLink } from "react-router-dom";
 import style from "./styles.module.css";
 import Button from "../../common/Button/Button";
 import Input from "../../common/Input/Input";
+import Loader from "../Loaders/LoaderForComponents/LoaderForComponents";
 import { signup } from "../../redux/auth/authOperations";
 import validator from "validator";
 import { signupErrorSelector } from "../../redux/auth/authSelectors";
 import { signupError } from "../../redux/auth/authActions";
+import { isAuthLoading } from "../../redux/loading/loadingSelector";
 
 export default function Signup({ setVissible }) {
   const [email, setEmail] = useState("");
@@ -17,6 +19,7 @@ export default function Signup({ setVissible }) {
   const [passwordError, setPasswordError] = useState(null);
   const [confirmedPasswordError, setConfirmedPasswordError] = useState(null);
   const errorMessage = useSelector(signupErrorSelector);
+  const loading = useSelector(isAuthLoading);
   const dispatch = useDispatch();
   const resetError = () => {
     errorMessage && dispatch(signupError(null));
@@ -62,67 +65,69 @@ export default function Signup({ setVissible }) {
   };
 
   return (
-    <div onClick={resetErrorOnClick} className={style.formContainer}>
-      <p className={style.title}>Реєстрація</p>
-      <form
-        className={style.form}
-        onSubmit={handlerSubmit}
-        onChange={() => resetError()}
-      >
-        <div className={style.inputContainerSingup}>
-          <Input
-            label={"E-mail"}
-            type={"text"}
-            error={emailError || errorMessage}
-            value={email}
-            onChange={onChangeEmail}
-            errorMessage={emailError}
-          />
-        </div>
-
-        <div className={style.inputContainerSingup}>
-          <Input
-            label={"Пароль"}
-            error={passwordError || errorMessage}
-            type="password"
-            value={password}
-            onChange={onChangePassword}
-            errorMessage={passwordError}
-          />
-        </div>
-        <div className={style.inputContainerSingup}>
-          <Input
-            label={"Повторіть пароль"}
-            error={confirmedPasswordError || errorMessage}
-            type="password"
-            value={confirmedPassword}
-            onChange={onChangeСonfirmedPassword}
-            errorMessage={confirmedPasswordError}
-            id="confirmedPassword"
-          />
-        </div>
-        <label
-          className={errorMessage ? style.label : style.visuallyHidden}
-          htmlFor="confirmedPassword"
+    <Loader loading={loading}>
+      <div onClick={resetErrorOnClick} className={style.formContainer}>
+        <p className={style.title}>Реєстрація</p>
+        <form
+          className={style.form}
+          onSubmit={handlerSubmit}
+          onChange={() => resetError()}
         >
-          {errorMessage}
-        </label>
+          <div className={style.inputContainerSingup}>
+            <Input
+              label={"E-mail"}
+              type={"text"}
+              error={emailError || errorMessage}
+              value={email}
+              onChange={onChangeEmail}
+              errorMessage={emailError}
+            />
+          </div>
 
-        <Button type="submit">Зареєструватися</Button>
-      </form>
-      <p className={style.subtitle}>
-        Маєте акаунт? &nbsp;
-        <NavLink to="/login" className={style.NavLink}>
-          Увійти
+          <div className={style.inputContainerSingup}>
+            <Input
+              label={"Пароль"}
+              error={passwordError || errorMessage}
+              type="password"
+              value={password}
+              onChange={onChangePassword}
+              errorMessage={passwordError}
+            />
+          </div>
+          <div className={style.inputContainerSingup}>
+            <Input
+              label={"Повторіть пароль"}
+              error={confirmedPasswordError || errorMessage}
+              type="password"
+              value={confirmedPassword}
+              onChange={onChangeСonfirmedPassword}
+              errorMessage={confirmedPasswordError}
+              id="confirmedPassword"
+            />
+          </div>
+          <label
+            className={errorMessage ? style.label : style.visuallyHidden}
+            htmlFor="confirmedPassword"
+          >
+            {errorMessage}
+          </label>
+
+          <Button type="submit">Зареєструватися</Button>
+        </form>
+        <p className={style.subtitle}>
+          Маєте акаунт? &nbsp;
+          <NavLink to="/login" className={style.NavLink}>
+            Увійти
+          </NavLink>
+        </p>
+        <NavLink
+          to="/signup"
+          onClick={setVissible}
+          className={style.forgotPassLink}
+        >
+          Забули пароль?
         </NavLink>
-      </p>
-      <NavLink
-        to="/signup"
-        onClick={setVissible}
-        className={style.forgotPassLink}
-      >
-        Забули пароль?
-      </NavLink>
-    </div>
+      </div>
+    </Loader>
   );
 }

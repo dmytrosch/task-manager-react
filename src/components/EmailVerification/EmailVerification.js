@@ -4,7 +4,7 @@ import {
   makeSuccessNotification,
   makeAlertNotification,
 } from "../../redux/notifications/notificationOperations";
-import Loader from "../Loader/Loader";
+import Loader from "../Loaders/LoaderForSustain/LoaderForSustain";
 import { Redirect, useRouteMatch, useHistory } from "react-router-dom";
 import { verifyEmail } from "../../utils/taskManagerAPI";
 

@@ -18,6 +18,9 @@ import {
   resetPassRequest,
   resetPassSuccess,
   resetPassError,
+  sendEmailToResetPasswordRequest,
+  sendEmailToResetPasswordSuccess,
+  sendEmailToResetPasswordError,
 } from "../auth/authActions";
 
 import {
@@ -114,6 +117,12 @@ const auth = createReducer(false, {
   [logoutRequest]: () => true,
   [logoutSuccess]: () => false,
   [logoutError]: () => false,
+  [sendEmailToResetPasswordRequest]: () => true,
+  [sendEmailToResetPasswordSuccess]: () => false,
+  [sendEmailToResetPasswordError]: () => false,
+  [resetPassRequest]: () => true,
+  [resetPassError]: () => false,
+  [resetPassSuccess]: () => false,
 });
 
 const currentUser = createReducer(false, {

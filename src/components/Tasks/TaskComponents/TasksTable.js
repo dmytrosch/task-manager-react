@@ -11,7 +11,7 @@ import styles from "./TasksTable.module.css";
 
 const tasksIds = ["id_1", "id_2", "id_3", "id_4", "id_5", "id_6", "id_7"];
 
-export default function TasksTable({ currentDate }) {
+export default function TasksTable({ currentDate, loading, addTask }) {
   const dispatch = useDispatch();
   // TODO: Connect redux
   const handleSearchInput = (searchRequest) =>
@@ -37,7 +37,7 @@ export default function TasksTable({ currentDate }) {
           callback={handleSearchInput}
         />
       </div>
-      <TasksList currentDate={currentDate} />
+      <TasksList currentDate={currentDate} loading={loading} addTask={addTask}/>
     </div>
   );
 }

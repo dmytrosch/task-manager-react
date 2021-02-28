@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouteMatch } from "react-router-dom";
 import MainLayout from "../../layouts/MainLayout";
-import Sprint from "../../components/Sprint/Sprint";
+import Sprint from "../../components/Sprints/Sprints";
 import SideBar from "../../components/SideBar/SideBar";
 import viewStyles from "./SprintsView.module.css";
 

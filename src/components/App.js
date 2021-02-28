@@ -13,7 +13,7 @@ import { isLoading } from "../redux/loading/loadingSelector";
 import PublicRoute from "./Routes/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute";
 
-import Loader from "../components/Loader/Loader";
+import Loader from "../components/Loaders/LoaderForSustain/LoaderForSustain";
 import Notification from "../common/Notification/Notification";
 import ModalCreateSprint from "./../components/Modals/ModalComponents/ModalCreateSprint";
 import ModalCreateTask from "./Modals/ModalComponents/ModalCreateTask";
@@ -67,7 +67,7 @@ export default function App() {
       <ModalApproveDeleteProject />
       <ModalApproveDeleteSprint />
       <ModalApproveDeleteTask />
-      {loading && <Loader />}
+      {/* {loading && <Loader />} */}
     </>
   );
 }

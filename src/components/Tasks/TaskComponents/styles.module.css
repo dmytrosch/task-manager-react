@@ -17,6 +17,10 @@
   position: relative;
   margin-bottom: 10px;
 }
+.addTaskText {
+  text-decoration: underline;
+  cursor: pointer;
+}
 .div {
   display: flex;
   justify-content: space-between;

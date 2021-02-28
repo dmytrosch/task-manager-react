@@ -12,11 +12,18 @@ import {
   currentTasksSelector,
 } from "../../../redux/currentSprint/currentSprintSelectors";
 
-export default function TasksList({ currentDate }) {
+export default function TasksList({ currentDate, loading, addTask }) {
   const currentTasks = useSelector(currentTasksSelector);
 
   return !currentTasks || currentTasks.length === 0 ? (
-    <p className={styles.noTasks}>There are not tasks</p>
+    !loading && (
+      <p className={styles.noTasks}>
+        У спринта відсутні задачі.{" "}
+        <span className={styles.addTaskText} onClick={addTask}>
+          Створити задачу
+        </span>
+      </p>
+    )
   ) : (
     <TransitionGroup component="ul" className={styles.list}>
       {currentTasks.map((item) => (
