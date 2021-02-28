@@ -17,6 +17,10 @@ import { currentTasksSelector } from "../../redux/currentSprint/currentSprintSel
 import { getCurrentTaskDay } from "../../redux/currentSprint/currentSprintOperations";
 
 import styles from "./Tasks.module.css";
+import {search} from "../../redux/currentSprint/currentSprintSelectors";
+
+import searchActions from "../../redux/search/searchActions";
+import resultTaskArray from '../../redux/currentSprint/currentSprintSelectors';
 
 export default function Tasks({ sprintId }) {
   const dispatch = useDispatch();
@@ -33,12 +37,25 @@ export default function Tasks({ sprintId }) {
     });
   }
 
+
   useEffect(() => {
     dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
   }, []);
+
+  
   const handleSearchInput = (searchRequest) => {
-    console.log("dispatch", searchRequest);
+    
+      const searchResult = task.filter(item => {
+      const variable = item.name.includes(searchRequest)
+      return variable
+    })
+
+    dispatch(searchActions.setSearchValue(searchRequest));
+  
+    // console.log(searchResult);
+    // return searchResult;
   };
+
 
   const handleSlider = (current) => {
     setCurrentDate(current);
@@ -66,11 +83,13 @@ export default function Tasks({ sprintId }) {
             total={sprintDuration}
             callback={handleSlider}
           />
-          {task && <span className={styles.date}>{task[2].spendedTime[currentDay].date.toString()}</span>}
+          {task && task[0]?.spendedTime && <span className={styles.date}>{task[0].spendedTime[currentDay].date.toString()}</span>}
         </div>
         <SearchInput
           customContainerStyles={styles.mobileSearchInp}
-          callback={handleSearchInput}
+       
+           callback={handleSearchInput} 
+           searchValue={search}
         />
       </div>
       <div className={styles.sprint}>
@@ -90,7 +109,7 @@ export default function Tasks({ sprintId }) {
         onClick={openModalChartTable}
       ></IconButton>
 
-      <TasksTable currentDate={currentDate} />
+      <TasksTable currentDate={currentDate}/>
     </div>
   );
 }

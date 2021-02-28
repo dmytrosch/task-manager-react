@@ -10,10 +10,15 @@ import TaskItem from "./TaskItem";
 import {
   currentSprintSelector,
   currentTasksSelector,
+  resultTaskArray,
 } from "../../../redux/currentSprint/currentSprintSelectors";
 
 export default function TasksList({ currentDate }) {
-  const currentTasks = useSelector(currentTasksSelector);
+  const currentTasks = useSelector(resultTaskArray);
+
+  // const data = searchRes ? searchRes : currentTasks
+
+  console.log(resultTaskArray);
 
   return !currentTasks || currentTasks.length === 0 ? (
     <p className={styles.noTasks}>There are not tasks</p>
