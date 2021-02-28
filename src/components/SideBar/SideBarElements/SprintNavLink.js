@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getByIdSelector } from "../../redux/projects/projectSelectors";
-import { getProjectById } from "../../redux/projects/projectOperations";
 import classNames from "classnames";
-import styles from "./sideBar.module.css";
-import transition from "./sideBarTransition.module.css";
-
-export default function LinkRouter({ projId, visibleTab }) {
-  const { name, id } = useSelector(getByIdSelector(projId));
+import styles from "../sideBar.module.css";
+import transition from "../sideBarTransition.module.css";
+import { byIdSelector } from "../../../redux/sprints/sprintsSelectors";
+import { sprintById } from "../../../redux/sprints/sprintsOperations";
+export default function LinkRouter({ sprintId, projectMatch, visibleTab }) {
+  const { name, id } = useSelector(byIdSelector(sprintId));
   const [wobble, setWobble] = useState(0);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProjectById(projId));
-  }, [projId]);
+    dispatch(sprintById(sprintId));
+  }, [sprintId]);
+
   return (
     <>
       <NavLink
-        to={`/projects/${id}/sprints`}
+        to={`/projects/${projectMatch}/sprints/${id}/tasks/1`}
         onClick={() => setWobble(1)}
         onAnimationEnd={() => setWobble(0)}
         className={styles.navLink}
       >
         <p
+          style={{ backgroundColor: "white" }}
           wobble={wobble}
           className={
             visibleTab === id
@@ -32,7 +33,7 @@ export default function LinkRouter({ projId, visibleTab }) {
         ></p>
 
         <p className={styles.taskTitle}>
-          {name.length > 30 ? name.slice(0, 30) + "..." : name}
+          {name && name.length > 30 ? name.slice(0, 30) + "..." : name}
         </p>
       </NavLink>
     </>

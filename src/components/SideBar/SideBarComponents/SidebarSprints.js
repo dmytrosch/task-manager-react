@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useSelector } from "react-redux";
-import styles from "../SideBar/sideBar.module.css";
-import transition from "./sideBarTransition.module.css";
+import styles from "../sideBar.module.css";
+import transition from "../sideBarTransition.module.css";
+import SprintNavLink from "../SideBarElements/SprintNavLink";
 import classNames from "classnames";
 import { Scrollbars } from "rc-scrollbars";
-import ProjectNavLink from "./ProjectNavLink";
-import { getAllIdsSelector } from "../../redux/projects/projectSelectors";
-import { getProjectById } from "../../redux/projects/projectOperations";
-import { useRouteMatch, useParams, useLocation } from "react-router-dom";
-export default function ListItem() {
+import { allIdsSelector } from "../../../redux/sprints/sprintsSelectors";
+import { useRouteMatch } from "react-router-dom";
+export default function SprintsLink() {
   const projectMatch = useRouteMatch().params.projectId;
   const sprintsMatch = useRouteMatch().params.sprintId;
-  const [visibleTab, setVisibleTab] = useState(projectMatch);
-  const projectsIds = useSelector(getAllIdsSelector);
+  const [visibleTab, setVisibleTab] = useState(sprintsMatch);
+  const sprintIds = useSelector(allIdsSelector);
   return (
     <>
-      {projectMatch && !sprintsMatch && (
+      {projectMatch && sprintsMatch && (
         <Scrollbars
           className={styles.scrollbars}
           autoHeight={true}
@@ -26,7 +25,7 @@ export default function ListItem() {
         >
           <div className={styles.tabsMenu}>
             <TransitionGroup component="ul" className={styles.tabsTitles}>
-              {projectsIds.map((id) => (
+              {sprintIds.map((id) => (
                 <CSSTransition
                   in={true}
                   appear={true}
@@ -46,7 +45,11 @@ export default function ListItem() {
                         : styles.title
                     }
                   >
-                    <ProjectNavLink projId={id} visibleTab={visibleTab} />
+                    <SprintNavLink
+                      sprintId={id}
+                      visibleTab={visibleTab}
+                      projectMatch={projectMatch}
+                    />
                   </li>
                 </CSSTransition>
               ))}
