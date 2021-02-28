@@ -26,6 +26,7 @@ const byId = createReducer(
         acc[sprint.id] = sprint;
         return acc;
       }, {}),
+    [projectsActions.byIdRequest]: (state, { payload }) => {},
   }
 );
 
@@ -38,6 +39,7 @@ const allIds = createReducer([], {
     state.filter((item) => item !== payload),
   [projectsActions.byIdSuccess]: (state, { payload }) =>
     payload.sprints.map((sprint) => sprint.id),
+  [projectsActions.byIdRequest]: (state, { payload }) => [],
 });
 
 const sprints = combineReducers({ byId, allIds });
