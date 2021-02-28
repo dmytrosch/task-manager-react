@@ -131,16 +131,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  /* .navContainer::after {
-    content: "";
-    display: inline-block;
-    height: 1px;
-    width: 100%;
-    left: 0px;
-    background-color: var(--borderColor);
-    top: 95px;
-    position: absolute;
-  } */
+
   .aside {
     padding-bottom: 0;
   }

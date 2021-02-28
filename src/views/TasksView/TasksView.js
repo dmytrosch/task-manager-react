@@ -1,5 +1,4 @@
 import React from "react";
-
 import MainLayout from "../../layouts/MainLayout";
 import SideBar from "../../components/SideBar/SideBar";
 import Task from "../../components/Tasks/Tasks";
