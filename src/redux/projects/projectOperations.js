@@ -30,7 +30,6 @@ import {
   makeAlertNotification,
   makeSuccessNotification,
 } from "../notifications/notificationOperations";
-import { error } from "highcharts";
 import { editProjectDescription } from "../../utils/taskManagerAPI";
 export const getProjectById = (projectId) => (dispatch) => {
   dispatch(byIdRequest());

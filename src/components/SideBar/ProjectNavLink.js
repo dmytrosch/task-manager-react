@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getByIdSelector } from "../../redux/projects/projectSelectors";
+import { getProjectById } from "../../redux/projects/projectOperations";
 import classNames from "classnames";
 import styles from "./sideBar.module.css";
 import transition from "./sideBarTransition.module.css";
 
 export default function LinkRouter({ projId, visibleTab }) {
   const { name, id } = useSelector(getByIdSelector(projId));
-  const [wobble, setWobble] = React.useState(0);
+  const [wobble, setWobble] = useState(0);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProjectById(projId));
+  }, [projId]);
   return (
     <>
       <NavLink
