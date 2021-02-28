@@ -41,10 +41,10 @@ export default function ResetPasswordRequest({ setVissible }) {
     <div onClick={resetErrorOnClick} className={style.formContainer}>
       <div className={style.inputContainer}>
         <h2 className={style.title}> Вiдновлення паролю </h2>
-        <p className={style.subtitle}>Введіть email адресу користувача. </p>
+        {/* <p className={style.subtitle}>Введіть email адресу користувача. </p> */}
         <form onSubmit={submitHandler} onChange={() => resetError()}>
           <Input
-            label={"E-mail"}
+            label={"Введіть Ваш e-mail"}
             value={emailAdress}
             error={emailError || errorMessage}
             onChange={onChangeEmail}

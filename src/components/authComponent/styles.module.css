@@ -8,6 +8,8 @@
 
 .return {
   margin-top: 200px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
 }
 .PassLink {
   font-size: 20px;
@@ -104,7 +106,7 @@
     color: var(--greyColor);
     display: inline-block;
     font-size: 12px;
-    width: 110px;
+    width: 170px;
     text-align: center;
     display: block;
     margin: 25px auto 0px;
