@@ -47,11 +47,7 @@ IconButton.proprTypes = {
 IconButton.defaultProps = {
   iconName: "coloredBin",
   icon: "coloredBin",
-
-  //   size: {
-  //       width: 34,
-  //       height: 34,
-  //   },
+ 
 };
 
 export default IconButton;
