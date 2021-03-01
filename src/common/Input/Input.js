@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Input.module.css";
+import classNames from "classnames"
 
 const Input = ({
   type,
@@ -13,11 +14,13 @@ const Input = ({
     <>
       <div className={styles.textField}>
         <input
-          className={[
-            styles.input,
-            error ? styles.inputError : "",
-            inputClassNames,
-          ].join(" ")}
+          className={
+            classNames(
+              styles.input,
+              inputClassNames,
+              error && styles.inputError,
+            )
+          }
           type={type}
           {...props}
         />
