@@ -1,3 +1,4 @@
+import { pathOr } from "ramda";
 import {
   addProjectRequest,
   addProjectSuccess,
@@ -37,25 +38,33 @@ export const getProjectById = (projectId) => (dispatch) => {
   dispatch(byIdRequest());
   getCurrentProjectAPI(projectId)
     .then((response) => dispatch(byIdSuccess(response.data)))
-    .catch(() => dispatch(byIdError));
+    .catch((err) =>
+      dispatch(byIdError(pathOr("", ["response", "status"], err)))
+    );
 };
 export const addProject = (project) => (dispatch) => {
   dispatch(addProjectRequest());
   addProjectAPI(project)
     .then((resp) => dispatch(addProjectSuccess(resp.data)))
-    .catch((error) => dispatch(addProjectError()));
+    .catch((err) =>
+      dispatch(addProjectError(pathOr("", ["response", "status"], err)))
+    );
 };
 export const deleteProject = (projectId) => (dispatch) => {
   dispatch(deleteProjectRequest());
   deleteProjectAPI(projectId)
     .then(() => dispatch(deleteProjectSuccess(projectId)))
-    .catch(() => dispatch(deleteProjectError()));
+    .catch((err) =>
+      dispatch(deleteProjectError(pathOr("", ["response", "status"], err)))
+    );
 };
 export const editProjectName = (projectId, newName) => (dispatch) => {
   dispatch(changeProjectNameRequest());
   editProjectNameAPI(projectId, newName)
     .then((response) => dispatch(changeProjectNameSuccess(response.data)))
-    .catch(() => dispatch(changeProjectNameError()));
+    .catch((err) =>
+      dispatch(changeProjectNameError(pathOr("", ["response", "status"], err)))
+    );
 };
 export const addParticipant = (projectId, participant) => (dispatch) => {
   dispatch(addParticipantRequest());
@@ -82,5 +91,7 @@ export const editProjectDespription = (projectId, newDescription) => (
   dispatch(changeProjectDescRequest());
   editProjectDescription(projectId, newDescription)
     .then((response) => dispatch(changeProjectDescSuccess(response.data)))
-    .catch(() => dispatch(changeProjectDescError()));
+    .catch((err) =>
+      dispatch(changeProjectDescError(pathOr("", ["response", "status"], err)))
+    );
 };

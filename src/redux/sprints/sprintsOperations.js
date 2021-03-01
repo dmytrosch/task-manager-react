@@ -1,3 +1,4 @@
+import { pathOr } from "ramda";
 import action from "./sprintsActions";
 
 import * as send from "../../utils/taskManagerAPI";
@@ -7,7 +8,9 @@ export const createSprint = (projectId, sprint) => (dispatch) => {
   send
     .addSprint(projectId, sprint)
     .then((response) => dispatch(action.createSuccess(response.data)))
-    .catch((err) => dispatch(action.createError(err.message)));
+    .catch((err) =>
+      dispatch(action.createError(pathOr("", ["response", "status"], err)))
+    );
 };
 
 export const deleteSprint = (projectId, sprintId) => (dispatch) => {
@@ -15,7 +18,9 @@ export const deleteSprint = (projectId, sprintId) => (dispatch) => {
   send
     .deleteSprint(projectId, sprintId)
     .then(() => dispatch(action.deleteSuccess(sprintId)))
-    .catch((err) => dispatch(action.deleteError(err.message)));
+    .catch((err) =>
+      dispatch(action.deleteError(pathOr("", ["response", "status"], err)))
+    );
 };
 
 export const updateSprintName = (sprintId, name) => (dispatch) => {
@@ -24,8 +29,9 @@ export const updateSprintName = (sprintId, name) => (dispatch) => {
     .updateSprintName({ sprintId, name })
     .then(() => dispatch(action.sprintChangeNameSuccess({ sprintId, name })))
     .catch((err) => {
-      console.log(err);
-      dispatch(action.sprintChangeNameError(err.message));
+      dispatch(
+        action.sprintChangeNameError(pathOr("", ["response", "status"], err))
+      );
     });
 };
 
@@ -34,5 +40,7 @@ export const sprintById = (sprintId) => (dispatch) => {
   send
     .sprintById(sprintId)
     .then((response) => dispatch(action.byIdSuccess(response.data)))
-    .catch((err) => dispatch(action.byIdError(err.message)));
+    .catch((err) =>
+      dispatch(action.byIdError(pathOr("", ["response", "status"], err)))
+    );
 };

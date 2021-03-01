@@ -1,3 +1,4 @@
+import { pathOr } from "ramda";
 import action from "./currentSprintAction";
 
 import * as send from "../../utils/taskManagerAPI";
@@ -7,7 +8,9 @@ export const createTask = (sprintId, task) => (dispatch) => {
   send
     .addTask(sprintId, task)
     .then((response) => dispatch(action.createTaskSuccess(response.data)))
-    .catch((err) => dispatch(action.createTaskError(err.message)));
+    .catch((err) =>
+      dispatch(action.createTaskError(pathOr("", ["response", "status"], err)))
+    );
 };
 
 export const deleteTask = (sprintId, taskId) => (dispatch) => {
@@ -15,7 +18,9 @@ export const deleteTask = (sprintId, taskId) => (dispatch) => {
   send
     .deleteTask(sprintId, taskId)
     .then(() => dispatch(action.deleteTaskSuccess(taskId)))
-    .catch((err) => dispatch(action.deleteTaskError(err)));
+    .catch((err) =>
+      dispatch(action.deleteTaskError(pathOr("", ["response", "status"], err)))
+    );
 };
 
 export const updateTaskName = (taskId, name) => (dispatch) => {
@@ -23,7 +28,11 @@ export const updateTaskName = (taskId, name) => (dispatch) => {
   send
     .updateTaskName(taskId, name)
     .then((response) => dispatch(action.changeTaskNameSuccess(response.data)))
-    .catch((err) => dispatch(action.changeTaskNameError(err)));
+    .catch((err) =>
+      dispatch(
+        action.changeTaskNameError(pathOr("", ["response", "status"], err))
+      )
+    );
 };
 
 export const updateTaskTime = (taskId, dateId, hours) => (dispatch) => {
@@ -31,7 +40,11 @@ export const updateTaskTime = (taskId, dateId, hours) => (dispatch) => {
   send
     .updateTaskTime(taskId, dateId, hours)
     .then((response) => dispatch(action.updateTaskTimeSuccess(response.data)))
-    .catch((err) => dispatch(action.updateTaskTimeError(err)));
+    .catch((err) =>
+      dispatch(
+        action.updateTaskTimeError(pathOr("", ["response", "status"], err))
+      )
+    );
 };
 
 export const searchTaskByName = (sprintId, query) => (dispatch) => {
@@ -39,7 +52,11 @@ export const searchTaskByName = (sprintId, query) => (dispatch) => {
   send
     .searchTasksByName(sprintId, query)
     .then((response) => dispatch(action.searchTaskByNameSucces(response.data)))
-    .catch((err) => dispatch(action.updateTaskTimeError(err)));
+    .catch((err) =>
+      dispatch(
+        action.updateTaskTimeError(pathOr("", ["response", "status"], err))
+      )
+    );
 };
 
 export const getCurrentSprint = (sprintId) => (dispatch) => {
@@ -48,7 +65,8 @@ export const getCurrentSprint = (sprintId) => (dispatch) => {
     .getCurrentSprint(sprintId)
     .then((response) => dispatch(action.getCurrentSprintSuccess(response.data)))
     .catch((err) => {
-      console.log(err);
-      dispatch(action.getCurrentSprintError(err));
+      dispatch(
+        action.getCurrentSprintError(pathOr("", ["response", "status"], err))
+      );
     });
 };
