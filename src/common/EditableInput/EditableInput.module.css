@@ -6,7 +6,6 @@
   margin: -1px;
 }
 .description {
-  margin-top: 20px;
   width: 205px;
   word-break: break-word;
 }
@@ -124,6 +123,7 @@
 @media (min-width: 768px) {
   .sprintName {
     font-size: 36px;
+    margin: 0 auto
   }
   .description {
     width: 100%;
@@ -143,6 +143,7 @@
   }
   .sprintName {
     font-size: 34px;
+    margin: 0
   }
   .searchInput {
     text-align: start;
