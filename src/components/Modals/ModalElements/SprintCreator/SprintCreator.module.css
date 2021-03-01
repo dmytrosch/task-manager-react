@@ -1,5 +1,6 @@
 .container {
   text-align: center;
+  width: 100%;
 }
 .title {
   width: 100%;
@@ -7,6 +8,9 @@
   margin-bottom: 50px;
   letter-spacing: 0.04em;
   margin-left: 20px;
+}
+.none {
+  display: none;
 }
 
 .form {
