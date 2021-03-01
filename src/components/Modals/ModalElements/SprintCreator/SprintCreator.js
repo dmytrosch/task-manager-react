@@ -55,7 +55,12 @@ export default function SprintCreator({ onClose }) {
   };
 
   return (
-    <section className={style.container}>
+    <section
+      className={style.container}
+      onClick={() => {
+        isOn && startDate && !endDate && setIsOn(false);
+      }}
+    >
       <div className={style.form}>
         <p className={style.title}>Створення спринта</p>
         <form onSubmit={submitHandler}>
@@ -129,7 +134,10 @@ export default function SprintCreator({ onClose }) {
               startDate={startDate}
               endDate={endDate}
               focus={focus}
-              onStartDateChange={setStartDate}
+              onStartDateChange={(value) => {
+                setStartDate(value);
+                setEndDate(null)
+              }}
               onEndDateChange={(value) => {
                 setEndDate(value);
                 setIsOn(!isOn);
