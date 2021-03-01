@@ -1,7 +1,39 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-
+import {
+  getCurrentSprint,
+  getAllDayInSprint,
+  getWastedHoursInTasks,
+  getPlanedTimeInSprint,
+} from "../../../../redux/sprints/sprintsSelectors";
+import { useSelector } from "react-redux";
 export default function ChartTable() {
+  const currentSprint = useSelector(getCurrentSprint);
+  const days = useSelector(getAllDayInSprint);
+  const wastedTimeInAllTask = useSelector(getWastedHoursInTasks);
+  const plannedTime = useSelector(getPlanedTimeInSprint);
+
+  const timeSpendedInAllTasks = wastedTimeInAllTask.reduce((acc, el) => {
+    el.forEach((elem, indx) => {
+      acc[indx] = (acc[indx] || 0) + elem;
+    });
+    return acc;
+  }, []);
+  const middleWorkingInDay = days.reduce((acc, el, ind) => {
+    acc.push(Math.floor(plannedTime - (plannedTime / days.length) * ind));
+    return acc;
+  }, []);
+
+  function actualWork(plannedTime) {
+    let timeSpendedInDay = timeSpendedInAllTasks.reduce((acc, el, ind) => {
+      let afterWork = plannedTime - el;
+      acc.push(afterWork);
+      plannedTime = afterWork;
+      return acc;
+    }, []);
+    return timeSpendedInDay;
+  }
+
   const options = {
     chart: {
       scrollablePlotArea: {
@@ -22,7 +54,7 @@ export default function ChartTable() {
       text: "GOIT.UA",
     },
     title: {
-      text: "Burndown Chart (Calendar Team)",
+      text: `Спринт: ${currentSprint.name}`,
       x: 0,
       style: { fontSize: 14 },
     },
@@ -43,20 +75,7 @@ export default function ChartTable() {
     },
 
     xAxis: {
-      categories: [
-        "Day 1",
-        "Day 2",
-        "Day 3",
-        "Day 4",
-        "Day 5",
-        "Day 6",
-        "Day 7",
-        "Day 8",
-        "Day 9",
-        "Day 10",
-        "Day 11",
-        "Day 12",
-      ],
+      categories: days,
       scrollbar: {
         enabled: true,
       },
@@ -67,7 +86,7 @@ export default function ChartTable() {
         showFull: false,
       },
       title: {
-        text: "Человеко-часы",
+        text: "Людино-години",
       },
       plotLines: [
         {
@@ -89,19 +108,19 @@ export default function ChartTable() {
     },
     series: [
       {
-        name: "Актуальные оставшиеся трудозатраты в часах",
+        name: "Актуальні трудозатрати в годинах",
         color: "rgba(255,0,0,0.25)",
         lineWidth: 2,
         style: { fontSize: 12 },
-        data: [110, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0],
+        data: actualWork(plannedTime),
       },
       {
-        name: "Запланированные оставшиеся трудозатраты",
+        name: "Заплановані трудозатрати",
         color: "rgba(0,120,200,0.75)",
         marker: {
           radius: 6,
         },
-        data: [100, 110, 125, 95, 64, 76, 62, 44, 35, 29, 18, 2],
+        data: middleWorkingInDay,
       },
     ],
   };
