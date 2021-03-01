@@ -21,7 +21,7 @@ import clientWidth from "./clientWidth/clientWidthReducer";
 import loading from "./loading/loadingReducer";
 import modal from "./modal/modalReducer";
 import search from "./search/searchRedusers";
-
+import errors from './errors/errorsReducer'
 const authPersistConfig = {
   key: "auth",
   storage,
@@ -33,6 +33,7 @@ const app = combineReducers({
   currentSprint,
   search,
   clientWidth,
+  errors,
 });
 const ui = combineReducers({ loading, modal, notification });
 
