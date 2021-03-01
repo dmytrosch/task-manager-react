@@ -25,6 +25,12 @@ export default function SprintCreator({ onClose }) {
   const handleFocusChange = (newFocus) => {
     setFocus(newFocus || START_DATE);
   };
+  function time(startDate, endDate) {
+    return (
+      Math.round((new Date(endDate) - new Date(startDate)) / 1000 / 3600 / 24) +
+      1
+    );
+  }
   const projectId = useSelector(currentProjectId);
   const dispatch = useDispatch();
   const submitHandler = (e) => {
@@ -47,6 +53,7 @@ export default function SprintCreator({ onClose }) {
     }
     setErrorLengthSprint(null);
   };
+
   return (
     <>
       <section className={style.container}>
@@ -92,11 +99,7 @@ export default function SprintCreator({ onClose }) {
               <input
                 className={classNames(style.input, style.durationBtn)}
                 defaultValue=""
-                value={
-                  endDate
-                    ? format(endDate - startDate, "d", { locale: uk })
-                    : ""
-                }
+                value={endDate ? time(startDate, endDate) : ""}
                 type="text"
                 placeholder="Тривалість"
                 required
@@ -112,7 +115,7 @@ export default function SprintCreator({ onClose }) {
             </Button>
           </form>
           {isOn && (
-            <div className={style.pickerDateContainer}>
+            <div className={classNames(style.pickerDateContainer)}>
               <div className={style.dayWeeks}>
                 <p>ПН</p>
                 <p>ВТ</p>
