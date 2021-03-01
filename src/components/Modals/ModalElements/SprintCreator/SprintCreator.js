@@ -55,93 +55,94 @@ export default function SprintCreator({ onClose }) {
   };
 
   return (
-    <>
-      <section className={style.container}>
-        <div className={style.form}>
-          <p className={style.title}>Створення спринта</p>
-          <form onSubmit={submitHandler}>
-            <div className={style.inputSprintContainer}>
-              <Input
-                onChange={handlerNameSprint}
-                type="text"
-                error={errorLengthSprint}
-                errorMessage={errorLengthSprint}
-                inputClassNames={style.inputSprint}
-                label="Назва спрінта"
-                value={nameSprint}
-                required
-              />
-            </div>
+    <section className={style.container}>
+      <div className={style.form}>
+        <p className={style.title}>Створення спринта</p>
+        <form onSubmit={submitHandler}>
+          <div className={style.inputSprintContainer}>
+            <Input
+              onChange={handlerNameSprint}
+              type="text"
+              error={errorLengthSprint}
+              errorMessage={errorLengthSprint}
+              inputClassNames={style.inputSprint}
+              label="Назва спрінта"
+              value={nameSprint}
+              required
+            />
+          </div>
 
-            <div className={style.dateInputContainer}>
-              <div className={style.triangleContainer}>
-                <input
-                  className={classNames(style.input, style.dateEndBtn)}
-                  defaultValue=""
-                  value={
-                    startDate ? format(startDate, "dd MMM", { locale: uk }) : ""
-                  }
-                  type="text"
-                  placeholder="Дата закінчення"
-                  onClick={() => setIsOn(!isOn)}
-                  required
-                />
-                <img
-                  onClick={() => setIsOn(!isOn)}
-                  src={triangle}
-                  className={classNames(
-                    style.triangle,
-                    isOn && style.triangleRot
-                  )}
-                  alt="triangle"
-                ></img>
-              </div>
+          <div className={style.dateInputContainer}>
+            <div className={style.triangleContainer}>
               <input
-                className={classNames(style.input, style.durationBtn)}
+                className={classNames(style.input, style.dateEndBtn)}
                 defaultValue=""
-                value={endDate ? time(startDate, endDate) : ""}
+                value={
+                  startDate &&
+                  endDate &&
+                  `${format(startDate, "dd.MM", {
+                    locale: uk,
+                  })} - ${format(endDate, "dd.MM", { locale: uk })}`
+                }
                 type="text"
-                placeholder="Тривалість"
+                placeholder="Оберіть дати"
+                onClick={() => setIsOn(!isOn)}
                 required
               />
+              <img
+                onClick={() => setIsOn(!isOn)}
+                src={triangle}
+                className={classNames(
+                  style.triangle,
+                  isOn && style.triangleRot
+                )}
+                alt="triangle"
+              ></img>
+            </div>
+            <input
+              className={classNames(style.input, style.durationBtn)}
+              defaultValue=""
+              value={endDate && time(startDate, endDate)}
+              type="text"
+              placeholder="Тривалість"
+              required
+            />
+          </div>
+
+          <Button type="submit" shape="oval" buttonCustomClass={style.addedBtn}>
+            Готово
+          </Button>
+        </form>
+        {isOn && (
+          <div className={classNames(style.pickerDateContainer)}>
+            <div className={style.dayWeeks}>
+              <p>ПН</p>
+              <p>ВТ</p>
+              <p>СР</p>
+              <p>ЧТ</p>
+              <p>ПН</p>
+              <p>СБ</p>
+              <p>НД</p>
             </div>
 
-            <Button
-              type="submit"
-              shape="oval"
-              buttonCustomClass={style.addedBtn}
-            >
-              Готово
-            </Button>
-          </form>
-          {isOn && (
-            <div className={classNames(style.pickerDateContainer)}>
-              <div className={style.dayWeeks}>
-                <p>ПН</p>
-                <p>ВТ</p>
-                <p>СР</p>
-                <p>ЧТ</p>
-                <p>ПН</p>
-                <p>СБ</p>
-                <p>НД</p>
-              </div>
-
-              <DateRangePickerCalendar
-                startDate={startDate}
-                endDate={endDate}
-                focus={focus}
-                onStartDateChange={setStartDate}
-                onEndDateChange={setEndDate}
-                onFocusChange={handleFocusChange}
-                locale={uk}
-              />
-            </div>
-          )}
-          <span onClick={onClose} className={style.subtitle}>
-            Відміна
-          </span>
-        </div>
-      </section>
-    </>
+            <DateRangePickerCalendar
+              startDate={startDate}
+              endDate={endDate}
+              focus={focus}
+              onStartDateChange={setStartDate}
+              onEndDateChange={(value) => {
+                setEndDate(value);
+                setIsOn(!isOn);
+              }}
+              onFocusChange={handleFocusChange}
+              locale={uk}
+            />
+          </div>
+        )}
+        <span onClick={onClose} className={style.subtitle}>
+          Відміна
+        </span>
+      </div>
+    </section>
   );
 }
