@@ -5,6 +5,19 @@ const currentSprint = createReducer(
   {},
   {
     [currentSprintActions.getCurrentSprintSuccess]: (_, { payload }) => payload,
+    [currentSprintActions.updateTaskTimeSuccess]: (state, { payload }) => {
+      return {
+        id: state.id,
+        name: state.name,
+        tasks: state.tasks.map((item) => {
+          if (item.id === payload.taskId) {
+            return payload.data;
+          }
+          return item;
+        }),
+        isOwner: state.isOwner,
+      };
+    },
 
     [currentSprintActions.createTaskSuccess]: (state, { payload }) =>
       void (state.tasks = [payload, ...state.tasks]),

@@ -7,14 +7,14 @@ import animateItem from "../../../styles/animateItem.module.css";
 
 import TaskItem from "./TaskItem";
 
-import {
-  resultTaskArray,
-} from "../../../redux/currentSprint/currentSprintSelectors";
+import { resultTaskArray } from "../../../redux/currentSprint/currentSprintSelectors";
+import { searchValue } from "../../../redux/search/searchSelectors";
 
 export default function TasksList({ currentDate, loading, addTask }) {
   const currentTasks = useSelector(resultTaskArray);
+  const search = useSelector(searchValue);
 
-  return !currentTasks || currentTasks.length === 0 ? (
+  return !currentTasks || (currentTasks.length === 0 && search.length === 0) ? (
     !loading && (
       <p className={styles.noTasks}>
         У спринта відсутні задачі.{" "}
@@ -23,6 +23,8 @@ export default function TasksList({ currentDate, loading, addTask }) {
         </span>
       </p>
     )
+  ) : currentTasks.length === 0 && search.length !== 0 ? (
+    <p>Нічого не знайдено :(</p>
   ) : (
     <TransitionGroup component="ul" className={styles.list}>
       {currentTasks.map((item) => (

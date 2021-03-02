@@ -39,12 +39,17 @@ export const updateTaskTime = (taskId, dateId, hours) => (dispatch) => {
   dispatch(action.updateTaskTimeRequest());
   send
     .updateTaskTime(taskId, dateId, hours)
-    .then((response) => dispatch(action.updateTaskTimeSuccess(response.data)))
-    .catch((err) =>
+    .then((response) =>
       dispatch(
-        action.updateTaskTimeError(pathOr("", ["response", "status"], err))
+        action.updateTaskTimeSuccess({
+          taskId,
+          data: response.data,
+        })
       )
-    );
+    )
+    .catch((err) => dispatch(
+      action.updateTaskTimeError(pathOr("", ["response", "status"], err))
+    ));
 };
 
 export const searchTaskByName = (sprintId, query) => (dispatch) => {
