@@ -9,29 +9,26 @@ import Edit from "./iconsForEditText/Edit.svg";
 
 export default function EditableInput({
   value,
-  viewStyle,
-  inputStyle,
+  viewClassName,
+  inputClassName,
   rows,
   button,
   styleInputNumber,
   type,
-  validation,
-  validationMessage,
-  onSave,
   disable,
+  ...props
 }) {
   return (
     <div className="container">
       {disable ? (
-        <p className={styles[viewStyle]}>{value}</p>
+        <p className={styles[viewClassName]}>{value}</p>
       ) : (
         <EdiText
-          type={type}
           viewProps={{
-            className: styles[viewStyle],
+            className: styles[viewClassName],
           }}
           inputProps={{
-            className: styles[inputStyle],
+            className: styles[inputClassName],
             disabled: disable,
             rows: rows,
           }}
@@ -51,16 +48,15 @@ export default function EditableInput({
           hideIcons={true}
           startEditingOnFocus
           value={value}
-          onSave={onSave}
-          validationMessage={validationMessage}
-          validation={validation}
+          {...props}
         />
       )}
     </div>
   );
 }
 EditableInput.proprTypes = {
-  viewStyle: PropTypes.string,
+  viewClassName: PropTypes.string,
+  inputClassName: PropTypes.string,
   shape: PropTypes.string,
   rows: PropTypes.number,
   button: PropTypes.string,
@@ -71,8 +67,8 @@ EditableInput.proprTypes = {
 };
 
 EditableInput.defaultProps = {
-  viewStyle: "sprintName",
-  inputStyle: "sprintNameInput",
+  viewClassName: "sprintName",
+  inputClassName: "sprintNameInput",
   button: "button",
   type: "textarea",
   validationMessage: "Будь ласка введіть назву до 50 символів.",

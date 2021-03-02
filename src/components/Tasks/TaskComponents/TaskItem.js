@@ -40,8 +40,8 @@ export default function SprintItem({ task, currentDate }) {
     <>
       <li className={styles.container}>
         <EditableInput
-          viewStyle="taskName"
-          inputStyle="taskNameInput"
+          viewClassName="taskName"
+          inputClassName="taskNameInput"
           rows={2}
           value={task.name}
           button="hide"
@@ -58,8 +58,8 @@ export default function SprintItem({ task, currentDate }) {
           <EditableInput
             type="number"
             button="hide"
-            viewStyle="searchName"
-            inputStyle="searchInput"
+            viewClassName="searchName"
+            inputClassName="searchInput"
             value={task.spendedTime[currentDay].wastedTime.toString()}
             validationMessage="Будь ласка, введіть число до 3 цифр."
             validation={(val) => val.length <= 3}

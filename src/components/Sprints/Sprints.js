@@ -61,7 +61,7 @@ export default function Sprint({ projectId }) {
                   <EditableInput
                     value={description}
                     disable={!isOwner}
-                    viewStyle="description"
+                    viewClassName="description"
                     type="textarea"
                     onSave={changeProjectDescription}
                   />
