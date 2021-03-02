@@ -45,19 +45,12 @@ export default function Tasks({ sprintId }) {
   }
 
   useEffect(() => {
+    console.log("qwqwqw");
     dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
-  }, []);
+  }, [params.sprintId]);
 
   const handleSearchInput = (searchRequest) => {
-    const searchResult = task.filter((item) => {
-      const variable = item.name.includes(searchRequest);
-      return variable;
-    });
-
     dispatch(searchActions.setSearchValue(searchRequest));
-
-    // console.log(searchResult);
-    // return searchResult;
   };
 
   const handleSlider = (current) => {
@@ -76,7 +69,6 @@ export default function Tasks({ sprintId }) {
     dispatch(modalAction.setModalCreateTask(currentSprint.id));
   const openModalChartTable = () =>
     dispatch(modalAction.setModalChartTable(true));
-  console.log(currentSprint);
   return (
     <Loader loading={loading}>
       <div className={styles.container}>

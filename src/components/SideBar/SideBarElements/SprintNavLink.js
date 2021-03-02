@@ -12,7 +12,7 @@ export default function LinkRouter({ sprintId, projectId, visibleTab }) {
   return (
     <>
       <NavLink
-        to={`/projects/${projectId}/sprints/${id}/tasks/1`}
+        to={`/projects/${projectId}/sprints/${sprintId}/tasks/1`}
         onClick={() => setWobble(1)}
         onAnimationEnd={() => setWobble(0)}
         className={styles.navLink}
