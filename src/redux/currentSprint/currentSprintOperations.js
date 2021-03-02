@@ -30,7 +30,14 @@ export const updateTaskTime = (taskId, dateId, hours) => (dispatch) => {
   dispatch(action.updateTaskTimeRequest());
   send
     .updateTaskTime(taskId, dateId, hours)
-    .then((response) => dispatch(action.updateTaskTimeSuccess(response.data)))
+    .then((response) =>
+      dispatch(
+        action.updateTaskTimeSuccess({
+          taskId,
+          data: response.data,
+        })
+      )
+    )
     .catch((err) => dispatch(action.updateTaskTimeError(err)));
 };
 
