@@ -34,7 +34,7 @@
   border: none;
   background: none;
   /* padding: 5px; */
-  border-bottom: 1px solid var(--greyColor);
+  border-bottom: 2px solid #cdced0;
   overflow: none;
   font-weight: bold;
   font-family: var(--primeFont);
