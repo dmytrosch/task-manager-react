@@ -75,42 +75,48 @@ export default function Signup({ setVissible }) {
         >
           <div className={style.inputContainerSingup}>
             <Input
-              label={"E-mail"}
-              type={"text"}
-              error={emailError || errorMessage}
-              value={email}
               onChange={onChangeEmail}
+              type="text"
+              error={emailError || errorMessage}
               errorMessage={emailError}
+              // inputClassNames = {style.inputSprint}
+              label="E-mail"
+              value={email}
+              required
             />
           </div>
 
           <div className={style.inputContainerSingup}>
             <Input
-              label={"Пароль"}
-              error={passwordError || errorMessage}
-              type="password"
-              value={password}
               onChange={onChangePassword}
+              type="password"
+              error={passwordError || errorMessage}
               errorMessage={passwordError}
+              // inputClassNames = {style.inputSprint}
+              label="Пароль"
+              value={password}
+              required
             />
           </div>
           <div className={style.inputContainerSingup}>
             <Input
-              label={"Повторіть пароль"}
-              error={confirmedPasswordError || errorMessage}
-              type="password"
-              value={confirmedPassword}
               onChange={onChangeСonfirmedPassword}
+              type="password"
+              error={confirmedPasswordError || errorMessage}
               errorMessage={confirmedPasswordError}
+              // inputClassNames = {style.inputSprint}
+              label="Повторіть пароль"
+              value={confirmedPassword}
               id="confirmedPassword"
+              required
             />
           </div>
-          <label
+          {/* <label
             className={errorMessage ? style.label : style.visuallyHidden}
             htmlFor="confirmedPassword"
           >
             {errorMessage}
-          </label>
+          </label> */}
 
           <Button type="submit">Зареєструватися</Button>
         </form>
