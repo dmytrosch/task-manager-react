@@ -58,10 +58,6 @@ const resetPassword = createReducer(null, {
   [resetPassError]: (_, { payload }) => payload,
 });
 
-// const sendEmailAuth = createReducer(null, {
-//   [sendEmailToResetPasswordSuccess]: () => true,
-//   [sendEmailToResetPasswordError]: () => false,
-// });
 
 export default combineReducers({
   user,

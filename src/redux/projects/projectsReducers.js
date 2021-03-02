@@ -16,7 +16,7 @@ const byId = createReducer(
   {
     [addProjectSuccess]: (state, action) => ({
       ...state,
-      [action.payload.id]: { ...action.payload, isOwner: true },
+      [action.payload.id]: { ...action.payload, isOwner: true, color: generateColor() },
     }),
     [deleteProjectSuccess]: (state, { payload }) => {
       const newState = { ...state };
