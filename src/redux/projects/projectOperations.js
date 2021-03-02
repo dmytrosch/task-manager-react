@@ -70,7 +70,7 @@ export const addParticipant = (projectId, participant) => (dispatch) => {
   dispatch(addParticipantRequest());
   addParticipantToProjectAPI(projectId, participant)
     .then((response) => {
-      dispatch(addParticipantSuccess(response.data));
+      dispatch(addParticipantSuccess({projectId, participant}));
       dispatch(makeSuccessNotification("Користувач доданий до проєкту"));
     })
     .catch((error) => {
