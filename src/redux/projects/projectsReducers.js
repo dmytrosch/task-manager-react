@@ -43,9 +43,14 @@ const byId = createReducer(
       };
     },
     [addParticipantSuccess]: (state, { payload }) => {
-      return { ...state, [payload.id]: payload };
+      const updatedProject = { ...state[payload.projectId] };
+      const updatedParticipants = [
+        ...updatedProject.participants,
+        payload.participant,
+      ];
+      updatedProject.participants = updatedParticipants;
+      return { ...state, [payload.projectId]: updatedProject };
     },
-    // [changeProjectNameError]: (state)
   }
 );
 const allIds = createReducer([], {
