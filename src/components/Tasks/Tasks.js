@@ -76,23 +76,25 @@ export default function Tasks({ sprintId }) {
     dispatch(modalAction.setModalCreateTask(currentSprint.id));
   const openModalChartTable = () =>
     dispatch(modalAction.setModalChartTable(true));
-
+  console.log(currentSprint);
   return (
     <Loader loading={loading}>
       <div className={styles.container}>
         <div className={styles.taskControl}>
-          <div className={styles.sliderContainer}>
-            <Slider
-              initialCurrent={1}
-              total={sprintDuration}
-              callback={handleSlider}
-            />
-            {task && task[0]?.spendedTime && (
-              <span className={styles.date}>
-                {task[0].spendedTime[currentDay].date.toString()}
-              </span>
-            )}
-          </div>
+          {task && task.length > 0 && (
+            <div className={styles.sliderContainer}>
+              <Slider
+                initialCurrent={1}
+                total={sprintDuration}
+                callback={handleSlider}
+              />
+              {task && task[0]?.spendedTime && (
+                <span className={styles.date}>
+                  {task[0].spendedTime[currentDay].date.toString()}
+                </span>
+              )}
+            </div>
+          )}
           <SearchInput
             customContainerStyles={styles.mobileSearchInp}
             callback={handleSearchInput}
