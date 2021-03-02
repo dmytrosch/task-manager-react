@@ -20,8 +20,17 @@
   .tableDesctopDescrip {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     width: 100%;
     font-size: 14px;
     margin-bottom: 20px;
+  }
+  .tableDesctopDescrip::after {
+    content: "";
+    display: inline-block;
+    height: 1px;
+    width: 96%;
+    background-color: var(--borderColor);
+    margin: 20px 0px 0px;
   }
 }
