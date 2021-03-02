@@ -43,24 +43,28 @@ export default function ResetPasswordRequest({ setVissible }) {
   return (
     <Loader loading={loading}>
       <div onClick={resetErrorOnClick} className={style.formContainer}>
-        <div className={style.inputContainer}>
+        
           <h2 className={style.title}> Вiдновлення паролю </h2>
           {/* <p className={style.subtitle}>Введіть email адресу користувача. </p> */}
           <form onSubmit={submitHandler} onChange={() => resetError()}>
+          <div className={style.inputContainer}>
             <Input
-              label={"Введіть Ваш e-mail"}
+              label="Введіть Ваш e-mail"
               value={emailAdress}
               error={emailError || errorMessage}
               onChange={onChangeEmail}
-              type={"text"}
+              inputClassNames = {style.inputSprint}
+              type="text"
               errorMessage={emailError}
+              required
             />
-            <label
+          </div>
+            {/* <label
               className={errorMessage ? style.labelSend : style.visuallyHidden}
               htmlFor="confirmedPassword"
             >
               {errorMessage}
-            </label>
+            </label> */}
 
             <div className={style.btnSubmit}>
               <Button shape="oval" type="submit">
@@ -93,7 +97,7 @@ export default function ResetPasswordRequest({ setVissible }) {
               )}
             </div>
           </form>
-        </div>
+        
       </div>
     </Loader>
   );

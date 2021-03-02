@@ -58,6 +58,7 @@ export default function Login({ setVissible }) {
               onChange={onChangeEmail}
               type={"text"}
               errorMessage={emailError}
+              required
             />
           </div>
           <div className={style.inputContainer}>
@@ -67,15 +68,16 @@ export default function Login({ setVissible }) {
               error={errorMessage}
               onChange={(e) => setPassword(e.target.value)}
               value={password}
+              required
             />
           </div>
 
-          <label
+          {/* <label
             className={errorMessage ? style.label : style.visuallyHidden}
             htmlFor="confirmedPassword"
           >
             {errorMessage}
-          </label>
+          </label> */}
 
           <Button shape="oval" type="submit">
             Увійти

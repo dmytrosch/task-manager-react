@@ -34,34 +34,42 @@ export default function ProjectCreator({ onClose }) {
   };
   const handlerNameDescription = (e) => {
     setDescription(e.target.value);
-    if (e.target.value.length > 60) {
-      return setErrorLengthDescription("Максимальна кількість символів 60");
+    if (e.target.value.length > 50) {
+      return setErrorLengthDescription("Максимальна кількість символів 50");
     }
     setErrorLengthDescription(null);
   };
 
   return (
     <section className={style.container}>
+      <div className={style.form}>
       <h2 className={style.title}>Створення проекту</h2>
       <form onSubmit={handlerSubmit}>
+      <div className={style.inputSprintContainer}>
         <Input
           type="text"
           error={errorLengthName}
-          inputClassNames={style.input}
+          errorMessage={errorLengthName}
+          // inputClassNames={style.input}
+          inputClassNames={style.inputSprint}
           label="Назва проекту"
           onChange={handlerNameProjest}
           value={nameProject}
+          required
         />
+       </div> 
 
         <Input
           type="text"
           error={errorLengthDescription}
-          inputClassNames={style.descr}
+          errorMessage={errorLengthDescription}
+          inputClassNames={style.inputSprint}
           label="Опис проекту"
           onChange={handlerNameDescription}
           value={description}
+          required
         />
-        <label
+        {/* <label
           className={
             errorLengthName || errorLengthDescription
               ? style.label
@@ -70,7 +78,7 @@ export default function ProjectCreator({ onClose }) {
           htmlFor="confirmedPassword"
         >
           {errorLengthName}
-        </label>
+        </label> */}
 
         <div className={style.btnWrapper}>
           <Button type="submit" shape="oval">
@@ -81,6 +89,7 @@ export default function ProjectCreator({ onClose }) {
       <span onClick={onClose} className={style.subtitle}>
         Відміна
       </span>
+      </div>
     </section>
   );
 }

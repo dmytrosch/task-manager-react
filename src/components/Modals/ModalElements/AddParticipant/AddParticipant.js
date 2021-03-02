@@ -48,12 +48,14 @@ export default function AddParticipant({ onClose }) {
         <div className={styles.inputContainer}>
           <Input
             type="mail"
-            placeholder="Введіть e-mail"
+            label = "Введіть e-mail"
+            // placeholder="Введіть e-mail"
             value={email}
             error={emailError}
             errorMessage={emailError}
             onChange={(e) => setEmail(e.target.value)}
             inputClassNames={styles.input}
+            required
           />
           <Button
             shape="square"
