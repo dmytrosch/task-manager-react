@@ -45,7 +45,6 @@ export default function Tasks({ sprintId }) {
   }
 
   useEffect(() => {
-    console.log("qwqwqw");
     dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
   }, [params.sprintId]);
 

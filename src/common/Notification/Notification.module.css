@@ -1,8 +1,6 @@
 .box {
-  min-width: 300px;
-  padding-left: 5px;
-  padding-right: 5px;
-  height: 55px;
+  max-width: 280px;
+  padding: 20px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,4 +17,16 @@
 }
 .success {
   background-color: rgb(105, 185, 25);
+}
+
+@media (min-width: 768px) {
+  .box {
+    max-width: 512px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .box {
+    max-width: 530px;
+  }
 }
