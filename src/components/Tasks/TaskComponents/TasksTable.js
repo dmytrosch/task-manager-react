@@ -5,8 +5,8 @@ import classNames from "classnames";
 import TasksList from "./TasksList";
 import SearchInput from "../../../common/SearchInput/SearchInput";
 
-import searchActions from '../../../redux/search/searchActions';
-import {search} from '../../../redux/currentSprint/currentSprintSelectors';
+import searchActions from "../../../redux/search/searchActions";
+import { search } from "../../../redux/currentSprint/currentSprintSelectors";
 
 // import taskFilterActions from '...' --- handleSearchInput
 
@@ -17,17 +17,9 @@ const tasksIds = ["id_1", "id_2", "id_3", "id_4", "id_5", "id_6", "id_7"];
 export default function TasksTable({ currentDate, loading, addTask }) {
   const dispatch = useDispatch();
 
-
-
-
-  // TODO: Connect redux
   const handleSearchInput = (searchRequest) => {
-    console.log("search request", searchRequest);
-
-    dispatch(searchActions.setSearchValue(searchRequest))
-
-  }
-    
+    dispatch(searchActions.setSearchValue(searchRequest));
+  };
 
   return (
     <div className={styles.container}>
@@ -50,7 +42,11 @@ export default function TasksTable({ currentDate, loading, addTask }) {
           searchValue={search}
         />
       </div>
-      <TasksList currentDate={currentDate} loading={loading} addTask={addTask}/>
+      <TasksList
+        currentDate={currentDate}
+        loading={loading}
+        addTask={addTask}
+      />
     </div>
   );
 }

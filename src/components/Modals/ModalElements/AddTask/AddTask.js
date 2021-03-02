@@ -23,8 +23,6 @@ export default function AddTask({ onClose }) {
     };
     dispatch(createTask(sprintId, task));
 
-    // TODO: Connect to Redax
-    console.log(task);
     onClose();
   };
 

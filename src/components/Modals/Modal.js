@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import classNames from "classnames";
 import style from "./Modal.module.css";
 import PropTypes from "prop-types";
@@ -9,8 +9,8 @@ export default function Modal({
   onClose,
   type,
   customModalWindowStyles,
-  ...props
 }) {
+  const overlay = useRef(null);
   const handleKeyboardCloseWindow = (e) => {
     if (e.code === "Escape") {
       onClose();
@@ -18,8 +18,7 @@ export default function Modal({
   };
 
   const handleClick = (e) => {
-    const backdrop = document.getElementById("modalBackdrop");
-    if (e.target === backdrop) {
+    if (e.target === overlay.current) {
       onClose();
     }
   };
@@ -32,13 +31,13 @@ export default function Modal({
   });
 
   return (
-    <div
-      id="modalBackdrop"
-      className={style.modalBackdrop}
-      onClick={handleClick}
-    >
+    <div ref={overlay} className={style.modalBackdrop} onClick={handleClick}>
       <div
-        className={classNames(style[position], style[type], ...[customModalWindowStyles])}
+        className={classNames(
+          style[position],
+          style[type],
+          ...[customModalWindowStyles]
+        )}
       >
         <button type="button" onClick={onClose} className={style.closeBtn} />
         {children}
