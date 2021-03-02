@@ -110,9 +110,6 @@
     display: none;
   }
 
-  .sprint {
-    align-items: center;
-  }
 
   .addSprintContainer {
     display: flex;
