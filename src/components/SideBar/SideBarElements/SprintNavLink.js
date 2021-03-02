@@ -8,7 +8,7 @@ import { byIdSelector } from "../../../redux/sprints/sprintsSelectors";
 export default function LinkRouter({ sprintId, projectId, visibleTab }) {
   const { name, id } = useSelector(byIdSelector(sprintId));
   const [wobble, setWobble] = useState(0);
-
+  console.log(id);
   return (
     <>
       <NavLink

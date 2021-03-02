@@ -120,13 +120,6 @@ export default function Signup({ setVissible }) {
             Увійти
           </NavLink>
         </p>
-        <NavLink
-          to="/signup"
-          onClick={setVissible}
-          className={style.forgotPassLink}
-        >
-          Забули пароль?
-        </NavLink>
       </div>
     </Loader>
   );
