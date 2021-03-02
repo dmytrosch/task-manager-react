@@ -102,15 +102,19 @@
     border-bottom: 1px solid var(--greyColor);
     margin-bottom: 20px;
   }
-  .forgotPassLink {
+  .forgotPassLink,
+  .returnToLoginLink {
     color: var(--greyColor);
     display: inline-block;
     font-size: 12px;
-    width: 170px;
+    width: 110px;
     text-align: center;
     display: block;
     margin: 25px auto 0px;
     border-bottom: 1px solid var(--greyColor);
+  }
+  .returnToLoginLink {
+    width: 170px;
   }
   .thirdNew {
     display: none;

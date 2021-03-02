@@ -105,7 +105,7 @@ export default function CreaterNewPassword() {
             <>
               <h3 className={classNames(style.return)}>
                 Пароль успішно змінено!&nbsp;
-                <NavLink to="/login" className={style.forgotPassLink}>
+                <NavLink to="/login" className={style.returnToLoginLink}>
                   Повернутися на сторінку авторизації
                 </NavLink>
               </h3>
