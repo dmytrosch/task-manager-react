@@ -19,9 +19,6 @@ export default function ProjectCreator({ onClose }) {
       name: nameProject,
       description
     };
-    // if (description) {
-    //   project.description = description;
-    // }
     dispatch(addProject(project));
     onClose();
   };
@@ -50,7 +47,6 @@ export default function ProjectCreator({ onClose }) {
           type="text"
           error={errorLengthName}
           errorMessage={errorLengthName}
-          // inputClassNames={style.input}
           inputClassNames={style.inputSprint}
           label="Назва проекту"
           onChange={handlerNameProjest}
@@ -69,17 +65,6 @@ export default function ProjectCreator({ onClose }) {
           value={description}
           required
         />
-        {/* <label
-          className={
-            errorLengthName || errorLengthDescription
-              ? style.label
-              : style.visuallyHidden
-          }
-          htmlFor="confirmedPassword"
-        >
-          {errorLengthName}
-        </label> */}
-
         <div className={style.btnWrapper}>
           <Button type="submit" shape="oval">
             Готово

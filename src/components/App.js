@@ -8,12 +8,11 @@ import { isMobileSelector } from "../redux/clientWidth/clientWidthSelectors";
 import { isAuthentificatedSelector } from "../redux/auth/authSelectors";
 import { getNotificationSelector } from "../redux/notifications/notificationSelector";
 import { getCurrentUser } from "../redux/auth/authOperations";
-import { isLoading } from "../redux/loading/loadingSelector";
 
 import PublicRoute from "./Routes/PublicRoute";
 import PrivateRoute from "./Routes/PrivateRoute";
 
-import Loader from "../components/Loaders/LoaderForSustain/LoaderForSustain";
+import Loader from "../components/Loaders/LoaderForRouting/LoaderForRouting";
 import Notification from "../common/Notification/Notification";
 import ModalCreateSprint from "./../components/Modals/ModalComponents/ModalCreateSprint";
 import ModalCreateTask from "./Modals/ModalComponents/ModalCreateTask";
@@ -37,8 +36,6 @@ export default function App() {
   useEffect(() => {
     isAuth && dispatch(getCurrentUser());
   }, [isAuth]);
-
-  const loading = useSelector(isLoading);
   return (
     <>
       <BrowserRouter>
@@ -67,7 +64,6 @@ export default function App() {
       <ModalApproveDeleteProject />
       <ModalApproveDeleteSprint />
       <ModalApproveDeleteTask />
-      {/* {loading && <Loader />} */}
     </>
   );
 }

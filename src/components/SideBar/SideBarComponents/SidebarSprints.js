@@ -25,7 +25,6 @@ export default function SidebarSprints() {
   const projectId = useRouteMatch().params.projectId;
   const [visibleTab, setVisibleTab] = useState(sprintId);
   const sprintIds = useSelector(allIdsSelector);
-  // const userLoading = useSelector(isUserLoading);
   const projectLoading = useSelector(isProjectsLoading);
   const sprintsLoading = useSelector(isSprintsLoading);
   const loading = sprintsLoading || projectLoading;
