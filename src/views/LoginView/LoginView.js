@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Auth from "../../components/authComponent/Auth";
 import AuthLayout from "../../layouts/AuthLayout";
+import useTitle from "../../hooks/useTitle";
 
 export default function LoginView() {
-  useEffect(() => {
-    document.title = "Вхід";
-  }, []);
+  useTitle("Вхід");
   return (
     <AuthLayout>
       <Auth />

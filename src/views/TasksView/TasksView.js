@@ -15,16 +15,15 @@ import {
   resetProjectError,
   resetSprintError,
 } from "../../redux/errors/errorsActions";
+import useTitle from "../../hooks/useTitle";
 
-export default function TaskViews(props) {
+export default function TaskViews() {
   const dispatch = useDispatch();
 
   const isProjectError = useSelector(isProjectErrorSelector);
   const isSprintError = useSelector(isSprintErrorSelector);
 
-  useEffect(() => {
-    document.title = "Задачі";
-  }, []);
+  useTitle("Задачі")
 
   useEffect(() => {
     return () => {
