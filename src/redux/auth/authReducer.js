@@ -11,16 +11,15 @@ import {
   gettingCurrentUserError,
   resetPassSuccess,
   resetPassError,
-  sendEmailToResetPasswordSuccess,
   sendEmailToResetPasswordError,
+  logoutRequest,
 } from "./authActions";
 
 const user = createReducer(
   {},
   {
     [loginSuccess]: (_, { payload }) => payload.user,
-    [logoutSuccess]: () => ({}),
-    [logoutError]: () => ({}),
+    [logoutRequest]: () => ({}),
     [gettingCurrentUserSuccess]: (state, { payload }) => ({
       ...state,
       email: payload.email,
@@ -34,14 +33,6 @@ const token = createReducer(null, {
   [logoutError]: () => null,
   [gettingCurrentUserError]: () => null,
 });
-// const error = createReducer(null, {
-//   [loginSuccess]: () => null,
-
-//   [signupSuccess]: () => null,
-//   [sendEmailToResetPasswordSuccess]: () => null,
-
-//   [resetPassSuccess]: () => null,
-// });
 const isPasswordChanged = createReducer(null, {
   [resetPassSuccess]: () => true,
 });
@@ -69,6 +60,4 @@ export default combineReducers({
     resetPassword,
   }),
   isPasswordChanged,
-  // resetPassword,
-  // sendEmailAuth,
 });

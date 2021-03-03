@@ -31,7 +31,6 @@ import {
 } from "../../utils/taskManagerAPI";
 import {
   makeSuccessNotification,
-  makeAlertNotification,
 } from "../notifications/notificationOperations";
 
 const token = {
