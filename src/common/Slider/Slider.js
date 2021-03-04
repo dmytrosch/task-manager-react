@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import styles from "./Slider.module.css";
 
@@ -12,20 +13,17 @@ export default function Slider({
   const [current, setCurrent] = useState(initialCurrent);
   const increment = () => {
     if (current + 1 > total) return setCurrent(total);
-    setCurrent((prev) => {
-      const current = prev + 1;
-      callback(current);
-      return current;
-    });
+    setCurrent((prev) => prev + 1);
   };
   const decrement = () => {
     if (current - 1 < 1) return setCurrent(1);
-    setCurrent((prev) => {
-      const current = prev - 1;
-      callback(current);
-      return current;
-    });
+    setCurrent((prev) => prev - 1);
   };
+
+  useEffect(() => {
+    callback(current);
+  }, [callback, current]);
+
   return (
     <div className={classNames(styles.container, customContainerStyles)}>
       <button className={styles.decBth} onClick={decrement}></button>
@@ -36,3 +34,10 @@ export default function Slider({
     </div>
   );
 }
+
+Slider.proprTypes = {
+  customContainerStyles: PropTypes.string,
+  callback: PropTypes.func,
+  initialCurrent: PropTypes.number,
+  total: PropTypes.number,
+};

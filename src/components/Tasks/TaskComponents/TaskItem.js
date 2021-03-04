@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import IconButton from "../../../common/IconButtons/IconButtons.js";
@@ -10,12 +9,9 @@ import {
   updateTaskTime,
 } from "../../../redux/currentSprint/currentSprintOperations";
 
-import { setModalApproveDeleteTask } from "../../../redux/modal/modalAction";
-
 import styles from "./styles.module.css";
 
 export default function SprintItem({ task, currentDate }) {
-  // const { name, ScheduledHours, hoursSpent } = useSelector(getSprintById(id));
   const params = useParams();
   const currentDay = currentDate - 1;
   const sprintId = params.sprintId;
@@ -48,7 +44,7 @@ export default function SprintItem({ task, currentDate }) {
           validation={(val) => val.length <= 50}
           onSave={changeName}
         />
-        {/* <h2 className={styles.taskName}>{name}</h2> */}
+
         <div className={styles.div}>
           <p className={styles.text}>Заплановано годин</p>
           <p className={styles.planingHours}>{task.plannedTime}</p>
@@ -65,16 +61,12 @@ export default function SprintItem({ task, currentDate }) {
             validation={(val) => val.length <= 3}
             onSave={changeTaskTime}
           />
-          {/* <input className={styles.input} placeholder="6"></input> */}
         </div>
         <div className={styles.div}>
           <p className={styles.text}>Витрачено годин</p>
           <p className={styles.spendedHours}>{task.totalWastedTime}</p>
         </div>
-        {/* <button
-              className={styles.button}
-              onClick={() => deleteSprint(id)}
-            ></button> */}
+
         <IconButton
           iconButtonCustomClass={styles.button}
           iconName="greyBin"
