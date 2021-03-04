@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import styles from "./Slider.module.css";
 
@@ -33,3 +34,10 @@ export default function Slider({
     </div>
   );
 }
+
+Slider.proprTypes = {
+  customContainerStyles: PropTypes.string,
+  callback: PropTypes.func,
+  initialCurrent: PropTypes.number,
+  total: PropTypes.number,
+};
