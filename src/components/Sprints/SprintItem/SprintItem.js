@@ -1,18 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { setModalApproveDeleteSprint } from "../../../redux/modal/modalAction";
 
 import { byIdSelector } from "../../../redux/sprints/sprintsSelectors";
 import { deleteSprint } from "../../../redux/sprints/sprintsOperations";
-import {formatDate} from "../../../utils/formatFunction";
+import { formatDate } from "../../../utils/formatFunction";
 
 import styles from "./sprintItem.module.css";
 import IconButton from "../../../common/IconButtons/IconButtons.js";
 
 export default function SprintItem({ id: sprintId, isOwner, projectId }) {
   const dispatch = useDispatch();
-  const { name, startAt, finishedAt, timeDifference } = useSelector(byIdSelector(sprintId));
+  const { name, startAt, finishedAt, timeDifference } = useSelector(
+    byIdSelector(sprintId)
+  );
   const startAtFormat = formatDate(startAt);
   const finishedAtFormat = formatDate(finishedAt);
   const handlerDeleteSprint = () =>
@@ -51,3 +54,8 @@ export default function SprintItem({ id: sprintId, isOwner, projectId }) {
     </div>
   );
 }
+SprintItem.proprTypes = {
+  sprintId: PropTypes.number,
+  projectId: PropTypes.number,
+  isOwner: PropTypes.bool,
+};
