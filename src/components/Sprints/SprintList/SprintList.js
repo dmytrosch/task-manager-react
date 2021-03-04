@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import styles from "./sprintList.module.css";
@@ -17,10 +18,15 @@ export default function SprintList({ sprintIds, isOwner, projectId }) {
           unmountOnExit
         >
           <li className={styles.item}>
-            <SprintItem id={id} isOwner={isOwner} projectId={projectId}/>
+            <SprintItem id={id} isOwner={isOwner} projectId={projectId} />
           </li>
         </CSSTransition>
       ))}
     </TransitionGroup>
   );
 }
+SprintList.proprTypes = {
+  sprintIds: PropTypes.arrayOf(PropTypes.string),
+  projectId: PropTypes.number,
+  isOwner: PropTypes.bool,
+};

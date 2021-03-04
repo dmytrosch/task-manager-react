@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Input.module.css";
 import classNames from "classnames"
+import PropTypes from "prop-types";
 
 const Input = ({
   type,
@@ -31,14 +32,12 @@ const Input = ({
   );
 };
 
-// Input.proprTypes = {
-//   error: PropTypes.bool,
-//
-// };
-
-// Input.defaultProps = {
-//   error: false,
-//   color: 'primary',
-// };
+Input.proprTypes = {
+  type: PropTypes.string,
+  error: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  label: PropTypes.string,
+  value: PropTypes.string,
+};
 
 export default Input;
