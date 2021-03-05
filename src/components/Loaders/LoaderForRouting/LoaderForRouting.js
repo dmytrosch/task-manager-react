@@ -1,16 +1,11 @@
 import React from "react";
-import Loader from "react-loader-spinner";
 import styles from "./Loader.module.css";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { ReactComponent as Logo } from "../../../assest/icons/mainLogo.svg";
 
-const LoaderComp = () => (
-  <Loader
-    className={styles.loader}
-    type="TailSpin"
-    color="#ff6b08"
-    height={100}
-    width={100}
-  />
+const Loader = () => (
+  <div className={styles.container}>
+    <Logo className={styles.loader} />
+  </div>
 );
 
-export default LoaderComp;
+export default Loader;

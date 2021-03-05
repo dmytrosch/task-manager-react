@@ -20,7 +20,7 @@ export default function Dashboard() {
   const loading = userLoading || projectLoading;
   const projects = useSelector(getAllIdsSelector);
   return (
-    <Loader loading={true}>
+    <Loader loading={loading}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.infoBox}>
