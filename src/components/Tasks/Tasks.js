@@ -44,11 +44,11 @@ export default function Tasks({ sprintId }) {
       sprintDuration = item.spendedTime.length;
     });
   }
-  useTitle(`${currentSprint.name}. Задачі`)
+  useTitle(`${currentSprint.name}. Задачі`);
 
   useEffect(() => {
-    dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
-  }, [params.sprintId]);
+    dispatch(currentSprintOperations.getCurrentSprint(sprintId));
+  }, [sprintId]);
 
   const handleSearchInput = (searchRequest) => {
     dispatch(searchActions.setSearchValue(searchRequest));
@@ -59,6 +59,7 @@ export default function Tasks({ sprintId }) {
   };
 
   const changeSprintName = (value) => {
+    if (value === currentSprint.name) return;
     const newSprintName = {
       name: value,
     };

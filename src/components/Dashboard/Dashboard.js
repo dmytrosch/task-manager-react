@@ -18,22 +18,24 @@ export default function Dashboard() {
   const userLoading = useSelector(isUserLoading);
   const projectLoading = useSelector(isProjectsLoading);
   const loading = userLoading || projectLoading;
+  console.log(loading, "loading");
   const projects = useSelector(getAllIdsSelector);
   return (
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <div className={styles.infoBox}>
-          <h2 className={styles.title}>Проєкти</h2>
-          <div className={styles.box} onClick={addProject}>
-            <IconButton
-              iconButtonCustomClass={styles.button}
-              iconName="plus"
-              icon="plus"
-            />
-            <p className={styles.text}>Створити проект</p>
+    <Loader loading={loading}>
+      <div className={styles.container}>
+        <div className={styles.wrapper}>
+          <div className={styles.infoBox}>
+            <h2 className={styles.title}>Проєкти</h2>
+            <div className={styles.box} onClick={addProject}>
+              <IconButton
+                iconButtonCustomClass={styles.button}
+                iconName="plus"
+                icon="plus"
+              />
+              <p className={styles.text}>Створити проект</p>
+            </div>
           </div>
-        </div>
-        <Loader loading={loading}>
+
           {projects.length > 0 ? (
             <ul className={styles.projectList}>
               {projects.map((id) => (
@@ -52,8 +54,8 @@ export default function Dashboard() {
               </p>
             )
           )}
-        </Loader>
+        </div>
       </div>
-    </div>
+    </Loader>
   );
 }

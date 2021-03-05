@@ -20,6 +20,7 @@ export default function SprintItem({ task, currentDate }) {
   const deleteSprint = (id) => dispatch(deleteTask(sprintId, id));
 
   const changeName = (value) => {
+    if (value === task.name) return;
     const newTaskName = {
       name: value,
     };
