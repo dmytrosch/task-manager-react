@@ -16,3 +16,8 @@ export const isModalApproveDeleteSprint = (state) =>
   state.ui.modal.approveDeleteSprint;
 export const isModalApproveDeleteTask = (state) =>
   state.ui.modal.approveDeleteTask;
+export const isAnyModalOpenSelector = (state) => {
+  const values = Object.values(state.ui.modal);
+  const isOpen = values.some((value) => !!value);
+  return isOpen;
+};
