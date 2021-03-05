@@ -52,9 +52,9 @@ export default function Login({ setVissible }) {
         >
           <div className={style.inputContainer}>
             <Input
-              label={"E-mail"}
+              label="E-mail"
               value={email}
-              error={emailError || errorMessage}
+              error={emailError}
               onChange={onChangeEmail}
               type={"text"}
               errorMessage={emailError}
@@ -63,21 +63,15 @@ export default function Login({ setVissible }) {
           </div>
           <div className={style.inputContainer}>
             <Input
-              label={"Пароль"}
-              type={"password"}
+              label="Пароль"
+              type="password"
               error={errorMessage}
+              errorMessage={errorMessage}
               onChange={(e) => setPassword(e.target.value)}
               value={password}
               required
             />
           </div>
-
-          {/* <label
-            className={errorMessage ? style.label : style.visuallyHidden}
-            htmlFor="confirmedPassword"
-          >
-            {errorMessage}
-          </label> */}
 
           <Button shape="oval" type="submit">
             Увійти

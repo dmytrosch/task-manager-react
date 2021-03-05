@@ -67,7 +67,6 @@ export default function CreaterNewPassword() {
         <div className={style.formContainer} onClick={resetErrorOnClick}>
           {!isPasswordChanged ? (
             <>
-              {" "}
               <p className={style.title}> Відновити доступ </p>
               <form className={style.form} onSubmit={handlerSubmit}>
                 <div className={style.inputContainerSingup}>
@@ -83,33 +82,27 @@ export default function CreaterNewPassword() {
                 <div className={style.inputContainerSingup}>
                   <Input
                     label={"Повторіть пароль"}
-                    error={confirmedPasswordError}
+                    error={confirmedPasswordError || errorMessage}
                     type="password"
                     value={confirmedPassword}
                     onChange={onChangeСonfirmedPassword}
-                    errorMessage={confirmedPasswordError}
+                    errorMessage={
+                      confirmedPasswordError ||
+                      (errorMessage && "Щось пішло не так... Спробуйте ще раз")
+                    }
                     id="confirmedPassword"
                   />
                 </div>
-
-                <label
-                  className={errorMessage ? style.label : style.visuallyHidden}
-                  htmlFor="confirmedPassword"
-                >
-                  Щось пішло не так... Спробуйте ще раз
-                </label>
                 <Button type="submit">Змінити пароль</Button>
               </form>
             </>
           ) : (
-            <>
-              <h3 className={classNames(style.return)}>
-                Пароль успішно змінено!&nbsp;
-                <NavLink to="/login" className={style.returnToLoginLink}>
-                  Повернутися на сторінку авторизації
-                </NavLink>
-              </h3>
-            </>
+            <h3 className={classNames(style.return)}>
+              Пароль успішно змінено!&nbsp;
+              <NavLink to="/login" className={style.returnToLoginLink}>
+                Повернутися на сторінку авторизації
+              </NavLink>
+            </h3>
           )}
         </div>
       </section>

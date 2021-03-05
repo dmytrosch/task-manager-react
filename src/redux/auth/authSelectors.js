@@ -7,6 +7,8 @@ export const getUserNameSelector = (state) => {
   const [username, _] = email.split("@");
   return username;
 };
+export const getUsersEmailSelector = (state) =>
+  pathOr("", ["email"], state.app.auth.user);
 export const signupErrorSelector = (state) => {
   const status = state.app.auth.errors.signup;
   return status && errorHandler(status);
@@ -26,9 +28,10 @@ export const resetPasswordRequestErrorSelector = (state) => {
 };
 export const resetPasswordErrorSelector = (state) => {
   const status = state.app.auth.errors.resetPassword;
-  return status ;
+  return status;
 };
-export const isPasswordChangedSelector = state => state.app.auth.isPasswordChanged
+export const isPasswordChangedSelector = (state) =>
+  state.app.auth.isPasswordChanged;
 
 function errorHandler(status) {
   let message = "";

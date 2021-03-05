@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import validator from "validator";
-import {
-  makeAlertNotification,
-  makeSuccessNotification,
-} from "../../../../redux/notifications/notificationOperations";
 import { currentProjectId } from "../../../../redux/modal/modalSelectors";
 import { getParticipantsWithoutCurrentUserSelector } from "../../../../redux/projects/projectSelectors";
 import { addParticipant } from "../../../../redux/projects/projectOperations";
+import { getUsersEmailSelector } from "../../../../redux/auth/authSelectors";
 import styles from "./addParticipant.module.css";
 
 import Input from "../../../../common/Input/Input";
@@ -21,13 +18,14 @@ export default function AddParticipant({ onClose }) {
   const participants = useSelector(
     getParticipantsWithoutCurrentUserSelector(projectId)
   );
+  const userEmail = useSelector(getUsersEmailSelector);
   const addEmail = (e) => {
     e.preventDefault();
     if (!validator.isEmail(email)) {
       setEmailError("Направильний e-mail");
       return;
     }
-    if (participants.find((item) => item.email === email)) {
+    if (userEmail === email) {
       setEmailError("Користувач вже є учасником проєкту");
       return;
     }
@@ -48,8 +46,7 @@ export default function AddParticipant({ onClose }) {
         <div className={styles.inputContainer}>
           <Input
             type="mail"
-            label = "Введіть e-mail"
-            // placeholder="Введіть e-mail"
+            label="Введіть e-mail"
             value={email}
             error={emailError}
             errorMessage={emailError}

@@ -77,9 +77,8 @@ export default function Signup({ setVissible }) {
             <Input
               onChange={onChangeEmail}
               type="text"
-              error={emailError || errorMessage}
+              error={emailError}
               errorMessage={emailError}
-              // inputClassNames = {style.inputSprint}
               label="E-mail"
               value={email}
               required
@@ -90,9 +89,8 @@ export default function Signup({ setVissible }) {
             <Input
               onChange={onChangePassword}
               type="password"
-              error={passwordError || errorMessage}
+              error={passwordError}
               errorMessage={passwordError}
-              // inputClassNames = {style.inputSprint}
               label="Пароль"
               value={password}
               required
@@ -103,7 +101,7 @@ export default function Signup({ setVissible }) {
               onChange={onChangeСonfirmedPassword}
               type="password"
               error={confirmedPasswordError || errorMessage}
-              errorMessage={confirmedPasswordError}
+              errorMessage={confirmedPasswordError || errorMessage}
               // inputClassNames = {style.inputSprint}
               label="Повторіть пароль"
               value={confirmedPassword}
@@ -111,12 +109,6 @@ export default function Signup({ setVissible }) {
               required
             />
           </div>
-          {/* <label
-            className={errorMessage ? style.label : style.visuallyHidden}
-            htmlFor="confirmedPassword"
-          >
-            {errorMessage}
-          </label> */}
 
           <Button type="submit">Зареєструватися</Button>
         </form>

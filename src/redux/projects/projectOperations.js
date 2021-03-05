@@ -70,14 +70,14 @@ export const addParticipant = (projectId, participant) => (dispatch) => {
   dispatch(addParticipantRequest());
   addParticipantToProjectAPI(projectId, participant)
     .then((response) => {
-      dispatch(addParticipantSuccess({projectId, participant}));
+      dispatch(addParticipantSuccess({ projectId, participant }));
       dispatch(makeSuccessNotification("Користувач доданий до проєкту"));
     })
     .catch((error) => {
       dispatch(addParticipantError());
       dispatch(
         makeAlertNotification(
-          error.response.status(404)
+          error.response.status === 404
             ? "Користувача не існує"
             : "Щось пішло не так..."
         )
