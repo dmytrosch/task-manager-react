@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const useTitle = (title = "") => {
   const titleRef = useRef(document.title);
-  document.title = title
+  document.title = title;
   useEffect(() => {
-    return (document.title = titleRef.current);
+    return () => {
+      document.title = titleRef.current;
+    };
   }, []);
 };
 

@@ -25,6 +25,7 @@ import { search } from "../../redux/currentSprint/currentSprintSelectors";
 
 import searchActions from "../../redux/search/searchActions";
 import resultTaskArray from "../../redux/currentSprint/currentSprintSelectors";
+import useTitle from "../../hooks/useTitle";
 
 export default function Tasks({ sprintId }) {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ export default function Tasks({ sprintId }) {
       sprintDuration = item.spendedTime.length;
     });
   }
+  useTitle(`${currentSprint.name}. Задачі`)
 
   useEffect(() => {
     dispatch(currentSprintOperations.getCurrentSprint(params.sprintId));
