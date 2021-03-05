@@ -27,6 +27,8 @@
   position: relative;
   top: 120px;
   left: -200px;
+  animation: stranger 40s infinite linear;
+  z-index: 15;
 }
 .second {
   composes: whiteCircle;
@@ -171,12 +173,15 @@
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
+    transform: scale(1);
   }
   50% {
     background-position: 100% 50%;
+    transform: scale(1.2);
   }
   100% {
     background-position: 0% 50%;
+    transform: scale(1);
   }
 }
 
@@ -184,8 +189,6 @@
 .thirdSign,
 .thirdNew,
 .fifth,
-.sixth,
-.seventh,
 .ninth {
   background: linear-gradient(
     -45deg,
@@ -197,6 +200,18 @@
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }
+.sixth,
+.seventh {
+  background: linear-gradient(
+    -45deg,
+    var(--fouthOvale),
+    var(--primaryOvale),
+    var(--orangeColor),
+    var(--secondaryOvale)
+  );
+  background-size: 400% 400%;
+  animation: gradient 7s ease infinite;
+}
 
 .second {
   background: linear-gradient(
@@ -204,8 +219,8 @@
     var(--primaryOvale) 0%,
     var(--orangeColor) 100%
   );
-  animation: morph 8s ease-in-out infinite;
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morph 13s ease-in-out infinite;
+  /* border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; */
   transition: all 1s ease-in-out;
   z-index: 5;
 }
@@ -214,63 +229,112 @@
 .fourth,
 .ninth,
 .tenth {
+  background: linear-gradient(
+    -45deg,
+    var(--fouthOvale),
+    var(--primaryOvale),
+    var(--orangeColor),
+    var(--secondaryOvale)
+  );
+  background-size: 400% 400%;
   animation: morphThird 8s ease-in-out infinite;
 }
 
 @keyframes morphThird {
   0% {
-    border-radius: 50% 40% 20% 60% / 50% 20% 60% 30%;
+    /* border-radius: 50% 40% 20% 60% / 50% 20% 60% 30%; */
     background: linear-gradient(
       45deg,
       var(--primaryOvale) 0%,
       var(--secondaryOvale) 100%
     );
+    transform: scale(1);
   }
 
   50% {
-    border-radius: 20% 50% 60% 30% / 40% 50% 20% 50%;
+    /* border-radius: 20% 50% 60% 30% / 40% 50% 20% 50%; */
     background: linear-gradient(
       45deg,
       var(--fouthOvale) 0%,
       var(--secondaryOvale) 100%
     );
+    transform: scale(0.75);
   }
 
   100% {
-    border-radius: 50% 40% 20% 60% / 50% 20% 60% 30%;
+    /* border-radius: 50% 40% 20% 60% / 50% 20% 60% 30%; */
     background: linear-gradient(
       45deg,
       var(--primaryOvale) 0%,
       var(--secondaryOvale) 100%
     );
+    transform: scale(1);
   }
 }
 
 @keyframes morph {
   0% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    /* border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; */
     background: linear-gradient(
       45deg,
       var(--primaryOvale) 0%,
       var(--secondaryOvale) 100%
     );
+    transform: translate(0, 0) scale(1);
   }
 
   50% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    /* border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; */
     background: linear-gradient(
       45deg,
       var(--fouthOvale) 0%,
       var(--secondaryOvale) 100%
     );
+    transform: translate(25%, 25%) scale(1.2);
   }
 
   100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    /* border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; */
     background: linear-gradient(
       45deg,
       var(--primaryOvale) 0%,
       var(--secondaryOvale) 100%
     );
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes stranger {
+  0% {
+    transform: translate(0, 0);
+  }
+  5% {
+    transform: translate(15%, 80%);
+  }
+  10% {
+    transform: translate(50%, 160%);
+  }
+  15% {
+    transform: translate(15%, 220%);
+  }
+  20% {
+    transform: translate(-55%, 300%);
+  }
+  25% {
+    transform: translate(-120%, 380%);
+  }
+  30%{
+    transform: translate(-85%, 460%);
+  }
+  35% {
+    transform: translate(-15%, 520%);
+  }
+  40%{
+    transform: translate(20%, 600%);
+  }
+  45%{
+    transform: translate(65%, 680%);
+  }
+  50%{
+    transform: translate(100%, 760%);
   }
 }
