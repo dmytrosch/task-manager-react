@@ -30,7 +30,7 @@ export default function Sprint({ projectId }) {
   const projectsLoading = useSelector(isProjectsLoading);
   const sprintsLoading = useSelector(isSprintsLoading);
   const loading = projectsLoading || sprintsLoading;
-  useTitle(`${name}. Спринти`)
+  useTitle(`${name}. Спринти`);
   useEffect(() => {
     dispatch(getProjectById(projectId));
   }, [projectId]);

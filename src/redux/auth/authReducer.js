@@ -4,7 +4,6 @@ import {
   signupSuccess,
   signupError,
   loginSuccess,
-  logoutSuccess,
   logoutError,
   loginError,
   gettingCurrentUserSuccess,
@@ -29,7 +28,7 @@ const user = createReducer(
 const token = createReducer(null, {
   [signupSuccess]: (_, { payload }) => payload.token,
   [loginSuccess]: (_, { payload }) => payload.token,
-  [logoutSuccess]: () => null,
+  [logoutRequest]: () => null,
   [logoutError]: () => null,
   [gettingCurrentUserError]: () => null,
 });

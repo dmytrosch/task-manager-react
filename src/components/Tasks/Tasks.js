@@ -76,24 +76,26 @@ export default function Tasks({ sprintId }) {
       <div className={styles.container}>
         <div className={styles.taskControl}>
           {tasks.length > 0 && (
-            <div className={styles.sliderContainer}>
-              <Slider
-                initialCurrent={1}
-                total={sprintDuration}
-                callback={handleSlider}
+            <>
+              <div className={styles.sliderContainer}>
+                <Slider
+                  initialCurrent={1}
+                  total={sprintDuration}
+                  callback={handleSlider}
+                />
+                {tasks && tasks[0]?.spendedTime && (
+                  <span className={styles.date}>
+                    {tasks[0].spendedTime[currentDay].date.toString()}
+                  </span>
+                )}
+              </div>
+              <SearchInput
+                customContainerStyles={styles.mobileSearchInp}
+                callback={handleSearchInput}
+                searchValue={search}
               />
-              {tasks && tasks[0]?.spendedTime && (
-                <span className={styles.date}>
-                  {tasks[0].spendedTime[currentDay].date.toString()}
-                </span>
-              )}
-            </div>
+            </>
           )}
-          <SearchInput
-            customContainerStyles={styles.mobileSearchInp}
-            callback={handleSearchInput}
-            searchValue={search}
-          />
         </div>
         <div className={styles.sprint}>
           <div className={styles.sprintTitle}>

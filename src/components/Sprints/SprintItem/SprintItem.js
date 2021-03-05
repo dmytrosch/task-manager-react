@@ -34,7 +34,7 @@ export default function SprintItem({ id: sprintId, isOwner, projectId }) {
             <span>{startAtFormat}</span>
           </li>
           <li className={styles.item}>
-            <span className={styles.itemText}>Дата закінченя:</span>
+            <span className={styles.itemText}>Дата закінчення:</span>
             <span>{finishedAtFormat}</span>
           </li>
           <li className={styles.item}>

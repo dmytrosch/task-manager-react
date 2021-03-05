@@ -18,7 +18,6 @@ export default function Dashboard() {
   const userLoading = useSelector(isUserLoading);
   const projectLoading = useSelector(isProjectsLoading);
   const loading = userLoading || projectLoading;
-  console.log(loading, "loading");
   const projects = useSelector(getAllIdsSelector);
   return (
     <Loader loading={loading}>
