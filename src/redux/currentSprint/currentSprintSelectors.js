@@ -1,10 +1,12 @@
 import { createSelector } from "@reduxjs/toolkit";
+import { pathOr } from "ramda";
 
 export const currentSprintSelector = (state) => state.app.currentSprint;
 
 export const search = (state) => state.app.search;
 
-export const currentTasksSelector = (state) => state.app.currentSprint.tasks;
+export const currentTasksSelector = (state) =>
+  pathOr([], ["tasks"], state.app.currentSprint);
 
 export const resultTaskArray = createSelector(
   [currentTasksSelector, search],

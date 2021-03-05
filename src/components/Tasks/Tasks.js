@@ -30,7 +30,7 @@ export default function Tasks({ sprintId }) {
   const dispatch = useDispatch();
   const params = useParams();
   const currentSprint = useSelector(currentSprintSelector);
-  const task = useSelector(currentTasksSelector);
+  const tasks = useSelector(currentTasksSelector);
   const tasksLoading = useSelector(isTasksLoading);
   const sprintsLoading = useSelector(isSprintsLoading);
   const loading = tasksLoading || sprintsLoading;
@@ -38,8 +38,8 @@ export default function Tasks({ sprintId }) {
   const [currentDate, setCurrentDate] = useState(1);
   const currentDay = currentDate - 1;
 
-  if (task) {
-    task.map((item) => {
+  if (tasks) {
+    tasks.map((item) => {
       sprintDuration = item.spendedTime.length;
     });
   }
@@ -72,16 +72,16 @@ export default function Tasks({ sprintId }) {
     <Loader loading={loading}>
       <div className={styles.container}>
         <div className={styles.taskControl}>
-          {task && task.length > 0 && (
+          {tasks.length > 0 && (
             <div className={styles.sliderContainer}>
               <Slider
                 initialCurrent={1}
                 total={sprintDuration}
                 callback={handleSlider}
               />
-              {task && task[0]?.spendedTime && (
+              {tasks && tasks[0]?.spendedTime && (
                 <span className={styles.date}>
-                  {task[0].spendedTime[currentDay].date.toString()}
+                  {tasks[0].spendedTime[currentDay].date.toString()}
                 </span>
               )}
             </div>
@@ -104,13 +104,14 @@ export default function Tasks({ sprintId }) {
             <p className={styles.titleButton}>Створити задачу</p>
           </div>
         </div>
-
-        <IconButton
-          iconButtonCustomClass={styles.analyticaBtn}
-          iconName="analytica"
-          icon="analytica"
-          onClick={openModalChartTable}
-        ></IconButton>
+        {tasks.length > 0 && (
+          <IconButton
+            iconButtonCustomClass={styles.analyticaBtn}
+            iconName="analytica"
+            icon="analytica"
+            onClick={openModalChartTable}
+          />
+        )}
 
         <TasksTable
           currentDate={currentDate}
