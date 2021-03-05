@@ -72,7 +72,7 @@
 .rc-loading-icon-default {
   border-width: 3px;
   border-style: solid;
-  border-color: transparent #fff #ff6b08 #fff;
+  border-color: #fff #fff #fff #ff6b08;
   border-radius: 50%;
   width: 24px;
   height: 24px;
