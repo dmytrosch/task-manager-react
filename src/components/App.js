@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Switch, Redirect, BrowserRouter } from "react-router-dom";
 import routes from "../utils/routes";
 
-import { setClientWidth } from "../redux/clientWidth/clientWidthAction";
-import { isMobileSelector } from "../redux/clientWidth/clientWidthSelectors";
 import { isAuthentificatedSelector } from "../redux/auth/authSelectors";
 import { getNotificationSelector } from "../redux/notifications/notificationSelector";
 import { getCurrentUser } from "../redux/auth/authOperations";
@@ -28,10 +26,6 @@ export default function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(isAuthentificatedSelector);
   const notification = useSelector(getNotificationSelector);
-
-  useEffect(() => {
-    dispatch(setClientWidth(document.documentElement.clientWidth));
-  }, []);
 
   useEffect(() => {
     isAuth && dispatch(getCurrentUser());

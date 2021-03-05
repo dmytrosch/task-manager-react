@@ -17,7 +17,6 @@ import sprints from "./sprints/sprintsReducers";
 import currentSprint from "./currentSprint/currentSprintReducers";
 import notification from "./notifications/notificationReduser";
 import auth from "./auth/authReducer";
-import clientWidth from "./clientWidth/clientWidthReducer";
 import loading from "./loading/loadingReducer";
 import modal from "./modal/modalReducer";
 import search from "./search/searchRedusers";
@@ -32,7 +31,6 @@ const app = combineReducers({
   auth: persistReducer(authPersistConfig, auth),
   currentSprint,
   search,
-  clientWidth,
   errors,
 });
 const ui = combineReducers({ loading, modal, notification });
