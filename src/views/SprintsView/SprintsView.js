@@ -8,14 +8,11 @@ import viewStyles from "./SprintsView.module.css";
 import { isProjectErrorSelector } from "../../redux/errors/errorsSelectors";
 import { makeAlertNotification } from "../../redux/notifications/notificationOperations";
 import { resetProjectError } from "../../redux/errors/errorsActions";
-import useTitle from "../../hooks/useTitle";
 
 export default function SprintView() {
   const dispatch = useDispatch();
 
   const isProjectError = useSelector(isProjectErrorSelector);
-  useTitle("Спринти")
-
   useEffect(() => {
     return () => {
       if (isProjectError) {

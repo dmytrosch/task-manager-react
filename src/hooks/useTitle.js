@@ -1,13 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const useTitle = (title = "") => {
-  const titleRef = useRef(document.title);
-  document.title = title;
   useEffect(() => {
+    document.title = title;
     return () => {
-      document.title = titleRef.current;
+      document.title = "Task manager";
     };
-  }, []);
+  }, [title]);
 };
 
 export default useTitle;
