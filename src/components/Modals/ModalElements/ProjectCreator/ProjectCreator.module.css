@@ -63,16 +63,12 @@
 } */
 .subtitle {
   cursor: pointer;
-  /* display: inline-block; */
   display: block;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;
-  /* margin-top: 20px; */
   border-bottom: 1px solid var(--greyColor);
   color: var(--greyColor);
-  width: 74px;
-  /* margin: 0 auto; */
   margin: 30px auto 0px auto;
 }
 

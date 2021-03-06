@@ -52,7 +52,6 @@
 }
 
 .subtitle {
-  width: 70px;
   cursor: pointer;
   display: block;
   margin: 30px auto 0px;
@@ -258,7 +257,7 @@ button:focus {
     margin-bottom: 40px;
   }
   .form {
-    width: 320px;
+    width: 280px;
     text-align: center;
   }
 }
