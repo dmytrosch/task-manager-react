@@ -46,9 +46,9 @@ export default function Dashboard() {
           ) : (
             !loading && (
               <p>
-                Ви ще не додали, або не є учасником жодного проекту.{" "}
+                Ви ще не додали, або не є учасником жодного проєкту.{" "}
                 <span className={styles.addProjectText} onClick={addProject}>
-                  Створити проект
+                  Створити проєкт
                 </span>
               </p>
             )
