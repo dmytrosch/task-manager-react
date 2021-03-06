@@ -62,7 +62,7 @@ export default function AddTask({ onClose }) {
           type="button"
           onClick={onClose}
         >
-          Відміна
+          Скасувати
         </Button>
       </div>
     </form>

@@ -40,7 +40,7 @@ export default function ProjectCreator({ onClose }) {
   return (
     <section className={style.container}>
       <div className={style.form}>
-      <h2 className={style.title}>Створення проекту</h2>
+      <h2 className={style.title}>Створення проєкту</h2>
       <form onSubmit={handlerSubmit}>
       <div className={style.inputSprintContainer}>
         <Input
@@ -48,7 +48,7 @@ export default function ProjectCreator({ onClose }) {
           error={errorLengthName}
           errorMessage={errorLengthName}
           inputClassNames={style.inputSprint}
-          label="Назва проекту"
+          label="Назва проєкту"
           onChange={handlerNameProjest}
           value={nameProject}
           required
@@ -60,7 +60,7 @@ export default function ProjectCreator({ onClose }) {
           error={errorLengthDescription}
           errorMessage={errorLengthDescription}
           inputClassNames={style.inputSprint}
-          label="Опис проекту"
+          label="Опис проєкту"
           onChange={handlerNameDescription}
           value={description}
           required
@@ -72,7 +72,7 @@ export default function ProjectCreator({ onClose }) {
         </div>
       </form>
       <span onClick={onClose} className={style.subtitle}>
-        Відміна
+      Скасувати
       </span>
       </div>
     </section>

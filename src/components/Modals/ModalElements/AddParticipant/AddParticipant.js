@@ -80,7 +80,7 @@ export default function AddParticipant({ onClose }) {
             Готово
           </Button>
           <Button buttonCustomClass={styles.cancelBtn} onClick={onClose}>
-            Відміна
+            Скасувати
           </Button>
         </div>
       </form>

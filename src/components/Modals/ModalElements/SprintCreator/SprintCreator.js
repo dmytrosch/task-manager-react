@@ -148,7 +148,7 @@ export default function SprintCreator({ onClose }) {
           </div>
         )}
         <span onClick={onClose} className={style.subtitle}>
-          Відміна
+        Скасувати
         </span>
       </div>
     </section>
