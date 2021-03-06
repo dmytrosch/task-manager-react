@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
 
 import IconButton from "../../common/IconButtons/IconButtons";
 import Slider from "../../common/Slider/Slider";
@@ -9,12 +10,10 @@ import EditableInput from "../../common/EditableInput/EditableInput";
 import TasksTable from "./TaskComponents/TasksTable";
 import Loader from "../Loaders/LoaderForComponents/LoaderForComponents";
 import * as modalAction from "../../redux/modal/modalAction";
-import * as sprintSelector from "../../redux/sprints/sprintsSelectors";
 import * as currentSprintOperations from "../../redux/currentSprint/currentSprintOperations";
 import { currentSprintSelector } from "../../redux/currentSprint/currentSprintSelectors";
 import { updateSprintName } from "../../redux/sprints/sprintsOperations";
 import { currentTasksSelector } from "../../redux/currentSprint/currentSprintSelectors";
-import { getCurrentTaskDay } from "../../redux/currentSprint/currentSprintOperations";
 
 import styles from "./Tasks.module.css";
 import {
@@ -24,7 +23,6 @@ import {
 import { search } from "../../redux/currentSprint/currentSprintSelectors";
 
 import searchActions from "../../redux/search/searchActions";
-import resultTaskArray from "../../redux/currentSprint/currentSprintSelectors";
 import useTitle from "../../hooks/useTitle";
 
 export default function Tasks({ sprintId }) {
@@ -127,3 +125,7 @@ export default function Tasks({ sprintId }) {
     </Loader>
   );
 }
+
+Tasks.proprTypes = {
+  sprintId: PropTypes.string
+};

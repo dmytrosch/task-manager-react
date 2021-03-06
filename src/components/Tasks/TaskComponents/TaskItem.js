@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import IconButton from "../../../common/IconButtons/IconButtons.js";
@@ -8,6 +8,7 @@ import {
   updateTaskName,
   updateTaskTime,
 } from "../../../redux/currentSprint/currentSprintOperations";
+import PropTypes from "prop-types";
 
 import styles from "./styles.module.css";
 
@@ -78,3 +79,8 @@ export default function SprintItem({ task, currentDate }) {
     </>
   );
 }
+
+SprintItem.proprTypes = {
+  task: PropTypes.object,
+  currentDate: PropTypes.number,
+};

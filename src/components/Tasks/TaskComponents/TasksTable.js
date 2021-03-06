@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import TasksList from "./TasksList";
 import SearchInput from "../../../common/SearchInput/SearchInput";
@@ -8,11 +8,7 @@ import SearchInput from "../../../common/SearchInput/SearchInput";
 import searchActions from "../../../redux/search/searchActions";
 import { search } from "../../../redux/currentSprint/currentSprintSelectors";
 
-// import taskFilterActions from '...' --- handleSearchInput
-
 import styles from "./TasksTable.module.css";
-
-const tasksIds = ["id_1", "id_2", "id_3", "id_4", "id_5", "id_6", "id_7"];
 
 export default function TasksTable({ currentDate, loading, addTask }) {
   const dispatch = useDispatch();
@@ -50,3 +46,9 @@ export default function TasksTable({ currentDate, loading, addTask }) {
     </div>
   );
 }
+
+TasksTable.proprTypes = {
+  currentDate: PropTypes.number,
+  loading: PropTypes.bool,
+  addTask: PropTypes.func,
+};
