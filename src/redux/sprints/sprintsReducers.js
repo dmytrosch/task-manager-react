@@ -18,17 +18,9 @@ const byId = createReducer(
     },
     [sprintsActions.sprintChangeNameSuccess]: (state, { payload }) => {
       const { sprintId, name: nameObj } = payload;
-      const {name: newName} = nameObj
-      // console.log(payload);
-      // console.log(state);
-      // const newState = { ...state };
-      // newState[sprintId].name = newName;
-      // console.log(newState);
-      // return newState;
+      const { name: newName } = nameObj;
       const newSprintObject = { ...state[sprintId] };
-      console.log(newName);
       newSprintObject.name = newName;
-      console.log(newSprintObject);
 
       return { ...state, [sprintId]: newSprintObject };
     },

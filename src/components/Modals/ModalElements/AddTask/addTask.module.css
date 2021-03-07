@@ -6,6 +6,15 @@
   max-width: 430px;
   margin: 0 auto;
 }
+.inputSprint {
+  margin: 0;
+}
+.inputSprint ~ label {
+  font-size: 14px;
+}
+.inputSprintContainer {
+  height: 71px;
+}
 
 .title {
   font-size: 26px;
