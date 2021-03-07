@@ -100,6 +100,7 @@ export default function Tasks({ sprintId }) {
             <EditableInput
               onSave={changeSprintName}
               value={currentSprint.name}
+              disable={!currentSprint.isOwner}
             />
           </div>
           <div onClick={openModalTask} className={styles.addSprintContainer}>
@@ -127,5 +128,5 @@ export default function Tasks({ sprintId }) {
 }
 
 Tasks.proprTypes = {
-  sprintId: PropTypes.string
+  sprintId: PropTypes.string,
 };
