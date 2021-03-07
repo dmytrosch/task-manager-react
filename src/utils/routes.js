@@ -16,14 +16,14 @@ export default [
     restricted: false,
   },
   {
-    path: "/projects/:projectId/sprints/:sprintId/tasks/:day",
+    path: "/projects/:projectId/sprints/:sprintId/tasks",
     label: "Tasks",
     exact: true,
     component: lazy(
       () =>
         import("../views/TasksView/TasksView.js" /* webpackChunkName: "Task" */)
     ),
-    private: false,
+    private: true,
     restricted: false,
   },
   {

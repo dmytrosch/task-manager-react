@@ -5,8 +5,8 @@ import SidebarProjects from './SideBarComponents/SidebarProjects.js';
 import SidebarSprints from "./SideBarComponents/SidebarSprints";
 
 export default function SideBar() {
-  const {day: taskDay} = useParams();
-  const listToRender = taskDay ? "sprints" : "projects";
+  const {sprintId} = useParams();
+  const listToRender = sprintId ? "sprints" : "projects";
   return (
     <aside className={styles.aside}>
       {listToRender === "projects" && <SidebarProjects/>}

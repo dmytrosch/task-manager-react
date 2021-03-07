@@ -24,7 +24,7 @@ export default function SprintItem({ id: sprintId, isOwner, projectId }) {
   return (
     <div className={styles.container}>
       <NavLink
-        to={`/projects/${projectId}/sprints/${sprintId}/tasks/1`}
+        to={`/projects/${projectId}/sprints/${sprintId}/tasks/`}
         className={styles.navLink}
       >
         <h2 className={styles.title}>{name}</h2>

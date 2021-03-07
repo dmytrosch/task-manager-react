@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
@@ -33,15 +33,9 @@ export default function Tasks({ sprintId }) {
   const tasksLoading = useSelector(isTasksLoading);
   const sprintsLoading = useSelector(isSprintsLoading);
   const loading = tasksLoading || sprintsLoading;
-  let sprintDuration;
   const [currentDate, setCurrentDate] = useState(1);
   const currentDay = currentDate - 1;
-
-  if (tasks) {
-    tasks.map((item) => {
-      sprintDuration = item.spendedTime.length;
-    });
-  }
+  
   useTitle(`${currentSprint.name}. Задачі`);
 
   useEffect(() => {
@@ -78,7 +72,7 @@ export default function Tasks({ sprintId }) {
               <div className={styles.sliderContainer}>
                 <Slider
                   initialCurrent={1}
-                  total={sprintDuration}
+                  total={currentSprint.timeDifference}
                   callback={handleSlider}
                 />
                 {tasks && tasks[0]?.spendedTime && (
