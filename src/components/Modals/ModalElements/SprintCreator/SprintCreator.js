@@ -70,7 +70,6 @@ export default function SprintCreator({ onClose }) {
               type="text"
               error={errorLengthSprint}
               errorMessage={errorLengthSprint}
-              inputClassNames={style.inputSprint}
               label="Назва спрінта"
               value={nameSprint}
               required

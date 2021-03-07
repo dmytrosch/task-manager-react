@@ -47,7 +47,6 @@ export default function ProjectCreator({ onClose }) {
           type="text"
           error={errorLengthName}
           errorMessage={errorLengthName}
-          inputClassNames={style.inputSprint}
           label="Назва проєкту"
           onChange={handlerNameProjest}
           value={nameProject}
@@ -59,7 +58,6 @@ export default function ProjectCreator({ onClose }) {
           type="text"
           error={errorLengthDescription}
           errorMessage={errorLengthDescription}
-          inputClassNames={style.inputSprint}
           label="Опис проєкту"
           onChange={handlerNameDescription}
           value={description}

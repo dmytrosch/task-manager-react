@@ -77,6 +77,7 @@ export default function CreaterNewPassword() {
                     value={password}
                     onChange={onChangePassword}
                     errorMessage={passwordError}
+                    required
                   />
                 </div>
                 <div className={style.inputContainerSingup}>
@@ -91,6 +92,7 @@ export default function CreaterNewPassword() {
                       (errorMessage && "Щось пішло не так... Спробуйте ще раз")
                     }
                     id="confirmedPassword"
+                    required
                   />
                 </div>
                 <Button type="submit">Змінити пароль</Button>

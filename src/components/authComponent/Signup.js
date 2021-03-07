@@ -102,7 +102,6 @@ export default function Signup({ setVissible }) {
               type="password"
               error={confirmedPasswordError || errorMessage}
               errorMessage={confirmedPasswordError || errorMessage}
-              // inputClassNames = {style.inputSprint}
               label="Повторіть пароль"
               value={confirmedPassword}
               id="confirmedPassword"

@@ -64,7 +64,6 @@ export default function AddTask({ onClose }) {
             error={nameError}
             errorMessage={nameError}
             onChange={inputNameHandler}
-            inputClassNames={styles.inputSprint}
             required
           />
         </div>
@@ -76,7 +75,6 @@ export default function AddTask({ onClose }) {
           error={durationError}
           errorMessage={durationError}
           onChange={inputDurationHandler}
-          inputClassNames={styles.inputSprint}
           required
         />
       </div>

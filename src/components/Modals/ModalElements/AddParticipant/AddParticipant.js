@@ -51,7 +51,6 @@ export default function AddParticipant({ onClose }) {
             error={emailError}
             errorMessage={emailError}
             onChange={(e) => setEmail(e.target.value)}
-            inputClassNames={styles.input}
             required
           />
           <Button

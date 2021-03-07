@@ -43,54 +43,38 @@ export default function ResetPasswordRequest({ setVissible }) {
   return (
     <Loader loading={loading}>
       <div onClick={resetErrorOnClick} className={style.formContainer}>
-        
-          <h2 className={style.title}> Вiдновлення паролю </h2>
-          <form onSubmit={submitHandler} onChange={() => resetError()}>
+        <h2 className={style.title}> Вiдновлення паролю </h2>
+        <form onSubmit={submitHandler} onChange={() => resetError()}>
           <div className={style.inputContainer}>
             <Input
               label="Введіть Ваш e-mail"
               value={emailAdress}
               error={emailError || errorMessage}
               onChange={onChangeEmail}
-              inputClassNames = {style.inputSprint}
               type="text"
               errorMessage={emailError || errorMessage}
               required
             />
           </div>
 
-            <div className={style.btnSubmit}>
-              <Button shape="oval" type="submit">
-                Відправити
-              </Button>
-            </div>
-            <div className={style.btnWrapper}>
-              {location.pathname === "/login" ? (
-                <p className={style.subtitle}>
-                  Маєте акаунт?&nbsp;
-                  <NavLink
-                    onClick={setVissible}
-                    to="/login"
-                    className={style.NavLink}
-                  >
-                    Увійти
-                  </NavLink>{" "}
-                </p>
-              ) : (
-                <p className={style.subtitle}>
-                  Немає акаунту?&nbsp;
-                  <NavLink
-                    onClick={setVissible}
-                    to="/signup"
-                    className={style.NavLink}
-                  >
-                    Зареєструватись
-                  </NavLink>{" "}
-                </p>
-              )}
-            </div>
-          </form>
-        
+          <div className={style.btnSubmit}>
+            <Button shape="oval" type="submit">
+              Відправити
+            </Button>
+          </div>
+          <div className={style.btnWrapper}>
+            <p className={style.subtitle}>
+              Маєте акаунт?&nbsp;
+              <NavLink
+                onClick={setVissible}
+                to="/login"
+                className={style.NavLink}
+              >
+                Увійти
+              </NavLink>
+            </p>
+          </div>
+        </form>
       </div>
     </Loader>
   );
