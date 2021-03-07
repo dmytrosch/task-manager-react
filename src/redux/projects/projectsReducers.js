@@ -31,7 +31,11 @@ const byId = createReducer(
       }, {});
     },
     [changeProjectNameSuccess]: (state, { payload }) => {
-      return { ...state, [payload.id]: payload };
+      const color = state[payload._id].color
+      const isOwner = state[payload._id].isOwner
+      payload.color = color
+      payload.isOwner = isOwner
+      return { ...state, [payload._id]: payload };
     },
     [byIdSuccess]: (state, { payload }) => {
       return {
@@ -67,12 +71,3 @@ const allIds = createReducer([], {
 const projects = combineReducers({ byId, allIds });
 
 export default projects;
-
-// byId = {
-//     [id]: {
-//         name: 'qweqwewqeqe0',
-//         description: 'dfgdfgdfgf',
-//         iUserOwner: Boolean
-//     }
-// }
-// allIds = [...allIds, id]

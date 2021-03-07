@@ -16,10 +16,21 @@ const byId = createReducer(
       delete newState[payload];
       return newState;
     },
-    [sprintsActions.changeNameSuccess]: (state, { payload }) => {
-      const { sprintId, newName } = payload;
-      state[sprintId].name = newName;
-      return { ...state };
+    [sprintsActions.sprintChangeNameSuccess]: (state, { payload }) => {
+      const { sprintId, name: nameObj } = payload;
+      const {name: newName} = nameObj
+      // console.log(payload);
+      // console.log(state);
+      // const newState = { ...state };
+      // newState[sprintId].name = newName;
+      // console.log(newState);
+      // return newState;
+      const newSprintObject = { ...state[sprintId] };
+      console.log(newName);
+      newSprintObject.name = newName;
+      console.log(newSprintObject);
+
+      return { ...state, [sprintId]: newSprintObject };
     },
     [projectsActions.byIdSuccess]: (state, { payload }) =>
       payload.sprints.reduce((acc, sprint) => {
