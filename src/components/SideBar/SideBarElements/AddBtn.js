@@ -4,14 +4,13 @@ import styles from "../sideBar.module.css";
 
 export default function AddTaskBtn({ nameArrowBtn, addNewProject }) {
   return (
-    <>
+    <div onClick={addNewProject}>
       <IconButton
         iconButtonCustomClass={styles.button}
         iconName="plus"
         icon="plus"
-        onClick={addNewProject}
       />
       <p className={styles.addButton}>Додати {nameArrowBtn}</p>
-    </>
+    </div>
   );
 }
