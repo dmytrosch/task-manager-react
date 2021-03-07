@@ -31,11 +31,11 @@ const byId = createReducer(
       }, {});
     },
     [changeProjectNameSuccess]: (state, { payload }) => {
-      const color = state[payload._id].color
-      const isOwner = state[payload._id].isOwner
+      const color = state[payload.id].color
+      const isOwner = state[payload.id].isOwner
       payload.color = color
       payload.isOwner = isOwner
-      return { ...state, [payload._id]: payload };
+      return { ...state, [payload.id]: payload };
     },
     [byIdSuccess]: (state, { payload }) => {
       return {
