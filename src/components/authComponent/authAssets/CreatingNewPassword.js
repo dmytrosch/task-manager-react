@@ -13,7 +13,7 @@ import classNames from "classnames";
 import style from "../styles.module.css";
 import { resetPassError } from "../../../redux/auth/authActions";
 import Loader from "../../Loaders/LoaderForComponents/LoaderForComponents";
-import { isAuthLoading } from "../../../redux/loading/loadingSelector";
+import { isAuthLoadingSelector } from "../../../redux/loading/loadingSelector";
 
 export default function CreaterNewPassword() {
   const qweryParams = useParams();
@@ -23,7 +23,7 @@ export default function CreaterNewPassword() {
   const [confirmedPasswordError, setConfirmedPasswordError] = useState(null);
   const errorMessage = useSelector(resetPasswordErrorSelector);
   const isPasswordChanged = useSelector(isPasswordChangedSelector);
-  const loading = useSelector(isAuthLoading);
+  const loading = useSelector(isAuthLoadingSelector);
   const dispatch = useDispatch();
   const resetError = () => {
     errorMessage && dispatch(resetPassError(null));

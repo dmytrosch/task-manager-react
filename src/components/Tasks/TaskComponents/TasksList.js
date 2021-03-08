@@ -8,11 +8,11 @@ import animateItem from "../../../styles/animateItem.module.css";
 
 import TaskItem from "./TaskItem";
 
-import { resultTaskArray } from "../../../redux/currentSprint/currentSprintSelectors";
+import { resultTaskArraySelector } from "../../../redux/currentSprint/currentSprintSelectors";
 import { searchValue } from "../../../redux/search/searchSelectors";
 
 export default function TasksList({ currentDate, loading, addTask }) {
-  const currentTasks = useSelector(resultTaskArray);
+  const currentTasks = useSelector(resultTaskArraySelector);
   const search = useSelector(searchValue);
 
   return (!currentTasks && !loading) ||

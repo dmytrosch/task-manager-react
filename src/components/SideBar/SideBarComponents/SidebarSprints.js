@@ -15,9 +15,9 @@ import AddBtn from "../SideBarElements/AddBtn";
 import Loader from "../../Loaders/LoaderForComponents/LoaderForComponents";
 import { useEffect } from "react";
 import {
-  isProjectsLoading,
-  isSprintsLoading,
-  isUserLoading,
+  isProjectsLoadingSelector,
+  isSprintsLoadingSelector,
+  isUserLoadingSelector,
 } from "../../../redux/loading/loadingSelector";
 
 export default function SidebarSprints() {
@@ -25,8 +25,8 @@ export default function SidebarSprints() {
   const projectId = useRouteMatch().params.projectId;
   const [visibleTab, setVisibleTab] = useState(sprintId);
   const sprintIds = useSelector(allIdsSelector);
-  const projectLoading = useSelector(isProjectsLoading);
-  const sprintsLoading = useSelector(isSprintsLoading);
+  const projectLoading = useSelector(isProjectsLoadingSelector);
+  const sprintsLoading = useSelector(isSprintsLoadingSelector);
   const loading = sprintsLoading || projectLoading;
   const dispatch = useDispatch();
   useEffect(() => {

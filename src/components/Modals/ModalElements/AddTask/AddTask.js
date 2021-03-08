@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import styles from "./addTask.module.css";
 import { createTask } from "../../../../redux/currentSprint/currentSprintOperations";
-import { isModalCreateTask } from "../../../../redux/modal/modalSelectors";
+import { isModalCreateTaskSelector } from "../../../../redux/modal/modalSelectors";
 
 import Input from "../../../../common/Input/Input";
 import Button from "../../../../common/Button/Button";
@@ -15,7 +15,7 @@ export default function AddTask({ onClose }) {
   const [duration, setDuration] = useState("");
   const [nameError, setNameError] = useState(null);
   const [durationError, setDurationError] = useState(null);
-  const sprintId = useSelector(isModalCreateTask);
+  const sprintId = useSelector(isModalCreateTaskSelector);
   const dispatch = useDispatch();
   const inputNameHandler = (e) => {
     const value = e.target.value;

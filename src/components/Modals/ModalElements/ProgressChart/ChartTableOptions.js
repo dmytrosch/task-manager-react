@@ -1,17 +1,17 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import {
-  getCurrentSprint,
-  getAllDayInSprint,
-  getWastedHoursInTasks,
-  getPlanedTimeInSprint,
+  getCurrentSprintSelector,
+  getAllDayInSprintSelector,
+  getWastedHoursInTasksSelector,
+  getPlanedTimeInSprintSelector,
 } from "../../../../redux/sprints/sprintsSelectors";
 import { useSelector } from "react-redux";
 export default function ChartTable() {
-  const currentSprint = useSelector(getCurrentSprint);
-  const days = useSelector(getAllDayInSprint);
-  const wastedTimeInAllTask = useSelector(getWastedHoursInTasks);
-  const plannedTime = useSelector(getPlanedTimeInSprint);
+  const currentSprint = useSelector(getCurrentSprintSelector);
+  const days = useSelector(getAllDayInSprintSelector);
+  const wastedTimeInAllTask = useSelector(getWastedHoursInTasksSelector);
+  const plannedTime = useSelector(getPlanedTimeInSprintSelector);
 
   const timeSpendedInAllTasks = wastedTimeInAllTask.reduce((acc, el) => {
     el.forEach((elem, indx) => {

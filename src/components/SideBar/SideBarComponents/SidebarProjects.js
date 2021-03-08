@@ -14,16 +14,16 @@ import { getAllIdsSelector } from "../../../redux/projects/projectSelectors";
 // import { getProjectById } from "../../../redux/projects/projectOperations";
 import { setModalCreateProject } from "../../../redux/modal/modalAction";
 import {
-  isProjectsLoading,
-  isUserLoading,
+  isProjectsLoadingSelector,
+  isUserLoadingSelector,
 } from "../../../redux/loading/loadingSelector";
 
 export default function SidebarProjects() {
   const projectMatch = useRouteMatch().params.projectId;
   const [visibleTab, setVisibleTab] = useState(projectMatch);
   const projectsIds = useSelector(getAllIdsSelector);
-  const userLoading = useSelector(isUserLoading);
-  const projectLoading = useSelector(isProjectsLoading);
+  const userLoading = useSelector(isUserLoadingSelector);
+  const projectLoading = useSelector(isProjectsLoadingSelector);
   const loading = userLoading || projectLoading;
   const dispatch = useDispatch();
   const add = () => dispatch(setModalCreateProject(true));

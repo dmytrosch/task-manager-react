@@ -8,15 +8,15 @@ import Loader from "../Loaders/LoaderForComponents/LoaderForComponents";
 
 import * as modalAction from "../../redux/modal/modalAction";
 import {
-  isUserLoading,
-  isProjectsLoading,
+  isUserLoadingSelector,
+  isProjectsLoadingSelector,
 } from "../../redux/loading/loadingSelector";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
   const addProject = () => dispatch(modalAction.setModalCreateProject(true));
-  const userLoading = useSelector(isUserLoading);
-  const projectLoading = useSelector(isProjectsLoading);
+  const userLoading = useSelector(isUserLoadingSelector);
+  const projectLoading = useSelector(isProjectsLoadingSelector);
   const loading = userLoading || projectLoading;
   const projects = useSelector(getAllIdsSelector);
   return (

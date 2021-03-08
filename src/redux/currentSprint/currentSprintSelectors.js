@@ -3,13 +3,13 @@ import { pathOr } from "ramda";
 
 export const currentSprintSelector = (state) => state.app.currentSprint;
 
-export const search = (state) => state.app.search;
+export const searchSelector = (state) => state.app.search;
 
 export const currentTasksSelector = (state) =>
   pathOr([], ["tasks"], state.app.currentSprint);
 
 export const resultTaskArray = createSelector(
-  [currentTasksSelector, search],
+  [currentTasksSelector, searchSelector],
   (tasks, searchQuery) => {
     return tasks
       ? tasks.filter((item) =>

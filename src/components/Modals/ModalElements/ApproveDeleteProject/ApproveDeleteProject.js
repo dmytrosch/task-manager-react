@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Button from "../../../../common/Button/Button";
 
 import { deleteProject } from "../../../../redux/projects/projectOperations";
-import { isModalApproveDeleteProject } from "../../../../redux/modal/modalSelectors";
+import { isModalApproveDeleteProjectSelector } from "../../../../redux/modal/modalSelectors";
 import { getByIdSelector } from "../../../../redux/projects/projectSelectors";
 
 import styles from "./ApproveDeleteProject.module.css";
@@ -12,7 +12,7 @@ import styles from "./ApproveDeleteProject.module.css";
 export default function ApproveDeleteProject({ onClose }) {
   const dispatch = useDispatch();
   const [timer, setTimer] = useState(30);
-  const projectId = useSelector(isModalApproveDeleteProject);
+  const projectId = useSelector(isModalApproveDeleteProjectSelector);
 
   const project = useSelector(getByIdSelector(projectId));
 

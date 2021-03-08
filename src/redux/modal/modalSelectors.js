@@ -1,20 +1,20 @@
 // export const getModalType = (state) => state.modal;
-export const isModalCreateTask = (state) => state.ui.modal.createTask;
-export const isModalCreateSprint = (state) => state.ui.modal.createSprint;
-export const isModalAddParticipant = (state) =>
+export const isModalCreateTaskSelector = (state) => state.ui.modal.createTask;
+export const isModalCreateSprintSelector = (state) => state.ui.modal.createSprint;
+export const isModalAddParticipantSelector = (state) =>
   Boolean(state.ui.modal.addParticipant);
-export const isModalCreateProject = (state) =>
+export const isModalCreateProjectSelector = (state) =>
   Boolean(state.ui.modal.createProject);
-export const isModalEditProject = (state) =>
+export const isModalEditProjectSelector = (state) =>
   Boolean(state.ui.modal.editProject);
-export const isModalChartTable = (state) => Boolean(state.ui.modal.chartTable);
-export const currentProjectId = (state) =>
+export const isModalChartTableSelector = (state) => Boolean(state.ui.modal.chartTable);
+export const currentProjectIdSelector = (state) =>
   state.ui.modal.createSprint || state.ui.modal.addParticipant;
-export const isModalApproveDeleteProject = (state) =>
+export const isModalApproveDeleteProjectSelector = (state) =>
   state.ui.modal.approveDeleteProject;
-export const isModalApproveDeleteSprint = (state) =>
+export const isModalApproveDeleteSprintSelector = (state) =>
   state.ui.modal.approveDeleteSprint;
-export const isModalApproveDeleteTask = (state) =>
+export const isModalApproveDeleteTaskSelector = (state) =>
   state.ui.modal.approveDeleteTask;
 export const isAnyModalOpenSelector = (state) => {
   const values = Object.values(state.ui.modal);

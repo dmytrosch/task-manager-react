@@ -9,14 +9,14 @@ import { login } from "../../redux/auth/authOperations";
 import { loginErrorSelector } from "../../redux/auth/authSelectors";
 import { loginError } from "../../redux/auth/authActions";
 import validator from "validator";
-import { isAuthLoading } from "../../redux/loading/loadingSelector";
+import { isAuthLoadingSelector } from "../../redux/loading/loadingSelector";
 
 export default function Login({ setVissible }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(null);
   const errorMessage = useSelector(loginErrorSelector);
-  const loading = useSelector(isAuthLoading)
+  const loading = useSelector(isAuthLoadingSelector)
   const dispatch = useDispatch();
   const resetError = () => {
     errorMessage && dispatch(loginError(null));

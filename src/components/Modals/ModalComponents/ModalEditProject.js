@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { isModalEditProject } from "../../../redux/modal/modalSelectors";
+import { isModalEditProjectSelector } from "../../../redux/modal/modalSelectors";
 import { setModalEditProject } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
@@ -9,7 +9,7 @@ import Modal from "../Modal";
 
 export default function ModalEditProject() {
   const dispatch = useDispatch();
-  const isOpen = useSelector(isModalEditProject);
+  const isOpen = useSelector(isModalEditProjectSelector);
   const closeModal = () => dispatch(setModalEditProject(false));
 
   return isOpen ? (
