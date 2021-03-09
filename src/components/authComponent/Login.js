@@ -16,7 +16,7 @@ export default function Login({ setVissible }) {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(null);
   const errorMessage = useSelector(loginErrorSelector);
-  const loading = useSelector(isAuthLoadingSelector)
+  const isLoading = useSelector(isAuthLoadingSelector)
   const dispatch = useDispatch();
   const resetError = () => {
     errorMessage && dispatch(loginError(null));
@@ -42,7 +42,7 @@ export default function Login({ setVissible }) {
     resetError();
   };
   return (
-    <Loader loading={loading}>
+    <Loader loading={isLoading}>
       <div onClick={resetErrorOnClick} className={style.formContainer}>
         <p className={style.title}>Вхід</p>
         <form

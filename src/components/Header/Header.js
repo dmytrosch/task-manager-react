@@ -17,7 +17,7 @@ const Header = ({ className, ...props }) => {
   const dispatch = useDispatch();
   const userName = useSelector(getUserNameSelector);
   const isAuth = useSelector(isAuthentificatedSelector);
-  const loading = useSelector(isUserLoadingSelector)
+  const isLoading = useSelector(isUserLoadingSelector)
   const onLogout = () => dispatch(logout());
   return (
     <header className={classNames(styles.header, className)}>
@@ -38,7 +38,7 @@ const Header = ({ className, ...props }) => {
       {isAuth && (
         
           <div className={styles.logoutContainer}>
-            <Loader loading={loading}><p className={styles.username}>{userName}</p></Loader>
+            <Loader loading={isLoading}><p className={styles.username}>{userName}</p></Loader>
             <button
               className={styles.logoutBtn}
               type="button"

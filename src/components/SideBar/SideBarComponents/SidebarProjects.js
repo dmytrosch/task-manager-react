@@ -24,13 +24,13 @@ export default function SidebarProjects() {
   const projectsIds = useSelector(getAllIdsSelector);
   const userLoading = useSelector(isUserLoadingSelector);
   const projectLoading = useSelector(isProjectsLoadingSelector);
-  const loading = userLoading || projectLoading;
+  const isLoading = userLoading || projectLoading;
   const dispatch = useDispatch();
   const add = () => dispatch(setModalCreateProject(true));
   return (
     <aside className={styles.aside}>
       <GoBackBtn nameArrowBtn="проєкти" link="/" />
-      <Loader loading={loading}>
+      <Loader loading={isLoading}>
         <Scrollbars
           className={styles.scrollbars}
           autoHeight={true}

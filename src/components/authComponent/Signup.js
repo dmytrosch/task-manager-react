@@ -19,7 +19,7 @@ export default function Signup({ setVissible }) {
   const [passwordError, setPasswordError] = useState(null);
   const [confirmedPasswordError, setConfirmedPasswordError] = useState(null);
   const errorMessage = useSelector(signupErrorSelector);
-  const loading = useSelector(isAuthLoadingSelector);
+  const isLoading = useSelector(isAuthLoadingSelector);
   const dispatch = useDispatch();
   const resetError = () => {
     errorMessage && dispatch(signupError(null));
@@ -65,7 +65,7 @@ export default function Signup({ setVissible }) {
   };
 
   return (
-    <Loader loading={loading}>
+    <Loader loading={isLoading}>
       <div onClick={resetErrorOnClick} className={style.formContainer}>
         <p className={style.title}>Реєстрація</p>
         <form

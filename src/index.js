@@ -10,7 +10,7 @@ import "./styles/main.css";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading='load' persistor={persistor}>
+      <PersistGate loading="Loading..." persistor={persistor}>
       <App />
       </PersistGate>
     </Provider>

@@ -23,7 +23,7 @@ export default function CreaterNewPassword() {
   const [confirmedPasswordError, setConfirmedPasswordError] = useState(null);
   const errorMessage = useSelector(resetPasswordErrorSelector);
   const isPasswordChanged = useSelector(isPasswordChangedSelector);
-  const loading = useSelector(isAuthLoadingSelector);
+  const isLoading = useSelector(isAuthLoadingSelector);
   const dispatch = useDispatch();
   const resetError = () => {
     errorMessage && dispatch(resetPassError(null));
@@ -62,7 +62,7 @@ export default function CreaterNewPassword() {
     setConfirmedPassword(null);
   };
   return (
-    <Loader loading={loading}>
+    <Loader loading={isLoading}>
       <section className={style.container}>
         <div className={style.formContainer} onClick={resetErrorOnClick}>
           {!isPasswordChanged ? (

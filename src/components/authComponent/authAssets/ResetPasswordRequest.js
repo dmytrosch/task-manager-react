@@ -18,7 +18,7 @@ export default function ResetPasswordRequest({ setVissible }) {
   const location = useLocation();
   const dispatch = useDispatch();
   const errorMessage = useSelector(resetPasswordRequestErrorSelector);
-  const loading = useSelector(isAuthLoadingSelector);
+  const isLoading = useSelector(isAuthLoadingSelector);
   function resetError() {
     errorMessage && dispatch(sendEmailToResetPasswordError(null));
   }
@@ -41,7 +41,7 @@ export default function ResetPasswordRequest({ setVissible }) {
     setEmailError(null);
   }
   return (
-    <Loader loading={loading}>
+    <Loader loading={isLoading}>
       <div onClick={resetErrorOnClick} className={style.formContainer}>
         <h2 className={style.title}> Вiдновлення паролю </h2>
         <form onSubmit={submitHandler} onChange={() => resetError()}>

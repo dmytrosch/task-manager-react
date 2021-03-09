@@ -17,10 +17,10 @@ export default function Dashboard() {
   const addProject = () => dispatch(modalAction.setModalCreateProject(true));
   const userLoading = useSelector(isUserLoadingSelector);
   const projectLoading = useSelector(isProjectsLoadingSelector);
-  const loading = userLoading || projectLoading;
+  const isLoading = userLoading || projectLoading;
   const projects = useSelector(getAllIdsSelector);
   return (
-    <Loader loading={loading}>
+    <Loader loading={isLoading}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.infoBox}>
@@ -44,7 +44,7 @@ export default function Dashboard() {
               ))}
             </ul>
           ) : (
-            !loading && (
+            !isLoading && (
               <p>
                 Ви ще не додали, або не є учасником жодного проєкту.{" "}
                 <span className={styles.addProjectText} onClick={addProject}>

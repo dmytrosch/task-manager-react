@@ -27,7 +27,7 @@ export default function SidebarSprints() {
   const sprintIds = useSelector(allIdsSelector);
   const projectLoading = useSelector(isProjectsLoadingSelector);
   const sprintsLoading = useSelector(isSprintsLoadingSelector);
-  const loading = sprintsLoading || projectLoading;
+  const isLoading = sprintsLoading || projectLoading;
   const dispatch = useDispatch();
   useEffect(() => {
     sprintIds.length === 0 && dispatch(getProjectById(projectId));
@@ -39,7 +39,7 @@ export default function SidebarSprints() {
         nameArrowBtn="спринти"
         link={`/projects/${projectId}/sprints`}
       />
-      <Loader loading={loading}>
+      <Loader loading={isLoading}>
         <Scrollbars
           className={styles.scrollbars}
           autoHeight={true}

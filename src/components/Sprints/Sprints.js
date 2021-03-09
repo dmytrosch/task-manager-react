@@ -29,7 +29,7 @@ export default function Sprint({ projectId }) {
   const { name, isOwner, description } = currentProject;
   const projectsLoading = useSelector(isProjectsLoadingSelector);
   const sprintsLoading = useSelector(isSprintsLoadingSelector);
-  const loading = projectsLoading || sprintsLoading;
+  const isLoading = projectsLoading || sprintsLoading;
   useTitle(`${name}. Спринти`);
   useEffect(() => {
     dispatch(getProjectById(projectId));
@@ -46,7 +46,7 @@ export default function Sprint({ projectId }) {
     dispatch(editProjectDespription(projectId, newDescription));
   };
   return (
-    <Loader loading={loading}>
+    <Loader loading={isLoading}>
       <div className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.infoBox}>
@@ -90,7 +90,7 @@ export default function Sprint({ projectId }) {
               projectId={projectId}
             />
           ) : (
-            !loading && (
+            !isLoading && (
               <p className={styles.notSprints}>
                 У проєкта відсутні спринти.{" "}
                 <span className={styles.addSprintText} onClick={addSprint}>

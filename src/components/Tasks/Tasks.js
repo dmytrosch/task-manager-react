@@ -32,7 +32,7 @@ export default function Tasks({ sprintId }) {
   const tasks = useSelector(currentTasksSelector);
   const tasksLoading = useSelector(isTasksLoadingSelector);
   const sprintsLoading = useSelector(isSprintsLoadingSelector);
-  const loading = tasksLoading || sprintsLoading;
+  const isLoading = tasksLoading || sprintsLoading;
   const [currentDate, setCurrentDate] = useState(1);
   const currentDay = currentDate - 1;
   
@@ -64,7 +64,7 @@ export default function Tasks({ sprintId }) {
   const openModalChartTable = () =>
     dispatch(modalAction.setModalChartTable(true));
   return (
-    <Loader loading={loading}>
+    <Loader loading={isLoading}>
       <div className={styles.container}>
         <div className={styles.taskControl}>
           {tasks.length > 0 && (
@@ -113,7 +113,7 @@ export default function Tasks({ sprintId }) {
 
         <TasksTable
           currentDate={currentDate}
-          loading={loading}
+          loading={isLoading}
           addTask={openModalTask}
         />
       </div>
