@@ -8,7 +8,7 @@ export const searchSelector = (state) => state.app.search;
 export const currentTasksSelector = (state) =>
   pathOr([], ["tasks"], state.app.currentSprint);
 
-export const resultTaskArray = createSelector(
+export const resultTaskArraySelector = createSelector(
   [currentTasksSelector, searchSelector],
   (tasks, searchQuery) => {
     return tasks

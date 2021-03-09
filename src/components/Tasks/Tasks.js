@@ -20,7 +20,7 @@ import {
   isTasksLoadingSelector,
   isSprintsLoadingSelector,
 } from "../../redux/loading/loadingSelector";
-import { search } from "../../redux/currentSprint/currentSprintSelectors";
+import { searchSelector } from "../../redux/currentSprint/currentSprintSelectors";
 
 import searchActions from "../../redux/search/searchActions";
 import useTitle from "../../hooks/useTitle";
@@ -84,7 +84,7 @@ export default function Tasks({ sprintId }) {
               <SearchInput
                 customContainerStyles={styles.mobileSearchInp}
                 callback={handleSearchInput}
-                searchValue={search}
+                searchValue={searchSelector}
               />
             </>
           )}
