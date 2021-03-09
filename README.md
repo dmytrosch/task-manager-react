@@ -24,4 +24,5 @@ Task Manager is React web-application for organizing the work of a development t
 - Axios
 
 **Deploy - https://task-manager-goit.netlify.app**
+
 **Back-End - https://github.com/dmytrosch/task-manager-api**
