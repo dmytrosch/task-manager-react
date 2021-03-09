@@ -3,7 +3,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
-import styles from "./styles.module.css";
+import styles from "./TasksList.module.css";
 import animateItem from "../../../styles/animateItem.module.css";
 
 import TaskItem from "./TaskItem";

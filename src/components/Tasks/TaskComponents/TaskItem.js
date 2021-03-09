@@ -10,7 +10,7 @@ import {
 } from "../../../redux/currentSprint/currentSprintOperations";
 import PropTypes from "prop-types";
 
-import styles from "./styles.module.css";
+import styles from "./TasksList.module.css";
 
 export default function SprintItem({ task, currentDate }) {
   const params = useParams();
