@@ -1,1 +1,1 @@
-export const searchValue = (state) => state.app.search;
+export const searchValueSelector = (state) => state.app.search;

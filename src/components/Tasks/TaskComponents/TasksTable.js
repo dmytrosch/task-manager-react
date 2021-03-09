@@ -6,7 +6,7 @@ import TasksList from "./TasksList";
 import SearchInput from "../../../common/SearchInput/SearchInput";
 
 import searchActions from "../../../redux/search/searchActions";
-import { search } from "../../../redux/currentSprint/currentSprintSelectors";
+import { searchSelector } from "../../../redux/currentSprint/currentSprintSelectors";
 
 import styles from "./TasksTable.module.css";
 
@@ -35,7 +35,7 @@ export default function TasksTable({ currentDate, loading, addTask }) {
         <SearchInput
           customContainerStyles={styles.desktopSearchInp}
           callback={handleSearchInput}
-          searchValue={search}
+          searchValue={searchSelector}
         />
       </div>
       <TasksList

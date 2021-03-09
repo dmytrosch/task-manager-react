@@ -17,10 +17,10 @@ import { currentTasksSelector } from "../../redux/currentSprint/currentSprintSel
 
 import styles from "./Tasks.module.css";
 import {
-  isTasksLoading,
-  isSprintsLoading,
+  isTasksLoadingSelector,
+  isSprintsLoadingSelector,
 } from "../../redux/loading/loadingSelector";
-import { search } from "../../redux/currentSprint/currentSprintSelectors";
+import { searchSelector } from "../../redux/currentSprint/currentSprintSelectors";
 
 import searchActions from "../../redux/search/searchActions";
 import useTitle from "../../hooks/useTitle";
@@ -30,8 +30,8 @@ export default function Tasks({ sprintId }) {
   const params = useParams();
   const currentSprint = useSelector(currentSprintSelector);
   const tasks = useSelector(currentTasksSelector);
-  const tasksLoading = useSelector(isTasksLoading);
-  const sprintsLoading = useSelector(isSprintsLoading);
+  const tasksLoading = useSelector(isTasksLoadingSelector);
+  const sprintsLoading = useSelector(isSprintsLoadingSelector);
   const loading = tasksLoading || sprintsLoading;
   const [currentDate, setCurrentDate] = useState(1);
   const currentDay = currentDate - 1;
@@ -84,7 +84,7 @@ export default function Tasks({ sprintId }) {
               <SearchInput
                 customContainerStyles={styles.mobileSearchInp}
                 callback={handleSearchInput}
-                searchValue={search}
+                searchValue={searchSelector}
               />
             </>
           )}

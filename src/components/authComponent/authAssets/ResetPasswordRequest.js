@@ -8,7 +8,7 @@ import Input from "../../../common/Input/Input";
 import Button from "../../../common/Button/Button";
 import { sendMail } from "../../../redux/auth/authOperations";
 import { resetPasswordRequestErrorSelector } from "../../../redux/auth/authSelectors";
-import { isAuthLoading } from "../../../redux/loading/loadingSelector";
+import { isAuthLoadingSelector } from "../../../redux/loading/loadingSelector";
 import { sendEmailToResetPasswordError } from "../../../redux/auth/authActions";
 import Loader from "../../Loaders/LoaderForComponents/LoaderForComponents";
 
@@ -18,7 +18,7 @@ export default function ResetPasswordRequest({ setVissible }) {
   const location = useLocation();
   const dispatch = useDispatch();
   const errorMessage = useSelector(resetPasswordRequestErrorSelector);
-  const loading = useSelector(isAuthLoading);
+  const loading = useSelector(isAuthLoadingSelector);
   function resetError() {
     errorMessage && dispatch(sendEmailToResetPasswordError(null));
   }

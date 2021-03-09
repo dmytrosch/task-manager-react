@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import Button from "../../../../common/Button/Button";
 
 import { deleteTask } from "../../../../redux/currentSprint/currentSprintOperations";
-import { isModalApproveDeleteTask } from "../../../../redux/modal/modalSelectors";
+import { isModalApproveDeleteTaskSelector } from "../../../../redux/modal/modalSelectors";
 // import { getTaskById } from "../../../../redux/sprints/sprintsSelectors";
 
 import styles from "./ApproveDeleteTask.module.css";
 
 export default function ApproveDeleteProject({ onClose }) {
   const dispatch = useDispatch();
-  const taskId = useSelector(isModalApproveDeleteTask);
+  const taskId = useSelector(isModalApproveDeleteTaskSelector);
 
   // const task = useSelector(getTaskById(taskId));
 

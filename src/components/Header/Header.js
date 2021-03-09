@@ -11,13 +11,13 @@ import { logout } from "../../redux/auth/authOperations";
 import mainLogo from "../../assest/icons/mainLogo.svg";
 import styles from "./header.module.css";
 import Loader from "../Loaders/LoaderForComponents/LoaderForComponents";
-import { isUserLoading } from "../../redux/loading/loadingSelector";
+import { isUserLoadingSelector } from "../../redux/loading/loadingSelector";
 
 const Header = ({ className, ...props }) => {
   const dispatch = useDispatch();
   const userName = useSelector(getUserNameSelector);
   const isAuth = useSelector(isAuthentificatedSelector);
-  const loading = useSelector(isUserLoading)
+  const loading = useSelector(isUserLoadingSelector)
   const onLogout = () => dispatch(logout());
   return (
     <header className={classNames(styles.header, className)}>

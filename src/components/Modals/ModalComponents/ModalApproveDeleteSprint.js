@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { isModalApproveDeleteSprint } from "../../../redux/modal/modalSelectors";
+import { isModalApproveDeleteSprintSelector } from "../../../redux/modal/modalSelectors";
 import { setModalApproveDeleteSprint } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
@@ -9,7 +9,7 @@ import ApproveDeleteSprint from "../ModalElements/ApproveDeleteSprint/ApproveDel
 
 export default function ModalApproveDeleteProject() {
   const dispatch = useDispatch();
-  const isOpen = useSelector(isModalApproveDeleteSprint);
+  const isOpen = useSelector(isModalApproveDeleteSprintSelector);
   const closeModal = () => dispatch(setModalApproveDeleteSprint(null));
 
   return isOpen ? (

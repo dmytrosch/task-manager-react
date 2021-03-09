@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createSprint } from "../../../../redux/sprints/sprintsOperations";
-import { currentProjectId } from "../../../../redux/modal/modalSelectors";
+import { currentProjectIdSelector } from "../../../../redux/modal/modalSelectors";
 import style from "./SprintCreator.module.css";
 import Button from "../../../../common/Button/Button";
 import { uk } from "date-fns/locale";
@@ -31,7 +31,7 @@ export default function SprintCreator({ onClose }) {
       1
     );
   }
-  const projectId = useSelector(currentProjectId);
+  const projectId = useSelector(currentProjectIdSelector);
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();

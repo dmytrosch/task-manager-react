@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import validator from "validator";
-import { currentProjectId } from "../../../../redux/modal/modalSelectors";
+import { currentProjectIdSelector } from "../../../../redux/modal/modalSelectors";
 import { getParticipantsWithoutCurrentUserSelector } from "../../../../redux/projects/projectSelectors";
 import { addParticipant } from "../../../../redux/projects/projectOperations";
 import { getUsersEmailSelector } from "../../../../redux/auth/authSelectors";
@@ -14,7 +14,7 @@ export default function AddParticipant({ onClose }) {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
-  const projectId = useSelector(currentProjectId);
+  const projectId = useSelector(currentProjectIdSelector);
   const participants = useSelector(
     getParticipantsWithoutCurrentUserSelector(projectId)
   );

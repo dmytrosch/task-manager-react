@@ -17,8 +17,8 @@ import IconButton from "../../common/IconButtons/IconButtons.js";
 import * as modalAction from "../../redux/modal/modalAction";
 import { allIdsSelector } from "../../redux/sprints/sprintsSelectors";
 import {
-  isProjectsLoading,
-  isSprintsLoading,
+  isProjectsLoadingSelector,
+  isSprintsLoadingSelector,
 } from "../../redux/loading/loadingSelector";
 import useTitle from "../../hooks/useTitle";
 
@@ -27,8 +27,8 @@ export default function Sprint({ projectId }) {
   const sprintIds = useSelector(allIdsSelector);
   const currentProject = useSelector(getByIdSelector(projectId));
   const { name, isOwner, description } = currentProject;
-  const projectsLoading = useSelector(isProjectsLoading);
-  const sprintsLoading = useSelector(isSprintsLoading);
+  const projectsLoading = useSelector(isProjectsLoadingSelector);
+  const sprintsLoading = useSelector(isSprintsLoadingSelector);
   const loading = projectsLoading || sprintsLoading;
   useTitle(`${name}. Спринти`);
   useEffect(() => {

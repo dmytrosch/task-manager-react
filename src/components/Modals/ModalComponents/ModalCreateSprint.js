@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { isModalCreateSprint } from "../../../redux/modal/modalSelectors";
+import { isModalCreateSprintSelector } from "../../../redux/modal/modalSelectors";
 import { setModalCreateSprint } from "../../../redux/modal/modalAction";
 
 import ModalPortal from "../../../common/ModalPortal/ModalPortal";
@@ -9,7 +9,7 @@ import SprintCreator from "../ModalElements/SprintCreator/SprintCreator";
 
 export default function ModalCreateSprint() {
   const dispatch = useDispatch();
-  const isOpen = useSelector(isModalCreateSprint);
+  const isOpen = useSelector(isModalCreateSprintSelector);
   const closeModal = () => dispatch(setModalCreateSprint(false));
 
   return isOpen ? (
