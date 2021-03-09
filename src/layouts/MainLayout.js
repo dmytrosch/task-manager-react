@@ -12,21 +12,19 @@ const MainLayout = ({ children }) => {
   const isMobile = useIsMobile();
   const isAnyModalOpen = useSelector(isAnyModalOpenSelector);
   const scrollY = useRef(window.scrollY);
-  const shouldToChangeLayout = isMobile && isAnyModalOpen
+  const shouldToChangeLayout = isMobile && isAnyModalOpen;
   const styleWhenModalIsOpened = useRef({
     position: "fixed",
-    top: `-${scrollY.current - 59}px`,
+    top: `-${scrollY.current}px`,
   });
   isAnyModalOpen && window.scrollTo(0, parseInt(scrollY || "0") * -1);
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={styles.wrapper}
+      style={shouldToChangeLayout ? styleWhenModalIsOpened.current : {}}
+    >
       <Header className={styles.header} />
-      <div
-        className={styles.container}
-        style={shouldToChangeLayout ? styleWhenModalIsOpened.current : {}}
-      >
-        {children}
-      </div>
+      <div className={styles.container}>{children}</div>
     </div>
   );
 };

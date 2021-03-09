@@ -15,6 +15,7 @@
 
 .form {
   display: flex;
+  margin: 0 auto;
   position: relative;
   flex-direction: column;
   width: 430px;
