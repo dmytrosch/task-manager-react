@@ -16,6 +16,7 @@ const currentSprint = createReducer(
           return item;
         }),
         isOwner: state.isOwner,
+        timeDifference: state.timeDifference,
       };
     },
 
