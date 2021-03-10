@@ -1,13 +1,13 @@
 import React from "react";
-import Auth from "../../components/authComponent/Auth";
 import useTitle from "../../hooks/useTitle";
 import AuthLayout from "../../layouts/AuthLayout";
+import Signup from "../../components/authComponent/Signup";
 
 export default function SignupView() {
   useTitle("Реєстрація");
   return (
     <AuthLayout>
-      <Auth />
+      <Signup />
     </AuthLayout>
   );
 }

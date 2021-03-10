@@ -16,7 +16,7 @@ export default function Login({ setVissible }) {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(null);
   const errorMessage = useSelector(loginErrorSelector);
-  const isLoading = useSelector(isAuthLoadingSelector)
+  const isLoading = useSelector(isAuthLoadingSelector);
   const dispatch = useDispatch();
   const resetError = () => {
     errorMessage && dispatch(loginError(null));
