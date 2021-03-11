@@ -86,12 +86,9 @@
 }
 
 @media (max-width: 766px) {
-  .lightboxOverlay {
-    display: none;
-  }
   .lightboxContent {
     width: 700px;
-    height: 440px;
+    height: 470px;
   }
 }
 
