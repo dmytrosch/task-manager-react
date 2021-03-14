@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import validator from "validator";
 import style from "../styles.module.css";
-import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Input from "../../../common/Input/Input";
@@ -15,7 +14,6 @@ import Loader from "../../Loaders/LoaderForComponents/LoaderForComponents";
 export default function ResetPasswordRequest({ setVissible }) {
   const [emailAdress, setEmailAdress] = useState("");
   const [emailError, setEmailError] = useState(null);
-  const location = useLocation();
   const dispatch = useDispatch();
   const errorMessage = useSelector(resetPasswordRequestErrorSelector);
   const isLoading = useSelector(isAuthLoadingSelector);
