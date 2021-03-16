@@ -1,4 +1,4 @@
-// import Button from "../../common/Button/index";
+import PropTypes from "prop-types";
 import IconButton from "../../../common/IconButtons/IconButtons.js";
 import styles from "../sideBar.module.css";
 
@@ -14,3 +14,8 @@ export default function AddTaskBtn({ nameArrowBtn, addNewProject }) {
     </div>
   );
 }
+
+AddTaskBtn.propTypes = {
+  nameArrowBtn: PropTypes.string,
+  addNewProject: PropTypes.func,
+};

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { CSSTransition } from "react-transition-group";
@@ -17,7 +18,7 @@ const Header = ({ className, ...props }) => {
   const dispatch = useDispatch();
   const userName = useSelector(getUserNameSelector);
   const isAuth = useSelector(isAuthentificatedSelector);
-  const isLoading = useSelector(isUserLoadingSelector)
+  const isLoading = useSelector(isUserLoadingSelector);
   const onLogout = () => dispatch(logout());
   return (
     <header className={classNames(styles.header, className)}>
@@ -36,21 +37,25 @@ const Header = ({ className, ...props }) => {
       </div>
 
       {isAuth && (
-        
-          <div className={styles.logoutContainer}>
-            <Loader loading={isLoading}><p className={styles.username}>{userName}</p></Loader>
-            <button
-              className={styles.logoutBtn}
-              type="button"
-              onClick={onLogout}
-            >
-              <span className={styles.logoutIcon}></span>
-              <span className={styles.logoutText}>Log out </span>
-            </button>
-          </div>
+        <div className={styles.logoutContainer}>
+          <Loader loading={isLoading}>
+            <p className={styles.username}>{userName}</p>
+          </Loader>
+          <button className={styles.logoutBtn} type="button" onClick={onLogout}>
+            <span className={styles.logoutIcon}></span>
+            <span className={styles.logoutText}>Log out </span>
+          </button>
+        </div>
       )}
     </header>
   );
+};
+Header.propTypes = {
+  userName: PropTypes.string,
+  isAuth: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  className: PropTypes.string,
+  props: PropTypes.object,
 };
 
 export default Header;

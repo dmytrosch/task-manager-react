@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouteMatch } from "react-router-dom";
@@ -11,7 +12,6 @@ import GoBackBtn from "../SideBarElements/GoBackBtn";
 import AddBtn from "../SideBarElements/AddBtn";
 import Loader from "../../Loaders/LoaderForComponents/LoaderForComponents";
 import { getAllIdsSelector } from "../../../redux/projects/projectSelectors";
-// import { getProjectById } from "../../../redux/projects/projectOperations";
 import { setModalCreateProject } from "../../../redux/modal/modalAction";
 import {
   isProjectsLoadingSelector,
@@ -73,3 +73,10 @@ export default function SidebarProjects() {
     </aside>
   );
 }
+
+SidebarProjects.proprTypes = {
+  projectMatch: PropTypes.string,
+  projectsIds: PropTypes.object,
+  userLoading: PropTypes.bool,
+  projectLoading: PropTypes.bool,
+};
