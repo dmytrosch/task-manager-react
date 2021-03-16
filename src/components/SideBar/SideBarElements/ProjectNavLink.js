@@ -10,28 +10,26 @@ export default function LinkRouter({ projId, visibleTab }) {
   const project = useSelector(getByIdSelector(projId));
   const { name, id, color } = project;
   const [wobble, setWobble] = useState(0);
+  const isActiveSquare = visibleTab === id;
   return (
-    <>
-      <NavLink
-        to={`/projects/${id}/sprints`}
-        onClick={() => setWobble(1)}
-        onAnimationEnd={() => setWobble(0)}
-        className={styles.navLink}
-      >
-        <p
-          wobble={wobble}
-          className={
-            visibleTab === id
-              ? classNames(styles.square, styles.squareActive, transition.image)
-              : styles.square
-          }
-          style={{ backgroundColor: color }}
-        ></p>
+    <NavLink
+      to={`/projects/${id}/sprints`}
+      onClick={() => setWobble(1)}
+      onAnimationEnd={() => setWobble(0)}
+      className={styles.navLink}
+    >
+      <p
+        wobble={wobble}
+        className={classNames(styles.square, {
+          [styles.squareActive]: isActiveSquare,
+          [transition.image]: isActiveSquare,
+        })}
+        style={{ backgroundColor: color }}
+      ></p>
 
-        <p className={styles.taskTitle}>
-          {name.length > 30 ? name.slice(0, 30) + "..." : name}
-        </p>
-      </NavLink>
-    </>
+      <p className={styles.taskTitle}>
+        {name.length > 30 ? name.slice(0, 30) + "..." : name}
+      </p>
+    </NavLink>
   );
 }

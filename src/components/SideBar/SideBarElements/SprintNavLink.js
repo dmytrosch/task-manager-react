@@ -8,29 +8,27 @@ import { byIdSelector } from "../../../redux/sprints/sprintsSelectors";
 export default function LinkRouter({ sprintId, projectId, visibleTab }) {
   const { name, id } = useSelector(byIdSelector(sprintId));
   const [wobble, setWobble] = useState(0);
+  const isActiveSquare = visibleTab === id;
 
   return (
-    <>
-      <NavLink
-        to={`/projects/${projectId}/sprints/${sprintId}/tasks/`}
-        onClick={() => setWobble(1)}
-        onAnimationEnd={() => setWobble(0)}
-        className={styles.navLink}
-      >
-        <p
-          style={{ backgroundColor: "white" }}
-          wobble={wobble}
-          className={
-            visibleTab === id
-              ? classNames(styles.square, styles.squareActive, transition.image)
-              : styles.square
-          }
-        ></p>
+    <NavLink
+      to={`/projects/${projectId}/sprints/${sprintId}/tasks/`}
+      onClick={() => setWobble(1)}
+      onAnimationEnd={() => setWobble(0)}
+      className={styles.navLink}
+    >
+      <p
+        style={{ backgroundColor: "white" }}
+        wobble={wobble}
+        className={classNames(styles.square, {
+          [styles.squareActive]: isActiveSquare,
+          [transition.image]: isActiveSquare,
+        })}
+      ></p>
 
-        <p className={styles.taskTitle}>
-          {name && name.length > 30 ? name.slice(0, 30) + "..." : name}
-        </p>
-      </NavLink>
-    </>
+      <p className={styles.taskTitle}>
+        {name && name.length > 30 ? name.slice(0, 30) + "..." : name}
+      </p>
+    </NavLink>
   );
 }
