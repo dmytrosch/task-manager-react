@@ -1,0 +1,103 @@
+.button {
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background: transparent;
+}
+.button:hover,
+.button:focus{
+    transition: var(--trans);
+}
+
+.analytica {
+  border: 1px solid var(--orangeColor);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  fill: var(--whiteColor);
+  background: var(--orangeColor);
+}
+
+.analytica:hover,
+.analytica:focus {
+  stroke: var(--orangeColor);
+  fill: var(--orangeColor);
+  background: var(--whiteColor);
+  border: 1px solid var(--orangeColor);
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+}
+
+.plus {
+  border: 1px solid var(--orangeColor);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  fill: var(--whiteColor);
+  background: var(--orangeColor);
+}
+
+.plus:hover,
+.plus:focus {
+  stroke: var(--orangeColor);
+  fill: var(--orangeColor);
+  background: var(--whiteColor);
+  border: 1px solid var(--orangeColor);
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+}
+
+.coloredBin {
+  width: 34px;
+  height: 34px;
+  fill: var(--whiteColor);
+}
+
+.coloredBinMobile {
+  width: 30px;
+  height: 30px;
+  fill: var(--whiteColor);
+}
+.coloredBin:hover,
+.coloredBin:focus,
+.coloredBinMobile:hover,
+.coloredBinMobile:focus {
+  fill: var(--orangeColor);
+}
+
+.greyBin {
+  background: white;
+  width: 20px;
+  height: 20px;
+  fill: #a6a6a6;
+}
+.greyBin:hover,
+.greyBin:focus {
+  fill: var(--orangeColor);
+  transform: scale(1.2);
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+}
+
+.pen {
+  width: 20px;
+  height: 20px;
+  fill: #a6a6a6;
+}
+
+.pen:hover,
+.pen:focus {
+  fill: var(--orangeColor);
+  box-shadow: 0px 3px 4px rgba(255, 107, 8, 0.3);
+}
+
+.search {
+  width: 20px;
+  height: 20px;
+  fill: #a6a6a6;
+  background-color: none;
+}
+
+.search:hover,
+.search:focus {
+  fill: var(--orangeColor);
+  transform: scale(1.3);
+}
+

@@ -1,0 +1,124 @@
+.hide {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+.container {
+  width: 280px;
+  padding-top: 20px;
+  margin: 0 auto;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.taskControl {
+  margin-bottom: 27px;
+}
+
+.sliderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.date {
+  font-size: 12px;
+  color: var(--greyColor);
+}
+
+.sprintTitle {
+  position: relative;
+  width: 280px;
+  margin-bottom: 30px;
+}
+
+.sprint {
+  margin-bottom: 27px;
+}
+
+.addSprintContainer {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 2;
+}
+
+.titleButton {
+  display: none;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: 0.04em;
+  color: var(--blackColor);
+}
+
+.analyticaBtn {
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 452px;
+  }
+
+  .taskControl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 13px;
+  }
+
+  .sliderContainer {
+    width: 200px;
+    margin-bottom: 0;
+  }
+
+  .sprintTitle {
+    width: 365px;
+  }
+
+  .addSprintContainer {
+    position: static;
+  }
+
+  .sprint {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .analyticaBtn {
+    left: auto;
+    right: 5%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    width: 869px;
+  }
+
+  .mobileSearchInp {
+    display: none;
+  }
+
+
+  .addSprintContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .titleButton {
+    display: block;
+    margin-left: 20px;
+  }
+}

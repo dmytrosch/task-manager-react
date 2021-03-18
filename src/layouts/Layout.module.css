@@ -1,0 +1,62 @@
+.wrapper {
+  --padding: 20px;
+
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: var(--backgroundColor);
+  overflow: hidden;
+  position: relative;
+}
+.wrapperMobileAuth{
+  composes: wrapper;
+  background-color: var(--formColor);
+}
+
+.header {
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.container {
+  min-width: 260px;
+  margin: 0 auto;
+  padding: 0 var(--padding);
+}
+
+.circleContainer {
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  .circleContainer {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    min-width: 688px;
+    background-color: unset;
+  }
+
+  .wrapper {
+    --padding: 40px;
+  }
+  .paddingBottom {
+    padding-bottom: 130px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    min-width: 1170px;
+  }
+
+  .wrapper {
+    --padding: 55px;
+  }
+  .paddingBottom {
+    padding-bottom: 200px;
+  }
+}

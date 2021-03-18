@@ -1,0 +1,87 @@
+.container {
+  min-width: 100%;
+  padding-top: 20px;
+  background-color: transparent;
+  min-height: 100vh;
+}
+.wrapper {
+  min-width: 100%;
+  margin: 0 auto;
+}
+.infoBox {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.title {
+  font-weight: 500;
+  font-size: 26px;
+  text-align: center;
+  letter-spacing: 1.04px;
+  line-height: 31.69px;
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.button {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 100;
+}
+.text {
+  display: none;
+}
+.projectList {
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 135px));
+  justify-content: center;
+  margin: 0 auto;
+}
+.addProjectText {
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+  .container {
+    padding-top: 40px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .infoBox {
+    justify-content: space-between;
+  }
+  .button {
+    position: static;
+  }
+  .projectList {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(216px, 216px));
+  }
+}
+@media screen and (min-width: 1280px) {
+  .text {
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0.72px;
+    line-height: 21.94px;
+  }
+  .button {
+    position: static;
+    margin-right: 20px;
+  }
+  .projectList {
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 270px));
+  }
+}

@@ -1,0 +1,72 @@
+.visuallyHidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+.label {
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--greyColor);
+}
+.container {
+  text-align: center;
+  width: 100%;
+}
+.form {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  max-width: 430px;
+  margin: 0 auto;
+}
+.title {
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--blackColor);
+  margin-bottom: 50px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.inputSprintContainer {
+  height: 71px;
+}
+.inputSprint {
+  margin: 0;
+}
+.inputSprint ~ label {
+  font-size: 14px;
+}
+
+.subtitle {
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  border-bottom: 1px solid var(--greyColor);
+  color: var(--greyColor);
+  margin: 30px auto 0px auto;
+}
+
+.descr {
+  contain: input;
+  font-weight: normal;
+}
+
+.btnWrapper {
+  padding-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .label {
+    margin: 0px 175px 0px 0px;
+  }
+  .title {
+    font-size: 36px;
+    margin-bottom: 60px;
+  }
+}

@@ -1,0 +1,28 @@
+.appear {
+  opacity: 0;
+  transition: opacity 1100ms linear;
+}
+
+.appearActive {
+  opacity: 1;
+  transition: opacity 1100ms linear;
+}
+
+.image[wobble="1"] {
+  animation: wobble 1s 1;
+}
+
+@keyframes wobble {
+  25% {
+    transform: rotate(15deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(-40deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

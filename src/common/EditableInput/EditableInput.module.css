@@ -1,0 +1,168 @@
+.hide {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+.description {
+  width: 205px;
+  word-break: break-word;
+}
+.searchName {
+  height: 24px;
+  padding: 0;
+  padding-left: 40px;
+  font-size: 18px;
+  text-align: end;
+  width: 77px;
+}
+.searchInput {
+  height: 24px;
+  padding: 0;
+  padding-left: 40px;
+  font-size: 18px;
+  text-align: end;
+  width: 77px;
+}
+.searchName {
+  height: 24px;
+  padding: 0;
+  padding-left: 40px;
+  font-size: 18px;
+  text-align: end;
+  width: 77px;
+  word-break: break-all;
+  border: none;
+  outline: none;
+  color: #555;
+  background: none;
+  z-index: 0;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+  border-bottom: 1px solid var(--borderColor);
+}
+.searchInput {
+  height: 24px;
+  padding: 0;
+  padding-left: 40px;
+  font-size: 18px;
+  text-align: end;
+  width: 77px;
+  word-break: break-all;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #555;
+  background: none;
+  z-index: 0;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+  border-bottom: 1px solid var(--borderColor);
+}
+.buttonTask {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+.taskName {
+  width: 100%;
+  min-height: 68px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 0px 0px 8px;
+  border-bottom: 1px solid var(--borderColor);
+  word-wrap: break-word;
+  transition: var(--trans);
+}
+.taskNameInput {
+  max-width: 280px;
+  font-size: 16px;
+  margin: 0 auto 15px;
+  line-height: 1.2;
+  display: inline-block;
+  outline: none;
+  border: none;
+  padding: 0px 0px 0px 5px;
+  border-bottom: 1px solid var(--borderColor);
+  resize: none;
+}
+.sprintName {
+  font-size: 26px;
+  /* height: 65px; */
+  line-height: 1.2;
+  display: inline-block;
+  word-wrap: break-word;
+
+  transition: var(--trans);
+}
+.sprintNameInput {
+  max-width: 280px;
+  font-size: 18px;
+  line-height: 1.2;
+  display: inline-block;
+  background-color: var(--backgroundColor);
+  outline: none;
+  border: none;
+  padding: 0px 0px 0px 5px;
+  border-bottom: 1px solid var(--borderColor);
+  resize: none;
+}
+.button {
+  border: none;
+  background-color: transparent;
+  padding: 0px 0px 0px 10px;
+}
+.applyСancel {
+  padding: 4px;
+}
+
+@media (min-width: 768px) {
+  .sprintName {
+    font-size: 36px;
+    margin: 0 auto
+  }
+  .description {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .taskName {
+    padding: 20px 0px 8px;
+  }
+}
+@media (min-width: 1280px) {
+  .searchName {
+    padding: 0px 0px 0px 10px;
+    text-align: start;
+    width: 105px;
+  }
+  .sprintName {
+    font-size: 34px;
+    margin: 0
+  }
+  .searchInput {
+    text-align: start;
+    padding: 0px 0px 0px 10px;
+    width: 105px;
+  }
+  .taskNameInput {
+    width: 170px;
+  }
+  .taskName {
+    width: 170px;
+    margin: 0;
+    padding: 10px 0px 0px;
+  }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

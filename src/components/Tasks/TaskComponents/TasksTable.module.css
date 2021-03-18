@@ -1,0 +1,36 @@
+.tableDesctopDescrip {
+  display: none;
+}
+
+.onlyDesktop {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .onlyDesktop {
+    display: block;
+  }
+
+  .desktopSearchInp {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 30px;
+  }
+  .tableDesctopDescrip {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .tableDesctopDescrip::after {
+    content: "";
+    display: inline-block;
+    height: 1px;
+    width: 96%;
+    background-color: var(--borderColor);
+    margin: 20px 0px 0px;
+  }
+}

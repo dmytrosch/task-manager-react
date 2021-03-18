@@ -1,0 +1,95 @@
+.form {
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  font-weight: 400;
+
+  max-width: 430px;
+  margin: 0 auto;
+}
+.inputSprint {
+  margin: 0;
+}
+.inputSprint ~ label {
+  font-size: 14px;
+}
+.inputSprintContainer {
+  height: 71px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--blackColor);
+
+  margin-bottom: 27px;
+}
+
+.inputsContainer {
+  margin-bottom: 40px;
+}
+
+.input::placeholder {
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--greyColor);
+  font-size: 16px;
+}
+
+.inputName {
+  margin-bottom: 58px;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submitBtn {
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  font-weight: 500;
+
+  width: 154px;
+  height: 44px;
+  margin-bottom: 20px;
+}
+
+.cancelBtn {
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  font-weight: 400;
+  text-decoration: underline;
+
+  width: 154px;
+  height: 44px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--greyColor);
+}
+
+.cancelBtn:hover {
+  background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .form {
+    max-width: auto;
+  }
+
+  .title {
+    font-size: 36px;
+    margin-bottom: 46px;
+  }
+
+  .inputName {
+    margin-bottom: 49px;
+  }
+
+  .input::placeholder {
+    font-size: 18px;
+  }
+}

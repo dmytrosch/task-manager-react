@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjQyIiB2aWV3Qm94PSIwIDAgMTQwIDQyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KPHBhdGggZD0iTTQ3LjUyOTIgMTUuNzY0QzQ0LjY3NzggMTUuNzY0IDQyLjUyNzUgMTguMDEwNiA0Mi41Mjc1IDIwLjk5NDFDNDIuNTI3NSAyMy45Nzc2IDQ0LjcwMDQgMjYuMjI0MiA0Ny41ODA3IDI2LjIyNDJDNTAuNDMxMiAyNi4yMjQyIDUyLjU4MTUgMjMuOTc3NiA1Mi41ODE1IDIwLjk5NDFDNTIuNTgxNSAxOC4wMTA2IDUwLjQwOTUgMTUuNzY0IDQ3LjUyOTIgMTUuNzY0Wk02MS45Nzk3IDAuMjEyODkxSDBWNDEuOTk5OUg2MS45Nzk3TDc2LjYxNjMgMjEuMTUxM0w2MS45Nzk3IDAuMjEyODkxWk0zMi40MDgzIDI3LjYwOTlMMzIuMjY0NyAyNy43MzEyQzI5Ljk1MDggMjkuNjgxMyAyNy4yNzIgMzAuNjY5OCAyNC4zMDMxIDMwLjY2OThDMjEuNDk1OSAzMC42Njk4IDE4Ljk2MzQgMjkuNjk0OCAxNy4xNzI3IDI3LjkyNDRDMTUuMzk4MiAyNi4xNjg1IDE0LjQxOTggMjMuNzA3MSAxNC40MTk4IDIwLjk5NDFDMTQuNDE5OCAxOC4zODggMTUuNDEzNiAxNS45NjE3IDE3LjIyMDYgMTQuMTY0NEMxOS4wNTM4IDEyLjMzMDIgMjEuNTU3NCAxMS4zMjAyIDI0LjI4MTQgMTEuMzIwMkMyNy4zNTMzIDExLjMyMDIgMjkuNDc3NCAxMi4wNjA2IDMxLjYyNTkgMTMuODc1TDMxLjkzMjIgMTQuMTMzOEwyOC45MTE4IDE3Ljc0ODJMMjguNTk4MyAxNy40ODg1QzI3LjI4MSAxNi4zOTY2IDI2LjEyOTkgMTUuNzY0IDI0LjE0NjggMTUuNzY0QzIxLjUxNjcgMTUuNzY0IDE5LjM3NzIgMTguMTEwMyAxOS4zNzcyIDIwLjk5NDFDMTkuMzc3MiAyNC4wNTQ5IDIxLjUwMjMgMjYuMjc1NCAyNC40Mjk2IDI2LjI3NTRDMjUuNzE4IDI2LjI3NTQgMjYuODYzNiAyNS45NzA4IDI3Ljc1NzEgMjUuMzkxMVYyMy40NDc0SDIzLjc2NzNWMTkuMjMwOUgzMi40MDgzVjI3LjYwOTlaTTU0LjcwMjkgMjcuODI4M0M1Mi44NDM2IDI5LjY2MDYgNTAuMjk1NyAzMC42Njk4IDQ3LjUyOTIgMzAuNjY5OEM0NC43NjI3IDMwLjY2OTggNDIuMjIwMyAyOS42Njc4IDQwLjM3OTkgMjcuODQ3MUMzOC41Njc0IDI2LjA1NDMgMzcuNTY5MSAyMy42MjM1IDM3LjU2OTEgMjAuOTk0MUMzNy41NjA5IDE5LjcyNDUgMzcuODA3NiAxOC40NjYgMzguMjk0OCAxNy4yOTI1QzM4Ljc4MTkgMTYuMTE4OSAzOS40OTk3IDE1LjA1MzkgNDAuNDA2MSAxNC4xNTk5QzQyLjI2NTQgMTIuMzI3NSA0NC44MTMzIDExLjMyMjggNDcuNTgwNyAxMS4zMjI4QzUwLjM0ODEgMTEuMzIyOCA1Mi44ODg3IDEyLjMyNTcgNTQuNzI5MSAxNC4xNDU1QzU2LjU0MTYgMTUuOTM4MyA1Ny41Mzk5IDE4LjM2OTEgNTcuNTM5OSAyMC45OTg2QzU3LjU0NzYgMjIuMjY3NCA1Ny4zMDA2IDIzLjUyNTEgNTYuODEzNSAyNC42OTc4QzU2LjMyNjQgMjUuODcwNiA1NS42MDg4IDI2LjkzNDggNTQuNzAyOSAyNy44MjgzWiIgZmlsbD0iIzE4MUMyNyIvPg0KPHBhdGggZD0iTTE0LjgwMjkgMjEuMDI4M0MxNC44MDI5IDE2LjAyMTEgMTguNzI0IDExLjkxOTcgMjQuMDg3MiAxMS45MTk3QzI3LjI3NDcgMTEuOTE5NyAyOS4xOTczIDEyLjc3NTIgMzEuMDQ0MSAxNC4zMzUyTDI4LjU5MDIgMTcuMjc5MkMyNy4yMjQxIDE2LjE0NjkgMjYuMDA5OCAxNS40OTI3IDIzLjk2MDcgMTUuNDkyN0MyMS4xMjczIDE1LjQ5MjcgMTguODc1OCAxNy45ODM3IDE4Ljg3NTggMjEuMDI4M0MxOC44NzU4IDI0LjI0OTEgMjEuMTAyIDI2LjYxNDMgMjQuMjM4OSAyNi42MTQzQzI1LjY1NTYgMjYuNjE0MyAyNi45MjA1IDI2LjI2MjEgMjcuOTA3MSAyNS41NTc1VjIzLjA0MTNIMjMuOTg2VjE5LjY5MTJIMzEuNjc2NVYyNy4zNDA0QzI5Ljg1NTEgMjguODc1MyAyNy4zNTA2IDMwLjEzMzQgMjQuMTEyNSAzMC4xMzM0QzE4LjU5NzUgMzAuMTMzNCAxNC44MDI5IDI2LjI4MzYgMTQuODAyOSAyMS4wMjgzWiIgZmlsbD0id2hpdGUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIvPg0KPHBhdGggZD0iTTM4LjI5MzcgMjEuMTUxNEMzOC4yOTM3IDE2LjE0NDEgNDIuMjY5MSAxMi4wNDI3IDQ3LjcyOTggMTIuMDQyN0M1My4xOTA1IDEyLjA0MjcgNTcuMTE1MyAxNi4wOTM4IDU3LjExNTMgMjEuMTUxNEM1Ny4xMTUzIDI2LjE1ODcgNTMuMTM5OSAzMC4yNjAxIDQ3LjY3OTIgMzAuMjYwMUM0Mi4yMTg1IDMwLjI2MDEgMzguMjkzNyAyNi4yMDkgMzguMjkzNyAyMS4xNTE0Wk01My4wNDIzIDIxLjE1MTRDNTMuMDQyMyAxOC4xMzE5IDUwLjgxNjEgMTUuNjE1NyA0Ny42NzkyIDE1LjYxNTdDNDQuNTQyMyAxNS42MTU3IDQyLjM2NjcgMTguMDgxNiA0Mi4zNjY3IDIxLjE1MTRDNDIuMzY2NyAyNC4xNzA4IDQ0LjU5MjkgMjYuNjg3MSA0Ny43Mjk4IDI2LjY4NzFDNTAuODY2NyAyNi42ODcxIDUzLjA0MjMgMjQuMjIxMiA1My4wNDIzIDIxLjE1MTRaIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIi8+DQo8cGF0aCBkPSJNMTQwIDBINzguMDk3MlY0MS43ODdIMTQwVjBaIiBmaWxsPSIjRkY2QzAwIi8+DQo8cGF0aCBkPSJNOTcuMTY4OSAxMi41MjQ0SDEwMS4wNjVWMzAuMTM3OEg5Ny4xNjg5VjEyLjUyNDRaIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIi8+DQo8cGF0aCBkPSJNMTEyLjU5IDE2LjA5NzRIMTA3LjIwMVYxMi41MjQ0SDEyMS44NzRWMTYuMDk3NEgxMTYuNDg2VjMwLjEzNzhIMTEyLjU5VjE2LjA5NzRaIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIi8+DQo8L3N2Zz4NCg==" />
+    <title>Task Manager</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div id="modal-root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

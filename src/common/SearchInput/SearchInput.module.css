@@ -1,0 +1,76 @@
+.form {
+  position: relative;
+}
+
+.input {
+  height: 40px;
+  width: 100%;
+  padding-left: 40px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.1);
+
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--blackColor);
+}
+
+.submitBtn {
+  border: none;
+  width: 20px;
+  height: 20px;
+  transform: translate(50%, 50%);
+  background-image: url("../../assest/icons/Search.icon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .form {
+    width: 150px;
+  }
+}
+
+@media (min-width: 768px) {
+  .input {
+    padding-left: 0;
+    padding-right: 40px;
+    text-align: right;
+  }
+
+  .submitBtn {
+    left: auto;
+    right: 0;
+    transform: translate(-50%, 50%);
+  }
+}
+
+@media (min-width: 1280px) {
+  .input {
+    display: none;
+    width: 120px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .input:focus,
+  .input:hover {
+    display: block;
+  }
+
+  .submitBtn:hover ~ .input,
+  .submitBtn:focus ~ .input {
+    display: block;
+  }
+}

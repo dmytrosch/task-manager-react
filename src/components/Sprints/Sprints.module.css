@@ -1,0 +1,180 @@
+.container {
+  min-width: 100%;
+  min-height: 100vh;
+  padding-top: 30px;
+  background-color: transparent;
+  text-align: center;
+}
+.wrapper {
+  min-width: 100%;
+  margin: 0 auto;
+}
+.infoBox {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  word-break: break-word;
+}
+.title {
+  width: 240px;
+  font-weight: 500;
+  font-size: 26px;
+  text-align: center;
+  letter-spacing: 1.04px;
+  line-height: 31.69px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: absolute;
+  right: 20px;
+}
+.button {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 100;
+}
+.text {
+  display: none;
+}
+.addParticipant {
+  font-weight: 500;
+  color: var(--blackColor);
+  font-size: 18px;
+  text-decoration: underline;
+  margin-bottom: 28px;
+  cursor: pointer;
+}
+
+.addParticipant::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("../../assest/icons/addParticipant.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  margin-right: 10px;
+}
+.projectList {
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 135px));
+  justify-content: center;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 34px;
+    width: 500px;
+  }
+  .container {
+    padding-left: 20px;
+    padding-top: 40px;
+  }
+  .description {
+    width: 260px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .description {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .title {
+    width: 315px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .infoBox {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    word-break: break-word;
+  }
+  .button {
+    position: static;
+  }
+  .projectList {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(216px, 216px));
+  }
+}
+@media (min-width: 950px) and (max-width: 1279px) {
+  .title {
+    width: 480px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .description {
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    text-align: inherit;
+  }
+  .title {
+    text-align: initial;
+    display: block;
+  }
+  .description {
+    text-align: initial;
+    display: inline-block;
+    max-width: 500px;
+  }
+  .box {
+    right: 80px;
+  }
+  .infoBox {
+    width: 100%;
+    word-break: break-word;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .text {
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0.72px;
+    line-height: 21.94px;
+    margin-top: 10px;
+  }
+  .button {
+    position: static;
+    margin-right: 20px;
+  }
+  .projectList {
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 270px));
+  }
+  .container {
+    padding-left: 70px;
+  }
+}
+.addSprintText {
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media (min-width: 1400px) {
+  .title {
+    font-size: 34px;
+    width: 650px;
+  }
+  .description {
+    width: 400px;
+  }
+}
