@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import style from "./styles.module.css";
@@ -11,7 +12,7 @@ import { signupErrorSelector } from "../../redux/auth/authSelectors";
 import { signupError } from "../../redux/auth/authActions";
 import { isAuthLoadingSelector } from "../../redux/loading/loadingSelector";
 
-export default function Signup({ setVissible }) {
+export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
@@ -21,6 +22,7 @@ export default function Signup({ setVissible }) {
   const errorMessage = useSelector(signupErrorSelector);
   const isLoading = useSelector(isAuthLoadingSelector);
   const dispatch = useDispatch();
+
   const resetError = () => {
     errorMessage && dispatch(signupError(null));
   };
@@ -123,3 +125,8 @@ export default function Signup({ setVissible }) {
     </Loader>
   );
 }
+
+Signup.propTypes = {
+  errorMessage: PropTypes.object,
+  isLoading: PropTypes.bool,
+};

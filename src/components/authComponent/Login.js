@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Loader from "../Loaders/LoaderForComponents/LoaderForComponents";
@@ -18,6 +19,7 @@ export default function Login({ setVissible }) {
   const errorMessage = useSelector(loginErrorSelector);
   const isLoading = useSelector(isAuthLoadingSelector);
   const dispatch = useDispatch();
+
   const resetError = () => {
     errorMessage && dispatch(loginError(null));
   };
@@ -94,3 +96,9 @@ export default function Login({ setVissible }) {
     </Loader>
   );
 }
+
+Login.propTypes = {
+  setVissible: PropTypes.func,
+  errorMessage: PropTypes.object,
+  isLoading: PropTypes.bool,
+};

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import validator from "validator";
 import style from "../styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -77,3 +78,9 @@ export default function ResetPasswordRequest({ setVissible }) {
     </Loader>
   );
 }
+
+ResetPasswordRequest.propTypes = {
+  setVissible: PropTypes.func,
+  errorMessage: PropTypes.object,
+  isLoading: PropTypes.bool,
+};

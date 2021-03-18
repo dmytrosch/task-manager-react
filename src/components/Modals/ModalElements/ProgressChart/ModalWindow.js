@@ -1,4 +1,5 @@
 import styles from "./progressChart.module.css";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 
 export default function ModalWindow({ children, onClose }) {
@@ -18,3 +19,8 @@ export default function ModalWindow({ children, onClose }) {
     </div>
   );
 }
+
+ModalWindow.propTypes = {
+  children: PropTypes.object,
+  onClose: PropTypes.func,
+};

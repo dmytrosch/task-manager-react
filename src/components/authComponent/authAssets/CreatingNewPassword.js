@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -111,3 +112,8 @@ export default function CreaterNewPassword() {
     </Loader>
   );
 }
+
+CreaterNewPassword.propTypes = {
+  errorMessage: PropTypes.object,
+  isLoading: PropTypes.bool,
+};

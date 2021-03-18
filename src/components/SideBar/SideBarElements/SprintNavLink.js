@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
@@ -32,3 +33,11 @@ export default function LinkRouter({ sprintId, projectId, visibleTab }) {
     </NavLink>
   );
 }
+
+LinkRouter.propTypes = {
+  sprintId: PropTypes.string,
+  projectId: PropTypes.string,
+  visibleTab: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.string,
+};

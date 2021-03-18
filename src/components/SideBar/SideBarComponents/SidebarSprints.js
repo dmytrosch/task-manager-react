@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "../sideBar.module.css";
@@ -86,3 +87,11 @@ export default function SidebarSprints() {
     </aside>
   );
 }
+
+SidebarSprints.proprTypes = {
+  sprintId: PropTypes.string,
+  projectId: PropTypes.string,
+  sprintIds: PropTypes.object,
+  projectLoading: PropTypes.bool,
+  sprintsLoading: PropTypes.bool,
+};

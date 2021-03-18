@@ -1,5 +1,6 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import PropTypes from "prop-types";
 import {
   getCurrentSprintSelector,
   getAllDayInSprintSelector,
@@ -126,3 +127,9 @@ export default function ChartTable() {
   };
   return <HighchartsReact highcharts={Highcharts} options={options} />;
 }
+ChartTable.propTypes = {
+  currentSprint: PropTypes.object,
+  days: PropTypes.object,
+  wastedTimeInAllTask: PropTypes.object,
+  plannedTime: PropTypes.number,
+};
